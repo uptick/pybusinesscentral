@@ -146,9 +146,9 @@ class SalesInvoice(ModelNormal):
             'bill_to_customer_number': (str, none_type,),  # noqa: E501
             'ship_to_name': (str, none_type,),  # noqa: E501
             'ship_to_contact': (str, none_type,),  # noqa: E501
-            'selling_postal_address': (dict,),  # noqa: E501
-            'billing_postal_address': (dict,),  # noqa: E501
-            'shipping_postal_address': (dict,),  # noqa: E501
+            'selling_postal_address': (dict, none_type,),  # noqa: E501
+            'billing_postal_address': (dict, none_type,),  # noqa: E501
+            'shipping_postal_address': (dict, none_type,),  # noqa: E501
             'currency_id': (str, none_type,),  # noqa: E501
             'currency_code': (str, none_type,),  # noqa: E501
             'order_id': (str, none_type,),  # noqa: E501
@@ -169,10 +169,10 @@ class SalesInvoice(ModelNormal):
             'email': (str, none_type,),  # noqa: E501
             'sales_invoice_lines': ([SalesInvoiceLine], none_type,),  # noqa: E501
             'pdf_document': ([PdfDocument], none_type,),  # noqa: E501
-            'customer': (dict,),  # noqa: E501
-            'currency': (dict,),  # noqa: E501
-            'payment_term': (dict,),  # noqa: E501
-            'shipment_method': (dict,),  # noqa: E501
+            'customer': (dict, none_type,),  # noqa: E501
+            'currency': (dict, none_type,),  # noqa: E501
+            'payment_term': (dict, none_type,),  # noqa: E501
+            'shipment_method': (dict, none_type,),  # noqa: E501
         }
 
     @cached_property

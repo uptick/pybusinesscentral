@@ -108,7 +108,7 @@ class TrialBalance(ModelNormal):
             'balance_at_date_debit': (str, none_type,),  # noqa: E501
             'balance_at_date_credit': (str, none_type,),  # noqa: E501
             'date_filter': (datetime, none_type,),  # noqa: E501
-            'account': (dict,),  # noqa: E501
+            'account': (dict, none_type,),  # noqa: E501
         }
 
     @cached_property

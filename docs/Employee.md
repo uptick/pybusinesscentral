@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **middle_name** | **str, none_type** | (v1.0) The middleName property for the Dynamics 365 Business Central employee entity | [optional] 
 **surname** | **str, none_type** | (v1.0) The surname property for the Dynamics 365 Business Central employee entity | [optional] 
 **job_title** | **str, none_type** | (v1.0) The jobTitle property for the Dynamics 365 Business Central employee entity | [optional] 
-**address** | **dict** |  | [optional] 
+**address** | **(dict, none_type,)** |  | [optional] 
 **phone_number** | **str, none_type** | (v1.0) The phoneNumber property for the Dynamics 365 Business Central employee entity | [optional] 
 **mobile_phone** | **str, none_type** | (v1.0) The mobilePhone property for the Dynamics 365 Business Central employee entity | [optional] 
 **email** | **str, none_type** | (v1.0) The email property for the Dynamics 365 Business Central employee entity | [optional] 

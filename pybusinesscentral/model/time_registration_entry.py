@@ -101,10 +101,10 @@ class TimeRegistrationEntry(ModelNormal):
             'quantity': (float, none_type,),  # noqa: E501
             'status': (str, none_type,),  # noqa: E501
             'unit_of_measure_id': (str, none_type,),  # noqa: E501
-            'unit_of_measure': (dict,),  # noqa: E501
+            'unit_of_measure': (dict, none_type,),  # noqa: E501
             'dimensions': ([dict],),  # noqa: E501
             'last_modfied_date_time': (datetime, none_type,),  # noqa: E501
-            'project': (dict,),  # noqa: E501
+            'project': (dict, none_type,),  # noqa: E501
         }
 
     @cached_property

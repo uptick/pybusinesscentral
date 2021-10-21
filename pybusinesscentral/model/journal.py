@@ -103,7 +103,7 @@ class Journal(ModelNormal):
             'balancing_account_id': (str, none_type,),  # noqa: E501
             'balancing_account_number': (str, none_type,),  # noqa: E501
             'journal_lines': ([JournalLine], none_type,),  # noqa: E501
-            'account': (dict,),  # noqa: E501
+            'account': (dict, none_type,),  # noqa: E501
         }
 
     @cached_property

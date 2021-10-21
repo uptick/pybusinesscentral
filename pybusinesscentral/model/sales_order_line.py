@@ -96,10 +96,10 @@ class SalesOrderLine(ModelNormal):
             'item_id': (str, none_type,),  # noqa: E501
             'account_id': (str, none_type,),  # noqa: E501
             'line_type': (str, none_type,),  # noqa: E501
-            'line_details': (dict,),  # noqa: E501
+            'line_details': (dict, none_type,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
             'unit_of_measure_id': (str, none_type,),  # noqa: E501
-            'unit_of_measure': (dict,),  # noqa: E501
+            'unit_of_measure': (dict, none_type,),  # noqa: E501
             'quantity': (float, none_type,),  # noqa: E501
             'unit_price': (float, none_type,),  # noqa: E501
             'discount_amount': (float, none_type,),  # noqa: E501
@@ -119,8 +119,8 @@ class SalesOrderLine(ModelNormal):
             'invoiced_quantity': (float, none_type,),  # noqa: E501
             'invoice_quantity': (float, none_type,),  # noqa: E501
             'ship_quantity': (float, none_type,),  # noqa: E501
-            'item': (dict,),  # noqa: E501
-            'account': (dict,),  # noqa: E501
+            'item': (dict, none_type,),  # noqa: E501
+            'account': (dict, none_type,),  # noqa: E501
         }
 
     @cached_property

@@ -110,7 +110,7 @@ class Vendor(ModelNormal):
             'id': (str,),  # noqa: E501
             'number': (str, none_type,),  # noqa: E501
             'display_name': (str, none_type,),  # noqa: E501
-            'address': (dict,),  # noqa: E501
+            'address': (dict, none_type,),  # noqa: E501
             'phone_number': (str, none_type,),  # noqa: E501
             'email': (str, none_type,),  # noqa: E501
             'website': (str, none_type,),  # noqa: E501
@@ -126,9 +126,9 @@ class Vendor(ModelNormal):
             'last_modified_date_time': (datetime, none_type,),  # noqa: E501
             'picture': ([Picture], none_type,),  # noqa: E501
             'default_dimensions': ([DefaultDimensions], none_type,),  # noqa: E501
-            'currency': (dict,),  # noqa: E501
-            'payment_term': (dict,),  # noqa: E501
-            'payment_method': (dict,),  # noqa: E501
+            'currency': (dict, none_type,),  # noqa: E501
+            'payment_term': (dict, none_type,),  # noqa: E501
+            'payment_method': (dict, none_type,),  # noqa: E501
         }
 
     @cached_property

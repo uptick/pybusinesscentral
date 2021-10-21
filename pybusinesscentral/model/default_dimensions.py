@@ -93,9 +93,9 @@ class DefaultDimensions(ModelNormal):
             'dimension_value_id': (str, none_type,),  # noqa: E501
             'dimension_value_code': (str, none_type,),  # noqa: E501
             'posting_validation': (str, none_type,),  # noqa: E501
-            'account': (dict,),  # noqa: E501
-            'dimension': (dict,),  # noqa: E501
-            'dimension_value': (dict,),  # noqa: E501
+            'account': (dict, none_type,),  # noqa: E501
+            'dimension': (dict, none_type,),  # noqa: E501
+            'dimension_value': (dict, none_type,),  # noqa: E501
         }
 
     @cached_property

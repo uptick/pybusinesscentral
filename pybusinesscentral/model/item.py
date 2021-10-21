@@ -112,7 +112,7 @@ class Item(ModelNormal):
             'item_category_code': (str, none_type,),  # noqa: E501
             'blocked': (bool, none_type,),  # noqa: E501
             'base_unit_of_measure_id': (str, none_type,),  # noqa: E501
-            'base_unit_of_measure': (dict,),  # noqa: E501
+            'base_unit_of_measure': (dict, none_type,),  # noqa: E501
             'gtin': (str, none_type,),  # noqa: E501
             'inventory': (float, none_type,),  # noqa: E501
             'unit_price': (float, none_type,),  # noqa: E501
@@ -123,7 +123,7 @@ class Item(ModelNormal):
             'last_modified_date_time': (datetime, none_type,),  # noqa: E501
             'picture': ([Picture], none_type,),  # noqa: E501
             'default_dimensions': ([DefaultDimensions], none_type,),  # noqa: E501
-            'item_category': (dict,),  # noqa: E501
+            'item_category': (dict, none_type,),  # noqa: E501
         }
 
     @cached_property

@@ -130,9 +130,9 @@ class PurchaseInvoice(ModelNormal):
             'pay_to_vendor_number': (str, none_type,),  # noqa: E501
             'ship_to_name': (str, none_type,),  # noqa: E501
             'ship_to_contact': (str, none_type,),  # noqa: E501
-            'buy_from_address': (dict,),  # noqa: E501
-            'pay_to_address': (dict,),  # noqa: E501
-            'ship_to_address': (dict,),  # noqa: E501
+            'buy_from_address': (dict, none_type,),  # noqa: E501
+            'pay_to_address': (dict, none_type,),  # noqa: E501
+            'ship_to_address': (dict, none_type,),  # noqa: E501
             'currency_id': (str, none_type,),  # noqa: E501
             'currency_code': (str, none_type,),  # noqa: E501
             'prices_include_tax': (bool, none_type,),  # noqa: E501
@@ -145,8 +145,8 @@ class PurchaseInvoice(ModelNormal):
             'last_modified_date_time': (datetime, none_type,),  # noqa: E501
             'purchase_invoice_lines': ([PurchaseInvoiceLine], none_type,),  # noqa: E501
             'pdf_document': ([PdfDocument], none_type,),  # noqa: E501
-            'vendor': (dict,),  # noqa: E501
-            'currency': (dict,),  # noqa: E501
+            'vendor': (dict, none_type,),  # noqa: E501
+            'currency': (dict, none_type,),  # noqa: E501
         }
 
     @cached_property

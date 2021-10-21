@@ -97,7 +97,7 @@ class DimensionLine(ModelNormal):
             'value_id': (str, none_type,),  # noqa: E501
             'value_code': (str, none_type,),  # noqa: E501
             'value_display_name': (str, none_type,),  # noqa: E501
-            'dimension': (dict,),  # noqa: E501
+            'dimension': (dict, none_type,),  # noqa: E501
         }
 
     @cached_property

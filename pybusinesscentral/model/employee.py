@@ -128,7 +128,7 @@ class Employee(ModelNormal):
             'middle_name': (str, none_type,),  # noqa: E501
             'surname': (str, none_type,),  # noqa: E501
             'job_title': (str, none_type,),  # noqa: E501
-            'address': (dict,),  # noqa: E501
+            'address': (dict, none_type,),  # noqa: E501
             'phone_number': (str, none_type,),  # noqa: E501
             'mobile_phone': (str, none_type,),  # noqa: E501
             'email': (str, none_type,),  # noqa: E501

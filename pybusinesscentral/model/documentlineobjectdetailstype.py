@@ -89,8 +89,8 @@ class Documentlineobjectdetailstype(ModelNormal):
         return {
             'number': (str, none_type,),  # noqa: E501
             'display_name': (str, none_type,),  # noqa: E501
-            'item': (dict,),  # noqa: E501
-            'account': (dict,),  # noqa: E501
+            'item': (dict, none_type,),  # noqa: E501
+            'account': (dict, none_type,),  # noqa: E501
         }
 
     @cached_property

@@ -10163,9 +10163,9 @@ components:
       nullable: true
       description: (v1.0) The lineType property for the Dynamics 365 Business Central salesQuoteLine entity
     lineDetails:
-      allOf:
-        - $ref: '#/components/schemas/documentlineobjectdetailstype'
-        - nullable: true
+         allOf:
+           - nullable: true
+           - $ref: '#/components/schemas/documentlineobjectdetailstype'
     description:
       type: string
       nullable: true
@@ -10670,8 +10670,8 @@ components:
       description: (v1.0) The lineType property for the Dynamics 365 Business Central salesInvoiceLine entity
     lineDetails:
       allOf:
-        - $ref: '#/components/schemas/documentlineobjectdetailstype'
         - nullable: true
+        - $ref: '#/components/schemas/documentlineobjectdetailstype'
     description:
       type: string
       nullable: true
@@ -10830,8 +10830,8 @@ components:
       description: (v1.0) The lineType property for the Dynamics 365 Business Central salesCreditMemoLine entity
     lineDetails:
       allOf:
-        - $ref: '#/components/schemas/documentlineobjectdetailstype'
         - nullable: true
+        - $ref: '#/components/schemas/documentlineobjectdetailstype'
     description:
       type: string
       nullable: true
@@ -11331,8 +11331,8 @@ components:
       description: (v1.0) The lineType property for the Dynamics 365 Business Central purchaseInvoiceLine entity
     lineDetails:
       allOf:
-        - $ref: '#/components/schemas/documentlineobjectdetailstype'
         - nullable: true
+        - $ref: '#/components/schemas/documentlineobjectdetailstype'
     description:
       type: string
       nullable: true
@@ -12095,8 +12095,8 @@ components:
       description: (v1.0) The lineType property for the Dynamics 365 Business Central salesOrderLine entity
     lineDetails:
       allOf:
-        - $ref: '#/components/schemas/documentlineobjectdetailstype'
         - nullable: true
+        - $ref: '#/components/schemas/documentlineobjectdetailstype'
     description:
       type: string
       nullable: true
@@ -14019,8 +14019,8 @@ components:
          description: (v1.0) The lineType property for the Dynamics 365 Business Central salesQuoteLine entity
        lineDetails:
          allOf:
-           - $ref: '#/components/schemas/documentlineobjectdetailstype'
            - nullable: true
+           - $ref: '#/components/schemas/documentlineobjectdetailstype'
        description:
          type: string
          nullable: true
@@ -14436,8 +14436,8 @@ components:
          description: (v1.0) The lineType property for the Dynamics 365 Business Central salesInvoiceLine entity
        lineDetails:
          allOf:
-           - $ref: '#/components/schemas/documentlineobjectdetailstype'
            - nullable: true
+           - $ref: '#/components/schemas/documentlineobjectdetailstype'
        description:
          type: string
          nullable: true
@@ -14563,8 +14563,8 @@ components:
          description: (v1.0) The lineType property for the Dynamics 365 Business Central salesCreditMemoLine entity
        lineDetails:
          allOf:
-           - $ref: '#/components/schemas/documentlineobjectdetailstype'
            - nullable: true
+           - $ref: '#/components/schemas/documentlineobjectdetailstype'
        description:
          type: string
          nullable: true
@@ -14875,8 +14875,8 @@ components:
          description: (v1.0) The lineType property for the Dynamics 365 Business Central purchaseInvoiceLine entity
        lineDetails:
          allOf:
-           - $ref: '#/components/schemas/documentlineobjectdetailstype'
            - nullable: true
+           - $ref: '#/components/schemas/documentlineobjectdetailstype'
        description:
          type: string
          nullable: true
@@ -15435,8 +15435,8 @@ components:
          description: (v1.0) The lineType property for the Dynamics 365 Business Central salesOrderLine entity
        lineDetails:
          allOf:
-           - $ref: '#/components/schemas/documentlineobjectdetailstype'
            - nullable: true
+           - $ref: '#/components/schemas/documentlineobjectdetailstype'
        description:
          type: string
          nullable: true

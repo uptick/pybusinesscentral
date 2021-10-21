@@ -101,10 +101,10 @@ class Unitofmeasuretype(ModelNormal):
             'code': (str, none_type,),  # noqa: E501
             'display_name': (str, none_type,),  # noqa: E501
             'symbol': (str, none_type,),  # noqa: E501
-            'unit_conversion': (dict,),  # noqa: E501
+            'unit_conversion': (dict, none_type,),  # noqa: E501
             'picture': ([Picture], none_type,),  # noqa: E501
             'default_dimensions': ([DefaultDimensions], none_type,),  # noqa: E501
-            'item_category': (dict,),  # noqa: E501
+            'item_category': (dict, none_type,),  # noqa: E501
         }
 
     @cached_property

@@ -12,10 +12,10 @@ Name | Type | Description | Notes
 **customer_financial_details** | [**[CustomerFinancialDetail], none_type**](CustomerFinancialDetail.md) |  | [optional] 
 **picture** | [**[Picture], none_type**](Picture.md) |  | [optional] 
 **default_dimensions** | [**[DefaultDimensions], none_type**](DefaultDimensions.md) |  | [optional] 
-**currency** | **dict** |  | [optional] 
-**payment_term** | **dict** |  | [optional] 
-**shipment_method** | **dict** |  | [optional] 
-**payment_method** | **dict** |  | [optional] 
+**currency** | **(dict, none_type,)** |  | [optional] 
+**payment_term** | **(dict, none_type,)** |  | [optional] 
+**shipment_method** | **(dict, none_type,)** |  | [optional] 
+**payment_method** | **(dict, none_type,)** |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

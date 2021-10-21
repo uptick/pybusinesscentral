@@ -101,7 +101,7 @@ class GeneralLedgerEntry(ModelNormal):
             'credit_amount': (float, none_type,),  # noqa: E501
             'dimensions': ([dict],),  # noqa: E501
             'last_modified_date_time': (datetime, none_type,),  # noqa: E501
-            'account': (dict,),  # noqa: E501
+            'account': (dict, none_type,),  # noqa: E501
         }
 
     @cached_property

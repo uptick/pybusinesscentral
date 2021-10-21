@@ -115,7 +115,7 @@ class CustomerPayment(ModelNormal):
             'comment': (str, none_type,),  # noqa: E501
             'dimensions': ([dict],),  # noqa: E501
             'last_modified_date_time': (datetime, none_type,),  # noqa: E501
-            'customer': (dict,),  # noqa: E501
+            'customer': (dict, none_type,),  # noqa: E501
         }
 
     @cached_property

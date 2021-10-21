@@ -85,7 +85,7 @@ class Dimensiontype(ModelNormal):
             'display_name': (str, none_type,),  # noqa: E501
             'value_code': (str,),  # noqa: E501
             'value_display_name': (str, none_type,),  # noqa: E501
-            'customer': (dict,),  # noqa: E501
+            'customer': (dict, none_type,),  # noqa: E501
         }
 
     @cached_property

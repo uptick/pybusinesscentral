@@ -90,7 +90,7 @@ class GeneralLedgerEntryAttachments(ModelNormal):
             'byte_size': (int, none_type,),  # noqa: E501
             'content': (file_type, none_type,),  # noqa: E501
             'created_date_time': (datetime, none_type,),  # noqa: E501
-            'general_ledger_entry': (dict,),  # noqa: E501
+            'general_ledger_entry': (dict, none_type,),  # noqa: E501
         }
 
     @cached_property
