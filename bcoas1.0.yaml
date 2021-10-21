@@ -1923,6 +1923,16 @@ paths:
    operationId: postSalesInvoice
    parameters:
     - $ref: '#/components/parameters/ContentTypeParam'
+    - name: $expand
+      in: query
+      description: (v1.0) Entities to expand
+      schema:
+        type: array
+        items:
+          type: string
+          enum: ['salesInvoiceLines', 'pdfDocument', 'customer', 'currency', 'paymentTerm', 'shipmentMethod']
+      style: form
+      explode: false    
    requestBody:
     $ref: '#/components/requestBodies/salesInvoice'
    responses:
@@ -9997,15 +10007,15 @@ components:
       description: (v1.0) The shipToContact property for the Dynamics 365 Business Central salesQuote entity
       maxLength: 100
     sellingPostalAddress:
-      allOf:
+      anyOf:
         - $ref: '#/components/schemas/postaladdresstype'
         - nullable: true
     billingPostalAddress:
-      allOf:
+      anyOf:
         - $ref: '#/components/schemas/postaladdresstype'
         - nullable: true
     shippingPostalAddress:
-      allOf:
+      anyOf:
         - $ref: '#/components/schemas/postaladdresstype'
         - nullable: true
     currencyId:
@@ -10097,19 +10107,19 @@ components:
       items:
        $ref: '#/components/schemas/pdfDocument'
     customer:
-         allOf:
+         anyOf:
            - nullable: true
            - $ref: '#/components/schemas/customer'
     currency:
-         allOf:
+         anyOf:
            - nullable: true
            - $ref: '#/components/schemas/currency'
     paymentTerm:
-         allOf:
+         anyOf:
            - nullable: true
            - $ref: '#/components/schemas/paymentTerm'
     shipmentMethod:
-         allOf:
+         anyOf:
            - nullable: true
            - $ref: '#/components/schemas/shipmentMethod'
   bankAccount:
@@ -10163,7 +10173,7 @@ components:
       nullable: true
       description: (v1.0) The lineType property for the Dynamics 365 Business Central salesQuoteLine entity
     lineDetails:
-         allOf:
+         anyOf:
            - nullable: true
            - $ref: '#/components/schemas/documentlineobjectdetailstype'
     description:
@@ -10177,7 +10187,7 @@ components:
       nullable: true
       description: (v1.0) The unitOfMeasureId property for the Dynamics 365 Business Central salesQuoteLine entity
     unitOfMeasure:
-      allOf:
+      anyOf:
         - $ref: '#/components/schemas/unitofmeasuretype'
         - nullable: true
     unitPrice:
@@ -10245,11 +10255,11 @@ components:
       nullable: true
       description: (v1.0) The netAmountIncludingTax property for the Dynamics 365 Business Central salesQuoteLine entity
     item:
-         allOf:
+         anyOf:
            - nullable: true
            - $ref: '#/components/schemas/item'
     account:
-         allOf:
+         anyOf:
            - nullable: true
            - $ref: '#/components/schemas/account'
   cashFlowStatement:
@@ -10304,7 +10314,7 @@ components:
       description: (v1.0) The symbol property for the Dynamics 365 Business Central unitofmeasuretype entity
       maxLength: 10
     unitConversion:
-      allOf:
+      anyOf:
         - $ref: '#/components/schemas/itemunitofmeasureconversiontype'
         - nullable: true
     picture:
@@ -10318,7 +10328,7 @@ components:
       items:
        $ref: '#/components/schemas/defaultDimensions'
     itemCategory:
-         allOf:
+         anyOf:
            - nullable: true
            - $ref: '#/components/schemas/itemCategory'
   salesOrder:
@@ -10390,15 +10400,15 @@ components:
       description: (v1.0) The shipToContact property for the Dynamics 365 Business Central salesOrder entity
       maxLength: 100
     sellingPostalAddress:
-      allOf:
+      anyOf:
         - $ref: '#/components/schemas/postaladdresstype'
         - nullable: true
     billingPostalAddress:
-      allOf:
+      anyOf:
         - $ref: '#/components/schemas/postaladdresstype'
         - nullable: true
     shippingPostalAddress:
-      allOf:
+      anyOf:
         - $ref: '#/components/schemas/postaladdresstype'
         - nullable: true
     currencyId:
@@ -10491,19 +10501,19 @@ components:
       items:
        $ref: '#/components/schemas/salesOrderLine'
     customer:
-         allOf:
+         anyOf:
            - nullable: true
            - $ref: '#/components/schemas/customer'
     currency:
-         allOf:
+         anyOf:
            - nullable: true
            - $ref: '#/components/schemas/currency'
     paymentTerm:
-         allOf:
+         anyOf:
            - nullable: true
            - $ref: '#/components/schemas/paymentTerm'
     shipmentMethod:
-         allOf:
+         anyOf:
            - nullable: true
            - $ref: '#/components/schemas/shipmentMethod'
   attachments:
@@ -10600,7 +10610,7 @@ components:
       description: (v1.0) The valueDisplayName property for the Dynamics 365 Business Central dimensionLine entity
       maxLength: 50
     dimension:
-         allOf:
+         anyOf:
            - nullable: true
            - $ref: '#/components/schemas/dimension'
   picture:
@@ -10669,7 +10679,7 @@ components:
       nullable: true
       description: (v1.0) The lineType property for the Dynamics 365 Business Central salesInvoiceLine entity
     lineDetails:
-      allOf:
+      anyOf:
         - nullable: true
         - $ref: '#/components/schemas/documentlineobjectdetailstype'
     description:
@@ -10683,7 +10693,7 @@ components:
       nullable: true
       description: (v1.0) The unitOfMeasureId property for the Dynamics 365 Business Central salesInvoiceLine entity
     unitOfMeasure:
-      allOf:
+      anyOf:
         - $ref: '#/components/schemas/unitofmeasuretype'
         - nullable: true
     unitPrice:
@@ -10761,11 +10771,11 @@ components:
       nullable: true
       description: (v1.0) The shipmentDate property for the Dynamics 365 Business Central salesInvoiceLine entity
     item:
-         allOf:
+         anyOf:
            - nullable: true
            - $ref: '#/components/schemas/item'
     account:
-         allOf:
+         anyOf:
            - nullable: true
            - $ref: '#/components/schemas/account'
   customerFinancialDetail:
@@ -10829,7 +10839,7 @@ components:
       nullable: true
       description: (v1.0) The lineType property for the Dynamics 365 Business Central salesCreditMemoLine entity
     lineDetails:
-      allOf:
+      anyOf:
         - nullable: true
         - $ref: '#/components/schemas/documentlineobjectdetailstype'
     description:
@@ -10843,7 +10853,7 @@ components:
       nullable: true
       description: (v1.0) The unitOfMeasureId property for the Dynamics 365 Business Central salesCreditMemoLine entity
     unitOfMeasure:
-      allOf:
+      anyOf:
         - $ref: '#/components/schemas/unitofmeasuretype'
         - nullable: true
     unitPrice:
@@ -10921,11 +10931,11 @@ components:
       nullable: true
       description: (v1.0) The shipmentDate property for the Dynamics 365 Business Central salesCreditMemoLine entity
     item:
-         allOf:
+         anyOf:
            - nullable: true
            - $ref: '#/components/schemas/item'
     account:
-         allOf:
+         anyOf:
            - nullable: true
            - $ref: '#/components/schemas/account'
   pdfDocument:
@@ -11005,11 +11015,11 @@ components:
       description: (v1.0) The billToCustomerNumber property for the Dynamics 365 Business Central salesCreditMemo entity
       maxLength: 20
     sellingPostalAddress:
-      allOf:
+      anyOf:
         - $ref: '#/components/schemas/postaladdresstype'
         - nullable: true
     billingPostalAddress:
-      allOf:
+      anyOf:
         - $ref: '#/components/schemas/postaladdresstype'
         - nullable: true
     currencyId:
@@ -11104,19 +11114,19 @@ components:
       items:
        $ref: '#/components/schemas/pdfDocument'
     customer:
-         allOf:
+         anyOf:
            - nullable: true
            - $ref: '#/components/schemas/customer'
     currency:
-         allOf:
+         anyOf:
            - nullable: true
            - $ref: '#/components/schemas/currency'
     paymentTerm:
-         allOf:
+         anyOf:
            - nullable: true
            - $ref: '#/components/schemas/paymentTerm'
     shipmentMethod:
-         allOf:
+         anyOf:
            - nullable: true
            - $ref: '#/components/schemas/shipmentMethod'
   vendorPurchase:
@@ -11230,7 +11240,7 @@ components:
     dimensions:
      type: array
      items:
-      allOf:
+      anyOf:
         - $ref: '#/components/schemas/dimensiontype'
         - nullable: true
     lastModifiedDateTime:
@@ -11239,7 +11249,7 @@ components:
       nullable: true
       description: (v1.0) The lastModifiedDateTime property for the Dynamics 365 Business Central generalLedgerEntry entity
     account:
-         allOf:
+         anyOf:
            - nullable: true
            - $ref: '#/components/schemas/account'
   customerSale:
@@ -11330,7 +11340,7 @@ components:
       nullable: true
       description: (v1.0) The lineType property for the Dynamics 365 Business Central purchaseInvoiceLine entity
     lineDetails:
-      allOf:
+      anyOf:
         - nullable: true
         - $ref: '#/components/schemas/documentlineobjectdetailstype'
     description:
@@ -11339,7 +11349,7 @@ components:
       description: (v1.0) The description property for the Dynamics 365 Business Central purchaseInvoiceLine entity
       maxLength: 100
     unitOfMeasure:
-      allOf:
+      anyOf:
         - $ref: '#/components/schemas/unitofmeasuretype'
         - nullable: true
     unitCost:
@@ -11417,11 +11427,11 @@ components:
       nullable: true
       description: (v1.0) The expectedReceiptDate property for the Dynamics 365 Business Central purchaseInvoiceLine entity
     item:
-         allOf:
+         anyOf:
            - nullable: true
            - $ref: '#/components/schemas/item'
     account:
-         allOf:
+         anyOf:
            - nullable: true
            - $ref: '#/components/schemas/account'
   dimensionValue:
@@ -11466,7 +11476,7 @@ components:
       description: (v1.0) The displayName property for the Dynamics 365 Business Central vendor entity
       maxLength: 100
     address:
-      allOf:
+      anyOf:
         - $ref: '#/components/schemas/postaladdresstype'
         - nullable: true
     phoneNumber:
@@ -11541,15 +11551,15 @@ components:
       items:
        $ref: '#/components/schemas/defaultDimensions'
     currency:
-         allOf:
+         anyOf:
            - nullable: true
            - $ref: '#/components/schemas/currency'
     paymentTerm:
-         allOf:
+         anyOf:
            - nullable: true
            - $ref: '#/components/schemas/paymentTerm'
     paymentMethod:
-         allOf:
+         anyOf:
            - nullable: true
            - $ref: '#/components/schemas/paymentMethod'
   customer:
@@ -11575,7 +11585,7 @@ components:
       nullable: true
       description: (v1.0) The type property for the Dynamics 365 Business Central customer entity
     address:
-      allOf:
+      anyOf:
         - $ref: '#/components/schemas/postaladdresstype'
         - nullable: true
     phoneNumber:
@@ -11660,19 +11670,19 @@ components:
       items:
        $ref: '#/components/schemas/defaultDimensions'
     currency:
-         allOf:
+         anyOf:
            - nullable: true
            - $ref: '#/components/schemas/currency'
     paymentTerm:
-         allOf:
+         anyOf:
            - nullable: true
            - $ref: '#/components/schemas/paymentTerm'
     shipmentMethod:
-         allOf:
+         anyOf:
            - nullable: true
            - $ref: '#/components/schemas/shipmentMethod'
     paymentMethod:
-         allOf:
+         anyOf:
            - nullable: true
            - $ref: '#/components/schemas/paymentMethod'
   item:
@@ -11717,7 +11727,7 @@ components:
       nullable: true
       description: (v1.0) The baseUnitOfMeasureId property for the Dynamics 365 Business Central item entity
     baseUnitOfMeasure:
-      allOf:
+      anyOf:
         - $ref: '#/components/schemas/unitofmeasuretype'
         - nullable: true
     gtin:
@@ -11770,7 +11780,7 @@ components:
       items:
        $ref: '#/components/schemas/defaultDimensions'
     itemCategory:
-         allOf:
+         anyOf:
            - nullable: true
            - $ref: '#/components/schemas/itemCategory'
   journal:
@@ -11812,7 +11822,7 @@ components:
       items:
        $ref: '#/components/schemas/journalLine'
     account:
-         allOf:
+         anyOf:
            - nullable: true
            - $ref: '#/components/schemas/account'
   account:
@@ -11958,15 +11968,15 @@ components:
       description: (v1.0) The shipToContact property for the Dynamics 365 Business Central purchaseInvoice entity
       maxLength: 100
     buyFromAddress:
-      allOf:
+      anyOf:
         - $ref: '#/components/schemas/postaladdresstype'
         - nullable: true
     payToAddress:
-      allOf:
+      anyOf:
         - $ref: '#/components/schemas/postaladdresstype'
         - nullable: true
     shipToAddress:
-      allOf:
+      anyOf:
         - $ref: '#/components/schemas/postaladdresstype'
         - nullable: true
     currencyId:
@@ -12026,11 +12036,11 @@ components:
       items:
        $ref: '#/components/schemas/pdfDocument'
     vendor:
-         allOf:
+         anyOf:
            - nullable: true
            - $ref: '#/components/schemas/vendor'
     currency:
-         allOf:
+         anyOf:
            - nullable: true
            - $ref: '#/components/schemas/currency'
   dimension:
@@ -12094,7 +12104,7 @@ components:
       nullable: true
       description: (v1.0) The lineType property for the Dynamics 365 Business Central salesOrderLine entity
     lineDetails:
-      allOf:
+      anyOf:
         - nullable: true
         - $ref: '#/components/schemas/documentlineobjectdetailstype'
     description:
@@ -12108,7 +12118,7 @@ components:
       nullable: true
       description: (v1.0) The unitOfMeasureId property for the Dynamics 365 Business Central salesOrderLine entity
     unitOfMeasure:
-      allOf:
+      anyOf:
         - $ref: '#/components/schemas/unitofmeasuretype'
         - nullable: true
     quantity:
@@ -12206,11 +12216,11 @@ components:
       nullable: true
       description: (v1.0) The shipQuantity property for the Dynamics 365 Business Central salesOrderLine entity
     item:
-         allOf:
+         anyOf:
            - nullable: true
            - $ref: '#/components/schemas/item'
     account:
-         allOf:
+         anyOf:
            - nullable: true
            - $ref: '#/components/schemas/account'
   timeRegistrationEntry:
@@ -12271,13 +12281,13 @@ components:
       nullable: true
       description: (v1.0) The unitOfMeasureId property for the Dynamics 365 Business Central timeRegistrationEntry entity
     unitOfMeasure:
-      allOf:
+      anyOf:
         - $ref: '#/components/schemas/unitofmeasuretype'
         - nullable: true
     dimensions:
      type: array
      items:
-      allOf:
+      anyOf:
         - $ref: '#/components/schemas/dimensiontype'
         - nullable: true
     lastModfiedDateTime:
@@ -12286,7 +12296,7 @@ components:
       nullable: true
       description: (v1.0) The lastModfiedDateTime property for the Dynamics 365 Business Central timeRegistrationEntry entity
     project:
-         allOf:
+         anyOf:
            - nullable: true
            - $ref: '#/components/schemas/project'
   paymentTerm:
@@ -12403,7 +12413,7 @@ components:
     dimensions:
      type: array
      items:
-      allOf:
+      anyOf:
         - $ref: '#/components/schemas/dimensiontype'
         - nullable: true
     lastModifiedDateTime:
@@ -12412,7 +12422,7 @@ components:
       nullable: true
       description: (v1.0) The lastModifiedDateTime property for the Dynamics 365 Business Central customerPayment entity
     customer:
-         allOf:
+         anyOf:
            - nullable: true
            - $ref: '#/components/schemas/customer'
   trialBalance:
@@ -12463,7 +12473,7 @@ components:
       nullable: true
       description: (v1.0) The dateFilter property for the Dynamics 365 Business Central trialBalance entity
     account:
-         allOf:
+         anyOf:
            - nullable: true
            - $ref: '#/components/schemas/account'
   agedAccountsPayable:
@@ -12563,7 +12573,7 @@ components:
       items:
        $ref: '#/components/schemas/customerPayment'
     account:
-         allOf:
+         anyOf:
            - nullable: true
            - $ref: '#/components/schemas/account'
   journalLine:
@@ -12630,7 +12640,7 @@ components:
     dimensions:
      type: array
      items:
-      allOf:
+      anyOf:
         - $ref: '#/components/schemas/dimensiontype'
         - nullable: true
     lastModifiedDateTime:
@@ -12644,7 +12654,7 @@ components:
       items:
        $ref: '#/components/schemas/attachments'
     account:
-         allOf:
+         anyOf:
            - nullable: true
            - $ref: '#/components/schemas/account'
   documentlineobjectdetailstype:
@@ -12661,11 +12671,11 @@ components:
       description: (v1.0) The displayName property for the Dynamics 365 Business Central documentlineobjectdetailstype entity
       maxLength: 100
     item:
-         allOf:
+         anyOf:
            - nullable: true
            - $ref: '#/components/schemas/item'
     account:
-         allOf:
+         anyOf:
            - nullable: true
            - $ref: '#/components/schemas/account'
   itemunitofmeasureconversiontype:
@@ -12692,7 +12702,7 @@ components:
       items:
        $ref: '#/components/schemas/defaultDimensions'
     itemCategory:
-         allOf:
+         anyOf:
            - nullable: true
            - $ref: '#/components/schemas/itemCategory'
   postaladdresstype:
@@ -12739,19 +12749,19 @@ components:
       items:
        $ref: '#/components/schemas/defaultDimensions'
     currency:
-         allOf:
+         anyOf:
            - nullable: true
            - $ref: '#/components/schemas/currency'
     paymentTerm:
-         allOf:
+         anyOf:
            - nullable: true
            - $ref: '#/components/schemas/paymentTerm'
     shipmentMethod:
-         allOf:
+         anyOf:
            - nullable: true
            - $ref: '#/components/schemas/shipmentMethod'
     paymentMethod:
-         allOf:
+         anyOf:
            - nullable: true
            - $ref: '#/components/schemas/paymentMethod'
   project:
@@ -12851,15 +12861,15 @@ components:
       description: (v1.0) The shipToContact property for the Dynamics 365 Business Central salesInvoice entity
       maxLength: 100
     sellingPostalAddress:
-      allOf:
+      anyOf:
         - $ref: '#/components/schemas/postaladdresstype'
         - nullable: true
     billingPostalAddress:
-      allOf:
+      anyOf:
         - $ref: '#/components/schemas/postaladdresstype'
         - nullable: true
     shippingPostalAddress:
-      allOf:
+      anyOf:
         - $ref: '#/components/schemas/postaladdresstype'
         - nullable: true
     currencyId:
@@ -12959,19 +12969,19 @@ components:
       items:
        $ref: '#/components/schemas/pdfDocument'
     customer:
-         allOf:
+         anyOf:
            - nullable: true
            - $ref: '#/components/schemas/customer'
     currency:
-         allOf:
+         anyOf:
            - nullable: true
            - $ref: '#/components/schemas/currency'
     paymentTerm:
-         allOf:
+         anyOf:
            - nullable: true
            - $ref: '#/components/schemas/paymentTerm'
     shipmentMethod:
-         allOf:
+         anyOf:
            - nullable: true
            - $ref: '#/components/schemas/shipmentMethod'
   generalLedgerEntryAttachments:
@@ -13008,7 +13018,7 @@ components:
       nullable: true
       description: (v1.0) The createdDateTime property for the Dynamics 365 Business Central generalLedgerEntryAttachments entity
     generalLedgerEntry:
-         allOf:
+         anyOf:
            - nullable: true
            - $ref: '#/components/schemas/generalLedgerEntry'
   unitOfMeasure:
@@ -13110,15 +13120,15 @@ components:
       nullable: true
       description: (v1.0) The postingValidation property for the Dynamics 365 Business Central defaultDimensions entity
     account:
-         allOf:
+         anyOf:
            - nullable: true
            - $ref: '#/components/schemas/account'
     dimension:
-         allOf:
+         anyOf:
            - nullable: true
            - $ref: '#/components/schemas/dimension'
     dimensionValue:
-         allOf:
+         anyOf:
            - nullable: true
            - $ref: '#/components/schemas/dimensionValue'
   company:
@@ -13479,7 +13489,7 @@ components:
       nullable: true
       description: (v1.0) The valueDisplayName property for the Dynamics 365 Business Central dimensiontype entity
     customer:
-         allOf:
+         anyOf:
            - nullable: true
            - $ref: '#/components/schemas/customer'
   taxGroup:
@@ -13547,7 +13557,7 @@ components:
       description: (v1.0) The jobTitle property for the Dynamics 365 Business Central employee entity
       maxLength: 30
     address:
-      allOf:
+      anyOf:
         - $ref: '#/components/schemas/postaladdresstype'
         - nullable: true
     phoneNumber:
@@ -13686,7 +13696,7 @@ components:
       description: (v1.0) The displayName property for the Dynamics 365 Business Central companyInformation entity
       maxLength: 100
     address:
-      allOf:
+      anyOf:
         - $ref: '#/components/schemas/postaladdresstype'
         - nullable: true
     phoneNumber:
@@ -13872,15 +13882,15 @@ components:
          description: (v1.0) The shipToContact property for the Dynamics 365 Business Central salesQuote entity
          maxLength: 100
        sellingPostalAddress:
-         allOf:
+         anyOf:
            - $ref: '#/components/schemas/postaladdresstype'
            - nullable: true
        billingPostalAddress:
-         allOf:
+         anyOf:
            - $ref: '#/components/schemas/postaladdresstype'
            - nullable: true
        shippingPostalAddress:
-         allOf:
+         anyOf:
            - $ref: '#/components/schemas/postaladdresstype'
            - nullable: true
        currencyId:
@@ -14018,7 +14028,7 @@ components:
          nullable: true
          description: (v1.0) The lineType property for the Dynamics 365 Business Central salesQuoteLine entity
        lineDetails:
-         allOf:
+         anyOf:
            - nullable: true
            - $ref: '#/components/schemas/documentlineobjectdetailstype'
        description:
@@ -14032,7 +14042,7 @@ components:
          nullable: true
          description: (v1.0) The unitOfMeasureId property for the Dynamics 365 Business Central salesQuoteLine entity
        unitOfMeasure:
-         allOf:
+         anyOf:
            - $ref: '#/components/schemas/unitofmeasuretype'
            - nullable: true
        unitPrice:
@@ -14171,15 +14181,15 @@ components:
          description: (v1.0) The shipToContact property for the Dynamics 365 Business Central salesOrder entity
          maxLength: 100
        sellingPostalAddress:
-         allOf:
+         anyOf:
            - $ref: '#/components/schemas/postaladdresstype'
            - nullable: true
        billingPostalAddress:
-         allOf:
+         anyOf:
            - $ref: '#/components/schemas/postaladdresstype'
            - nullable: true
        shippingPostalAddress:
-         allOf:
+         anyOf:
            - $ref: '#/components/schemas/postaladdresstype'
            - nullable: true
        currencyId:
@@ -14435,7 +14445,7 @@ components:
          nullable: true
          description: (v1.0) The lineType property for the Dynamics 365 Business Central salesInvoiceLine entity
        lineDetails:
-         allOf:
+         anyOf:
            - nullable: true
            - $ref: '#/components/schemas/documentlineobjectdetailstype'
        description:
@@ -14449,7 +14459,7 @@ components:
          nullable: true
          description: (v1.0) The unitOfMeasureId property for the Dynamics 365 Business Central salesInvoiceLine entity
        unitOfMeasure:
-         allOf:
+         anyOf:
            - $ref: '#/components/schemas/unitofmeasuretype'
            - nullable: true
        unitPrice:
@@ -14562,7 +14572,7 @@ components:
          nullable: true
          description: (v1.0) The lineType property for the Dynamics 365 Business Central salesCreditMemoLine entity
        lineDetails:
-         allOf:
+         anyOf:
            - nullable: true
            - $ref: '#/components/schemas/documentlineobjectdetailstype'
        description:
@@ -14576,7 +14586,7 @@ components:
          nullable: true
          description: (v1.0) The unitOfMeasureId property for the Dynamics 365 Business Central salesCreditMemoLine entity
        unitOfMeasure:
-         allOf:
+         anyOf:
            - $ref: '#/components/schemas/unitofmeasuretype'
            - nullable: true
        unitPrice:
@@ -14720,11 +14730,11 @@ components:
          description: (v1.0) The billToCustomerNumber property for the Dynamics 365 Business Central salesCreditMemo entity
          maxLength: 20
        sellingPostalAddress:
-         allOf:
+         anyOf:
            - $ref: '#/components/schemas/postaladdresstype'
            - nullable: true
        billingPostalAddress:
-         allOf:
+         anyOf:
            - $ref: '#/components/schemas/postaladdresstype'
            - nullable: true
        currencyId:
@@ -14874,7 +14884,7 @@ components:
          nullable: true
          description: (v1.0) The lineType property for the Dynamics 365 Business Central purchaseInvoiceLine entity
        lineDetails:
-         allOf:
+         anyOf:
            - nullable: true
            - $ref: '#/components/schemas/documentlineobjectdetailstype'
        description:
@@ -14883,7 +14893,7 @@ components:
          description: (v1.0) The description property for the Dynamics 365 Business Central purchaseInvoiceLine entity
          maxLength: 100
        unitOfMeasure:
-         allOf:
+         anyOf:
            - $ref: '#/components/schemas/unitofmeasuretype'
            - nullable: true
        unitCost:
@@ -14982,7 +14992,7 @@ components:
          description: (v1.0) The displayName property for the Dynamics 365 Business Central vendor entity
          maxLength: 100
        address:
-         allOf:
+         anyOf:
            - $ref: '#/components/schemas/postaladdresstype'
            - nullable: true
        phoneNumber:
@@ -15072,7 +15082,7 @@ components:
          nullable: true
          description: (v1.0) The type property for the Dynamics 365 Business Central customer entity
        address:
-         allOf:
+         anyOf:
            - $ref: '#/components/schemas/postaladdresstype'
            - nullable: true
        phoneNumber:
@@ -15186,7 +15196,7 @@ components:
          nullable: true
          description: (v1.0) The baseUnitOfMeasureId property for the Dynamics 365 Business Central item entity
        baseUnitOfMeasure:
-         allOf:
+         anyOf:
            - $ref: '#/components/schemas/unitofmeasuretype'
            - nullable: true
        gtin:
@@ -15341,15 +15351,15 @@ components:
          description: (v1.0) The shipToContact property for the Dynamics 365 Business Central purchaseInvoice entity
          maxLength: 100
        buyFromAddress:
-         allOf:
+         anyOf:
            - $ref: '#/components/schemas/postaladdresstype'
            - nullable: true
        payToAddress:
-         allOf:
+         anyOf:
            - $ref: '#/components/schemas/postaladdresstype'
            - nullable: true
        shipToAddress:
-         allOf:
+         anyOf:
            - $ref: '#/components/schemas/postaladdresstype'
            - nullable: true
        currencyId:
@@ -15434,7 +15444,7 @@ components:
          nullable: true
          description: (v1.0) The lineType property for the Dynamics 365 Business Central salesOrderLine entity
        lineDetails:
-         allOf:
+         anyOf:
            - nullable: true
            - $ref: '#/components/schemas/documentlineobjectdetailstype'
        description:
@@ -15448,7 +15458,7 @@ components:
          nullable: true
          description: (v1.0) The unitOfMeasureId property for the Dynamics 365 Business Central salesOrderLine entity
        unitOfMeasure:
-         allOf:
+         anyOf:
            - $ref: '#/components/schemas/unitofmeasuretype'
            - nullable: true
        quantity:
@@ -15606,13 +15616,13 @@ components:
          nullable: true
          description: (v1.0) The unitOfMeasureId property for the Dynamics 365 Business Central timeRegistrationEntry entity
        unitOfMeasure:
-         allOf:
+         anyOf:
            - $ref: '#/components/schemas/unitofmeasuretype'
            - nullable: true
        dimensions:
         type: array
         items:
-         allOf:
+         anyOf:
            - $ref: '#/components/schemas/dimensiontype'
            - nullable: true
        lastModfiedDateTime:
@@ -15740,7 +15750,7 @@ components:
        dimensions:
         type: array
         items:
-         allOf:
+         anyOf:
            - $ref: '#/components/schemas/dimensiontype'
            - nullable: true
        lastModifiedDateTime:
@@ -15851,7 +15861,7 @@ components:
        dimensions:
         type: array
         items:
-         allOf:
+         anyOf:
            - $ref: '#/components/schemas/dimensiontype'
            - nullable: true
        lastModifiedDateTime:
@@ -15962,15 +15972,15 @@ components:
          description: (v1.0) The shipToContact property for the Dynamics 365 Business Central salesInvoice entity
          maxLength: 100
        sellingPostalAddress:
-         allOf:
+         anyOf:
            - $ref: '#/components/schemas/postaladdresstype'
            - nullable: true
        billingPostalAddress:
-         allOf:
+         anyOf:
            - $ref: '#/components/schemas/postaladdresstype'
            - nullable: true
        shippingPostalAddress:
-         allOf:
+         anyOf:
            - $ref: '#/components/schemas/postaladdresstype'
            - nullable: true
        currencyId:
@@ -16299,7 +16309,7 @@ components:
          description: (v1.0) The jobTitle property for the Dynamics 365 Business Central employee entity
          maxLength: 30
        address:
-         allOf:
+         anyOf:
            - $ref: '#/components/schemas/postaladdresstype'
            - nullable: true
        phoneNumber:
@@ -16368,7 +16378,7 @@ components:
          description: (v1.0) The displayName property for the Dynamics 365 Business Central companyInformation entity
          maxLength: 100
        address:
-         allOf:
+         anyOf:
            - $ref: '#/components/schemas/postaladdresstype'
            - nullable: true
        phoneNumber:

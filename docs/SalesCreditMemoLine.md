@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **line_details** | **dict, none_type** |  | [optional] 
 **description** | **str, none_type** | (v1.0) The description property for the Dynamics 365 Business Central salesCreditMemoLine entity | [optional] 
 **unit_of_measure_id** | **str, none_type** | (v1.0) The unitOfMeasureId property for the Dynamics 365 Business Central salesCreditMemoLine entity | [optional] 
-**unit_of_measure** | **(dict, none_type,)** |  | [optional] 
+**unit_of_measure** | **dict, none_type** |  | [optional] 
 **unit_price** | **float, none_type** | (v1.0) The unitPrice property for the Dynamics 365 Business Central salesCreditMemoLine entity | [optional] 
 **quantity** | **float, none_type** | (v1.0) The quantity property for the Dynamics 365 Business Central salesCreditMemoLine entity | [optional] 
 **discount_amount** | **float, none_type** | (v1.0) The discountAmount property for the Dynamics 365 Business Central salesCreditMemoLine entity | [optional] 
@@ -29,8 +29,8 @@ Name | Type | Description | Notes
 **net_tax_amount** | **float, none_type** | (v1.0) The netTaxAmount property for the Dynamics 365 Business Central salesCreditMemoLine entity | [optional] 
 **net_amount_including_tax** | **float, none_type** | (v1.0) The netAmountIncludingTax property for the Dynamics 365 Business Central salesCreditMemoLine entity | [optional] 
 **shipment_date** | **date, none_type** | (v1.0) The shipmentDate property for the Dynamics 365 Business Central salesCreditMemoLine entity | [optional] 
-**item** | **(dict, none_type,)** |  | [optional] 
-**account** | **(dict, none_type,)** |  | [optional] 
+**item** | **dict, none_type** |  | [optional] 
+**account** | **dict, none_type** |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

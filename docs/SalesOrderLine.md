@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **line_details** | **dict, none_type** |  | [optional] 
 **description** | **str, none_type** | (v1.0) The description property for the Dynamics 365 Business Central salesOrderLine entity | [optional] 
 **unit_of_measure_id** | **str, none_type** | (v1.0) The unitOfMeasureId property for the Dynamics 365 Business Central salesOrderLine entity | [optional] 
-**unit_of_measure** | **(dict, none_type,)** |  | [optional] 
+**unit_of_measure** | **dict, none_type** |  | [optional] 
 **quantity** | **float, none_type** | (v1.0) The quantity property for the Dynamics 365 Business Central salesOrderLine entity | [optional] 
 **unit_price** | **float, none_type** | (v1.0) The unitPrice property for the Dynamics 365 Business Central salesOrderLine entity | [optional] 
 **discount_amount** | **float, none_type** | (v1.0) The discountAmount property for the Dynamics 365 Business Central salesOrderLine entity | [optional] 
@@ -33,8 +33,8 @@ Name | Type | Description | Notes
 **invoiced_quantity** | **float, none_type** | (v1.0) The invoicedQuantity property for the Dynamics 365 Business Central salesOrderLine entity | [optional] 
 **invoice_quantity** | **float, none_type** | (v1.0) The invoiceQuantity property for the Dynamics 365 Business Central salesOrderLine entity | [optional] 
 **ship_quantity** | **float, none_type** | (v1.0) The shipQuantity property for the Dynamics 365 Business Central salesOrderLine entity | [optional] 
-**item** | **(dict, none_type,)** |  | [optional] 
-**account** | **(dict, none_type,)** |  | [optional] 
+**item** | **dict, none_type** |  | [optional] 
+**account** | **dict, none_type** |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

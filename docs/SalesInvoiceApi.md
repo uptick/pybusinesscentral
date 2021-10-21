@@ -849,11 +849,23 @@ with pybusinesscentral.ApiClient(configuration) as api_client:
         phone_number="phone_number_example",
         email="email_example",
     } # UNKNOWN_BASE_TYPE | 
+    expand = [
+        "salesInvoiceLines",
+    ] # [str] | (v1.0) Entities to expand (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Creates an object of type salesInvoice in Dynamics 365 Business Central
         api_response = api_instance.post_sales_invoice(company_id, content_type, unknown_base_type)
+        pprint(api_response)
+    except pybusinesscentral.ApiException as e:
+        print("Exception when calling SalesInvoiceApi->post_sales_invoice: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Creates an object of type salesInvoice in Dynamics 365 Business Central
+        api_response = api_instance.post_sales_invoice(company_id, content_type, unknown_base_type, expand=expand)
         pprint(api_response)
     except pybusinesscentral.ApiException as e:
         print("Exception when calling SalesInvoiceApi->post_sales_invoice: %s\n" % e)
@@ -867,6 +879,7 @@ Name | Type | Description  | Notes
  **company_id** | **str**| (v1.0) id for company |
  **content_type** | **str**| (v1.0) application/json |
  **unknown_base_type** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  |
+ **expand** | **[str]**| (v1.0) Entities to expand | [optional]
 
 ### Return type
 

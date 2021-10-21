@@ -1371,6 +1371,7 @@ class SalesInvoiceApi(object):
                 sales_invoice (SalesInvoice):
 
             Keyword Args:
+                expand ([str]): (v1.0) Entities to expand. [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1439,6 +1440,7 @@ class SalesInvoiceApi(object):
                     'company_id',
                     'content_type',
                     'sales_invoice',
+                    'expand',
                 ],
                 'required': [
                     'company_id',
@@ -1448,6 +1450,7 @@ class SalesInvoiceApi(object):
                 'nullable': [
                 ],
                 'enum': [
+                    'expand',
                 ],
                 'validation': [
                 ]
@@ -1456,6 +1459,15 @@ class SalesInvoiceApi(object):
                 'validations': {
                 },
                 'allowed_values': {
+                    ('expand',): {
+
+                        "SALESINVOICELINES": "salesInvoiceLines",
+                        "PDFDOCUMENT": "pdfDocument",
+                        "CUSTOMER": "customer",
+                        "CURRENCY": "currency",
+                        "PAYMENTTERM": "paymentTerm",
+                        "SHIPMENTMETHOD": "shipmentMethod"
+                    },
                 },
                 'openapi_types': {
                     'company_id':
@@ -1464,17 +1476,22 @@ class SalesInvoiceApi(object):
                         (str,),
                     'sales_invoice':
                         (SalesInvoice,),
+                    'expand':
+                        ([str],),
                 },
                 'attribute_map': {
                     'company_id': 'company_id',
                     'content_type': 'Content-Type',
+                    'expand': '$expand',
                 },
                 'location_map': {
                     'company_id': 'path',
                     'content_type': 'header',
                     'sales_invoice': 'body',
+                    'expand': 'query',
                 },
                 'collection_format_map': {
+                    'expand': 'csv',
                 }
             },
             headers_map={
