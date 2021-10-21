@@ -118,8 +118,8 @@ class PurchaseInvoice(ModelNormal):
         return {
             'id': (str,),  # noqa: E501
             'number': (str, none_type,),  # noqa: E501
-            'invoice_date': (datetime, none_type,),  # noqa: E501
-            'due_date': (datetime, none_type,),  # noqa: E501
+            'invoice_date': (date, none_type,),  # noqa: E501
+            'due_date': (date, none_type,),  # noqa: E501
             'vendor_invoice_number': (str, none_type,),  # noqa: E501
             'vendor_id': (str, none_type,),  # noqa: E501
             'vendor_number': (str, none_type,),  # noqa: E501
@@ -231,8 +231,8 @@ class PurchaseInvoice(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             id (str): (v1.0) The id property for the Dynamics 365 Business Central purchaseInvoice entity. [optional]  # noqa: E501
             number (str, none_type): (v1.0) The number property for the Dynamics 365 Business Central purchaseInvoice entity. [optional]  # noqa: E501
-            invoice_date (datetime, none_type): (v1.0) The invoiceDate property for the Dynamics 365 Business Central purchaseInvoice entity. [optional]  # noqa: E501
-            due_date (datetime, none_type): (v1.0) The dueDate property for the Dynamics 365 Business Central purchaseInvoice entity. [optional]  # noqa: E501
+            invoice_date (date, none_type): (v1.0) The invoiceDate property for the Dynamics 365 Business Central purchaseInvoice entity. [optional]  # noqa: E501
+            due_date (date, none_type): (v1.0) The dueDate property for the Dynamics 365 Business Central purchaseInvoice entity. [optional]  # noqa: E501
             vendor_invoice_number (str, none_type): (v1.0) The vendorInvoiceNumber property for the Dynamics 365 Business Central purchaseInvoice entity. [optional]  # noqa: E501
             vendor_id (str, none_type): (v1.0) The vendorId property for the Dynamics 365 Business Central purchaseInvoice entity. [optional]  # noqa: E501
             vendor_number (str, none_type): (v1.0) The vendorNumber property for the Dynamics 365 Business Central purchaseInvoice entity. [optional]  # noqa: E501
@@ -343,8 +343,8 @@ class PurchaseInvoice(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             id (str): (v1.0) The id property for the Dynamics 365 Business Central purchaseInvoice entity. [optional]  # noqa: E501
             number (str, none_type): (v1.0) The number property for the Dynamics 365 Business Central purchaseInvoice entity. [optional]  # noqa: E501
-            invoice_date (datetime, none_type): (v1.0) The invoiceDate property for the Dynamics 365 Business Central purchaseInvoice entity. [optional]  # noqa: E501
-            due_date (datetime, none_type): (v1.0) The dueDate property for the Dynamics 365 Business Central purchaseInvoice entity. [optional]  # noqa: E501
+            invoice_date (date, none_type): (v1.0) The invoiceDate property for the Dynamics 365 Business Central purchaseInvoice entity. [optional]  # noqa: E501
+            due_date (date, none_type): (v1.0) The dueDate property for the Dynamics 365 Business Central purchaseInvoice entity. [optional]  # noqa: E501
             vendor_invoice_number (str, none_type): (v1.0) The vendorInvoiceNumber property for the Dynamics 365 Business Central purchaseInvoice entity. [optional]  # noqa: E501
             vendor_id (str, none_type): (v1.0) The vendorId property for the Dynamics 365 Business Central purchaseInvoice entity. [optional]  # noqa: E501
             vendor_number (str, none_type): (v1.0) The vendorNumber property for the Dynamics 365 Business Central purchaseInvoice entity. [optional]  # noqa: E501

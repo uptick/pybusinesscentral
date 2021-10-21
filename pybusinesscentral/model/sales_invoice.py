@@ -134,8 +134,8 @@ class SalesInvoice(ModelNormal):
             'id': (str,),  # noqa: E501
             'number': (str, none_type,),  # noqa: E501
             'external_document_number': (str, none_type,),  # noqa: E501
-            'invoice_date': (datetime, none_type,),  # noqa: E501
-            'due_date': (datetime, none_type,),  # noqa: E501
+            'invoice_date': (date, none_type,),  # noqa: E501
+            'due_date': (date, none_type,),  # noqa: E501
             'customer_purchase_order_reference': (str, none_type,),  # noqa: E501
             'customer_id': (str, none_type,),  # noqa: E501
             'contact_id': (str, none_type,),  # noqa: E501
@@ -269,8 +269,8 @@ class SalesInvoice(ModelNormal):
             id (str): (v1.0) The id property for the Dynamics 365 Business Central salesInvoice entity. [optional]  # noqa: E501
             number (str, none_type): (v1.0) The number property for the Dynamics 365 Business Central salesInvoice entity. [optional]  # noqa: E501
             external_document_number (str, none_type): (v1.0) The externalDocumentNumber property for the Dynamics 365 Business Central salesInvoice entity. [optional]  # noqa: E501
-            invoice_date (datetime, none_type): (v1.0) The invoiceDate property for the Dynamics 365 Business Central salesInvoice entity. [optional]  # noqa: E501
-            due_date (datetime, none_type): (v1.0) The dueDate property for the Dynamics 365 Business Central salesInvoice entity. [optional]  # noqa: E501
+            invoice_date (date, none_type): (v1.0) The invoiceDate property for the Dynamics 365 Business Central salesInvoice entity. [optional]  # noqa: E501
+            due_date (date, none_type): (v1.0) The dueDate property for the Dynamics 365 Business Central salesInvoice entity. [optional]  # noqa: E501
             customer_purchase_order_reference (str, none_type): (v1.0) The customerPurchaseOrderReference property for the Dynamics 365 Business Central salesInvoice entity. [optional]  # noqa: E501
             customer_id (str, none_type): (v1.0) The customerId property for the Dynamics 365 Business Central salesInvoice entity. [optional]  # noqa: E501
             contact_id (str, none_type): (v1.0) The contactId property for the Dynamics 365 Business Central salesInvoice entity. [optional]  # noqa: E501
@@ -392,8 +392,8 @@ class SalesInvoice(ModelNormal):
             id (str): (v1.0) The id property for the Dynamics 365 Business Central salesInvoice entity. [optional]  # noqa: E501
             number (str, none_type): (v1.0) The number property for the Dynamics 365 Business Central salesInvoice entity. [optional]  # noqa: E501
             external_document_number (str, none_type): (v1.0) The externalDocumentNumber property for the Dynamics 365 Business Central salesInvoice entity. [optional]  # noqa: E501
-            invoice_date (datetime, none_type): (v1.0) The invoiceDate property for the Dynamics 365 Business Central salesInvoice entity. [optional]  # noqa: E501
-            due_date (datetime, none_type): (v1.0) The dueDate property for the Dynamics 365 Business Central salesInvoice entity. [optional]  # noqa: E501
+            invoice_date (date, none_type): (v1.0) The invoiceDate property for the Dynamics 365 Business Central salesInvoice entity. [optional]  # noqa: E501
+            due_date (date, none_type): (v1.0) The dueDate property for the Dynamics 365 Business Central salesInvoice entity. [optional]  # noqa: E501
             customer_purchase_order_reference (str, none_type): (v1.0) The customerPurchaseOrderReference property for the Dynamics 365 Business Central salesInvoice entity. [optional]  # noqa: E501
             customer_id (str, none_type): (v1.0) The customerId property for the Dynamics 365 Business Central salesInvoice entity. [optional]  # noqa: E501
             contact_id (str, none_type): (v1.0) The contactId property for the Dynamics 365 Business Central salesInvoice entity. [optional]  # noqa: E501

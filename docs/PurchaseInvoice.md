@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | (v1.0) The id property for the Dynamics 365 Business Central purchaseInvoice entity | [optional] 
 **number** | **str, none_type** | (v1.0) The number property for the Dynamics 365 Business Central purchaseInvoice entity | [optional] 
-**invoice_date** | **datetime, none_type** | (v1.0) The invoiceDate property for the Dynamics 365 Business Central purchaseInvoice entity | [optional] 
-**due_date** | **datetime, none_type** | (v1.0) The dueDate property for the Dynamics 365 Business Central purchaseInvoice entity | [optional] 
+**invoice_date** | **date, none_type** | (v1.0) The invoiceDate property for the Dynamics 365 Business Central purchaseInvoice entity | [optional] 
+**due_date** | **date, none_type** | (v1.0) The dueDate property for the Dynamics 365 Business Central purchaseInvoice entity | [optional] 
 **vendor_invoice_number** | **str, none_type** | (v1.0) The vendorInvoiceNumber property for the Dynamics 365 Business Central purchaseInvoice entity | [optional] 
 **vendor_id** | **str, none_type** | (v1.0) The vendorId property for the Dynamics 365 Business Central purchaseInvoice entity | [optional] 
 **vendor_number** | **str, none_type** | (v1.0) The vendorNumber property for the Dynamics 365 Business Central purchaseInvoice entity | [optional] 
