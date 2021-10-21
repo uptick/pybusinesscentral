@@ -10757,7 +10757,7 @@ components:
       description: (v1.0) The netAmountIncludingTax property for the Dynamics 365 Business Central salesInvoiceLine entity
     shipmentDate:
       type: string
-      format: date-time
+      format: date
       nullable: true
       description: (v1.0) The shipmentDate property for the Dynamics 365 Business Central salesInvoiceLine entity
     item:
@@ -10917,7 +10917,7 @@ components:
       description: (v1.0) The netAmountIncludingTax property for the Dynamics 365 Business Central salesCreditMemoLine entity
     shipmentDate:
       type: string
-      format: date-time
+      format: date
       nullable: true
       description: (v1.0) The shipmentDate property for the Dynamics 365 Business Central salesCreditMemoLine entity
     item:
@@ -12182,7 +12182,7 @@ components:
       description: (v1.0) The netAmountIncludingTax property for the Dynamics 365 Business Central salesOrderLine entity
     shipmentDate:
       type: string
-      format: date-time
+      format: date
       nullable: true
       description: (v1.0) The shipmentDate property for the Dynamics 365 Business Central salesOrderLine entity
     shippedQuantity:
@@ -14523,7 +14523,7 @@ components:
          description: (v1.0) The netAmountIncludingTax property for the Dynamics 365 Business Central salesInvoiceLine entity
        shipmentDate:
          type: string
-         format: date-time
+         format: date
          nullable: true
          description: (v1.0) The shipmentDate property for the Dynamics 365 Business Central salesInvoiceLine entity
   salesCreditMemoLine:
@@ -14650,7 +14650,7 @@ components:
          description: (v1.0) The netAmountIncludingTax property for the Dynamics 365 Business Central salesCreditMemoLine entity
        shipmentDate:
          type: string
-         format: date-time
+         format: date
          nullable: true
          description: (v1.0) The shipmentDate property for the Dynamics 365 Business Central salesCreditMemoLine entity
   salesCreditMemo:
@@ -15522,7 +15522,7 @@ components:
          description: (v1.0) The netAmountIncludingTax property for the Dynamics 365 Business Central salesOrderLine entity
        shipmentDate:
          type: string
-         format: date-time
+         format: date
          nullable: true
          description: (v1.0) The shipmentDate property for the Dynamics 365 Business Central salesOrderLine entity
        shippedQuantity:
