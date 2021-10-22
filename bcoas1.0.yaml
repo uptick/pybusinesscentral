@@ -11433,7 +11433,7 @@ components:
       description: (v1.0) The netAmountIncludingTax property for the Dynamics 365 Business Central purchaseInvoiceLine entity
     expectedReceiptDate:
       type: string
-      format: date-time
+      format: date
       nullable: true
       description: (v1.0) The expectedReceiptDate property for the Dynamics 365 Business Central purchaseInvoiceLine entity
     item:
@@ -14977,7 +14977,7 @@ components:
          description: (v1.0) The netAmountIncludingTax property for the Dynamics 365 Business Central purchaseInvoiceLine entity
        expectedReceiptDate:
          type: string
-         format: date-time
+         format: date
          nullable: true
          description: (v1.0) The expectedReceiptDate property for the Dynamics 365 Business Central purchaseInvoiceLine entity
   vendor:

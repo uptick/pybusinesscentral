@@ -618,7 +618,7 @@ with pybusinesscentral.ApiClient(configuration) as api_client:
         net_amount=3.14,
         net_tax_amount=3.14,
         net_amount_including_tax=3.14,
-        expected_receipt_date=dateutil_parser('1970-01-01T00:00:00.00Z'),
+        expected_receipt_date=dateutil_parser('1970-01-01').date(),
     } # UNKNOWN_BASE_TYPE | 
 
     # example passing only required values which don't have defaults set
@@ -727,7 +727,7 @@ with pybusinesscentral.ApiClient(configuration) as api_client:
         net_amount=3.14,
         net_tax_amount=3.14,
         net_amount_including_tax=3.14,
-        expected_receipt_date=dateutil_parser('1970-01-01T00:00:00.00Z'),
+        expected_receipt_date=dateutil_parser('1970-01-01').date(),
     } # UNKNOWN_BASE_TYPE | 
 
     # example passing only required values which don't have defaults set
@@ -834,7 +834,7 @@ with pybusinesscentral.ApiClient(configuration) as api_client:
         net_amount=3.14,
         net_tax_amount=3.14,
         net_amount_including_tax=3.14,
-        expected_receipt_date=dateutil_parser('1970-01-01T00:00:00.00Z'),
+        expected_receipt_date=dateutil_parser('1970-01-01').date(),
     } # UNKNOWN_BASE_TYPE | 
 
     # example passing only required values which don't have defaults set
@@ -939,7 +939,7 @@ with pybusinesscentral.ApiClient(configuration) as api_client:
         net_amount=3.14,
         net_tax_amount=3.14,
         net_amount_including_tax=3.14,
-        expected_receipt_date=dateutil_parser('1970-01-01T00:00:00.00Z'),
+        expected_receipt_date=dateutil_parser('1970-01-01').date(),
     } # UNKNOWN_BASE_TYPE | 
 
     # example passing only required values which don't have defaults set

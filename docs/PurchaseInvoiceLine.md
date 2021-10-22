@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 **net_amount** | **float, none_type** | (v1.0) The netAmount property for the Dynamics 365 Business Central purchaseInvoiceLine entity | [optional] 
 **net_tax_amount** | **float, none_type** | (v1.0) The netTaxAmount property for the Dynamics 365 Business Central purchaseInvoiceLine entity | [optional] 
 **net_amount_including_tax** | **float, none_type** | (v1.0) The netAmountIncludingTax property for the Dynamics 365 Business Central purchaseInvoiceLine entity | [optional] 
-**expected_receipt_date** | **datetime, none_type** | (v1.0) The expectedReceiptDate property for the Dynamics 365 Business Central purchaseInvoiceLine entity | [optional] 
+**expected_receipt_date** | **date, none_type** | (v1.0) The expectedReceiptDate property for the Dynamics 365 Business Central purchaseInvoiceLine entity | [optional] 
 **item** | **dict, none_type** |  | [optional] 
 **account** | **dict, none_type** |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]

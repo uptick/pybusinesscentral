@@ -113,7 +113,7 @@ class PurchaseInvoiceLine(ModelNormal):
             'net_amount': (float, none_type,),  # noqa: E501
             'net_tax_amount': (float, none_type,),  # noqa: E501
             'net_amount_including_tax': (float, none_type,),  # noqa: E501
-            'expected_receipt_date': (datetime, none_type,),  # noqa: E501
+            'expected_receipt_date': (date, none_type,),  # noqa: E501
             'item': (dict, none_type,),  # noqa: E501
             'account': (dict, none_type,),  # noqa: E501
         }
@@ -216,7 +216,7 @@ class PurchaseInvoiceLine(ModelNormal):
             net_amount (float, none_type): (v1.0) The netAmount property for the Dynamics 365 Business Central purchaseInvoiceLine entity. [optional]  # noqa: E501
             net_tax_amount (float, none_type): (v1.0) The netTaxAmount property for the Dynamics 365 Business Central purchaseInvoiceLine entity. [optional]  # noqa: E501
             net_amount_including_tax (float, none_type): (v1.0) The netAmountIncludingTax property for the Dynamics 365 Business Central purchaseInvoiceLine entity. [optional]  # noqa: E501
-            expected_receipt_date (datetime, none_type): (v1.0) The expectedReceiptDate property for the Dynamics 365 Business Central purchaseInvoiceLine entity. [optional]  # noqa: E501
+            expected_receipt_date (date, none_type): (v1.0) The expectedReceiptDate property for the Dynamics 365 Business Central purchaseInvoiceLine entity. [optional]  # noqa: E501
             item (dict): [optional]  # noqa: E501
             account (dict): [optional]  # noqa: E501
         """
@@ -323,7 +323,7 @@ class PurchaseInvoiceLine(ModelNormal):
             net_amount (float, none_type): (v1.0) The netAmount property for the Dynamics 365 Business Central purchaseInvoiceLine entity. [optional]  # noqa: E501
             net_tax_amount (float, none_type): (v1.0) The netTaxAmount property for the Dynamics 365 Business Central purchaseInvoiceLine entity. [optional]  # noqa: E501
             net_amount_including_tax (float, none_type): (v1.0) The netAmountIncludingTax property for the Dynamics 365 Business Central purchaseInvoiceLine entity. [optional]  # noqa: E501
-            expected_receipt_date (datetime, none_type): (v1.0) The expectedReceiptDate property for the Dynamics 365 Business Central purchaseInvoiceLine entity. [optional]  # noqa: E501
+            expected_receipt_date (date, none_type): (v1.0) The expectedReceiptDate property for the Dynamics 365 Business Central purchaseInvoiceLine entity. [optional]  # noqa: E501
             item (dict): [optional]  # noqa: E501
             account (dict): [optional]  # noqa: E501
         """
