@@ -8855,6 +8855,16 @@ paths:
    operationId: postPurchaseInvoice
    parameters:
     - $ref: '#/components/parameters/ContentTypeParam'
+    - name: $expand
+      in: query
+      description: (v1.0) Entities to expand
+      schema:
+        type: array
+        items:
+          type: string
+          enum: ['purchaseInvoiceLines', 'paymentTerm', 'pdfDocument', 'vendor', 'currency']
+      style: form
+      explode: false
    requestBody:
     $ref: '#/components/requestBodies/purchaseInvoice'
    responses:
