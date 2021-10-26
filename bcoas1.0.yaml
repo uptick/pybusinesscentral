@@ -1404,6 +1404,16 @@ paths:
    operationId: postVendor
    parameters:
     - $ref: '#/components/parameters/ContentTypeParam'
+    - name: $expand
+      in: query
+      description: (v1.0) Entities to expand
+      schema:
+       type: array
+       items:
+        type: string
+        enum: ['picture', 'defaultDimensions', 'currency', 'paymentTerm', 'paymentMethod']
+      style: form
+      explode: false
    requestBody:
     $ref: '#/components/requestBodies/vendor'
    responses:

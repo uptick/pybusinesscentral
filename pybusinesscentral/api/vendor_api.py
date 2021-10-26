@@ -701,6 +701,7 @@ class VendorApi(object):
                 vendor (Vendor):
 
             Keyword Args:
+                expand ([str]): (v1.0) Entities to expand. [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -769,6 +770,7 @@ class VendorApi(object):
                     'company_id',
                     'content_type',
                     'vendor',
+                    'expand',
                 ],
                 'required': [
                     'company_id',
@@ -778,6 +780,7 @@ class VendorApi(object):
                 'nullable': [
                 ],
                 'enum': [
+                    'expand',
                 ],
                 'validation': [
                 ]
@@ -786,6 +789,14 @@ class VendorApi(object):
                 'validations': {
                 },
                 'allowed_values': {
+                    ('expand',): {
+
+                        "PICTURE": "picture",
+                        "DEFAULTDIMENSIONS": "defaultDimensions",
+                        "CURRENCY": "currency",
+                        "PAYMENTTERM": "paymentTerm",
+                        "PAYMENTMETHOD": "paymentMethod"
+                    },
                 },
                 'openapi_types': {
                     'company_id':
@@ -794,17 +805,22 @@ class VendorApi(object):
                         (str,),
                     'vendor':
                         (Vendor,),
+                    'expand':
+                        ([str],),
                 },
                 'attribute_map': {
                     'company_id': 'company_id',
                     'content_type': 'Content-Type',
+                    'expand': '$expand',
                 },
                 'location_map': {
                     'company_id': 'path',
                     'content_type': 'header',
                     'vendor': 'body',
+                    'expand': 'query',
                 },
                 'collection_format_map': {
+                    'expand': 'csv',
                 }
             },
             headers_map={

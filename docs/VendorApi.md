@@ -435,11 +435,23 @@ with pybusinesscentral.ApiClient(configuration) as api_client:
         balance=3.14,
         last_modified_date_time=dateutil_parser('1970-01-01T00:00:00.00Z'),
     } # UNKNOWN_BASE_TYPE | 
+    expand = [
+        "picture",
+    ] # [str] | (v1.0) Entities to expand (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Creates an object of type vendor in Dynamics 365 Business Central
         api_response = api_instance.post_vendor(company_id, content_type, unknown_base_type)
+        pprint(api_response)
+    except pybusinesscentral.ApiException as e:
+        print("Exception when calling VendorApi->post_vendor: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Creates an object of type vendor in Dynamics 365 Business Central
+        api_response = api_instance.post_vendor(company_id, content_type, unknown_base_type, expand=expand)
         pprint(api_response)
     except pybusinesscentral.ApiException as e:
         print("Exception when calling VendorApi->post_vendor: %s\n" % e)
@@ -453,6 +465,7 @@ Name | Type | Description  | Notes
  **company_id** | **str**| (v1.0) id for company |
  **content_type** | **str**| (v1.0) application/json |
  **unknown_base_type** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  |
+ **expand** | **[str]**| (v1.0) Entities to expand | [optional]
 
 ### Return type
 
