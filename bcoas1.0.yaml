@@ -808,6 +808,16 @@ paths:
    operationId: postCustomer
    parameters:
     - $ref: '#/components/parameters/ContentTypeParam'
+    - name: $expand
+      in: query
+      description: (v1.0) Entities to expand
+      schema:
+        type: array
+        items:
+          type: string
+          enum: ['customerFinancialDetails', 'picture', 'defaultDimensions', 'currency', 'paymentTerm', 'shipmentMethod', 'paymentMethod']
+      style: form
+      explode: false
    requestBody:
     $ref: '#/components/requestBodies/customer'
    responses:

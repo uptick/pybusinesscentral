@@ -709,6 +709,7 @@ class CustomerApi(object):
                 customer (Customer):
 
             Keyword Args:
+                expand ([str]): (v1.0) Entities to expand. [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -777,6 +778,7 @@ class CustomerApi(object):
                     'company_id',
                     'content_type',
                     'customer',
+                    'expand',
                 ],
                 'required': [
                     'company_id',
@@ -786,6 +788,7 @@ class CustomerApi(object):
                 'nullable': [
                 ],
                 'enum': [
+                    'expand',
                 ],
                 'validation': [
                 ]
@@ -794,6 +797,16 @@ class CustomerApi(object):
                 'validations': {
                 },
                 'allowed_values': {
+                    ('expand',): {
+
+                        "CUSTOMERFINANCIALDETAILS": "customerFinancialDetails",
+                        "PICTURE": "picture",
+                        "DEFAULTDIMENSIONS": "defaultDimensions",
+                        "CURRENCY": "currency",
+                        "PAYMENTTERM": "paymentTerm",
+                        "SHIPMENTMETHOD": "shipmentMethod",
+                        "PAYMENTMETHOD": "paymentMethod"
+                    },
                 },
                 'openapi_types': {
                     'company_id':
@@ -802,17 +815,22 @@ class CustomerApi(object):
                         (str,),
                     'customer':
                         (Customer,),
+                    'expand':
+                        ([str],),
                 },
                 'attribute_map': {
                     'company_id': 'company_id',
                     'content_type': 'Content-Type',
+                    'expand': '$expand',
                 },
                 'location_map': {
                     'company_id': 'path',
                     'content_type': 'header',
                     'customer': 'body',
+                    'expand': 'query',
                 },
                 'collection_format_map': {
+                    'expand': 'csv',
                 }
             },
             headers_map={
