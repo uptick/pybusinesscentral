@@ -29,7 +29,7 @@ setup(
     version=VERSION,
     description="(v2.0) Dynamics 365 Business Central",
     author="Uptick",
-    author_email="support@uptickhq",
+    author_email="support@uptickhq.com",
     url="",
     keywords=["OpenAPI", "OpenAPI-Generator", "(v2.0) Dynamics 365 Business Central"],
     python_requires=">=3.6",
