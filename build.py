@@ -15,7 +15,7 @@ def generate():
             'openapi-generator',
             'generate',
             '-i',
-            './bcoas1.0.yaml',
+            './bcoas2.0.yaml',
             '-o',
             '.',
             '--package-name',
