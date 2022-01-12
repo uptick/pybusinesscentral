@@ -1,17 +1,17 @@
-# pybusinesscentral.BalanceSheetApi
+# pybusinesscentral.DimensionSetLineApi
 
 All URIs are relative to *https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_balance_sheet**](BalanceSheetApi.md#get_balance_sheet) | **GET** /companies({company_id})/balanceSheet({balanceSheet_lineNumber}) | Retrieve the properties and relationships of an object of type balanceSheet for Dynamics 365 Business Central.
-[**list_balance_sheet**](BalanceSheetApi.md#list_balance_sheet) | **GET** /companies({company_id})/balanceSheet | Returns a list of balanceSheet
+[**get_dimension_set_lines_for_sales_invoice_line**](DimensionSetLineApi.md#get_dimension_set_lines_for_sales_invoice_line) | **GET** /companies({company_id})/salesInvoices({salesInvoice_id})/salesInvoiceLines(&#39;{salesInvoiceLine_id}&#39;)/dimensionSetLines | Retrieve the properties and relationships of the list of dimensionSetLines for a salesInvoiceLine.
+[**post_dimension_set_line**](DimensionSetLineApi.md#post_dimension_set_line) | **POST** /companies({company_id})/salesInvoices({salesInvoice_id})/salesInvoiceLines(&#39;{salesInvoiceLine_id}&#39;)/dimensionSetLines | Creates an object of type dimensionSetLine in Dynamics 365 Business Central
 
 
-# **get_balance_sheet**
-> BalanceSheet get_balance_sheet(company_id, balance_sheet_line_number)
+# **get_dimension_set_lines_for_sales_invoice_line**
+> DimensionSetLine get_dimension_set_lines_for_sales_invoice_line(company_id, sales_invoice_id, sales_invoice_line_id)
 
-Retrieve the properties and relationships of an object of type balanceSheet for Dynamics 365 Business Central.
+Retrieve the properties and relationships of the list of dimensionSetLines for a salesInvoiceLine.
 
 ### Example
 
@@ -19,8 +19,8 @@ Retrieve the properties and relationships of an object of type balanceSheet for 
 ```python
 import time
 import pybusinesscentral
-from pybusinesscentral.api import balance_sheet_api
-from pybusinesscentral.model.balance_sheet import BalanceSheet
+from pybusinesscentral.api import dimension_set_line_api
+from pybusinesscentral.model.dimension_set_line import DimensionSetLine
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0
 # See configuration.py for a list of all supported configuration parameters.
@@ -42,29 +42,18 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
 with pybusinesscentral.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = balance_sheet_api.BalanceSheetApi(api_client)
+    api_instance = dimension_set_line_api.DimensionSetLineApi(api_client)
     company_id = "company_id_example" # str | (v1.0) id for company
-    balance_sheet_line_number = 1 # int | (v1.0) lineNumber for balanceSheet
-    select = [
-        "lineNumber",
-    ] # [str] | (v1.0) Selected properties to be retrieved (optional)
+    sales_invoice_id = "salesInvoice_id_example" # str | (v1.0) id for salesInvoice
+    sales_invoice_line_id = "salesInvoiceLine_id_example" # str | (v1.0) id for salesInvoiceLine
 
     # example passing only required values which don't have defaults set
     try:
-        # Retrieve the properties and relationships of an object of type balanceSheet for Dynamics 365 Business Central.
-        api_response = api_instance.get_balance_sheet(company_id, balance_sheet_line_number)
+        # Retrieve the properties and relationships of the list of dimensionSetLines for a salesInvoiceLine.
+        api_response = api_instance.get_dimension_set_lines_for_sales_invoice_line(company_id, sales_invoice_id, sales_invoice_line_id)
         pprint(api_response)
     except pybusinesscentral.ApiException as e:
-        print("Exception when calling BalanceSheetApi->get_balance_sheet: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Retrieve the properties and relationships of an object of type balanceSheet for Dynamics 365 Business Central.
-        api_response = api_instance.get_balance_sheet(company_id, balance_sheet_line_number, select=select)
-        pprint(api_response)
-    except pybusinesscentral.ApiException as e:
-        print("Exception when calling BalanceSheetApi->get_balance_sheet: %s\n" % e)
+        print("Exception when calling DimensionSetLineApi->get_dimension_set_lines_for_sales_invoice_line: %s\n" % e)
 ```
 
 
@@ -73,12 +62,12 @@ with pybusinesscentral.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **company_id** | **str**| (v1.0) id for company |
- **balance_sheet_line_number** | **int**| (v1.0) lineNumber for balanceSheet |
- **select** | **[str]**| (v1.0) Selected properties to be retrieved | [optional]
+ **sales_invoice_id** | **str**| (v1.0) id for salesInvoice |
+ **sales_invoice_line_id** | **str**| (v1.0) id for salesInvoiceLine |
 
 ### Return type
 
-[**BalanceSheet**](BalanceSheet.md)
+[**DimensionSetLine**](DimensionSetLine.md)
 
 ### Authorization
 
@@ -93,14 +82,14 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | (v1.0) Succesfully returned the requested balanceSheet |  -  |
+**200** | (v1.0) Succesfully returned the requested dimensionSetLines |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **list_balance_sheet**
-> InlineResponse20037 list_balance_sheet(company_id)
+# **post_dimension_set_line**
+> DimensionSetLine post_dimension_set_line(company_id, sales_invoice_id, sales_invoice_line_id, content_type, unknown_base_type)
 
-Returns a list of balanceSheet
+Creates an object of type dimensionSetLine in Dynamics 365 Business Central
 
 ### Example
 
@@ -108,8 +97,9 @@ Returns a list of balanceSheet
 ```python
 import time
 import pybusinesscentral
-from pybusinesscentral.api import balance_sheet_api
-from pybusinesscentral.model.inline_response20037 import InlineResponse20037
+from pybusinesscentral.api import dimension_set_line_api
+from pybusinesscentral.model.dimension_set_line import DimensionSetLine
+from pybusinesscentral.model.unknownbasetype import UNKNOWNBASETYPE
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0
 # See configuration.py for a list of all supported configuration parameters.
@@ -131,32 +121,28 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
 with pybusinesscentral.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = balance_sheet_api.BalanceSheetApi(api_client)
+    api_instance = dimension_set_line_api.DimensionSetLineApi(api_client)
     company_id = "company_id_example" # str | (v1.0) id for company
-    top = 1 # int | (v1.0) Number of items to return from the top of the list (optional)
-    skip = 1 # int | (v1.0) Number of items to skip from the list (optional)
-    limit = 1 # int | (v1.0) Number of items to return from the list (optional)
-    filter = "$filter_example" # str | (v1.0) Filtering expression (optional)
-    select = [
-        "lineNumber",
-    ] # [str] | (v1.0) Selected properties to be retrieved (optional)
+    sales_invoice_id = "salesInvoice_id_example" # str | (v1.0) id for salesInvoice
+    sales_invoice_line_id = "salesInvoiceLine_id_example" # str | (v1.0) id for salesInvoiceLine
+    content_type = "Content-Type_example" # str | (v1.0) application/json
+    unknown_base_type = {
+        parent_id="parent_id_example",
+        id="id_example",
+        code="code_example",
+        display_name="display_name_example",
+        value_id="value_id_example",
+        value_code="value_code_example",
+        value_display_name="value_display_name_example",
+    } # UNKNOWN_BASE_TYPE | 
 
     # example passing only required values which don't have defaults set
     try:
-        # Returns a list of balanceSheet
-        api_response = api_instance.list_balance_sheet(company_id)
+        # Creates an object of type dimensionSetLine in Dynamics 365 Business Central
+        api_response = api_instance.post_dimension_set_line(company_id, sales_invoice_id, sales_invoice_line_id, content_type, unknown_base_type)
         pprint(api_response)
     except pybusinesscentral.ApiException as e:
-        print("Exception when calling BalanceSheetApi->list_balance_sheet: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Returns a list of balanceSheet
-        api_response = api_instance.list_balance_sheet(company_id, top=top, skip=skip, limit=limit, filter=filter, select=select)
-        pprint(api_response)
-    except pybusinesscentral.ApiException as e:
-        print("Exception when calling BalanceSheetApi->list_balance_sheet: %s\n" % e)
+        print("Exception when calling DimensionSetLineApi->post_dimension_set_line: %s\n" % e)
 ```
 
 
@@ -165,15 +151,14 @@ with pybusinesscentral.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **company_id** | **str**| (v1.0) id for company |
- **top** | **int**| (v1.0) Number of items to return from the top of the list | [optional]
- **skip** | **int**| (v1.0) Number of items to skip from the list | [optional]
- **limit** | **int**| (v1.0) Number of items to return from the list | [optional]
- **filter** | **str**| (v1.0) Filtering expression | [optional]
- **select** | **[str]**| (v1.0) Selected properties to be retrieved | [optional]
+ **sales_invoice_id** | **str**| (v1.0) id for salesInvoice |
+ **sales_invoice_line_id** | **str**| (v1.0) id for salesInvoiceLine |
+ **content_type** | **str**| (v1.0) application/json |
+ **unknown_base_type** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  |
 
 ### Return type
 
-[**InlineResponse20037**](InlineResponse20037.md)
+[**DimensionSetLine**](DimensionSetLine.md)
 
 ### Authorization
 
@@ -181,14 +166,14 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | (v1.0) Succesfully returned a list of balanceSheet |  -  |
+**201** | (v1.0) A new dimensionSetLine has been succesfully created |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

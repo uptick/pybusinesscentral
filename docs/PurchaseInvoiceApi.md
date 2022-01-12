@@ -1,6 +1,6 @@
 # pybusinesscentral.PurchaseInvoiceApi
 
-All URIs are relative to *https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0*
+All URIs are relative to *https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -8,7 +8,6 @@ Method | HTTP request | Description
 [**get_purchase_invoice**](PurchaseInvoiceApi.md#get_purchase_invoice) | **GET** /companies({company_id})/purchaseInvoices({purchaseInvoice_id}) | Retrieve the properties and relationships of an object of type purchaseInvoice for Dynamics 365 Business Central.
 [**list_purchase_invoices**](PurchaseInvoiceApi.md#list_purchase_invoices) | **GET** /companies({company_id})/purchaseInvoices | Returns a list of purchaseInvoices
 [**patch_purchase_invoice**](PurchaseInvoiceApi.md#patch_purchase_invoice) | **PATCH** /companies({company_id})/purchaseInvoices({purchaseInvoice_id}) | Updates an object of type purchaseInvoice in Dynamics 365 Business Central
-[**post_action_purchase_invoices**](PurchaseInvoiceApi.md#post_action_purchase_invoices) | **POST** /companies({company_id})/purchaseInvoices({purchaseInvoice_id})/Microsoft.NAV.post | Performs the post action for purchaseInvoices entity
 [**post_purchase_invoice**](PurchaseInvoiceApi.md#post_purchase_invoice) | **POST** /companies({company_id})/purchaseInvoices | Creates an object of type purchaseInvoice in Dynamics 365 Business Central
 
 
@@ -25,10 +24,10 @@ import time
 import pybusinesscentral
 from pybusinesscentral.api import purchase_invoice_api
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0
+# Defining the host is optional and defaults to https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pybusinesscentral.Configuration(
-    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0"
+    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -38,7 +37,7 @@ configuration = pybusinesscentral.Configuration(
 
 # Configure OAuth2 access token for authorization: oAuth
 configuration = pybusinesscentral.Configuration(
-    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0"
+    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -100,10 +99,10 @@ import pybusinesscentral
 from pybusinesscentral.api import purchase_invoice_api
 from pybusinesscentral.model.purchase_invoice import PurchaseInvoice
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0
+# Defining the host is optional and defaults to https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pybusinesscentral.Configuration(
-    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0"
+    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -113,7 +112,7 @@ configuration = pybusinesscentral.Configuration(
 
 # Configure OAuth2 access token for authorization: oAuth
 configuration = pybusinesscentral.Configuration(
-    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0"
+    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -180,7 +179,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_purchase_invoices**
-> InlineResponse20046 list_purchase_invoices(company_id)
+> InlineResponse2008 list_purchase_invoices(company_id)
 
 Returns a list of purchaseInvoices
 
@@ -191,12 +190,12 @@ Returns a list of purchaseInvoices
 import time
 import pybusinesscentral
 from pybusinesscentral.api import purchase_invoice_api
-from pybusinesscentral.model.inline_response20046 import InlineResponse20046
+from pybusinesscentral.model.inline_response2008 import InlineResponse2008
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0
+# Defining the host is optional and defaults to https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pybusinesscentral.Configuration(
-    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0"
+    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -206,7 +205,7 @@ configuration = pybusinesscentral.Configuration(
 
 # Configure OAuth2 access token for authorization: oAuth
 configuration = pybusinesscentral.Configuration(
-    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0"
+    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -259,7 +258,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20046**](InlineResponse20046.md)
+[**InlineResponse2008**](InlineResponse2008.md)
 
 ### Authorization
 
@@ -293,10 +292,10 @@ from pybusinesscentral.api import purchase_invoice_api
 from pybusinesscentral.model.unknownbasetype import UNKNOWNBASETYPE
 from pybusinesscentral.model.purchase_invoice import PurchaseInvoice
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0
+# Defining the host is optional and defaults to https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pybusinesscentral.Configuration(
-    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0"
+    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -306,7 +305,7 @@ configuration = pybusinesscentral.Configuration(
 
 # Configure OAuth2 access token for authorization: oAuth
 configuration = pybusinesscentral.Configuration(
-    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0"
+    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -389,80 +388,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **post_action_purchase_invoices**
-> post_action_purchase_invoices(company_id, purchase_invoice_id)
-
-Performs the post action for purchaseInvoices entity
-
-### Example
-
-* OAuth Authentication (oAuth):
-```python
-import time
-import pybusinesscentral
-from pybusinesscentral.api import purchase_invoice_api
-from pprint import pprint
-# Defining the host is optional and defaults to https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0
-# See configuration.py for a list of all supported configuration parameters.
-configuration = pybusinesscentral.Configuration(
-    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure OAuth2 access token for authorization: oAuth
-configuration = pybusinesscentral.Configuration(
-    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
-# Enter a context with an instance of the API client
-with pybusinesscentral.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = purchase_invoice_api.PurchaseInvoiceApi(api_client)
-    company_id = "company_id_example" # str | (v1.0) id for company
-    purchase_invoice_id = "purchaseInvoice_id_example" # str | (v1.0) id for purchaseInvoice
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Performs the post action for purchaseInvoices entity
-        api_instance.post_action_purchase_invoices(company_id, purchase_invoice_id)
-    except pybusinesscentral.ApiException as e:
-        print("Exception when calling PurchaseInvoiceApi->post_action_purchase_invoices: %s\n" % e)
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **company_id** | **str**| (v1.0) id for company |
- **purchase_invoice_id** | **str**| (v1.0) id for purchaseInvoice |
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[oAuth](../README.md#oAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**204** | (v1.0) Succesfully performed a post action on the Dynamic 365 Business Central purchaseInvoices entity |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **post_purchase_invoice**
 > PurchaseInvoice post_purchase_invoice(company_id, content_type, unknown_base_type)
 
@@ -478,10 +403,10 @@ from pybusinesscentral.api import purchase_invoice_api
 from pybusinesscentral.model.unknownbasetype import UNKNOWNBASETYPE
 from pybusinesscentral.model.purchase_invoice import PurchaseInvoice
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0
+# Defining the host is optional and defaults to https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pybusinesscentral.Configuration(
-    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0"
+    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -491,7 +416,7 @@ configuration = pybusinesscentral.Configuration(
 
 # Configure OAuth2 access token for authorization: oAuth
 configuration = pybusinesscentral.Configuration(
-    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0"
+    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 

@@ -18,9 +18,9 @@ Name | Type | Description | Notes
 **pay_to_vendor_number** | **str, none_type** | (v1.0) The payToVendorNumber property for the Dynamics 365 Business Central purchaseInvoice entity | [optional] 
 **ship_to_name** | **str, none_type** | (v1.0) The shipToName property for the Dynamics 365 Business Central purchaseInvoice entity | [optional] 
 **ship_to_contact** | **str, none_type** | (v1.0) The shipToContact property for the Dynamics 365 Business Central purchaseInvoice entity | [optional] 
-**buy_from_address** | **dict, none_type** |  | [optional] 
-**pay_to_address** | **dict, none_type** |  | [optional] 
-**ship_to_address** | **dict, none_type** |  | [optional] 
+**buy_from_address** | **dict** |  | [optional] 
+**pay_to_address** | **dict** |  | [optional] 
+**ship_to_address** | **dict** |  | [optional] 
 **currency_id** | **str, none_type** | (v1.0) The currencyId property for the Dynamics 365 Business Central purchaseInvoice entity | [optional] 
 **currency_code** | **str, none_type** | (v1.0) The currencyCode property for the Dynamics 365 Business Central purchaseInvoice entity | [optional] 
 **prices_include_tax** | **bool, none_type** | (v1.0) The pricesIncludeTax property for the Dynamics 365 Business Central purchaseInvoice entity | [optional] 
@@ -33,8 +33,8 @@ Name | Type | Description | Notes
 **last_modified_date_time** | **datetime, none_type** | (v1.0) The lastModifiedDateTime property for the Dynamics 365 Business Central purchaseInvoice entity | [optional] 
 **purchase_invoice_lines** | [**[PurchaseInvoiceLine], none_type**](PurchaseInvoiceLine.md) |  | [optional] 
 **pdf_document** | [**[PdfDocument], none_type**](PdfDocument.md) |  | [optional] 
-**vendor** | **dict, none_type** |  | [optional] 
-**currency** | **dict, none_type** |  | [optional] 
+**vendor** | **dict** |  | [optional] 
+**currency** | **dict** |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
