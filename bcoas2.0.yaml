@@ -682,7 +682,7 @@ paths:
       application/json:
        schema:
         $ref: '#/components/schemas/salesInvoiceLine'
- "/companies({company_id})/salesInvoices({salesInvoice_id})/salesInvoiceLines('{salesInvoiceLine_id}')/dimensionSetLines":
+ "/companies({company_id})/salesInvoices({salesInvoice_id})/salesInvoiceLines({salesInvoiceLine_id})/dimensionSetLines":
   parameters: 
    - name: company_id
      in: path

@@ -4,8 +4,8 @@ All URIs are relative to *https://api.businesscentral.dynamics.com/v2.0/sandbox/
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_dimension_set_lines_for_sales_invoice_line**](DimensionSetLineApi.md#get_dimension_set_lines_for_sales_invoice_line) | **GET** /companies({company_id})/salesInvoices({salesInvoice_id})/salesInvoiceLines(&#39;{salesInvoiceLine_id}&#39;)/dimensionSetLines | Retrieve the properties and relationships of the list of dimensionSetLines for a salesInvoiceLine.
-[**post_dimension_set_line**](DimensionSetLineApi.md#post_dimension_set_line) | **POST** /companies({company_id})/salesInvoices({salesInvoice_id})/salesInvoiceLines(&#39;{salesInvoiceLine_id}&#39;)/dimensionSetLines | Creates an object of type dimensionSetLine in Dynamics 365 Business Central
+[**get_dimension_set_lines_for_sales_invoice_line**](DimensionSetLineApi.md#get_dimension_set_lines_for_sales_invoice_line) | **GET** /companies({company_id})/salesInvoices({salesInvoice_id})/salesInvoiceLines({salesInvoiceLine_id})/dimensionSetLines | Retrieve the properties and relationships of the list of dimensionSetLines for a salesInvoiceLine.
+[**post_dimension_set_line**](DimensionSetLineApi.md#post_dimension_set_line) | **POST** /companies({company_id})/salesInvoices({salesInvoice_id})/salesInvoiceLines({salesInvoiceLine_id})/dimensionSetLines | Creates an object of type dimensionSetLine in Dynamics 365 Business Central
 
 
 # **get_dimension_set_lines_for_sales_invoice_line**

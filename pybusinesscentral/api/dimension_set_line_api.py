@@ -115,7 +115,7 @@ class DimensionSetLineApi(object):
                 'auth': [
                     'oAuth'
                 ],
-                'endpoint_path': '/companies({company_id})/salesInvoices({salesInvoice_id})/salesInvoiceLines('{salesInvoiceLine_id}')/dimensionSetLines',
+                'endpoint_path': '/companies({company_id})/salesInvoices({salesInvoice_id})/salesInvoiceLines({salesInvoiceLine_id})/dimensionSetLines',
                 'operation_id': 'get_dimension_set_lines_for_sales_invoice_line',
                 'http_method': 'GET',
                 'servers': None,
@@ -261,7 +261,7 @@ class DimensionSetLineApi(object):
                 'auth': [
                     'oAuth'
                 ],
-                'endpoint_path': '/companies({company_id})/salesInvoices({salesInvoice_id})/salesInvoiceLines('{salesInvoiceLine_id}')/dimensionSetLines',
+                'endpoint_path': '/companies({company_id})/salesInvoices({salesInvoice_id})/salesInvoiceLines({salesInvoiceLine_id})/dimensionSetLines',
                 'operation_id': 'post_dimension_set_line',
                 'http_method': 'POST',
                 'servers': None,
