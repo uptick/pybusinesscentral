@@ -1,169 +1,15 @@
 # pybusinesscentral.SalesInvoiceApi
 
-All URIs are relative to *https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0*
+All URIs are relative to *https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**cancel_action_sales_invoices**](SalesInvoiceApi.md#cancel_action_sales_invoices) | **POST** /companies({company_id})/salesInvoices({salesInvoice_id})/Microsoft.NAV.cancel | Performs the cancel action for salesInvoices entity
-[**cancel_and_send_action_sales_invoices**](SalesInvoiceApi.md#cancel_and_send_action_sales_invoices) | **POST** /companies({company_id})/salesInvoices({salesInvoice_id})/Microsoft.NAV.cancelAndSend | Performs the cancelAndSend action for salesInvoices entity
 [**delete_sales_invoice**](SalesInvoiceApi.md#delete_sales_invoice) | **DELETE** /companies({company_id})/salesInvoices({salesInvoice_id}) | Deletes an object of type salesInvoice in Dynamics 365 Business Central
 [**get_sales_invoice**](SalesInvoiceApi.md#get_sales_invoice) | **GET** /companies({company_id})/salesInvoices({salesInvoice_id}) | Retrieve the properties and relationships of an object of type salesInvoice for Dynamics 365 Business Central.
 [**list_sales_invoices**](SalesInvoiceApi.md#list_sales_invoices) | **GET** /companies({company_id})/salesInvoices | Returns a list of salesInvoices
-[**make_corrective_credit_memo_action_sales_invoices**](SalesInvoiceApi.md#make_corrective_credit_memo_action_sales_invoices) | **POST** /companies({company_id})/salesInvoices({salesInvoice_id})/Microsoft.NAV.makeCorrectiveCreditMemo | Performs the makeCorrectiveCreditMemo action for salesInvoices entity
 [**patch_sales_invoice**](SalesInvoiceApi.md#patch_sales_invoice) | **PATCH** /companies({company_id})/salesInvoices({salesInvoice_id}) | Updates an object of type salesInvoice in Dynamics 365 Business Central
-[**post_action_sales_invoices**](SalesInvoiceApi.md#post_action_sales_invoices) | **POST** /companies({company_id})/salesInvoices({salesInvoice_id})/Microsoft.NAV.post | Performs the post action for salesInvoices entity
-[**post_and_send_action_sales_invoices**](SalesInvoiceApi.md#post_and_send_action_sales_invoices) | **POST** /companies({company_id})/salesInvoices({salesInvoice_id})/Microsoft.NAV.postAndSend | Performs the postAndSend action for salesInvoices entity
 [**post_sales_invoice**](SalesInvoiceApi.md#post_sales_invoice) | **POST** /companies({company_id})/salesInvoices | Creates an object of type salesInvoice in Dynamics 365 Business Central
-[**send_action_sales_invoices**](SalesInvoiceApi.md#send_action_sales_invoices) | **POST** /companies({company_id})/salesInvoices({salesInvoice_id})/Microsoft.NAV.send | Performs the send action for salesInvoices entity
 
-
-# **cancel_action_sales_invoices**
-> cancel_action_sales_invoices(company_id, sales_invoice_id)
-
-Performs the cancel action for salesInvoices entity
-
-### Example
-
-* OAuth Authentication (oAuth):
-```python
-import time
-import pybusinesscentral
-from pybusinesscentral.api import sales_invoice_api
-from pprint import pprint
-# Defining the host is optional and defaults to https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0
-# See configuration.py for a list of all supported configuration parameters.
-configuration = pybusinesscentral.Configuration(
-    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure OAuth2 access token for authorization: oAuth
-configuration = pybusinesscentral.Configuration(
-    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
-# Enter a context with an instance of the API client
-with pybusinesscentral.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = sales_invoice_api.SalesInvoiceApi(api_client)
-    company_id = "company_id_example" # str | (v1.0) id for company
-    sales_invoice_id = "salesInvoice_id_example" # str | (v1.0) id for salesInvoice
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Performs the cancel action for salesInvoices entity
-        api_instance.cancel_action_sales_invoices(company_id, sales_invoice_id)
-    except pybusinesscentral.ApiException as e:
-        print("Exception when calling SalesInvoiceApi->cancel_action_sales_invoices: %s\n" % e)
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **company_id** | **str**| (v1.0) id for company |
- **sales_invoice_id** | **str**| (v1.0) id for salesInvoice |
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[oAuth](../README.md#oAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**204** | (v1.0) Succesfully performed a cancel action on the Dynamic 365 Business Central salesInvoices entity |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **cancel_and_send_action_sales_invoices**
-> cancel_and_send_action_sales_invoices(company_id, sales_invoice_id)
-
-Performs the cancelAndSend action for salesInvoices entity
-
-### Example
-
-* OAuth Authentication (oAuth):
-```python
-import time
-import pybusinesscentral
-from pybusinesscentral.api import sales_invoice_api
-from pprint import pprint
-# Defining the host is optional and defaults to https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0
-# See configuration.py for a list of all supported configuration parameters.
-configuration = pybusinesscentral.Configuration(
-    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure OAuth2 access token for authorization: oAuth
-configuration = pybusinesscentral.Configuration(
-    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
-# Enter a context with an instance of the API client
-with pybusinesscentral.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = sales_invoice_api.SalesInvoiceApi(api_client)
-    company_id = "company_id_example" # str | (v1.0) id for company
-    sales_invoice_id = "salesInvoice_id_example" # str | (v1.0) id for salesInvoice
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Performs the cancelAndSend action for salesInvoices entity
-        api_instance.cancel_and_send_action_sales_invoices(company_id, sales_invoice_id)
-    except pybusinesscentral.ApiException as e:
-        print("Exception when calling SalesInvoiceApi->cancel_and_send_action_sales_invoices: %s\n" % e)
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **company_id** | **str**| (v1.0) id for company |
- **sales_invoice_id** | **str**| (v1.0) id for salesInvoice |
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[oAuth](../README.md#oAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**204** | (v1.0) Succesfully performed a cancelAndSend action on the Dynamic 365 Business Central salesInvoices entity |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_sales_invoice**
 > delete_sales_invoice(company_id, sales_invoice_id)
@@ -178,10 +24,10 @@ import time
 import pybusinesscentral
 from pybusinesscentral.api import sales_invoice_api
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0
+# Defining the host is optional and defaults to https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pybusinesscentral.Configuration(
-    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0"
+    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -191,7 +37,7 @@ configuration = pybusinesscentral.Configuration(
 
 # Configure OAuth2 access token for authorization: oAuth
 configuration = pybusinesscentral.Configuration(
-    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0"
+    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -253,10 +99,10 @@ import pybusinesscentral
 from pybusinesscentral.api import sales_invoice_api
 from pybusinesscentral.model.sales_invoice import SalesInvoice
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0
+# Defining the host is optional and defaults to https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pybusinesscentral.Configuration(
-    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0"
+    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -266,7 +112,7 @@ configuration = pybusinesscentral.Configuration(
 
 # Configure OAuth2 access token for authorization: oAuth
 configuration = pybusinesscentral.Configuration(
-    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0"
+    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -333,7 +179,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_sales_invoices**
-> InlineResponse2008 list_sales_invoices(company_id)
+> InlineResponse2003 list_sales_invoices(company_id)
 
 Returns a list of salesInvoices
 
@@ -344,12 +190,12 @@ Returns a list of salesInvoices
 import time
 import pybusinesscentral
 from pybusinesscentral.api import sales_invoice_api
-from pybusinesscentral.model.inline_response2008 import InlineResponse2008
+from pybusinesscentral.model.inline_response2003 import InlineResponse2003
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0
+# Defining the host is optional and defaults to https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pybusinesscentral.Configuration(
-    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0"
+    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -359,7 +205,7 @@ configuration = pybusinesscentral.Configuration(
 
 # Configure OAuth2 access token for authorization: oAuth
 configuration = pybusinesscentral.Configuration(
-    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0"
+    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -412,7 +258,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2008**](InlineResponse2008.md)
+[**InlineResponse2003**](InlineResponse2003.md)
 
 ### Authorization
 
@@ -431,80 +277,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **make_corrective_credit_memo_action_sales_invoices**
-> make_corrective_credit_memo_action_sales_invoices(company_id, sales_invoice_id)
-
-Performs the makeCorrectiveCreditMemo action for salesInvoices entity
-
-### Example
-
-* OAuth Authentication (oAuth):
-```python
-import time
-import pybusinesscentral
-from pybusinesscentral.api import sales_invoice_api
-from pprint import pprint
-# Defining the host is optional and defaults to https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0
-# See configuration.py for a list of all supported configuration parameters.
-configuration = pybusinesscentral.Configuration(
-    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure OAuth2 access token for authorization: oAuth
-configuration = pybusinesscentral.Configuration(
-    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
-# Enter a context with an instance of the API client
-with pybusinesscentral.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = sales_invoice_api.SalesInvoiceApi(api_client)
-    company_id = "company_id_example" # str | (v1.0) id for company
-    sales_invoice_id = "salesInvoice_id_example" # str | (v1.0) id for salesInvoice
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Performs the makeCorrectiveCreditMemo action for salesInvoices entity
-        api_instance.make_corrective_credit_memo_action_sales_invoices(company_id, sales_invoice_id)
-    except pybusinesscentral.ApiException as e:
-        print("Exception when calling SalesInvoiceApi->make_corrective_credit_memo_action_sales_invoices: %s\n" % e)
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **company_id** | **str**| (v1.0) id for company |
- **sales_invoice_id** | **str**| (v1.0) id for salesInvoice |
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[oAuth](../README.md#oAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**204** | (v1.0) Succesfully performed a makeCorrectiveCreditMemo action on the Dynamic 365 Business Central salesInvoices entity |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **patch_sales_invoice**
 > SalesInvoice patch_sales_invoice(company_id, sales_invoice_id, content_type, if_match, unknown_base_type)
 
@@ -520,10 +292,10 @@ from pybusinesscentral.api import sales_invoice_api
 from pybusinesscentral.model.unknownbasetype import UNKNOWNBASETYPE
 from pybusinesscentral.model.sales_invoice import SalesInvoice
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0
+# Defining the host is optional and defaults to https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pybusinesscentral.Configuration(
-    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0"
+    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -533,7 +305,7 @@ configuration = pybusinesscentral.Configuration(
 
 # Configure OAuth2 access token for authorization: oAuth
 configuration = pybusinesscentral.Configuration(
-    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0"
+    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -625,154 +397,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **post_action_sales_invoices**
-> post_action_sales_invoices(company_id, sales_invoice_id)
-
-Performs the post action for salesInvoices entity
-
-### Example
-
-* OAuth Authentication (oAuth):
-```python
-import time
-import pybusinesscentral
-from pybusinesscentral.api import sales_invoice_api
-from pprint import pprint
-# Defining the host is optional and defaults to https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0
-# See configuration.py for a list of all supported configuration parameters.
-configuration = pybusinesscentral.Configuration(
-    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure OAuth2 access token for authorization: oAuth
-configuration = pybusinesscentral.Configuration(
-    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
-# Enter a context with an instance of the API client
-with pybusinesscentral.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = sales_invoice_api.SalesInvoiceApi(api_client)
-    company_id = "company_id_example" # str | (v1.0) id for company
-    sales_invoice_id = "salesInvoice_id_example" # str | (v1.0) id for salesInvoice
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Performs the post action for salesInvoices entity
-        api_instance.post_action_sales_invoices(company_id, sales_invoice_id)
-    except pybusinesscentral.ApiException as e:
-        print("Exception when calling SalesInvoiceApi->post_action_sales_invoices: %s\n" % e)
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **company_id** | **str**| (v1.0) id for company |
- **sales_invoice_id** | **str**| (v1.0) id for salesInvoice |
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[oAuth](../README.md#oAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**204** | (v1.0) Succesfully performed a post action on the Dynamic 365 Business Central salesInvoices entity |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **post_and_send_action_sales_invoices**
-> post_and_send_action_sales_invoices(company_id, sales_invoice_id)
-
-Performs the postAndSend action for salesInvoices entity
-
-### Example
-
-* OAuth Authentication (oAuth):
-```python
-import time
-import pybusinesscentral
-from pybusinesscentral.api import sales_invoice_api
-from pprint import pprint
-# Defining the host is optional and defaults to https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0
-# See configuration.py for a list of all supported configuration parameters.
-configuration = pybusinesscentral.Configuration(
-    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure OAuth2 access token for authorization: oAuth
-configuration = pybusinesscentral.Configuration(
-    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
-# Enter a context with an instance of the API client
-with pybusinesscentral.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = sales_invoice_api.SalesInvoiceApi(api_client)
-    company_id = "company_id_example" # str | (v1.0) id for company
-    sales_invoice_id = "salesInvoice_id_example" # str | (v1.0) id for salesInvoice
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Performs the postAndSend action for salesInvoices entity
-        api_instance.post_and_send_action_sales_invoices(company_id, sales_invoice_id)
-    except pybusinesscentral.ApiException as e:
-        print("Exception when calling SalesInvoiceApi->post_and_send_action_sales_invoices: %s\n" % e)
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **company_id** | **str**| (v1.0) id for company |
- **sales_invoice_id** | **str**| (v1.0) id for salesInvoice |
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[oAuth](../README.md#oAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**204** | (v1.0) Succesfully performed a postAndSend action on the Dynamic 365 Business Central salesInvoices entity |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **post_sales_invoice**
 > SalesInvoice post_sales_invoice(company_id, content_type, unknown_base_type)
 
@@ -788,10 +412,10 @@ from pybusinesscentral.api import sales_invoice_api
 from pybusinesscentral.model.unknownbasetype import UNKNOWNBASETYPE
 from pybusinesscentral.model.sales_invoice import SalesInvoice
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0
+# Defining the host is optional and defaults to https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pybusinesscentral.Configuration(
-    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0"
+    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -801,7 +425,7 @@ configuration = pybusinesscentral.Configuration(
 
 # Configure OAuth2 access token for authorization: oAuth
 configuration = pybusinesscentral.Configuration(
-    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0"
+    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -899,80 +523,6 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | (v1.0) A new salesInvoice has been succesfully created |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **send_action_sales_invoices**
-> send_action_sales_invoices(company_id, sales_invoice_id)
-
-Performs the send action for salesInvoices entity
-
-### Example
-
-* OAuth Authentication (oAuth):
-```python
-import time
-import pybusinesscentral
-from pybusinesscentral.api import sales_invoice_api
-from pprint import pprint
-# Defining the host is optional and defaults to https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0
-# See configuration.py for a list of all supported configuration parameters.
-configuration = pybusinesscentral.Configuration(
-    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure OAuth2 access token for authorization: oAuth
-configuration = pybusinesscentral.Configuration(
-    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
-# Enter a context with an instance of the API client
-with pybusinesscentral.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = sales_invoice_api.SalesInvoiceApi(api_client)
-    company_id = "company_id_example" # str | (v1.0) id for company
-    sales_invoice_id = "salesInvoice_id_example" # str | (v1.0) id for salesInvoice
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Performs the send action for salesInvoices entity
-        api_instance.send_action_sales_invoices(company_id, sales_invoice_id)
-    except pybusinesscentral.ApiException as e:
-        print("Exception when calling SalesInvoiceApi->send_action_sales_invoices: %s\n" % e)
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **company_id** | **str**| (v1.0) id for company |
- **sales_invoice_id** | **str**| (v1.0) id for salesInvoice |
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[oAuth](../README.md#oAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**204** | (v1.0) Succesfully performed a send action on the Dynamic 365 Business Central salesInvoices entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

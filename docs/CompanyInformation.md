@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | (v1.0) The id property for the Dynamics 365 Business Central companyInformation entity | [optional] 
 **display_name** | **str, none_type** | (v1.0) The displayName property for the Dynamics 365 Business Central companyInformation entity | [optional] 
-**address** | **dict, none_type** |  | [optional] 
+**address** | **dict** |  | [optional] 
 **phone_number** | **str, none_type** | (v1.0) The phoneNumber property for the Dynamics 365 Business Central companyInformation entity | [optional] 
 **fax_number** | **str, none_type** | (v1.0) The faxNumber property for the Dynamics 365 Business Central companyInformation entity | [optional] 
 **email** | **str, none_type** | (v1.0) The email property for the Dynamics 365 Business Central companyInformation entity | [optional] 

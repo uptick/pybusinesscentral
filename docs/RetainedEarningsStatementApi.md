@@ -1,6 +1,6 @@
 # pybusinesscentral.RetainedEarningsStatementApi
 
-All URIs are relative to *https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0*
+All URIs are relative to *https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -22,10 +22,10 @@ import pybusinesscentral
 from pybusinesscentral.api import retained_earnings_statement_api
 from pybusinesscentral.model.retained_earnings_statement import RetainedEarningsStatement
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0
+# Defining the host is optional and defaults to https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pybusinesscentral.Configuration(
-    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0"
+    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -35,7 +35,7 @@ configuration = pybusinesscentral.Configuration(
 
 # Configure OAuth2 access token for authorization: oAuth
 configuration = pybusinesscentral.Configuration(
-    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0"
+    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -111,10 +111,10 @@ import pybusinesscentral
 from pybusinesscentral.api import retained_earnings_statement_api
 from pybusinesscentral.model.inline_response20033 import InlineResponse20033
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0
+# Defining the host is optional and defaults to https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pybusinesscentral.Configuration(
-    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0"
+    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -124,7 +124,7 @@ configuration = pybusinesscentral.Configuration(
 
 # Configure OAuth2 access token for authorization: oAuth
 configuration = pybusinesscentral.Configuration(
-    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0"
+    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 

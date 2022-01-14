@@ -1,6 +1,6 @@
 # pybusinesscentral.VendorApi
 
-All URIs are relative to *https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0*
+All URIs are relative to *https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -24,10 +24,10 @@ import time
 import pybusinesscentral
 from pybusinesscentral.api import vendor_api
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0
+# Defining the host is optional and defaults to https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pybusinesscentral.Configuration(
-    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0"
+    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -37,7 +37,7 @@ configuration = pybusinesscentral.Configuration(
 
 # Configure OAuth2 access token for authorization: oAuth
 configuration = pybusinesscentral.Configuration(
-    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0"
+    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -99,10 +99,10 @@ import pybusinesscentral
 from pybusinesscentral.api import vendor_api
 from pybusinesscentral.model.vendor import Vendor
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0
+# Defining the host is optional and defaults to https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pybusinesscentral.Configuration(
-    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0"
+    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -112,7 +112,7 @@ configuration = pybusinesscentral.Configuration(
 
 # Configure OAuth2 access token for authorization: oAuth
 configuration = pybusinesscentral.Configuration(
-    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0"
+    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -179,7 +179,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_vendors**
-> InlineResponse2006 list_vendors(company_id)
+> InlineResponse2002 list_vendors(company_id)
 
 Returns a list of vendors
 
@@ -190,12 +190,12 @@ Returns a list of vendors
 import time
 import pybusinesscentral
 from pybusinesscentral.api import vendor_api
-from pybusinesscentral.model.inline_response2006 import InlineResponse2006
+from pybusinesscentral.model.inline_response2002 import InlineResponse2002
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0
+# Defining the host is optional and defaults to https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pybusinesscentral.Configuration(
-    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0"
+    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -205,7 +205,7 @@ configuration = pybusinesscentral.Configuration(
 
 # Configure OAuth2 access token for authorization: oAuth
 configuration = pybusinesscentral.Configuration(
-    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0"
+    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -258,7 +258,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2006**](InlineResponse2006.md)
+[**InlineResponse2002**](InlineResponse2002.md)
 
 ### Authorization
 
@@ -292,10 +292,10 @@ from pybusinesscentral.api import vendor_api
 from pybusinesscentral.model.unknownbasetype import UNKNOWNBASETYPE
 from pybusinesscentral.model.vendor import Vendor
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0
+# Defining the host is optional and defaults to https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pybusinesscentral.Configuration(
-    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0"
+    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -305,7 +305,7 @@ configuration = pybusinesscentral.Configuration(
 
 # Configure OAuth2 access token for authorization: oAuth
 configuration = pybusinesscentral.Configuration(
-    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0"
+    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -393,10 +393,10 @@ from pybusinesscentral.api import vendor_api
 from pybusinesscentral.model.unknownbasetype import UNKNOWNBASETYPE
 from pybusinesscentral.model.vendor import Vendor
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0
+# Defining the host is optional and defaults to https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pybusinesscentral.Configuration(
-    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0"
+    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -406,7 +406,7 @@ configuration = pybusinesscentral.Configuration(
 
 # Configure OAuth2 access token for authorization: oAuth
 configuration = pybusinesscentral.Configuration(
-    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v1.0"
+    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 

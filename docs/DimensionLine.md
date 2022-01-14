@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **value_id** | **str, none_type** | (v1.0) The valueId property for the Dynamics 365 Business Central dimensionLine entity | [optional] 
 **value_code** | **str, none_type** | (v1.0) The valueCode property for the Dynamics 365 Business Central dimensionLine entity | [optional] 
 **value_display_name** | **str, none_type** | (v1.0) The valueDisplayName property for the Dynamics 365 Business Central dimensionLine entity | [optional] 
-**dimension** | **dict, none_type** |  | [optional] 
+**dimension** | **dict** |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
