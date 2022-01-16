@@ -24,8 +24,8 @@ from pybusinesscentral.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from pybusinesscentral.exceptions import ApiAttributeError
 
 
@@ -112,7 +112,7 @@ class Item(ModelNormal):
             'item_category_code': (str, none_type,),  # noqa: E501
             'blocked': (bool, none_type,),  # noqa: E501
             'base_unit_of_measure_id': (str, none_type,),  # noqa: E501
-            'base_unit_of_measure': (dict, none_type,),  # noqa: E501
+            'base_unit_of_measure': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'gtin': (str, none_type,),  # noqa: E501
             'inventory': (float, none_type,),  # noqa: E501
             'unit_price': (float, none_type,),  # noqa: E501
@@ -123,7 +123,7 @@ class Item(ModelNormal):
             'last_modified_date_time': (datetime, none_type,),  # noqa: E501
             'picture': ([Picture], none_type,),  # noqa: E501
             'default_dimensions': ([DefaultDimensions], none_type,),  # noqa: E501
-            'item_category': (dict, none_type,),  # noqa: E501
+            'item_category': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -203,7 +203,7 @@ class Item(ModelNormal):
             item_category_code (str, none_type): (v1.0) The itemCategoryCode property for the Dynamics 365 Business Central item entity. [optional]  # noqa: E501
             blocked (bool, none_type): (v1.0) The blocked property for the Dynamics 365 Business Central item entity. [optional]  # noqa: E501
             base_unit_of_measure_id (str, none_type): (v1.0) The baseUnitOfMeasureId property for the Dynamics 365 Business Central item entity. [optional]  # noqa: E501
-            base_unit_of_measure (dict): [optional]  # noqa: E501
+            base_unit_of_measure (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             gtin (str, none_type): (v1.0) The gtin property for the Dynamics 365 Business Central item entity. [optional]  # noqa: E501
             inventory (float, none_type): (v1.0) The inventory property for the Dynamics 365 Business Central item entity. [optional]  # noqa: E501
             unit_price (float, none_type): (v1.0) The unitPrice property for the Dynamics 365 Business Central item entity. [optional]  # noqa: E501
@@ -214,7 +214,7 @@ class Item(ModelNormal):
             last_modified_date_time (datetime, none_type): (v1.0) The lastModifiedDateTime property for the Dynamics 365 Business Central item entity. [optional]  # noqa: E501
             picture ([Picture], none_type): [optional]  # noqa: E501
             default_dimensions ([DefaultDimensions], none_type): [optional]  # noqa: E501
-            item_category (dict): [optional]  # noqa: E501
+            item_category (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -304,7 +304,7 @@ class Item(ModelNormal):
             item_category_code (str, none_type): (v1.0) The itemCategoryCode property for the Dynamics 365 Business Central item entity. [optional]  # noqa: E501
             blocked (bool, none_type): (v1.0) The blocked property for the Dynamics 365 Business Central item entity. [optional]  # noqa: E501
             base_unit_of_measure_id (str, none_type): (v1.0) The baseUnitOfMeasureId property for the Dynamics 365 Business Central item entity. [optional]  # noqa: E501
-            base_unit_of_measure (dict): [optional]  # noqa: E501
+            base_unit_of_measure (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             gtin (str, none_type): (v1.0) The gtin property for the Dynamics 365 Business Central item entity. [optional]  # noqa: E501
             inventory (float, none_type): (v1.0) The inventory property for the Dynamics 365 Business Central item entity. [optional]  # noqa: E501
             unit_price (float, none_type): (v1.0) The unitPrice property for the Dynamics 365 Business Central item entity. [optional]  # noqa: E501
@@ -315,7 +315,7 @@ class Item(ModelNormal):
             last_modified_date_time (datetime, none_type): (v1.0) The lastModifiedDateTime property for the Dynamics 365 Business Central item entity. [optional]  # noqa: E501
             picture ([Picture], none_type): [optional]  # noqa: E501
             default_dimensions ([DefaultDimensions], none_type): [optional]  # noqa: E501
-            item_category (dict): [optional]  # noqa: E501
+            item_category (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

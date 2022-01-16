@@ -19,6 +19,7 @@ Deletes an object of type salesInvoice in Dynamics 365 Business Central
 ### Example
 
 * OAuth Authentication (oAuth):
+
 ```python
 import time
 import pybusinesscentral
@@ -79,6 +80,7 @@ void (empty response body)
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | (v1.0) Succesfully deleted the specified salesInvoice |  -  |
@@ -93,6 +95,7 @@ Retrieve the properties and relationships of an object of type salesInvoice for 
 ### Example
 
 * OAuth Authentication (oAuth):
+
 ```python
 import time
 import pybusinesscentral
@@ -172,6 +175,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | (v1.0) Succesfully returned the requested salesInvoice |  -  |
@@ -186,6 +190,7 @@ Returns a list of salesInvoices
 ### Example
 
 * OAuth Authentication (oAuth):
+
 ```python
 import time
 import pybusinesscentral
@@ -271,6 +276,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | (v1.0) Succesfully returned a list of salesInvoices |  -  |
@@ -285,6 +291,7 @@ Updates an object of type salesInvoice in Dynamics 365 Business Central
 ### Example
 
 * OAuth Authentication (oAuth):
+
 ```python
 import time
 import pybusinesscentral
@@ -317,44 +324,7 @@ with pybusinesscentral.ApiClient(configuration) as api_client:
     sales_invoice_id = "salesInvoice_id_example" # str | (v1.0) id for salesInvoice
     content_type = "Content-Type_example" # str | (v1.0) application/json
     if_match = "If-Match_example" # str | (v1.0) Required. When this request header is included and the eTag provided does not match the current tag on the entity, this will not be updated.
-    unknown_base_type = {
-        id="id_example",
-        number="number_example",
-        external_document_number="external_document_number_example",
-        invoice_date=dateutil_parser('1970-01-01T00:00:00.00Z'),
-        due_date=dateutil_parser('1970-01-01T00:00:00.00Z'),
-        customer_purchase_order_reference="customer_purchase_order_reference_example",
-        customer_id="customer_id_example",
-        contact_id="contact_id_example",
-        customer_number="customer_number_example",
-        customer_name="customer_name_example",
-        bill_to_name="bill_to_name_example",
-        bill_to_customer_id="bill_to_customer_id_example",
-        bill_to_customer_number="bill_to_customer_number_example",
-        ship_to_name="ship_to_name_example",
-        ship_to_contact="ship_to_contact_example",
-        selling_postal_address=,
-        billing_postal_address=,
-        shipping_postal_address=,
-        currency_id="currency_id_example",
-        currency_code="currency_code_example",
-        order_id="order_id_example",
-        order_number="order_number_example",
-        payment_terms_id="payment_terms_id_example",
-        shipment_method_id="shipment_method_id_example",
-        salesperson="salesperson_example",
-        prices_include_tax=True,
-        remaining_amount=3.14,
-        discount_amount=3.14,
-        discount_applied_before_tax=True,
-        total_amount_excluding_tax=3.14,
-        total_tax_amount=3.14,
-        total_amount_including_tax=3.14,
-        status="status_example",
-        last_modified_date_time=dateutil_parser('1970-01-01T00:00:00.00Z'),
-        phone_number="phone_number_example",
-        email="email_example",
-    } # UNKNOWN_BASE_TYPE | 
+    unknown_base_type = None # UNKNOWN_BASE_TYPE | 
 
     # example passing only required values which don't have defaults set
     try:
@@ -391,6 +361,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | (v1.0) Succesfully updated the specifiedsalesInvoice |  -  |
@@ -405,6 +376,7 @@ Creates an object of type salesInvoice in Dynamics 365 Business Central
 ### Example
 
 * OAuth Authentication (oAuth):
+
 ```python
 import time
 import pybusinesscentral
@@ -435,44 +407,7 @@ with pybusinesscentral.ApiClient(configuration) as api_client:
     api_instance = sales_invoice_api.SalesInvoiceApi(api_client)
     company_id = "company_id_example" # str | (v1.0) id for company
     content_type = "Content-Type_example" # str | (v1.0) application/json
-    unknown_base_type = {
-        id="id_example",
-        number="number_example",
-        external_document_number="external_document_number_example",
-        invoice_date=dateutil_parser('1970-01-01T00:00:00.00Z'),
-        due_date=dateutil_parser('1970-01-01T00:00:00.00Z'),
-        customer_purchase_order_reference="customer_purchase_order_reference_example",
-        customer_id="customer_id_example",
-        contact_id="contact_id_example",
-        customer_number="customer_number_example",
-        customer_name="customer_name_example",
-        bill_to_name="bill_to_name_example",
-        bill_to_customer_id="bill_to_customer_id_example",
-        bill_to_customer_number="bill_to_customer_number_example",
-        ship_to_name="ship_to_name_example",
-        ship_to_contact="ship_to_contact_example",
-        selling_postal_address=,
-        billing_postal_address=,
-        shipping_postal_address=,
-        currency_id="currency_id_example",
-        currency_code="currency_code_example",
-        order_id="order_id_example",
-        order_number="order_number_example",
-        payment_terms_id="payment_terms_id_example",
-        shipment_method_id="shipment_method_id_example",
-        salesperson="salesperson_example",
-        prices_include_tax=True,
-        remaining_amount=3.14,
-        discount_amount=3.14,
-        discount_applied_before_tax=True,
-        total_amount_excluding_tax=3.14,
-        total_tax_amount=3.14,
-        total_amount_including_tax=3.14,
-        status="status_example",
-        last_modified_date_time=dateutil_parser('1970-01-01T00:00:00.00Z'),
-        phone_number="phone_number_example",
-        email="email_example",
-    } # UNKNOWN_BASE_TYPE | 
+    unknown_base_type = None # UNKNOWN_BASE_TYPE | 
     expand = [
         "salesInvoiceLines",
     ] # [str] | (v1.0) Entities to expand (optional)
@@ -520,6 +455,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | (v1.0) A new salesInvoice has been succesfully created |  -  |

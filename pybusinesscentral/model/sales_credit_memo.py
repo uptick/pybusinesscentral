@@ -24,8 +24,8 @@ from pybusinesscentral.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from pybusinesscentral.exceptions import ApiAttributeError
 
 
@@ -134,8 +134,8 @@ class SalesCreditMemo(ModelNormal):
             'bill_to_name': (str, none_type,),  # noqa: E501
             'bill_to_customer_id': (str, none_type,),  # noqa: E501
             'bill_to_customer_number': (str, none_type,),  # noqa: E501
-            'selling_postal_address': (dict, none_type,),  # noqa: E501
-            'billing_postal_address': (dict, none_type,),  # noqa: E501
+            'selling_postal_address': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'billing_postal_address': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'currency_id': (str, none_type,),  # noqa: E501
             'currency_code': (str, none_type,),  # noqa: E501
             'payment_terms_id': (str, none_type,),  # noqa: E501
@@ -155,10 +155,10 @@ class SalesCreditMemo(ModelNormal):
             'email': (str, none_type,),  # noqa: E501
             'sales_credit_memo_lines': ([SalesCreditMemoLine], none_type,),  # noqa: E501
             'pdf_document': ([PdfDocument], none_type,),  # noqa: E501
-            'customer': (dict, none_type,),  # noqa: E501
-            'currency': (dict, none_type,),  # noqa: E501
-            'payment_term': (dict, none_type,),  # noqa: E501
-            'shipment_method': (dict, none_type,),  # noqa: E501
+            'customer': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'currency': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'payment_term': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'shipment_method': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -259,8 +259,8 @@ class SalesCreditMemo(ModelNormal):
             bill_to_name (str, none_type): (v1.0) The billToName property for the Dynamics 365 Business Central salesCreditMemo entity. [optional]  # noqa: E501
             bill_to_customer_id (str, none_type): (v1.0) The billToCustomerId property for the Dynamics 365 Business Central salesCreditMemo entity. [optional]  # noqa: E501
             bill_to_customer_number (str, none_type): (v1.0) The billToCustomerNumber property for the Dynamics 365 Business Central salesCreditMemo entity. [optional]  # noqa: E501
-            selling_postal_address (dict): [optional]  # noqa: E501
-            billing_postal_address (dict): [optional]  # noqa: E501
+            selling_postal_address (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            billing_postal_address (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             currency_id (str, none_type): (v1.0) The currencyId property for the Dynamics 365 Business Central salesCreditMemo entity. [optional]  # noqa: E501
             currency_code (str, none_type): (v1.0) The currencyCode property for the Dynamics 365 Business Central salesCreditMemo entity. [optional]  # noqa: E501
             payment_terms_id (str, none_type): (v1.0) The paymentTermsId property for the Dynamics 365 Business Central salesCreditMemo entity. [optional]  # noqa: E501
@@ -280,10 +280,10 @@ class SalesCreditMemo(ModelNormal):
             email (str, none_type): (v1.0) The email property for the Dynamics 365 Business Central salesCreditMemo entity. [optional]  # noqa: E501
             sales_credit_memo_lines ([SalesCreditMemoLine], none_type): [optional]  # noqa: E501
             pdf_document ([PdfDocument], none_type): [optional]  # noqa: E501
-            customer (dict): [optional]  # noqa: E501
-            currency (dict): [optional]  # noqa: E501
-            payment_term (dict): [optional]  # noqa: E501
-            shipment_method (dict): [optional]  # noqa: E501
+            customer (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            currency (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            payment_term (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            shipment_method (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -377,8 +377,8 @@ class SalesCreditMemo(ModelNormal):
             bill_to_name (str, none_type): (v1.0) The billToName property for the Dynamics 365 Business Central salesCreditMemo entity. [optional]  # noqa: E501
             bill_to_customer_id (str, none_type): (v1.0) The billToCustomerId property for the Dynamics 365 Business Central salesCreditMemo entity. [optional]  # noqa: E501
             bill_to_customer_number (str, none_type): (v1.0) The billToCustomerNumber property for the Dynamics 365 Business Central salesCreditMemo entity. [optional]  # noqa: E501
-            selling_postal_address (dict): [optional]  # noqa: E501
-            billing_postal_address (dict): [optional]  # noqa: E501
+            selling_postal_address (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            billing_postal_address (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             currency_id (str, none_type): (v1.0) The currencyId property for the Dynamics 365 Business Central salesCreditMemo entity. [optional]  # noqa: E501
             currency_code (str, none_type): (v1.0) The currencyCode property for the Dynamics 365 Business Central salesCreditMemo entity. [optional]  # noqa: E501
             payment_terms_id (str, none_type): (v1.0) The paymentTermsId property for the Dynamics 365 Business Central salesCreditMemo entity. [optional]  # noqa: E501
@@ -398,10 +398,10 @@ class SalesCreditMemo(ModelNormal):
             email (str, none_type): (v1.0) The email property for the Dynamics 365 Business Central salesCreditMemo entity. [optional]  # noqa: E501
             sales_credit_memo_lines ([SalesCreditMemoLine], none_type): [optional]  # noqa: E501
             pdf_document ([PdfDocument], none_type): [optional]  # noqa: E501
-            customer (dict): [optional]  # noqa: E501
-            currency (dict): [optional]  # noqa: E501
-            payment_term (dict): [optional]  # noqa: E501
-            shipment_method (dict): [optional]  # noqa: E501
+            customer (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            currency (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            payment_term (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            shipment_method (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -2907,10 +2907,36 @@ components:
       nullable: true
       description: (v1.0) The displayName property for the Dynamics 365 Business Central vendor entity
       maxLength: 100
-    address:
-      anyOf:
-        - $ref: '#/components/schemas/postaladdresstype'
-        - nullable: true
+    addressLine1:
+      type: string
+      nullable: true
+      description: (v1.0) The street property for the Dynamics 365 Business Central postaladdresstype entity
+      maxLength: 152
+    addressLine2:
+      type: string
+      nullable: true
+      description: (v1.0) The street property for the Dynamics 365 Business Central postaladdresstype entity
+      maxLength: 152
+    city:
+      type: string
+      nullable: true
+      description: (v1.0) The city property for the Dynamics 365 Business Central postaladdresstype entity
+      maxLength: 30
+    state:
+      type: string
+      nullable: true
+      description: (v1.0) The state property for the Dynamics 365 Business Central postaladdresstype entity
+      maxLength: 30
+    country:
+      type: string
+      nullable: true
+      description: (v1.0) The countryLetterCode property for the Dynamics 365 Business Central postaladdresstype entity
+      maxLength: 10
+    postalCode:
+      type: string
+      nullable: true
+      description: (v1.0) The postalCode property for the Dynamics 365 Business Central postaladdresstype entity
+      maxLength: 20
     phoneNumber:
       type: string
       nullable: true
@@ -3016,10 +3042,36 @@ components:
       type: string
       nullable: true
       description: (v1.0) The type property for the Dynamics 365 Business Central customer entity
-    address:
-      anyOf:
-        - $ref: '#/components/schemas/postaladdresstype'
-        - nullable: true
+    addressLine1:
+      type: string
+      nullable: true
+      description: (v1.0) The street property for the Dynamics 365 Business Central postaladdresstype entity
+      maxLength: 152
+    addressLine2:
+      type: string
+      nullable: true
+      description: (v1.0) The street property for the Dynamics 365 Business Central postaladdresstype entity
+      maxLength: 152
+    city:
+      type: string
+      nullable: true
+      description: (v1.0) The city property for the Dynamics 365 Business Central postaladdresstype entity
+      maxLength: 30
+    state:
+      type: string
+      nullable: true
+      description: (v1.0) The state property for the Dynamics 365 Business Central postaladdresstype entity
+      maxLength: 30
+    country:
+      type: string
+      nullable: true
+      description: (v1.0) The countryLetterCode property for the Dynamics 365 Business Central postaladdresstype entity
+      maxLength: 10
+    postalCode:
+      type: string
+      nullable: true
+      description: (v1.0) The postalCode property for the Dynamics 365 Business Central postaladdresstype entity
+      maxLength: 20
     phoneNumber:
       type: string
       nullable: true
@@ -6463,10 +6515,36 @@ components:
          nullable: true
          description: (v1.0) The displayName property for the Dynamics 365 Business Central vendor entity
          maxLength: 100
-       address:
-         anyOf:
-           - $ref: '#/components/schemas/postaladdresstype'
-           - nullable: true
+       addressLine1:
+         type: string
+         nullable: true
+         description: (v1.0) The street property for the Dynamics 365 Business Central postaladdresstype entity
+         maxLength: 152
+       addressLine2:
+         type: string
+         nullable: true
+         description: (v1.0) The street property for the Dynamics 365 Business Central postaladdresstype entity
+         maxLength: 152
+       city:
+         type: string
+         nullable: true
+         description: (v1.0) The city property for the Dynamics 365 Business Central postaladdresstype entity
+         maxLength: 30
+       state:
+         type: string
+         nullable: true
+         description: (v1.0) The state property for the Dynamics 365 Business Central postaladdresstype entity
+         maxLength: 30
+       country:
+         type: string
+         nullable: true
+         description: (v1.0) The countryLetterCode property for the Dynamics 365 Business Central postaladdresstype entity
+         maxLength: 10
+       postalCode:
+         type: string
+         nullable: true
+         description: (v1.0) The postalCode property for the Dynamics 365 Business Central postaladdresstype entity
+         maxLength: 20
        phoneNumber:
          type: string
          nullable: true
@@ -6553,10 +6631,36 @@ components:
          type: string
          nullable: true
          description: (v1.0) The type property for the Dynamics 365 Business Central customer entity
-       address:
-         anyOf:
-           - $ref: '#/components/schemas/postaladdresstype'
-           - nullable: true
+       addressLine1:
+         type: string
+         nullable: true
+         description: (v1.0) The street property for the Dynamics 365 Business Central postaladdresstype entity
+         maxLength: 152
+       addressLine2:
+         type: string
+         nullable: true
+         description: (v1.0) The street property for the Dynamics 365 Business Central postaladdresstype entity
+         maxLength: 152
+       city:
+         type: string
+         nullable: true
+         description: (v1.0) The city property for the Dynamics 365 Business Central postaladdresstype entity
+         maxLength: 30
+       state:
+         type: string
+         nullable: true
+         description: (v1.0) The state property for the Dynamics 365 Business Central postaladdresstype entity
+         maxLength: 30
+       country:
+         type: string
+         nullable: true
+         description: (v1.0) The countryLetterCode property for the Dynamics 365 Business Central postaladdresstype entity
+         maxLength: 10
+       postalCode:
+         type: string
+         nullable: true
+         description: (v1.0) The postalCode property for the Dynamics 365 Business Central postaladdresstype entity
+         maxLength: 20
        phoneNumber:
          type: string
          nullable: true

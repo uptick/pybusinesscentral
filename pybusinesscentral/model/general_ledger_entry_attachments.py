@@ -24,8 +24,8 @@ from pybusinesscentral.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from pybusinesscentral.exceptions import ApiAttributeError
 
 
@@ -90,7 +90,7 @@ class GeneralLedgerEntryAttachments(ModelNormal):
             'byte_size': (int, none_type,),  # noqa: E501
             'content': (file_type, none_type,),  # noqa: E501
             'created_date_time': (datetime, none_type,),  # noqa: E501
-            'general_ledger_entry': (dict, none_type,),  # noqa: E501
+            'general_ledger_entry': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -155,7 +155,7 @@ class GeneralLedgerEntryAttachments(ModelNormal):
             byte_size (int, none_type): (v1.0) The byteSize property for the Dynamics 365 Business Central generalLedgerEntryAttachments entity. [optional]  # noqa: E501
             content (file_type, none_type): (v1.0) The content property for the Dynamics 365 Business Central generalLedgerEntryAttachments entity. [optional]  # noqa: E501
             created_date_time (datetime, none_type): (v1.0) The createdDateTime property for the Dynamics 365 Business Central generalLedgerEntryAttachments entity. [optional]  # noqa: E501
-            general_ledger_entry (dict): [optional]  # noqa: E501
+            general_ledger_entry (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -243,7 +243,7 @@ class GeneralLedgerEntryAttachments(ModelNormal):
             byte_size (int, none_type): (v1.0) The byteSize property for the Dynamics 365 Business Central generalLedgerEntryAttachments entity. [optional]  # noqa: E501
             content (file_type, none_type): (v1.0) The content property for the Dynamics 365 Business Central generalLedgerEntryAttachments entity. [optional]  # noqa: E501
             created_date_time (datetime, none_type): (v1.0) The createdDateTime property for the Dynamics 365 Business Central generalLedgerEntryAttachments entity. [optional]  # noqa: E501
-            general_ledger_entry (dict): [optional]  # noqa: E501
+            general_ledger_entry (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

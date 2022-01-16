@@ -36,77 +36,7 @@ class VendorApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
-
-        def __delete_vendor(
-            self,
-            company_id,
-            vendor_id,
-            **kwargs
-        ):
-            """Deletes an object of type vendor in Dynamics 365 Business Central  # noqa: E501
-
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.delete_vendor(company_id, vendor_id, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                company_id (str): (v1.0) id for company
-                vendor_id (str): (v1.0) id for vendor
-
-            Keyword Args:
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                None
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['company_id'] = \
-                company_id
-            kwargs['vendor_id'] = \
-                vendor_id
-            return self.call_with_http_info(**kwargs)
-
-        self.delete_vendor = _Endpoint(
+        self.delete_vendor_endpoint = _Endpoint(
             settings={
                 'response_type': None,
                 'auth': [
@@ -159,82 +89,9 @@ class VendorApi(object):
                 'accept': [],
                 'content_type': [],
             },
-            api_client=api_client,
-            callable=__delete_vendor
+            api_client=api_client
         )
-
-        def __get_vendor(
-            self,
-            company_id,
-            vendor_id,
-            **kwargs
-        ):
-            """Retrieve the properties and relationships of an object of type vendor for Dynamics 365 Business Central.  # noqa: E501
-
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.get_vendor(company_id, vendor_id, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                company_id (str): (v1.0) id for company
-                vendor_id (str): (v1.0) id for vendor
-
-            Keyword Args:
-                expand ([str]): (v1.0) Entities to expand. [optional]
-                select ([str]): (v1.0) Selected properties to be retrieved. [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                Vendor
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['company_id'] = \
-                company_id
-            kwargs['vendor_id'] = \
-                vendor_id
-            return self.call_with_http_info(**kwargs)
-
-        self.get_vendor = _Endpoint(
+        self.get_vendor_endpoint = _Endpoint(
             settings={
                 'response_type': (Vendor,),
                 'auth': [
@@ -331,82 +188,9 @@ class VendorApi(object):
                 ],
                 'content_type': [],
             },
-            api_client=api_client,
-            callable=__get_vendor
+            api_client=api_client
         )
-
-        def __list_vendors(
-            self,
-            company_id,
-            **kwargs
-        ):
-            """Returns a list of vendors  # noqa: E501
-
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.list_vendors(company_id, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                company_id (str): (v1.0) id for company
-
-            Keyword Args:
-                top (int): (v1.0) Number of items to return from the top of the list. [optional]
-                skip (int): (v1.0) Number of items to skip from the list. [optional]
-                limit (int): (v1.0) Number of items to return from the list. [optional]
-                filter (str): (v1.0) Filtering expression. [optional]
-                expand ([str]): (v1.0) Entities to expand. [optional]
-                select ([str]): (v1.0) Selected properties to be retrieved. [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                InlineResponse2002
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['company_id'] = \
-                company_id
-            return self.call_with_http_info(**kwargs)
-
-        self.list_vendors = _Endpoint(
+        self.list_vendors_endpoint = _Endpoint(
             settings={
                 'response_type': (InlineResponse2002,),
                 'auth': [
@@ -517,92 +301,9 @@ class VendorApi(object):
                 ],
                 'content_type': [],
             },
-            api_client=api_client,
-            callable=__list_vendors
+            api_client=api_client
         )
-
-        def __patch_vendor(
-            self,
-            company_id,
-            vendor_id,
-            content_type,
-            if_match,
-            vendor,
-            **kwargs
-        ):
-            """Updates an object of type vendor in Dynamics 365 Business Central  # noqa: E501
-
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.patch_vendor(company_id, vendor_id, content_type, if_match, vendor, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                company_id (str): (v1.0) id for company
-                vendor_id (str): (v1.0) id for vendor
-                content_type (str): (v1.0) application/json
-                if_match (str): (v1.0) Required. When this request header is included and the eTag provided does not match the current tag on the entity, this will not be updated.
-                vendor (Vendor):
-
-            Keyword Args:
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                Vendor
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['company_id'] = \
-                company_id
-            kwargs['vendor_id'] = \
-                vendor_id
-            kwargs['content_type'] = \
-                content_type
-            kwargs['if_match'] = \
-                if_match
-            kwargs['vendor'] = \
-                vendor
-            return self.call_with_http_info(**kwargs)
-
-        self.patch_vendor = _Endpoint(
+        self.patch_vendor_endpoint = _Endpoint(
             settings={
                 'response_type': (Vendor,),
                 'auth': [
@@ -629,6 +330,7 @@ class VendorApi(object):
                     'vendor',
                 ],
                 'nullable': [
+                    'vendor',
                 ],
                 'enum': [
                 ],
@@ -676,85 +378,9 @@ class VendorApi(object):
                     'application/json'
                 ]
             },
-            api_client=api_client,
-            callable=__patch_vendor
+            api_client=api_client
         )
-
-        def __post_vendor(
-            self,
-            company_id,
-            content_type,
-            vendor,
-            **kwargs
-        ):
-            """Creates an object of type vendor in Dynamics 365 Business Central  # noqa: E501
-
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.post_vendor(company_id, content_type, vendor, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                company_id (str): (v1.0) id for company
-                content_type (str): (v1.0) application/json
-                vendor (Vendor):
-
-            Keyword Args:
-                expand ([str]): (v1.0) Entities to expand. [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                Vendor
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['company_id'] = \
-                company_id
-            kwargs['content_type'] = \
-                content_type
-            kwargs['vendor'] = \
-                vendor
-            return self.call_with_http_info(**kwargs)
-
-        self.post_vendor = _Endpoint(
+        self.post_vendor_endpoint = _Endpoint(
             settings={
                 'response_type': (Vendor,),
                 'auth': [
@@ -778,6 +404,7 @@ class VendorApi(object):
                     'vendor',
                 ],
                 'nullable': [
+                    'vendor',
                 ],
                 'enum': [
                     'expand',
@@ -831,6 +458,397 @@ class VendorApi(object):
                     'application/json'
                 ]
             },
-            api_client=api_client,
-            callable=__post_vendor
+            api_client=api_client
         )
+
+    def delete_vendor(
+        self,
+        company_id,
+        vendor_id,
+        **kwargs
+    ):
+        """Deletes an object of type vendor in Dynamics 365 Business Central  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.delete_vendor(company_id, vendor_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            company_id (str): (v1.0) id for company
+            vendor_id (str): (v1.0) id for vendor
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['company_id'] = \
+            company_id
+        kwargs['vendor_id'] = \
+            vendor_id
+        return self.delete_vendor_endpoint.call_with_http_info(**kwargs)
+
+    def get_vendor(
+        self,
+        company_id,
+        vendor_id,
+        **kwargs
+    ):
+        """Retrieve the properties and relationships of an object of type vendor for Dynamics 365 Business Central.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_vendor(company_id, vendor_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            company_id (str): (v1.0) id for company
+            vendor_id (str): (v1.0) id for vendor
+
+        Keyword Args:
+            expand ([str]): (v1.0) Entities to expand. [optional]
+            select ([str]): (v1.0) Selected properties to be retrieved. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            Vendor
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['company_id'] = \
+            company_id
+        kwargs['vendor_id'] = \
+            vendor_id
+        return self.get_vendor_endpoint.call_with_http_info(**kwargs)
+
+    def list_vendors(
+        self,
+        company_id,
+        **kwargs
+    ):
+        """Returns a list of vendors  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.list_vendors(company_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            company_id (str): (v1.0) id for company
+
+        Keyword Args:
+            top (int): (v1.0) Number of items to return from the top of the list. [optional]
+            skip (int): (v1.0) Number of items to skip from the list. [optional]
+            limit (int): (v1.0) Number of items to return from the list. [optional]
+            filter (str): (v1.0) Filtering expression. [optional]
+            expand ([str]): (v1.0) Entities to expand. [optional]
+            select ([str]): (v1.0) Selected properties to be retrieved. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            InlineResponse2002
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['company_id'] = \
+            company_id
+        return self.list_vendors_endpoint.call_with_http_info(**kwargs)
+
+    def patch_vendor(
+        self,
+        company_id,
+        vendor_id,
+        content_type,
+        if_match,
+        vendor,
+        **kwargs
+    ):
+        """Updates an object of type vendor in Dynamics 365 Business Central  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.patch_vendor(company_id, vendor_id, content_type, if_match, vendor, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            company_id (str): (v1.0) id for company
+            vendor_id (str): (v1.0) id for vendor
+            content_type (str): (v1.0) application/json
+            if_match (str): (v1.0) Required. When this request header is included and the eTag provided does not match the current tag on the entity, this will not be updated.
+            vendor (Vendor):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            Vendor
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['company_id'] = \
+            company_id
+        kwargs['vendor_id'] = \
+            vendor_id
+        kwargs['content_type'] = \
+            content_type
+        kwargs['if_match'] = \
+            if_match
+        kwargs['vendor'] = \
+            vendor
+        return self.patch_vendor_endpoint.call_with_http_info(**kwargs)
+
+    def post_vendor(
+        self,
+        company_id,
+        content_type,
+        vendor,
+        **kwargs
+    ):
+        """Creates an object of type vendor in Dynamics 365 Business Central  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.post_vendor(company_id, content_type, vendor, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            company_id (str): (v1.0) id for company
+            content_type (str): (v1.0) application/json
+            vendor (Vendor):
+
+        Keyword Args:
+            expand ([str]): (v1.0) Entities to expand. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            Vendor
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['company_id'] = \
+            company_id
+        kwargs['content_type'] = \
+            content_type
+        kwargs['vendor'] = \
+            vendor
+        return self.post_vendor_endpoint.call_with_http_info(**kwargs)
+

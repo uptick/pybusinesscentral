@@ -36,81 +36,7 @@ class SalesInvoiceLineApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
-
-        def __delete_sales_invoice_line_for_sales_invoice(
-            self,
-            company_id,
-            sales_invoice_id,
-            sales_invoice_line_id,
-            **kwargs
-        ):
-            """Deletes an object of type salesInvoiceLine in Dynamics 365 Business Central  # noqa: E501
-
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.delete_sales_invoice_line_for_sales_invoice(company_id, sales_invoice_id, sales_invoice_line_id, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                company_id (str): (v1.0) id for company
-                sales_invoice_id (str): (v1.0) id for salesInvoice
-                sales_invoice_line_id (str): (v1.0) id for salesInvoiceLine
-
-            Keyword Args:
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                None
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['company_id'] = \
-                company_id
-            kwargs['sales_invoice_id'] = \
-                sales_invoice_id
-            kwargs['sales_invoice_line_id'] = \
-                sales_invoice_line_id
-            return self.call_with_http_info(**kwargs)
-
-        self.delete_sales_invoice_line_for_sales_invoice = _Endpoint(
+        self.delete_sales_invoice_line_for_sales_invoice_endpoint = _Endpoint(
             settings={
                 'response_type': None,
                 'auth': [
@@ -169,86 +95,9 @@ class SalesInvoiceLineApi(object):
                 'accept': [],
                 'content_type': [],
             },
-            api_client=api_client,
-            callable=__delete_sales_invoice_line_for_sales_invoice
+            api_client=api_client
         )
-
-        def __get_sales_invoice_line_for_sales_invoice(
-            self,
-            company_id,
-            sales_invoice_id,
-            sales_invoice_line_id,
-            **kwargs
-        ):
-            """Retrieve the properties and relationships of an object of type salesInvoiceLine for Dynamics 365 Business Central.  # noqa: E501
-
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.get_sales_invoice_line_for_sales_invoice(company_id, sales_invoice_id, sales_invoice_line_id, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                company_id (str): (v1.0) id for company
-                sales_invoice_id (str): (v1.0) id for salesInvoice
-                sales_invoice_line_id (str): (v1.0) id for salesInvoiceLine
-
-            Keyword Args:
-                expand ([str]): (v1.0) Entities to expand. [optional]
-                select ([str]): (v1.0) Selected properties to be retrieved. [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                SalesInvoiceLine
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['company_id'] = \
-                company_id
-            kwargs['sales_invoice_id'] = \
-                sales_invoice_id
-            kwargs['sales_invoice_line_id'] = \
-                sales_invoice_line_id
-            return self.call_with_http_info(**kwargs)
-
-        self.get_sales_invoice_line_for_sales_invoice = _Endpoint(
+        self.get_sales_invoice_line_for_sales_invoice_endpoint = _Endpoint(
             settings={
                 'response_type': (SalesInvoiceLine,),
                 'auth': [
@@ -356,82 +205,9 @@ class SalesInvoiceLineApi(object):
                 ],
                 'content_type': [],
             },
-            api_client=api_client,
-            callable=__get_sales_invoice_line_for_sales_invoice
+            api_client=api_client
         )
-
-        def __list_sales_invoice_lines(
-            self,
-            company_id,
-            **kwargs
-        ):
-            """Returns a list of salesInvoiceLines  # noqa: E501
-
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.list_sales_invoice_lines(company_id, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                company_id (str): (v1.0) id for company
-
-            Keyword Args:
-                top (int): (v1.0) Number of items to return from the top of the list. [optional]
-                skip (int): (v1.0) Number of items to skip from the list. [optional]
-                limit (int): (v1.0) Number of items to return from the list. [optional]
-                filter (str): (v1.0) Filtering expression. [optional]
-                expand ([str]): (v1.0) Entities to expand. [optional]
-                select ([str]): (v1.0) Selected properties to be retrieved. [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                InlineResponse2004
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['company_id'] = \
-                company_id
-            return self.call_with_http_info(**kwargs)
-
-        self.list_sales_invoice_lines = _Endpoint(
+        self.list_sales_invoice_lines_endpoint = _Endpoint(
             settings={
                 'response_type': (InlineResponse2004,),
                 'auth': [
@@ -547,86 +323,9 @@ class SalesInvoiceLineApi(object):
                 ],
                 'content_type': [],
             },
-            api_client=api_client,
-            callable=__list_sales_invoice_lines
+            api_client=api_client
         )
-
-        def __list_sales_invoice_lines_for_sales_invoice(
-            self,
-            company_id,
-            sales_invoice_id,
-            **kwargs
-        ):
-            """Returns a list of salesInvoiceLines  # noqa: E501
-
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.list_sales_invoice_lines_for_sales_invoice(company_id, sales_invoice_id, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                company_id (str): (v1.0) id for company
-                sales_invoice_id (str): (v1.0) id for salesInvoice
-
-            Keyword Args:
-                top (int): (v1.0) Number of items to return from the top of the list. [optional]
-                skip (int): (v1.0) Number of items to skip from the list. [optional]
-                limit (int): (v1.0) Number of items to return from the list. [optional]
-                filter (str): (v1.0) Filtering expression. [optional]
-                expand ([str]): (v1.0) Entities to expand. [optional]
-                select ([str]): (v1.0) Selected properties to be retrieved. [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                InlineResponse2004
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['company_id'] = \
-                company_id
-            kwargs['sales_invoice_id'] = \
-                sales_invoice_id
-            return self.call_with_http_info(**kwargs)
-
-        self.list_sales_invoice_lines_for_sales_invoice = _Endpoint(
+        self.list_sales_invoice_lines_for_sales_invoice_endpoint = _Endpoint(
             settings={
                 'response_type': (InlineResponse2004,),
                 'auth': [
@@ -748,96 +447,9 @@ class SalesInvoiceLineApi(object):
                 ],
                 'content_type': [],
             },
-            api_client=api_client,
-            callable=__list_sales_invoice_lines_for_sales_invoice
+            api_client=api_client
         )
-
-        def __patch_sales_invoice_line_for_sales_invoice(
-            self,
-            company_id,
-            sales_invoice_id,
-            sales_invoice_line_id,
-            content_type,
-            if_match,
-            sales_invoice_line,
-            **kwargs
-        ):
-            """Updates an object of type salesInvoiceLine in Dynamics 365 Business Central  # noqa: E501
-
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.patch_sales_invoice_line_for_sales_invoice(company_id, sales_invoice_id, sales_invoice_line_id, content_type, if_match, sales_invoice_line, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                company_id (str): (v1.0) id for company
-                sales_invoice_id (str): (v1.0) id for salesInvoice
-                sales_invoice_line_id (str): (v1.0) id for salesInvoiceLine
-                content_type (str): (v1.0) application/json
-                if_match (str): (v1.0) Required. When this request header is included and the eTag provided does not match the current tag on the entity, this will not be updated.
-                sales_invoice_line (SalesInvoiceLine):
-
-            Keyword Args:
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                SalesInvoiceLine
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['company_id'] = \
-                company_id
-            kwargs['sales_invoice_id'] = \
-                sales_invoice_id
-            kwargs['sales_invoice_line_id'] = \
-                sales_invoice_line_id
-            kwargs['content_type'] = \
-                content_type
-            kwargs['if_match'] = \
-                if_match
-            kwargs['sales_invoice_line'] = \
-                sales_invoice_line
-            return self.call_with_http_info(**kwargs)
-
-        self.patch_sales_invoice_line_for_sales_invoice = _Endpoint(
+        self.patch_sales_invoice_line_for_sales_invoice_endpoint = _Endpoint(
             settings={
                 'response_type': (SalesInvoiceLine,),
                 'auth': [
@@ -866,6 +478,7 @@ class SalesInvoiceLineApi(object):
                     'sales_invoice_line',
                 ],
                 'nullable': [
+                    'sales_invoice_line',
                 ],
                 'enum': [
                 ],
@@ -917,84 +530,9 @@ class SalesInvoiceLineApi(object):
                     'application/json'
                 ]
             },
-            api_client=api_client,
-            callable=__patch_sales_invoice_line_for_sales_invoice
+            api_client=api_client
         )
-
-        def __post_sales_invoice_line(
-            self,
-            company_id,
-            content_type,
-            sales_invoice_line,
-            **kwargs
-        ):
-            """Creates an object of type salesInvoiceLine in Dynamics 365 Business Central  # noqa: E501
-
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.post_sales_invoice_line(company_id, content_type, sales_invoice_line, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                company_id (str): (v1.0) id for company
-                content_type (str): (v1.0) application/json
-                sales_invoice_line (SalesInvoiceLine):
-
-            Keyword Args:
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                SalesInvoiceLine
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['company_id'] = \
-                company_id
-            kwargs['content_type'] = \
-                content_type
-            kwargs['sales_invoice_line'] = \
-                sales_invoice_line
-            return self.call_with_http_info(**kwargs)
-
-        self.post_sales_invoice_line = _Endpoint(
+        self.post_sales_invoice_line_endpoint = _Endpoint(
             settings={
                 'response_type': (SalesInvoiceLine,),
                 'auth': [
@@ -1017,6 +555,7 @@ class SalesInvoiceLineApi(object):
                     'sales_invoice_line',
                 ],
                 'nullable': [
+                    'sales_invoice_line',
                 ],
                 'enum': [
                 ],
@@ -1056,88 +595,9 @@ class SalesInvoiceLineApi(object):
                     'application/json'
                 ]
             },
-            api_client=api_client,
-            callable=__post_sales_invoice_line
+            api_client=api_client
         )
-
-        def __post_sales_invoice_line_for_sales_invoice(
-            self,
-            company_id,
-            sales_invoice_id,
-            content_type,
-            sales_invoice_line,
-            **kwargs
-        ):
-            """Creates an object of type salesInvoiceLine in Dynamics 365 Business Central  # noqa: E501
-
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.post_sales_invoice_line_for_sales_invoice(company_id, sales_invoice_id, content_type, sales_invoice_line, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                company_id (str): (v1.0) id for company
-                sales_invoice_id (str): (v1.0) id for salesInvoice
-                content_type (str): (v1.0) application/json
-                sales_invoice_line (SalesInvoiceLine):
-
-            Keyword Args:
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                SalesInvoiceLine
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['company_id'] = \
-                company_id
-            kwargs['sales_invoice_id'] = \
-                sales_invoice_id
-            kwargs['content_type'] = \
-                content_type
-            kwargs['sales_invoice_line'] = \
-                sales_invoice_line
-            return self.call_with_http_info(**kwargs)
-
-        self.post_sales_invoice_line_for_sales_invoice = _Endpoint(
+        self.post_sales_invoice_line_for_sales_invoice_endpoint = _Endpoint(
             settings={
                 'response_type': (SalesInvoiceLine,),
                 'auth': [
@@ -1162,6 +622,7 @@ class SalesInvoiceLineApi(object):
                     'sales_invoice_line',
                 ],
                 'nullable': [
+                    'sales_invoice_line',
                 ],
                 'enum': [
                 ],
@@ -1205,6 +666,570 @@ class SalesInvoiceLineApi(object):
                     'application/json'
                 ]
             },
-            api_client=api_client,
-            callable=__post_sales_invoice_line_for_sales_invoice
+            api_client=api_client
         )
+
+    def delete_sales_invoice_line_for_sales_invoice(
+        self,
+        company_id,
+        sales_invoice_id,
+        sales_invoice_line_id,
+        **kwargs
+    ):
+        """Deletes an object of type salesInvoiceLine in Dynamics 365 Business Central  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.delete_sales_invoice_line_for_sales_invoice(company_id, sales_invoice_id, sales_invoice_line_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            company_id (str): (v1.0) id for company
+            sales_invoice_id (str): (v1.0) id for salesInvoice
+            sales_invoice_line_id (str): (v1.0) id for salesInvoiceLine
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['company_id'] = \
+            company_id
+        kwargs['sales_invoice_id'] = \
+            sales_invoice_id
+        kwargs['sales_invoice_line_id'] = \
+            sales_invoice_line_id
+        return self.delete_sales_invoice_line_for_sales_invoice_endpoint.call_with_http_info(**kwargs)
+
+    def get_sales_invoice_line_for_sales_invoice(
+        self,
+        company_id,
+        sales_invoice_id,
+        sales_invoice_line_id,
+        **kwargs
+    ):
+        """Retrieve the properties and relationships of an object of type salesInvoiceLine for Dynamics 365 Business Central.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_sales_invoice_line_for_sales_invoice(company_id, sales_invoice_id, sales_invoice_line_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            company_id (str): (v1.0) id for company
+            sales_invoice_id (str): (v1.0) id for salesInvoice
+            sales_invoice_line_id (str): (v1.0) id for salesInvoiceLine
+
+        Keyword Args:
+            expand ([str]): (v1.0) Entities to expand. [optional]
+            select ([str]): (v1.0) Selected properties to be retrieved. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SalesInvoiceLine
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['company_id'] = \
+            company_id
+        kwargs['sales_invoice_id'] = \
+            sales_invoice_id
+        kwargs['sales_invoice_line_id'] = \
+            sales_invoice_line_id
+        return self.get_sales_invoice_line_for_sales_invoice_endpoint.call_with_http_info(**kwargs)
+
+    def list_sales_invoice_lines(
+        self,
+        company_id,
+        **kwargs
+    ):
+        """Returns a list of salesInvoiceLines  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.list_sales_invoice_lines(company_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            company_id (str): (v1.0) id for company
+
+        Keyword Args:
+            top (int): (v1.0) Number of items to return from the top of the list. [optional]
+            skip (int): (v1.0) Number of items to skip from the list. [optional]
+            limit (int): (v1.0) Number of items to return from the list. [optional]
+            filter (str): (v1.0) Filtering expression. [optional]
+            expand ([str]): (v1.0) Entities to expand. [optional]
+            select ([str]): (v1.0) Selected properties to be retrieved. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            InlineResponse2004
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['company_id'] = \
+            company_id
+        return self.list_sales_invoice_lines_endpoint.call_with_http_info(**kwargs)
+
+    def list_sales_invoice_lines_for_sales_invoice(
+        self,
+        company_id,
+        sales_invoice_id,
+        **kwargs
+    ):
+        """Returns a list of salesInvoiceLines  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.list_sales_invoice_lines_for_sales_invoice(company_id, sales_invoice_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            company_id (str): (v1.0) id for company
+            sales_invoice_id (str): (v1.0) id for salesInvoice
+
+        Keyword Args:
+            top (int): (v1.0) Number of items to return from the top of the list. [optional]
+            skip (int): (v1.0) Number of items to skip from the list. [optional]
+            limit (int): (v1.0) Number of items to return from the list. [optional]
+            filter (str): (v1.0) Filtering expression. [optional]
+            expand ([str]): (v1.0) Entities to expand. [optional]
+            select ([str]): (v1.0) Selected properties to be retrieved. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            InlineResponse2004
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['company_id'] = \
+            company_id
+        kwargs['sales_invoice_id'] = \
+            sales_invoice_id
+        return self.list_sales_invoice_lines_for_sales_invoice_endpoint.call_with_http_info(**kwargs)
+
+    def patch_sales_invoice_line_for_sales_invoice(
+        self,
+        company_id,
+        sales_invoice_id,
+        sales_invoice_line_id,
+        content_type,
+        if_match,
+        sales_invoice_line,
+        **kwargs
+    ):
+        """Updates an object of type salesInvoiceLine in Dynamics 365 Business Central  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.patch_sales_invoice_line_for_sales_invoice(company_id, sales_invoice_id, sales_invoice_line_id, content_type, if_match, sales_invoice_line, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            company_id (str): (v1.0) id for company
+            sales_invoice_id (str): (v1.0) id for salesInvoice
+            sales_invoice_line_id (str): (v1.0) id for salesInvoiceLine
+            content_type (str): (v1.0) application/json
+            if_match (str): (v1.0) Required. When this request header is included and the eTag provided does not match the current tag on the entity, this will not be updated.
+            sales_invoice_line (SalesInvoiceLine):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SalesInvoiceLine
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['company_id'] = \
+            company_id
+        kwargs['sales_invoice_id'] = \
+            sales_invoice_id
+        kwargs['sales_invoice_line_id'] = \
+            sales_invoice_line_id
+        kwargs['content_type'] = \
+            content_type
+        kwargs['if_match'] = \
+            if_match
+        kwargs['sales_invoice_line'] = \
+            sales_invoice_line
+        return self.patch_sales_invoice_line_for_sales_invoice_endpoint.call_with_http_info(**kwargs)
+
+    def post_sales_invoice_line(
+        self,
+        company_id,
+        content_type,
+        sales_invoice_line,
+        **kwargs
+    ):
+        """Creates an object of type salesInvoiceLine in Dynamics 365 Business Central  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.post_sales_invoice_line(company_id, content_type, sales_invoice_line, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            company_id (str): (v1.0) id for company
+            content_type (str): (v1.0) application/json
+            sales_invoice_line (SalesInvoiceLine):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SalesInvoiceLine
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['company_id'] = \
+            company_id
+        kwargs['content_type'] = \
+            content_type
+        kwargs['sales_invoice_line'] = \
+            sales_invoice_line
+        return self.post_sales_invoice_line_endpoint.call_with_http_info(**kwargs)
+
+    def post_sales_invoice_line_for_sales_invoice(
+        self,
+        company_id,
+        sales_invoice_id,
+        content_type,
+        sales_invoice_line,
+        **kwargs
+    ):
+        """Creates an object of type salesInvoiceLine in Dynamics 365 Business Central  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.post_sales_invoice_line_for_sales_invoice(company_id, sales_invoice_id, content_type, sales_invoice_line, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            company_id (str): (v1.0) id for company
+            sales_invoice_id (str): (v1.0) id for salesInvoice
+            content_type (str): (v1.0) application/json
+            sales_invoice_line (SalesInvoiceLine):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            SalesInvoiceLine
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['company_id'] = \
+            company_id
+        kwargs['sales_invoice_id'] = \
+            sales_invoice_id
+        kwargs['content_type'] = \
+            content_type
+        kwargs['sales_invoice_line'] = \
+            sales_invoice_line
+        return self.post_sales_invoice_line_for_sales_invoice_endpoint.call_with_http_info(**kwargs)
+

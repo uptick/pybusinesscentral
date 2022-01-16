@@ -16,6 +16,7 @@ Retrieve the properties and relationships of an object of type account for Dynam
 ### Example
 
 * OAuth Authentication (oAuth):
+
 ```python
 import time
 import pybusinesscentral
@@ -91,6 +92,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | (v1.0) Succesfully returned the requested account |  -  |
@@ -105,6 +107,7 @@ Returns a list of accounts
 ### Example
 
 * OAuth Authentication (oAuth):
+
 ```python
 import time
 import pybusinesscentral
@@ -186,6 +189,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | (v1.0) Succesfully returned a list of accounts |  -  |

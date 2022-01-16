@@ -16,6 +16,7 @@ Retrieve the properties and relationships of the list of dimensionSetLines for a
 ### Example
 
 * OAuth Authentication (oAuth):
+
 ```python
 import time
 import pybusinesscentral
@@ -80,6 +81,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | (v1.0) Succesfully returned the requested dimensionSetLines |  -  |
@@ -94,6 +96,7 @@ Creates an object of type dimensionSetLine in Dynamics 365 Business Central
 ### Example
 
 * OAuth Authentication (oAuth):
+
 ```python
 import time
 import pybusinesscentral
@@ -126,15 +129,7 @@ with pybusinesscentral.ApiClient(configuration) as api_client:
     sales_invoice_id = "salesInvoice_id_example" # str | (v1.0) id for salesInvoice
     sales_invoice_line_id = "salesInvoiceLine_id_example" # str | (v1.0) id for salesInvoiceLine
     content_type = "Content-Type_example" # str | (v1.0) application/json
-    unknown_base_type = {
-        parent_id="parent_id_example",
-        id="id_example",
-        code="code_example",
-        display_name="display_name_example",
-        value_id="value_id_example",
-        value_code="value_code_example",
-        value_display_name="value_display_name_example",
-    } # UNKNOWN_BASE_TYPE | 
+    unknown_base_type = None # UNKNOWN_BASE_TYPE | 
 
     # example passing only required values which don't have defaults set
     try:
@@ -171,6 +166,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | (v1.0) A new dimensionSetLine has been succesfully created |  -  |

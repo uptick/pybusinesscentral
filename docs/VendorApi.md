@@ -19,6 +19,7 @@ Deletes an object of type vendor in Dynamics 365 Business Central
 ### Example
 
 * OAuth Authentication (oAuth):
+
 ```python
 import time
 import pybusinesscentral
@@ -79,6 +80,7 @@ void (empty response body)
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | (v1.0) Succesfully deleted the specified vendor |  -  |
@@ -93,6 +95,7 @@ Retrieve the properties and relationships of an object of type vendor for Dynami
 ### Example
 
 * OAuth Authentication (oAuth):
+
 ```python
 import time
 import pybusinesscentral
@@ -172,6 +175,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | (v1.0) Succesfully returned the requested vendor |  -  |
@@ -186,6 +190,7 @@ Returns a list of vendors
 ### Example
 
 * OAuth Authentication (oAuth):
+
 ```python
 import time
 import pybusinesscentral
@@ -271,6 +276,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | (v1.0) Succesfully returned a list of vendors |  -  |
@@ -285,6 +291,7 @@ Updates an object of type vendor in Dynamics 365 Business Central
 ### Example
 
 * OAuth Authentication (oAuth):
+
 ```python
 import time
 import pybusinesscentral
@@ -317,25 +324,7 @@ with pybusinesscentral.ApiClient(configuration) as api_client:
     vendor_id = "vendor_id_example" # str | (v1.0) id for vendor
     content_type = "Content-Type_example" # str | (v1.0) application/json
     if_match = "If-Match_example" # str | (v1.0) Required. When this request header is included and the eTag provided does not match the current tag on the entity, this will not be updated.
-    unknown_base_type = {
-        id="id_example",
-        number="number_example",
-        display_name="display_name_example",
-        address=,
-        phone_number="phone_number_example",
-        email="email_example",
-        website="website_example",
-        tax_registration_number="tax_registration_number_example",
-        currency_id="currency_id_example",
-        currency_code="currency_code_example",
-        irs1099_code="irs1099_code_example",
-        payment_terms_id="payment_terms_id_example",
-        payment_method_id="payment_method_id_example",
-        tax_liable=True,
-        blocked="blocked_example",
-        balance=3.14,
-        last_modified_date_time=dateutil_parser('1970-01-01T00:00:00.00Z'),
-    } # UNKNOWN_BASE_TYPE | 
+    unknown_base_type = None # UNKNOWN_BASE_TYPE | 
 
     # example passing only required values which don't have defaults set
     try:
@@ -372,6 +361,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | (v1.0) Succesfully updated the specifiedvendor |  -  |
@@ -386,6 +376,7 @@ Creates an object of type vendor in Dynamics 365 Business Central
 ### Example
 
 * OAuth Authentication (oAuth):
+
 ```python
 import time
 import pybusinesscentral
@@ -416,25 +407,7 @@ with pybusinesscentral.ApiClient(configuration) as api_client:
     api_instance = vendor_api.VendorApi(api_client)
     company_id = "company_id_example" # str | (v1.0) id for company
     content_type = "Content-Type_example" # str | (v1.0) application/json
-    unknown_base_type = {
-        id="id_example",
-        number="number_example",
-        display_name="display_name_example",
-        address=,
-        phone_number="phone_number_example",
-        email="email_example",
-        website="website_example",
-        tax_registration_number="tax_registration_number_example",
-        currency_id="currency_id_example",
-        currency_code="currency_code_example",
-        irs1099_code="irs1099_code_example",
-        payment_terms_id="payment_terms_id_example",
-        payment_method_id="payment_method_id_example",
-        tax_liable=True,
-        blocked="blocked_example",
-        balance=3.14,
-        last_modified_date_time=dateutil_parser('1970-01-01T00:00:00.00Z'),
-    } # UNKNOWN_BASE_TYPE | 
+    unknown_base_type = None # UNKNOWN_BASE_TYPE | 
     expand = [
         "picture",
     ] # [str] | (v1.0) Entities to expand (optional)
@@ -482,6 +455,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | (v1.0) A new vendor has been succesfully created |  -  |

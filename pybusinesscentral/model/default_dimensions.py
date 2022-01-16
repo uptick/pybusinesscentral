@@ -24,8 +24,8 @@ from pybusinesscentral.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from pybusinesscentral.exceptions import ApiAttributeError
 
 
@@ -93,9 +93,9 @@ class DefaultDimensions(ModelNormal):
             'dimension_value_id': (str, none_type,),  # noqa: E501
             'dimension_value_code': (str, none_type,),  # noqa: E501
             'posting_validation': (str, none_type,),  # noqa: E501
-            'account': (dict, none_type,),  # noqa: E501
-            'dimension': (dict, none_type,),  # noqa: E501
-            'dimension_value': (dict, none_type,),  # noqa: E501
+            'account': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'dimension': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'dimension_value': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -162,9 +162,9 @@ class DefaultDimensions(ModelNormal):
             dimension_value_id (str, none_type): (v1.0) The dimensionValueId property for the Dynamics 365 Business Central defaultDimensions entity. [optional]  # noqa: E501
             dimension_value_code (str, none_type): (v1.0) The dimensionValueCode property for the Dynamics 365 Business Central defaultDimensions entity. [optional]  # noqa: E501
             posting_validation (str, none_type): (v1.0) The postingValidation property for the Dynamics 365 Business Central defaultDimensions entity. [optional]  # noqa: E501
-            account (dict): [optional]  # noqa: E501
-            dimension (dict): [optional]  # noqa: E501
-            dimension_value (dict): [optional]  # noqa: E501
+            account (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            dimension (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            dimension_value (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -252,9 +252,9 @@ class DefaultDimensions(ModelNormal):
             dimension_value_id (str, none_type): (v1.0) The dimensionValueId property for the Dynamics 365 Business Central defaultDimensions entity. [optional]  # noqa: E501
             dimension_value_code (str, none_type): (v1.0) The dimensionValueCode property for the Dynamics 365 Business Central defaultDimensions entity. [optional]  # noqa: E501
             posting_validation (str, none_type): (v1.0) The postingValidation property for the Dynamics 365 Business Central defaultDimensions entity. [optional]  # noqa: E501
-            account (dict): [optional]  # noqa: E501
-            dimension (dict): [optional]  # noqa: E501
-            dimension_value (dict): [optional]  # noqa: E501
+            account (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            dimension (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            dimension_value (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

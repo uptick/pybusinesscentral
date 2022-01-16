@@ -36,77 +36,7 @@ class PaymentTermApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
-
-        def __delete_payment_term(
-            self,
-            company_id,
-            payment_term_id,
-            **kwargs
-        ):
-            """Deletes an object of type paymentTerm in Dynamics 365 Business Central  # noqa: E501
-
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.delete_payment_term(company_id, payment_term_id, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                company_id (str): (v1.0) id for company
-                payment_term_id (str): (v1.0) id for paymentTerm
-
-            Keyword Args:
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                None
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['company_id'] = \
-                company_id
-            kwargs['payment_term_id'] = \
-                payment_term_id
-            return self.call_with_http_info(**kwargs)
-
-        self.delete_payment_term = _Endpoint(
+        self.delete_payment_term_endpoint = _Endpoint(
             settings={
                 'response_type': None,
                 'auth': [
@@ -159,81 +89,9 @@ class PaymentTermApi(object):
                 'accept': [],
                 'content_type': [],
             },
-            api_client=api_client,
-            callable=__delete_payment_term
+            api_client=api_client
         )
-
-        def __get_payment_term(
-            self,
-            company_id,
-            payment_term_id,
-            **kwargs
-        ):
-            """Retrieve the properties and relationships of an object of type paymentTerm for Dynamics 365 Business Central.  # noqa: E501
-
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.get_payment_term(company_id, payment_term_id, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                company_id (str): (v1.0) id for company
-                payment_term_id (str): (v1.0) id for paymentTerm
-
-            Keyword Args:
-                select ([str]): (v1.0) Selected properties to be retrieved. [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                PaymentTerm
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['company_id'] = \
-                company_id
-            kwargs['payment_term_id'] = \
-                payment_term_id
-            return self.call_with_http_info(**kwargs)
-
-        self.get_payment_term = _Endpoint(
+        self.get_payment_term_endpoint = _Endpoint(
             settings={
                 'response_type': (PaymentTerm,),
                 'auth': [
@@ -306,81 +164,9 @@ class PaymentTermApi(object):
                 ],
                 'content_type': [],
             },
-            api_client=api_client,
-            callable=__get_payment_term
+            api_client=api_client
         )
-
-        def __list_payment_terms(
-            self,
-            company_id,
-            **kwargs
-        ):
-            """Returns a list of paymentTerms  # noqa: E501
-
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.list_payment_terms(company_id, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                company_id (str): (v1.0) id for company
-
-            Keyword Args:
-                top (int): (v1.0) Number of items to return from the top of the list. [optional]
-                skip (int): (v1.0) Number of items to skip from the list. [optional]
-                limit (int): (v1.0) Number of items to return from the list. [optional]
-                filter (str): (v1.0) Filtering expression. [optional]
-                select ([str]): (v1.0) Selected properties to be retrieved. [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                InlineResponse2007
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['company_id'] = \
-                company_id
-            return self.call_with_http_info(**kwargs)
-
-        self.list_payment_terms = _Endpoint(
+        self.list_payment_terms_endpoint = _Endpoint(
             settings={
                 'response_type': (InlineResponse2007,),
                 'auth': [
@@ -467,92 +253,9 @@ class PaymentTermApi(object):
                 ],
                 'content_type': [],
             },
-            api_client=api_client,
-            callable=__list_payment_terms
+            api_client=api_client
         )
-
-        def __patch_payment_term(
-            self,
-            company_id,
-            payment_term_id,
-            content_type,
-            if_match,
-            payment_term,
-            **kwargs
-        ):
-            """Updates an object of type paymentTerm in Dynamics 365 Business Central  # noqa: E501
-
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.patch_payment_term(company_id, payment_term_id, content_type, if_match, payment_term, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                company_id (str): (v1.0) id for company
-                payment_term_id (str): (v1.0) id for paymentTerm
-                content_type (str): (v1.0) application/json
-                if_match (str): (v1.0) Required. When this request header is included and the eTag provided does not match the current tag on the entity, this will not be updated.
-                payment_term (PaymentTerm):
-
-            Keyword Args:
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                PaymentTerm
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['company_id'] = \
-                company_id
-            kwargs['payment_term_id'] = \
-                payment_term_id
-            kwargs['content_type'] = \
-                content_type
-            kwargs['if_match'] = \
-                if_match
-            kwargs['payment_term'] = \
-                payment_term
-            return self.call_with_http_info(**kwargs)
-
-        self.patch_payment_term = _Endpoint(
+        self.patch_payment_term_endpoint = _Endpoint(
             settings={
                 'response_type': (PaymentTerm,),
                 'auth': [
@@ -579,6 +282,7 @@ class PaymentTermApi(object):
                     'payment_term',
                 ],
                 'nullable': [
+                    'payment_term',
                 ],
                 'enum': [
                 ],
@@ -626,84 +330,9 @@ class PaymentTermApi(object):
                     'application/json'
                 ]
             },
-            api_client=api_client,
-            callable=__patch_payment_term
+            api_client=api_client
         )
-
-        def __post_payment_term(
-            self,
-            company_id,
-            content_type,
-            payment_term,
-            **kwargs
-        ):
-            """Creates an object of type paymentTerm in Dynamics 365 Business Central  # noqa: E501
-
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.post_payment_term(company_id, content_type, payment_term, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                company_id (str): (v1.0) id for company
-                content_type (str): (v1.0) application/json
-                payment_term (PaymentTerm):
-
-            Keyword Args:
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (int/float/tuple): timeout setting for this request. If
-                    one number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                PaymentTerm
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['company_id'] = \
-                company_id
-            kwargs['content_type'] = \
-                content_type
-            kwargs['payment_term'] = \
-                payment_term
-            return self.call_with_http_info(**kwargs)
-
-        self.post_payment_term = _Endpoint(
+        self.post_payment_term_endpoint = _Endpoint(
             settings={
                 'response_type': (PaymentTerm,),
                 'auth': [
@@ -726,6 +355,7 @@ class PaymentTermApi(object):
                     'payment_term',
                 ],
                 'nullable': [
+                    'payment_term',
                 ],
                 'enum': [
                 ],
@@ -765,6 +395,394 @@ class PaymentTermApi(object):
                     'application/json'
                 ]
             },
-            api_client=api_client,
-            callable=__post_payment_term
+            api_client=api_client
         )
+
+    def delete_payment_term(
+        self,
+        company_id,
+        payment_term_id,
+        **kwargs
+    ):
+        """Deletes an object of type paymentTerm in Dynamics 365 Business Central  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.delete_payment_term(company_id, payment_term_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            company_id (str): (v1.0) id for company
+            payment_term_id (str): (v1.0) id for paymentTerm
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['company_id'] = \
+            company_id
+        kwargs['payment_term_id'] = \
+            payment_term_id
+        return self.delete_payment_term_endpoint.call_with_http_info(**kwargs)
+
+    def get_payment_term(
+        self,
+        company_id,
+        payment_term_id,
+        **kwargs
+    ):
+        """Retrieve the properties and relationships of an object of type paymentTerm for Dynamics 365 Business Central.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_payment_term(company_id, payment_term_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            company_id (str): (v1.0) id for company
+            payment_term_id (str): (v1.0) id for paymentTerm
+
+        Keyword Args:
+            select ([str]): (v1.0) Selected properties to be retrieved. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            PaymentTerm
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['company_id'] = \
+            company_id
+        kwargs['payment_term_id'] = \
+            payment_term_id
+        return self.get_payment_term_endpoint.call_with_http_info(**kwargs)
+
+    def list_payment_terms(
+        self,
+        company_id,
+        **kwargs
+    ):
+        """Returns a list of paymentTerms  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.list_payment_terms(company_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            company_id (str): (v1.0) id for company
+
+        Keyword Args:
+            top (int): (v1.0) Number of items to return from the top of the list. [optional]
+            skip (int): (v1.0) Number of items to skip from the list. [optional]
+            limit (int): (v1.0) Number of items to return from the list. [optional]
+            filter (str): (v1.0) Filtering expression. [optional]
+            select ([str]): (v1.0) Selected properties to be retrieved. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            InlineResponse2007
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['company_id'] = \
+            company_id
+        return self.list_payment_terms_endpoint.call_with_http_info(**kwargs)
+
+    def patch_payment_term(
+        self,
+        company_id,
+        payment_term_id,
+        content_type,
+        if_match,
+        payment_term,
+        **kwargs
+    ):
+        """Updates an object of type paymentTerm in Dynamics 365 Business Central  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.patch_payment_term(company_id, payment_term_id, content_type, if_match, payment_term, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            company_id (str): (v1.0) id for company
+            payment_term_id (str): (v1.0) id for paymentTerm
+            content_type (str): (v1.0) application/json
+            if_match (str): (v1.0) Required. When this request header is included and the eTag provided does not match the current tag on the entity, this will not be updated.
+            payment_term (PaymentTerm):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            PaymentTerm
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['company_id'] = \
+            company_id
+        kwargs['payment_term_id'] = \
+            payment_term_id
+        kwargs['content_type'] = \
+            content_type
+        kwargs['if_match'] = \
+            if_match
+        kwargs['payment_term'] = \
+            payment_term
+        return self.patch_payment_term_endpoint.call_with_http_info(**kwargs)
+
+    def post_payment_term(
+        self,
+        company_id,
+        content_type,
+        payment_term,
+        **kwargs
+    ):
+        """Creates an object of type paymentTerm in Dynamics 365 Business Central  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.post_payment_term(company_id, content_type, payment_term, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            company_id (str): (v1.0) id for company
+            content_type (str): (v1.0) application/json
+            payment_term (PaymentTerm):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            PaymentTerm
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['company_id'] = \
+            company_id
+        kwargs['content_type'] = \
+            content_type
+        kwargs['payment_term'] = \
+            payment_term
+        return self.post_payment_term_endpoint.call_with_http_info(**kwargs)
+

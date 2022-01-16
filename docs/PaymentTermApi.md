@@ -19,6 +19,7 @@ Deletes an object of type paymentTerm in Dynamics 365 Business Central
 ### Example
 
 * OAuth Authentication (oAuth):
+
 ```python
 import time
 import pybusinesscentral
@@ -79,6 +80,7 @@ void (empty response body)
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | (v1.0) Succesfully deleted the specified paymentTerm |  -  |
@@ -93,6 +95,7 @@ Retrieve the properties and relationships of an object of type paymentTerm for D
 ### Example
 
 * OAuth Authentication (oAuth):
+
 ```python
 import time
 import pybusinesscentral
@@ -168,6 +171,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | (v1.0) Succesfully returned the requested paymentTerm |  -  |
@@ -182,6 +186,7 @@ Returns a list of paymentTerms
 ### Example
 
 * OAuth Authentication (oAuth):
+
 ```python
 import time
 import pybusinesscentral
@@ -263,6 +268,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | (v1.0) Succesfully returned a list of paymentTerms |  -  |
@@ -277,6 +283,7 @@ Updates an object of type paymentTerm in Dynamics 365 Business Central
 ### Example
 
 * OAuth Authentication (oAuth):
+
 ```python
 import time
 import pybusinesscentral
@@ -309,16 +316,7 @@ with pybusinesscentral.ApiClient(configuration) as api_client:
     payment_term_id = "paymentTerm_id_example" # str | (v1.0) id for paymentTerm
     content_type = "Content-Type_example" # str | (v1.0) application/json
     if_match = "If-Match_example" # str | (v1.0) Required. When this request header is included and the eTag provided does not match the current tag on the entity, this will not be updated.
-    unknown_base_type = {
-        id="id_example",
-        code="code_example",
-        display_name="display_name_example",
-        due_date_calculation="due_date_calculation_example",
-        discount_date_calculation="discount_date_calculation_example",
-        discount_percent=3.14,
-        calculate_discount_on_credit_memos=True,
-        last_modified_date_time=dateutil_parser('1970-01-01T00:00:00.00Z'),
-    } # UNKNOWN_BASE_TYPE | 
+    unknown_base_type = None # UNKNOWN_BASE_TYPE | 
 
     # example passing only required values which don't have defaults set
     try:
@@ -355,6 +353,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | (v1.0) Succesfully updated the specifiedpaymentTerm |  -  |
@@ -369,6 +368,7 @@ Creates an object of type paymentTerm in Dynamics 365 Business Central
 ### Example
 
 * OAuth Authentication (oAuth):
+
 ```python
 import time
 import pybusinesscentral
@@ -399,16 +399,7 @@ with pybusinesscentral.ApiClient(configuration) as api_client:
     api_instance = payment_term_api.PaymentTermApi(api_client)
     company_id = "company_id_example" # str | (v1.0) id for company
     content_type = "Content-Type_example" # str | (v1.0) application/json
-    unknown_base_type = {
-        id="id_example",
-        code="code_example",
-        display_name="display_name_example",
-        due_date_calculation="due_date_calculation_example",
-        discount_date_calculation="discount_date_calculation_example",
-        discount_percent=3.14,
-        calculate_discount_on_credit_memos=True,
-        last_modified_date_time=dateutil_parser('1970-01-01T00:00:00.00Z'),
-    } # UNKNOWN_BASE_TYPE | 
+    unknown_base_type = None # UNKNOWN_BASE_TYPE | 
 
     # example passing only required values which don't have defaults set
     try:
@@ -443,6 +434,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | (v1.0) A new paymentTerm has been succesfully created |  -  |

@@ -24,8 +24,8 @@ from pybusinesscentral.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from pybusinesscentral.exceptions import ApiAttributeError
 
 
@@ -85,7 +85,7 @@ class Dimensiontype(ModelNormal):
             'display_name': (str, none_type,),  # noqa: E501
             'value_code': (str,),  # noqa: E501
             'value_display_name': (str, none_type,),  # noqa: E501
-            'customer': (dict, none_type,),  # noqa: E501
+            'customer': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -146,7 +146,7 @@ class Dimensiontype(ModelNormal):
             display_name (str, none_type): (v1.0) The displayName property for the Dynamics 365 Business Central dimensiontype entity. [optional]  # noqa: E501
             value_code (str): (v1.0) The valueCode property for the Dynamics 365 Business Central dimensiontype entity. [optional]  # noqa: E501
             value_display_name (str, none_type): (v1.0) The valueDisplayName property for the Dynamics 365 Business Central dimensiontype entity. [optional]  # noqa: E501
-            customer (dict): [optional]  # noqa: E501
+            customer (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -232,7 +232,7 @@ class Dimensiontype(ModelNormal):
             display_name (str, none_type): (v1.0) The displayName property for the Dynamics 365 Business Central dimensiontype entity. [optional]  # noqa: E501
             value_code (str): (v1.0) The valueCode property for the Dynamics 365 Business Central dimensiontype entity. [optional]  # noqa: E501
             value_display_name (str, none_type): (v1.0) The valueDisplayName property for the Dynamics 365 Business Central dimensiontype entity. [optional]  # noqa: E501
-            customer (dict): [optional]  # noqa: E501
+            customer (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

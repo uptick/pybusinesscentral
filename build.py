@@ -1,8 +1,8 @@
 # Assumes openapi-generator is installed
-import sys
-import subprocess
-import re
 import glob
+import re
+import subprocess
+import sys
 from typing import Optional
 
 package_name = 'pybusinesscentral'

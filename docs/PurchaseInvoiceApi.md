@@ -19,6 +19,7 @@ Deletes an object of type purchaseInvoice in Dynamics 365 Business Central
 ### Example
 
 * OAuth Authentication (oAuth):
+
 ```python
 import time
 import pybusinesscentral
@@ -79,6 +80,7 @@ void (empty response body)
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | (v1.0) Succesfully deleted the specified purchaseInvoice |  -  |
@@ -93,6 +95,7 @@ Retrieve the properties and relationships of an object of type purchaseInvoice f
 ### Example
 
 * OAuth Authentication (oAuth):
+
 ```python
 import time
 import pybusinesscentral
@@ -172,6 +175,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | (v1.0) Succesfully returned the requested purchaseInvoice |  -  |
@@ -186,6 +190,7 @@ Returns a list of purchaseInvoices
 ### Example
 
 * OAuth Authentication (oAuth):
+
 ```python
 import time
 import pybusinesscentral
@@ -271,6 +276,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | (v1.0) Succesfully returned a list of purchaseInvoices |  -  |
@@ -285,6 +291,7 @@ Updates an object of type purchaseInvoice in Dynamics 365 Business Central
 ### Example
 
 * OAuth Authentication (oAuth):
+
 ```python
 import time
 import pybusinesscentral
@@ -317,35 +324,7 @@ with pybusinesscentral.ApiClient(configuration) as api_client:
     purchase_invoice_id = "purchaseInvoice_id_example" # str | (v1.0) id for purchaseInvoice
     content_type = "Content-Type_example" # str | (v1.0) application/json
     if_match = "If-Match_example" # str | (v1.0) Required. When this request header is included and the eTag provided does not match the current tag on the entity, this will not be updated.
-    unknown_base_type = {
-        id="id_example",
-        number="number_example",
-        invoice_date=dateutil_parser('1970-01-01T00:00:00.00Z'),
-        due_date=dateutil_parser('1970-01-01T00:00:00.00Z'),
-        vendor_invoice_number="vendor_invoice_number_example",
-        vendor_id="vendor_id_example",
-        vendor_number="vendor_number_example",
-        vendor_name="vendor_name_example",
-        pay_to_name="pay_to_name_example",
-        pay_to_contact="pay_to_contact_example",
-        pay_to_vendor_id="pay_to_vendor_id_example",
-        pay_to_vendor_number="pay_to_vendor_number_example",
-        ship_to_name="ship_to_name_example",
-        ship_to_contact="ship_to_contact_example",
-        buy_from_address=,
-        pay_to_address=,
-        ship_to_address=,
-        currency_id="currency_id_example",
-        currency_code="currency_code_example",
-        prices_include_tax=True,
-        discount_amount=3.14,
-        discount_applied_before_tax=True,
-        total_amount_excluding_tax=3.14,
-        total_tax_amount=3.14,
-        total_amount_including_tax=3.14,
-        status="status_example",
-        last_modified_date_time=dateutil_parser('1970-01-01T00:00:00.00Z'),
-    } # UNKNOWN_BASE_TYPE | 
+    unknown_base_type = None # UNKNOWN_BASE_TYPE | 
 
     # example passing only required values which don't have defaults set
     try:
@@ -382,6 +361,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | (v1.0) Succesfully updated the specifiedpurchaseInvoice |  -  |
@@ -396,6 +376,7 @@ Creates an object of type purchaseInvoice in Dynamics 365 Business Central
 ### Example
 
 * OAuth Authentication (oAuth):
+
 ```python
 import time
 import pybusinesscentral
@@ -426,35 +407,7 @@ with pybusinesscentral.ApiClient(configuration) as api_client:
     api_instance = purchase_invoice_api.PurchaseInvoiceApi(api_client)
     company_id = "company_id_example" # str | (v1.0) id for company
     content_type = "Content-Type_example" # str | (v1.0) application/json
-    unknown_base_type = {
-        id="id_example",
-        number="number_example",
-        invoice_date=dateutil_parser('1970-01-01T00:00:00.00Z'),
-        due_date=dateutil_parser('1970-01-01T00:00:00.00Z'),
-        vendor_invoice_number="vendor_invoice_number_example",
-        vendor_id="vendor_id_example",
-        vendor_number="vendor_number_example",
-        vendor_name="vendor_name_example",
-        pay_to_name="pay_to_name_example",
-        pay_to_contact="pay_to_contact_example",
-        pay_to_vendor_id="pay_to_vendor_id_example",
-        pay_to_vendor_number="pay_to_vendor_number_example",
-        ship_to_name="ship_to_name_example",
-        ship_to_contact="ship_to_contact_example",
-        buy_from_address=,
-        pay_to_address=,
-        ship_to_address=,
-        currency_id="currency_id_example",
-        currency_code="currency_code_example",
-        prices_include_tax=True,
-        discount_amount=3.14,
-        discount_applied_before_tax=True,
-        total_amount_excluding_tax=3.14,
-        total_tax_amount=3.14,
-        total_amount_including_tax=3.14,
-        status="status_example",
-        last_modified_date_time=dateutil_parser('1970-01-01T00:00:00.00Z'),
-    } # UNKNOWN_BASE_TYPE | 
+    unknown_base_type = None # UNKNOWN_BASE_TYPE | 
     expand = [
         "purchaseInvoiceLines",
     ] # [str] | (v1.0) Entities to expand (optional)
@@ -502,6 +455,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | (v1.0) A new purchaseInvoice has been succesfully created |  -  |

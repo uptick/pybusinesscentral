@@ -24,8 +24,8 @@ from pybusinesscentral.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from pybusinesscentral.exceptions import ApiAttributeError
 
 
@@ -89,8 +89,8 @@ class Documentlineobjectdetailstype(ModelNormal):
         return {
             'number': (str, none_type,),  # noqa: E501
             'display_name': (str, none_type,),  # noqa: E501
-            'item': (dict, none_type,),  # noqa: E501
-            'account': (dict, none_type,),  # noqa: E501
+            'item': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'account': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -148,8 +148,8 @@ class Documentlineobjectdetailstype(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             number (str, none_type): (v1.0) The number property for the Dynamics 365 Business Central documentlineobjectdetailstype entity. [optional]  # noqa: E501
             display_name (str, none_type): (v1.0) The displayName property for the Dynamics 365 Business Central documentlineobjectdetailstype entity. [optional]  # noqa: E501
-            item (dict): [optional]  # noqa: E501
-            account (dict): [optional]  # noqa: E501
+            item (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            account (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -233,8 +233,8 @@ class Documentlineobjectdetailstype(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             number (str, none_type): (v1.0) The number property for the Dynamics 365 Business Central documentlineobjectdetailstype entity. [optional]  # noqa: E501
             display_name (str, none_type): (v1.0) The displayName property for the Dynamics 365 Business Central documentlineobjectdetailstype entity. [optional]  # noqa: E501
-            item (dict): [optional]  # noqa: E501
-            account (dict): [optional]  # noqa: E501
+            item (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            account (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

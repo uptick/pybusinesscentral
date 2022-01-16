@@ -24,8 +24,8 @@ from pybusinesscentral.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from pybusinesscentral.exceptions import ApiAttributeError
 
 
@@ -104,7 +104,7 @@ class CompanyInformation(ModelNormal):
         return {
             'id': (str,),  # noqa: E501
             'display_name': (str, none_type,),  # noqa: E501
-            'address': (dict, none_type,),  # noqa: E501
+            'address': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'phone_number': (str, none_type,),  # noqa: E501
             'fax_number': (str, none_type,),  # noqa: E501
             'email': (str, none_type,),  # noqa: E501
@@ -181,7 +181,7 @@ class CompanyInformation(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             id (str): (v1.0) The id property for the Dynamics 365 Business Central companyInformation entity. [optional]  # noqa: E501
             display_name (str, none_type): (v1.0) The displayName property for the Dynamics 365 Business Central companyInformation entity. [optional]  # noqa: E501
-            address (dict): [optional]  # noqa: E501
+            address (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             phone_number (str, none_type): (v1.0) The phoneNumber property for the Dynamics 365 Business Central companyInformation entity. [optional]  # noqa: E501
             fax_number (str, none_type): (v1.0) The faxNumber property for the Dynamics 365 Business Central companyInformation entity. [optional]  # noqa: E501
             email (str, none_type): (v1.0) The email property for the Dynamics 365 Business Central companyInformation entity. [optional]  # noqa: E501
@@ -275,7 +275,7 @@ class CompanyInformation(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             id (str): (v1.0) The id property for the Dynamics 365 Business Central companyInformation entity. [optional]  # noqa: E501
             display_name (str, none_type): (v1.0) The displayName property for the Dynamics 365 Business Central companyInformation entity. [optional]  # noqa: E501
-            address (dict): [optional]  # noqa: E501
+            address (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             phone_number (str, none_type): (v1.0) The phoneNumber property for the Dynamics 365 Business Central companyInformation entity. [optional]  # noqa: E501
             fax_number (str, none_type): (v1.0) The faxNumber property for the Dynamics 365 Business Central companyInformation entity. [optional]  # noqa: E501
             email (str, none_type): (v1.0) The email property for the Dynamics 365 Business Central companyInformation entity. [optional]  # noqa: E501

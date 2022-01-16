@@ -15,10 +15,10 @@ Name | Type | Description | Notes
 **quantity** | **float, none_type** | (v1.0) The quantity property for the Dynamics 365 Business Central timeRegistrationEntry entity | [optional] 
 **status** | **str, none_type** | (v1.0) The status property for the Dynamics 365 Business Central timeRegistrationEntry entity | [optional] 
 **unit_of_measure_id** | **str, none_type** | (v1.0) The unitOfMeasureId property for the Dynamics 365 Business Central timeRegistrationEntry entity | [optional] 
-**unit_of_measure** | **dict** |  | [optional] 
-**dimensions** | **[dict]** |  | [optional] 
+**unit_of_measure** | **bool, date, datetime, dict, float, int, list, str, none_type** |  | [optional] 
+**dimensions** | **[bool, date, datetime, dict, float, int, list, str, none_type]** |  | [optional] 
 **last_modfied_date_time** | **datetime, none_type** | (v1.0) The lastModfiedDateTime property for the Dynamics 365 Business Central timeRegistrationEntry entity | [optional] 
-**project** | **dict** |  | [optional] 
+**project** | **bool, date, datetime, dict, float, int, list, str, none_type** |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

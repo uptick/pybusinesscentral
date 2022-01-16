@@ -24,8 +24,8 @@ from pybusinesscentral.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from pybusinesscentral.exceptions import ApiAttributeError
 
 
@@ -101,10 +101,10 @@ class TimeRegistrationEntry(ModelNormal):
             'quantity': (float, none_type,),  # noqa: E501
             'status': (str, none_type,),  # noqa: E501
             'unit_of_measure_id': (str, none_type,),  # noqa: E501
-            'unit_of_measure': (dict, none_type,),  # noqa: E501
-            'dimensions': ([dict],),  # noqa: E501
+            'unit_of_measure': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'dimensions': ([bool, date, datetime, dict, float, int, list, str, none_type],),  # noqa: E501
             'last_modfied_date_time': (datetime, none_type,),  # noqa: E501
-            'project': (dict, none_type,),  # noqa: E501
+            'project': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -182,10 +182,10 @@ class TimeRegistrationEntry(ModelNormal):
             quantity (float, none_type): (v1.0) The quantity property for the Dynamics 365 Business Central timeRegistrationEntry entity. [optional]  # noqa: E501
             status (str, none_type): (v1.0) The status property for the Dynamics 365 Business Central timeRegistrationEntry entity. [optional]  # noqa: E501
             unit_of_measure_id (str, none_type): (v1.0) The unitOfMeasureId property for the Dynamics 365 Business Central timeRegistrationEntry entity. [optional]  # noqa: E501
-            unit_of_measure (dict): [optional]  # noqa: E501
-            dimensions ([dict]): [optional]  # noqa: E501
+            unit_of_measure (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            dimensions ([bool, date, datetime, dict, float, int, list, str, none_type]): [optional]  # noqa: E501
             last_modfied_date_time (datetime, none_type): (v1.0) The lastModfiedDateTime property for the Dynamics 365 Business Central timeRegistrationEntry entity. [optional]  # noqa: E501
-            project (dict): [optional]  # noqa: E501
+            project (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -278,10 +278,10 @@ class TimeRegistrationEntry(ModelNormal):
             quantity (float, none_type): (v1.0) The quantity property for the Dynamics 365 Business Central timeRegistrationEntry entity. [optional]  # noqa: E501
             status (str, none_type): (v1.0) The status property for the Dynamics 365 Business Central timeRegistrationEntry entity. [optional]  # noqa: E501
             unit_of_measure_id (str, none_type): (v1.0) The unitOfMeasureId property for the Dynamics 365 Business Central timeRegistrationEntry entity. [optional]  # noqa: E501
-            unit_of_measure (dict): [optional]  # noqa: E501
-            dimensions ([dict]): [optional]  # noqa: E501
+            unit_of_measure (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            dimensions ([bool, date, datetime, dict, float, int, list, str, none_type]): [optional]  # noqa: E501
             last_modfied_date_time (datetime, none_type): (v1.0) The lastModfiedDateTime property for the Dynamics 365 Business Central timeRegistrationEntry entity. [optional]  # noqa: E501
-            project (dict): [optional]  # noqa: E501
+            project (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
