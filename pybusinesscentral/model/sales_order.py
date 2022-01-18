@@ -24,8 +24,8 @@ from pybusinesscentral.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from pybusinesscentral.exceptions import ApiAttributeError
 
 
@@ -136,9 +136,9 @@ class SalesOrder(ModelNormal):
             'bill_to_customer_number': (str, none_type,),  # noqa: E501
             'ship_to_name': (str, none_type,),  # noqa: E501
             'ship_to_contact': (str, none_type,),  # noqa: E501
-            'selling_postal_address': (dict, none_type,),  # noqa: E501
-            'billing_postal_address': (dict, none_type,),  # noqa: E501
-            'shipping_postal_address': (dict, none_type,),  # noqa: E501
+            'selling_postal_address': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'billing_postal_address': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'shipping_postal_address': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'currency_id': (str, none_type,),  # noqa: E501
             'currency_code': (str, none_type,),  # noqa: E501
             'prices_include_tax': (bool, none_type,),  # noqa: E501
@@ -158,10 +158,10 @@ class SalesOrder(ModelNormal):
             'phone_number': (str, none_type,),  # noqa: E501
             'email': (str, none_type,),  # noqa: E501
             'sales_order_lines': ([SalesOrderLine], none_type,),  # noqa: E501
-            'customer': (dict, none_type,),  # noqa: E501
-            'currency': (dict, none_type,),  # noqa: E501
-            'payment_term': (dict, none_type,),  # noqa: E501
-            'shipment_method': (dict, none_type,),  # noqa: E501
+            'customer': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'currency': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'payment_term': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'shipment_method': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -265,9 +265,9 @@ class SalesOrder(ModelNormal):
             bill_to_customer_number (str, none_type): (v1.0) The billToCustomerNumber property for the Dynamics 365 Business Central salesOrder entity. [optional]  # noqa: E501
             ship_to_name (str, none_type): (v1.0) The shipToName property for the Dynamics 365 Business Central salesOrder entity. [optional]  # noqa: E501
             ship_to_contact (str, none_type): (v1.0) The shipToContact property for the Dynamics 365 Business Central salesOrder entity. [optional]  # noqa: E501
-            selling_postal_address (dict): [optional]  # noqa: E501
-            billing_postal_address (dict): [optional]  # noqa: E501
-            shipping_postal_address (dict): [optional]  # noqa: E501
+            selling_postal_address (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            billing_postal_address (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            shipping_postal_address (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             currency_id (str, none_type): (v1.0) The currencyId property for the Dynamics 365 Business Central salesOrder entity. [optional]  # noqa: E501
             currency_code (str, none_type): (v1.0) The currencyCode property for the Dynamics 365 Business Central salesOrder entity. [optional]  # noqa: E501
             prices_include_tax (bool, none_type): (v1.0) The pricesIncludeTax property for the Dynamics 365 Business Central salesOrder entity. [optional]  # noqa: E501
@@ -287,10 +287,10 @@ class SalesOrder(ModelNormal):
             phone_number (str, none_type): (v1.0) The phoneNumber property for the Dynamics 365 Business Central salesOrder entity. [optional]  # noqa: E501
             email (str, none_type): (v1.0) The email property for the Dynamics 365 Business Central salesOrder entity. [optional]  # noqa: E501
             sales_order_lines ([SalesOrderLine], none_type): [optional]  # noqa: E501
-            customer (dict): [optional]  # noqa: E501
-            currency (dict): [optional]  # noqa: E501
-            payment_term (dict): [optional]  # noqa: E501
-            shipment_method (dict): [optional]  # noqa: E501
+            customer (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            currency (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            payment_term (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            shipment_method (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -385,9 +385,9 @@ class SalesOrder(ModelNormal):
             bill_to_customer_number (str, none_type): (v1.0) The billToCustomerNumber property for the Dynamics 365 Business Central salesOrder entity. [optional]  # noqa: E501
             ship_to_name (str, none_type): (v1.0) The shipToName property for the Dynamics 365 Business Central salesOrder entity. [optional]  # noqa: E501
             ship_to_contact (str, none_type): (v1.0) The shipToContact property for the Dynamics 365 Business Central salesOrder entity. [optional]  # noqa: E501
-            selling_postal_address (dict): [optional]  # noqa: E501
-            billing_postal_address (dict): [optional]  # noqa: E501
-            shipping_postal_address (dict): [optional]  # noqa: E501
+            selling_postal_address (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            billing_postal_address (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            shipping_postal_address (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             currency_id (str, none_type): (v1.0) The currencyId property for the Dynamics 365 Business Central salesOrder entity. [optional]  # noqa: E501
             currency_code (str, none_type): (v1.0) The currencyCode property for the Dynamics 365 Business Central salesOrder entity. [optional]  # noqa: E501
             prices_include_tax (bool, none_type): (v1.0) The pricesIncludeTax property for the Dynamics 365 Business Central salesOrder entity. [optional]  # noqa: E501
@@ -407,10 +407,10 @@ class SalesOrder(ModelNormal):
             phone_number (str, none_type): (v1.0) The phoneNumber property for the Dynamics 365 Business Central salesOrder entity. [optional]  # noqa: E501
             email (str, none_type): (v1.0) The email property for the Dynamics 365 Business Central salesOrder entity. [optional]  # noqa: E501
             sales_order_lines ([SalesOrderLine], none_type): [optional]  # noqa: E501
-            customer (dict): [optional]  # noqa: E501
-            currency (dict): [optional]  # noqa: E501
-            payment_term (dict): [optional]  # noqa: E501
-            shipment_method (dict): [optional]  # noqa: E501
+            customer (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            currency (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            payment_term (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            shipment_method (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

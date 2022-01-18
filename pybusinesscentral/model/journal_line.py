@@ -24,8 +24,8 @@ from pybusinesscentral.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from pybusinesscentral.exceptions import ApiAttributeError
 
 
@@ -114,10 +114,10 @@ class JournalLine(ModelNormal):
             'amount': (float, none_type,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
             'comment': (str, none_type,),  # noqa: E501
-            'dimensions': ([dict],),  # noqa: E501
+            'dimensions': ([bool, date, datetime, dict, float, int, list, str, none_type],),  # noqa: E501
             'last_modified_date_time': (datetime, none_type,),  # noqa: E501
             'attachments': ([Attachments], none_type,),  # noqa: E501
-            'account': (dict, none_type,),  # noqa: E501
+            'account': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -197,10 +197,10 @@ class JournalLine(ModelNormal):
             amount (float, none_type): (v1.0) The amount property for the Dynamics 365 Business Central journalLine entity. [optional]  # noqa: E501
             description (str, none_type): (v1.0) The description property for the Dynamics 365 Business Central journalLine entity. [optional]  # noqa: E501
             comment (str, none_type): (v1.0) The comment property for the Dynamics 365 Business Central journalLine entity. [optional]  # noqa: E501
-            dimensions ([dict]): [optional]  # noqa: E501
+            dimensions ([bool, date, datetime, dict, float, int, list, str, none_type]): [optional]  # noqa: E501
             last_modified_date_time (datetime, none_type): (v1.0) The lastModifiedDateTime property for the Dynamics 365 Business Central journalLine entity. [optional]  # noqa: E501
             attachments ([Attachments], none_type): [optional]  # noqa: E501
-            account (dict): [optional]  # noqa: E501
+            account (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -294,10 +294,10 @@ class JournalLine(ModelNormal):
             amount (float, none_type): (v1.0) The amount property for the Dynamics 365 Business Central journalLine entity. [optional]  # noqa: E501
             description (str, none_type): (v1.0) The description property for the Dynamics 365 Business Central journalLine entity. [optional]  # noqa: E501
             comment (str, none_type): (v1.0) The comment property for the Dynamics 365 Business Central journalLine entity. [optional]  # noqa: E501
-            dimensions ([dict]): [optional]  # noqa: E501
+            dimensions ([bool, date, datetime, dict, float, int, list, str, none_type]): [optional]  # noqa: E501
             last_modified_date_time (datetime, none_type): (v1.0) The lastModifiedDateTime property for the Dynamics 365 Business Central journalLine entity. [optional]  # noqa: E501
             attachments ([Attachments], none_type): [optional]  # noqa: E501
-            account (dict): [optional]  # noqa: E501
+            account (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -24,8 +24,8 @@ from pybusinesscentral.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from pybusinesscentral.exceptions import ApiAttributeError
 
 
@@ -130,9 +130,9 @@ class PurchaseInvoice(ModelNormal):
             'pay_to_vendor_number': (str, none_type,),  # noqa: E501
             'ship_to_name': (str, none_type,),  # noqa: E501
             'ship_to_contact': (str, none_type,),  # noqa: E501
-            'buy_from_address': (dict, none_type,),  # noqa: E501
-            'pay_to_address': (dict, none_type,),  # noqa: E501
-            'ship_to_address': (dict, none_type,),  # noqa: E501
+            'buy_from_address': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'pay_to_address': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'ship_to_address': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'currency_id': (str, none_type,),  # noqa: E501
             'currency_code': (str, none_type,),  # noqa: E501
             'prices_include_tax': (bool, none_type,),  # noqa: E501
@@ -145,8 +145,8 @@ class PurchaseInvoice(ModelNormal):
             'last_modified_date_time': (datetime, none_type,),  # noqa: E501
             'purchase_invoice_lines': ([PurchaseInvoiceLine], none_type,),  # noqa: E501
             'pdf_document': ([PdfDocument], none_type,),  # noqa: E501
-            'vendor': (dict, none_type,),  # noqa: E501
-            'currency': (dict, none_type,),  # noqa: E501
+            'vendor': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'currency': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -243,9 +243,9 @@ class PurchaseInvoice(ModelNormal):
             pay_to_vendor_number (str, none_type): (v1.0) The payToVendorNumber property for the Dynamics 365 Business Central purchaseInvoice entity. [optional]  # noqa: E501
             ship_to_name (str, none_type): (v1.0) The shipToName property for the Dynamics 365 Business Central purchaseInvoice entity. [optional]  # noqa: E501
             ship_to_contact (str, none_type): (v1.0) The shipToContact property for the Dynamics 365 Business Central purchaseInvoice entity. [optional]  # noqa: E501
-            buy_from_address (dict): [optional]  # noqa: E501
-            pay_to_address (dict): [optional]  # noqa: E501
-            ship_to_address (dict): [optional]  # noqa: E501
+            buy_from_address (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            pay_to_address (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            ship_to_address (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             currency_id (str, none_type): (v1.0) The currencyId property for the Dynamics 365 Business Central purchaseInvoice entity. [optional]  # noqa: E501
             currency_code (str, none_type): (v1.0) The currencyCode property for the Dynamics 365 Business Central purchaseInvoice entity. [optional]  # noqa: E501
             prices_include_tax (bool, none_type): (v1.0) The pricesIncludeTax property for the Dynamics 365 Business Central purchaseInvoice entity. [optional]  # noqa: E501
@@ -258,8 +258,8 @@ class PurchaseInvoice(ModelNormal):
             last_modified_date_time (datetime, none_type): (v1.0) The lastModifiedDateTime property for the Dynamics 365 Business Central purchaseInvoice entity. [optional]  # noqa: E501
             purchase_invoice_lines ([PurchaseInvoiceLine], none_type): [optional]  # noqa: E501
             pdf_document ([PdfDocument], none_type): [optional]  # noqa: E501
-            vendor (dict): [optional]  # noqa: E501
-            currency (dict): [optional]  # noqa: E501
+            vendor (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            currency (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -355,9 +355,9 @@ class PurchaseInvoice(ModelNormal):
             pay_to_vendor_number (str, none_type): (v1.0) The payToVendorNumber property for the Dynamics 365 Business Central purchaseInvoice entity. [optional]  # noqa: E501
             ship_to_name (str, none_type): (v1.0) The shipToName property for the Dynamics 365 Business Central purchaseInvoice entity. [optional]  # noqa: E501
             ship_to_contact (str, none_type): (v1.0) The shipToContact property for the Dynamics 365 Business Central purchaseInvoice entity. [optional]  # noqa: E501
-            buy_from_address (dict): [optional]  # noqa: E501
-            pay_to_address (dict): [optional]  # noqa: E501
-            ship_to_address (dict): [optional]  # noqa: E501
+            buy_from_address (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            pay_to_address (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            ship_to_address (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             currency_id (str, none_type): (v1.0) The currencyId property for the Dynamics 365 Business Central purchaseInvoice entity. [optional]  # noqa: E501
             currency_code (str, none_type): (v1.0) The currencyCode property for the Dynamics 365 Business Central purchaseInvoice entity. [optional]  # noqa: E501
             prices_include_tax (bool, none_type): (v1.0) The pricesIncludeTax property for the Dynamics 365 Business Central purchaseInvoice entity. [optional]  # noqa: E501
@@ -370,8 +370,8 @@ class PurchaseInvoice(ModelNormal):
             last_modified_date_time (datetime, none_type): (v1.0) The lastModifiedDateTime property for the Dynamics 365 Business Central purchaseInvoice entity. [optional]  # noqa: E501
             purchase_invoice_lines ([PurchaseInvoiceLine], none_type): [optional]  # noqa: E501
             pdf_document ([PdfDocument], none_type): [optional]  # noqa: E501
-            vendor (dict): [optional]  # noqa: E501
-            currency (dict): [optional]  # noqa: E501
+            vendor (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            currency (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

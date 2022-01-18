@@ -13,9 +13,9 @@ Name | Type | Description | Notes
 **description** | **str, none_type** | (v1.0) The description property for the Dynamics 365 Business Central generalLedgerEntry entity | [optional] 
 **debit_amount** | **float, none_type** | (v1.0) The debitAmount property for the Dynamics 365 Business Central generalLedgerEntry entity | [optional] 
 **credit_amount** | **float, none_type** | (v1.0) The creditAmount property for the Dynamics 365 Business Central generalLedgerEntry entity | [optional] 
-**dimensions** | **[dict]** |  | [optional] 
+**dimensions** | **[bool, date, datetime, dict, float, int, list, str, none_type]** |  | [optional] 
 **last_modified_date_time** | **datetime, none_type** | (v1.0) The lastModifiedDateTime property for the Dynamics 365 Business Central generalLedgerEntry entity | [optional] 
-**account** | **dict** |  | [optional] 
+**account** | **bool, date, datetime, dict, float, int, list, str, none_type** |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

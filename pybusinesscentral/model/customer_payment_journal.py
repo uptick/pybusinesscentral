@@ -24,8 +24,8 @@ from pybusinesscentral.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from pybusinesscentral.exceptions import ApiAttributeError
 
 
@@ -103,7 +103,7 @@ class CustomerPaymentJournal(ModelNormal):
             'balancing_account_id': (str, none_type,),  # noqa: E501
             'balancing_account_number': (str, none_type,),  # noqa: E501
             'customer_payments': ([CustomerPayment], none_type,),  # noqa: E501
-            'account': (dict, none_type,),  # noqa: E501
+            'account': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -170,7 +170,7 @@ class CustomerPaymentJournal(ModelNormal):
             balancing_account_id (str, none_type): (v1.0) The balancingAccountId property for the Dynamics 365 Business Central customerPaymentJournal entity. [optional]  # noqa: E501
             balancing_account_number (str, none_type): (v1.0) The balancingAccountNumber property for the Dynamics 365 Business Central customerPaymentJournal entity. [optional]  # noqa: E501
             customer_payments ([CustomerPayment], none_type): [optional]  # noqa: E501
-            account (dict): [optional]  # noqa: E501
+            account (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -259,7 +259,7 @@ class CustomerPaymentJournal(ModelNormal):
             balancing_account_id (str, none_type): (v1.0) The balancingAccountId property for the Dynamics 365 Business Central customerPaymentJournal entity. [optional]  # noqa: E501
             balancing_account_number (str, none_type): (v1.0) The balancingAccountNumber property for the Dynamics 365 Business Central customerPaymentJournal entity. [optional]  # noqa: E501
             customer_payments ([CustomerPayment], none_type): [optional]  # noqa: E501
-            account (dict): [optional]  # noqa: E501
+            account (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

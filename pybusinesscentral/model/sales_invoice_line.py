@@ -24,8 +24,8 @@ from pybusinesscentral.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from pybusinesscentral.exceptions import ApiAttributeError
 
 
@@ -96,10 +96,10 @@ class SalesInvoiceLine(ModelNormal):
             'item_id': (str, none_type,),  # noqa: E501
             'account_id': (str, none_type,),  # noqa: E501
             'line_type': (str, none_type,),  # noqa: E501
-            'line_details': (dict, none_type,),  # noqa: E501
+            'line_details': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
             'unit_of_measure_id': (str, none_type,),  # noqa: E501
-            'unit_of_measure': (dict, none_type,),  # noqa: E501
+            'unit_of_measure': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'unit_price': (float, none_type,),  # noqa: E501
             'quantity': (float, none_type,),  # noqa: E501
             'discount_amount': (float, none_type,),  # noqa: E501
@@ -115,8 +115,8 @@ class SalesInvoiceLine(ModelNormal):
             'net_tax_amount': (float, none_type,),  # noqa: E501
             'net_amount_including_tax': (float, none_type,),  # noqa: E501
             'shipment_date': (date, none_type,),  # noqa: E501
-            'item': (dict, none_type,),  # noqa: E501
-            'account': (dict, none_type,),  # noqa: E501
+            'item': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'account': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -201,10 +201,10 @@ class SalesInvoiceLine(ModelNormal):
             item_id (str, none_type): (v1.0) The itemId property for the Dynamics 365 Business Central salesInvoiceLine entity. [optional]  # noqa: E501
             account_id (str, none_type): (v1.0) The accountId property for the Dynamics 365 Business Central salesInvoiceLine entity. [optional]  # noqa: E501
             line_type (str, none_type): (v1.0) The lineType property for the Dynamics 365 Business Central salesInvoiceLine entity. [optional]  # noqa: E501
-            line_details (dict): [optional]  # noqa: E501
+            line_details (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             description (str, none_type): (v1.0) The description property for the Dynamics 365 Business Central salesInvoiceLine entity. [optional]  # noqa: E501
             unit_of_measure_id (str, none_type): (v1.0) The unitOfMeasureId property for the Dynamics 365 Business Central salesInvoiceLine entity. [optional]  # noqa: E501
-            unit_of_measure (dict): [optional]  # noqa: E501
+            unit_of_measure (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             unit_price (float, none_type): (v1.0) The unitPrice property for the Dynamics 365 Business Central salesInvoiceLine entity. [optional]  # noqa: E501
             quantity (float, none_type): (v1.0) The quantity property for the Dynamics 365 Business Central salesInvoiceLine entity. [optional]  # noqa: E501
             discount_amount (float, none_type): (v1.0) The discountAmount property for the Dynamics 365 Business Central salesInvoiceLine entity. [optional]  # noqa: E501
@@ -220,8 +220,8 @@ class SalesInvoiceLine(ModelNormal):
             net_tax_amount (float, none_type): (v1.0) The netTaxAmount property for the Dynamics 365 Business Central salesInvoiceLine entity. [optional]  # noqa: E501
             net_amount_including_tax (float, none_type): (v1.0) The netAmountIncludingTax property for the Dynamics 365 Business Central salesInvoiceLine entity. [optional]  # noqa: E501
             shipment_date (date, none_type): (v1.0) The shipmentDate property for the Dynamics 365 Business Central salesInvoiceLine entity. [optional]  # noqa: E501
-            item (dict): [optional]  # noqa: E501
-            account (dict): [optional]  # noqa: E501
+            item (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            account (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -309,10 +309,10 @@ class SalesInvoiceLine(ModelNormal):
             item_id (str, none_type): (v1.0) The itemId property for the Dynamics 365 Business Central salesInvoiceLine entity. [optional]  # noqa: E501
             account_id (str, none_type): (v1.0) The accountId property for the Dynamics 365 Business Central salesInvoiceLine entity. [optional]  # noqa: E501
             line_type (str, none_type): (v1.0) The lineType property for the Dynamics 365 Business Central salesInvoiceLine entity. [optional]  # noqa: E501
-            line_details (dict): [optional]  # noqa: E501
+            line_details (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             description (str, none_type): (v1.0) The description property for the Dynamics 365 Business Central salesInvoiceLine entity. [optional]  # noqa: E501
             unit_of_measure_id (str, none_type): (v1.0) The unitOfMeasureId property for the Dynamics 365 Business Central salesInvoiceLine entity. [optional]  # noqa: E501
-            unit_of_measure (dict): [optional]  # noqa: E501
+            unit_of_measure (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             unit_price (float, none_type): (v1.0) The unitPrice property for the Dynamics 365 Business Central salesInvoiceLine entity. [optional]  # noqa: E501
             quantity (float, none_type): (v1.0) The quantity property for the Dynamics 365 Business Central salesInvoiceLine entity. [optional]  # noqa: E501
             discount_amount (float, none_type): (v1.0) The discountAmount property for the Dynamics 365 Business Central salesInvoiceLine entity. [optional]  # noqa: E501
@@ -328,8 +328,8 @@ class SalesInvoiceLine(ModelNormal):
             net_tax_amount (float, none_type): (v1.0) The netTaxAmount property for the Dynamics 365 Business Central salesInvoiceLine entity. [optional]  # noqa: E501
             net_amount_including_tax (float, none_type): (v1.0) The netAmountIncludingTax property for the Dynamics 365 Business Central salesInvoiceLine entity. [optional]  # noqa: E501
             shipment_date (date, none_type): (v1.0) The shipmentDate property for the Dynamics 365 Business Central salesInvoiceLine entity. [optional]  # noqa: E501
-            item (dict): [optional]  # noqa: E501
-            account (dict): [optional]  # noqa: E501
+            item (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            account (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

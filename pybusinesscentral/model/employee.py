@@ -24,8 +24,8 @@ from pybusinesscentral.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from pybusinesscentral.exceptions import ApiAttributeError
 
 
@@ -128,7 +128,7 @@ class Employee(ModelNormal):
             'middle_name': (str, none_type,),  # noqa: E501
             'surname': (str, none_type,),  # noqa: E501
             'job_title': (str, none_type,),  # noqa: E501
-            'address': (dict, none_type,),  # noqa: E501
+            'address': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'phone_number': (str, none_type,),  # noqa: E501
             'mobile_phone': (str, none_type,),  # noqa: E501
             'email': (str, none_type,),  # noqa: E501
@@ -221,7 +221,7 @@ class Employee(ModelNormal):
             middle_name (str, none_type): (v1.0) The middleName property for the Dynamics 365 Business Central employee entity. [optional]  # noqa: E501
             surname (str, none_type): (v1.0) The surname property for the Dynamics 365 Business Central employee entity. [optional]  # noqa: E501
             job_title (str, none_type): (v1.0) The jobTitle property for the Dynamics 365 Business Central employee entity. [optional]  # noqa: E501
-            address (dict): [optional]  # noqa: E501
+            address (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             phone_number (str, none_type): (v1.0) The phoneNumber property for the Dynamics 365 Business Central employee entity. [optional]  # noqa: E501
             mobile_phone (str, none_type): (v1.0) The mobilePhone property for the Dynamics 365 Business Central employee entity. [optional]  # noqa: E501
             email (str, none_type): (v1.0) The email property for the Dynamics 365 Business Central employee entity. [optional]  # noqa: E501
@@ -323,7 +323,7 @@ class Employee(ModelNormal):
             middle_name (str, none_type): (v1.0) The middleName property for the Dynamics 365 Business Central employee entity. [optional]  # noqa: E501
             surname (str, none_type): (v1.0) The surname property for the Dynamics 365 Business Central employee entity. [optional]  # noqa: E501
             job_title (str, none_type): (v1.0) The jobTitle property for the Dynamics 365 Business Central employee entity. [optional]  # noqa: E501
-            address (dict): [optional]  # noqa: E501
+            address (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             phone_number (str, none_type): (v1.0) The phoneNumber property for the Dynamics 365 Business Central employee entity. [optional]  # noqa: E501
             mobile_phone (str, none_type): (v1.0) The mobilePhone property for the Dynamics 365 Business Central employee entity. [optional]  # noqa: E501
             email (str, none_type): (v1.0) The email property for the Dynamics 365 Business Central employee entity. [optional]  # noqa: E501

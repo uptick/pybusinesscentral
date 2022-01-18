@@ -24,8 +24,8 @@ from pybusinesscentral.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from pybusinesscentral.exceptions import ApiAttributeError
 
 
@@ -101,10 +101,10 @@ class Unitofmeasuretype(ModelNormal):
             'code': (str, none_type,),  # noqa: E501
             'display_name': (str, none_type,),  # noqa: E501
             'symbol': (str, none_type,),  # noqa: E501
-            'unit_conversion': (dict, none_type,),  # noqa: E501
+            'unit_conversion': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'picture': ([Picture], none_type,),  # noqa: E501
             'default_dimensions': ([DefaultDimensions], none_type,),  # noqa: E501
-            'item_category': (dict, none_type,),  # noqa: E501
+            'item_category': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -166,10 +166,10 @@ class Unitofmeasuretype(ModelNormal):
             code (str, none_type): (v1.0) The code property for the Dynamics 365 Business Central unitofmeasuretype entity. [optional]  # noqa: E501
             display_name (str, none_type): (v1.0) The displayName property for the Dynamics 365 Business Central unitofmeasuretype entity. [optional]  # noqa: E501
             symbol (str, none_type): (v1.0) The symbol property for the Dynamics 365 Business Central unitofmeasuretype entity. [optional]  # noqa: E501
-            unit_conversion (dict): [optional]  # noqa: E501
+            unit_conversion (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             picture ([Picture], none_type): [optional]  # noqa: E501
             default_dimensions ([DefaultDimensions], none_type): [optional]  # noqa: E501
-            item_category (dict): [optional]  # noqa: E501
+            item_category (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -254,10 +254,10 @@ class Unitofmeasuretype(ModelNormal):
             code (str, none_type): (v1.0) The code property for the Dynamics 365 Business Central unitofmeasuretype entity. [optional]  # noqa: E501
             display_name (str, none_type): (v1.0) The displayName property for the Dynamics 365 Business Central unitofmeasuretype entity. [optional]  # noqa: E501
             symbol (str, none_type): (v1.0) The symbol property for the Dynamics 365 Business Central unitofmeasuretype entity. [optional]  # noqa: E501
-            unit_conversion (dict): [optional]  # noqa: E501
+            unit_conversion (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             picture ([Picture], none_type): [optional]  # noqa: E501
             default_dimensions ([DefaultDimensions], none_type): [optional]  # noqa: E501
-            item_category (dict): [optional]  # noqa: E501
+            item_category (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

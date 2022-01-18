@@ -24,8 +24,8 @@ from pybusinesscentral.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from pybusinesscentral.exceptions import ApiAttributeError
 
 
@@ -70,6 +70,24 @@ class Vendor(ModelNormal):
         ('display_name',): {
             'max_length': 100,
         },
+        ('address_line1',): {
+            'max_length': 152,
+        },
+        ('address_line2',): {
+            'max_length': 152,
+        },
+        ('city',): {
+            'max_length': 30,
+        },
+        ('state',): {
+            'max_length': 30,
+        },
+        ('country',): {
+            'max_length': 10,
+        },
+        ('postal_code',): {
+            'max_length': 20,
+        },
         ('phone_number',): {
             'max_length': 30,
         },
@@ -110,7 +128,12 @@ class Vendor(ModelNormal):
             'id': (str,),  # noqa: E501
             'number': (str, none_type,),  # noqa: E501
             'display_name': (str, none_type,),  # noqa: E501
-            'address': (dict, none_type,),  # noqa: E501
+            'address_line1': (str, none_type,),  # noqa: E501
+            'address_line2': (str, none_type,),  # noqa: E501
+            'city': (str, none_type,),  # noqa: E501
+            'state': (str, none_type,),  # noqa: E501
+            'country': (str, none_type,),  # noqa: E501
+            'postal_code': (str, none_type,),  # noqa: E501
             'phone_number': (str, none_type,),  # noqa: E501
             'email': (str, none_type,),  # noqa: E501
             'website': (str, none_type,),  # noqa: E501
@@ -126,9 +149,9 @@ class Vendor(ModelNormal):
             'last_modified_date_time': (datetime, none_type,),  # noqa: E501
             'picture': ([Picture], none_type,),  # noqa: E501
             'default_dimensions': ([DefaultDimensions], none_type,),  # noqa: E501
-            'currency': (dict, none_type,),  # noqa: E501
-            'payment_term': (dict, none_type,),  # noqa: E501
-            'payment_method': (dict, none_type,),  # noqa: E501
+            'currency': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'payment_term': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'payment_method': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -140,7 +163,12 @@ class Vendor(ModelNormal):
         'id': 'id',  # noqa: E501
         'number': 'number',  # noqa: E501
         'display_name': 'displayName',  # noqa: E501
-        'address': 'address',  # noqa: E501
+        'address_line1': 'addressLine1',  # noqa: E501
+        'address_line2': 'addressLine2',  # noqa: E501
+        'city': 'city',  # noqa: E501
+        'state': 'state',  # noqa: E501
+        'country': 'country',  # noqa: E501
+        'postal_code': 'postalCode',  # noqa: E501
         'phone_number': 'phoneNumber',  # noqa: E501
         'email': 'email',  # noqa: E501
         'website': 'website',  # noqa: E501
@@ -205,7 +233,12 @@ class Vendor(ModelNormal):
             id (str): (v1.0) The id property for the Dynamics 365 Business Central vendor entity. [optional]  # noqa: E501
             number (str, none_type): (v1.0) The number property for the Dynamics 365 Business Central vendor entity. [optional]  # noqa: E501
             display_name (str, none_type): (v1.0) The displayName property for the Dynamics 365 Business Central vendor entity. [optional]  # noqa: E501
-            address (dict): [optional]  # noqa: E501
+            address_line1 (str, none_type): (v1.0) The street property for the Dynamics 365 Business Central postaladdresstype entity. [optional]  # noqa: E501
+            address_line2 (str, none_type): (v1.0) The street property for the Dynamics 365 Business Central postaladdresstype entity. [optional]  # noqa: E501
+            city (str, none_type): (v1.0) The city property for the Dynamics 365 Business Central postaladdresstype entity. [optional]  # noqa: E501
+            state (str, none_type): (v1.0) The state property for the Dynamics 365 Business Central postaladdresstype entity. [optional]  # noqa: E501
+            country (str, none_type): (v1.0) The countryLetterCode property for the Dynamics 365 Business Central postaladdresstype entity. [optional]  # noqa: E501
+            postal_code (str, none_type): (v1.0) The postalCode property for the Dynamics 365 Business Central postaladdresstype entity. [optional]  # noqa: E501
             phone_number (str, none_type): (v1.0) The phoneNumber property for the Dynamics 365 Business Central vendor entity. [optional]  # noqa: E501
             email (str, none_type): (v1.0) The email property for the Dynamics 365 Business Central vendor entity. [optional]  # noqa: E501
             website (str, none_type): (v1.0) The website property for the Dynamics 365 Business Central vendor entity. [optional]  # noqa: E501
@@ -221,9 +254,9 @@ class Vendor(ModelNormal):
             last_modified_date_time (datetime, none_type): (v1.0) The lastModifiedDateTime property for the Dynamics 365 Business Central vendor entity. [optional]  # noqa: E501
             picture ([Picture], none_type): [optional]  # noqa: E501
             default_dimensions ([DefaultDimensions], none_type): [optional]  # noqa: E501
-            currency (dict): [optional]  # noqa: E501
-            payment_term (dict): [optional]  # noqa: E501
-            payment_method (dict): [optional]  # noqa: E501
+            currency (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            payment_term (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            payment_method (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -308,7 +341,12 @@ class Vendor(ModelNormal):
             id (str): (v1.0) The id property for the Dynamics 365 Business Central vendor entity. [optional]  # noqa: E501
             number (str, none_type): (v1.0) The number property for the Dynamics 365 Business Central vendor entity. [optional]  # noqa: E501
             display_name (str, none_type): (v1.0) The displayName property for the Dynamics 365 Business Central vendor entity. [optional]  # noqa: E501
-            address (dict): [optional]  # noqa: E501
+            address_line1 (str, none_type): (v1.0) The street property for the Dynamics 365 Business Central postaladdresstype entity. [optional]  # noqa: E501
+            address_line2 (str, none_type): (v1.0) The street property for the Dynamics 365 Business Central postaladdresstype entity. [optional]  # noqa: E501
+            city (str, none_type): (v1.0) The city property for the Dynamics 365 Business Central postaladdresstype entity. [optional]  # noqa: E501
+            state (str, none_type): (v1.0) The state property for the Dynamics 365 Business Central postaladdresstype entity. [optional]  # noqa: E501
+            country (str, none_type): (v1.0) The countryLetterCode property for the Dynamics 365 Business Central postaladdresstype entity. [optional]  # noqa: E501
+            postal_code (str, none_type): (v1.0) The postalCode property for the Dynamics 365 Business Central postaladdresstype entity. [optional]  # noqa: E501
             phone_number (str, none_type): (v1.0) The phoneNumber property for the Dynamics 365 Business Central vendor entity. [optional]  # noqa: E501
             email (str, none_type): (v1.0) The email property for the Dynamics 365 Business Central vendor entity. [optional]  # noqa: E501
             website (str, none_type): (v1.0) The website property for the Dynamics 365 Business Central vendor entity. [optional]  # noqa: E501
@@ -324,9 +362,9 @@ class Vendor(ModelNormal):
             last_modified_date_time (datetime, none_type): (v1.0) The lastModifiedDateTime property for the Dynamics 365 Business Central vendor entity. [optional]  # noqa: E501
             picture ([Picture], none_type): [optional]  # noqa: E501
             default_dimensions ([DefaultDimensions], none_type): [optional]  # noqa: E501
-            currency (dict): [optional]  # noqa: E501
-            payment_term (dict): [optional]  # noqa: E501
-            payment_method (dict): [optional]  # noqa: E501
+            currency (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            payment_term (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            payment_method (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
