@@ -35,7 +35,7 @@ paths:
    - $ref: '#/components/parameters/filterParam'
    - name: $select
      in: query
-     description: (v1.0) Selected properties to be retrieved 
+     description: (v1.0) Selected properties to be retrieved
      schema:
       type: array
       items:
@@ -528,6 +528,30 @@ paths:
       application/json:
        schema:
         $ref: '#/components/schemas/salesInvoice'
+ "/companies({company_id})/salesInvoices({salesInvoice_id})/Microsoft.NAV.post":
+  parameters: 
+   - name: company_id
+     in: path
+     required: true
+     description: (v1.0) id for company
+     schema:
+      type: string
+      format: uuid
+   - name: salesInvoice_id
+     in: path
+     required: true
+     description: (v1.0) id for salesInvoice
+     schema:
+      type: string
+      format: uuid
+  post:
+   summary: Performs the post action for salesInvoices entity
+   tags: 
+    - salesInvoice
+   operationId: postActionSalesInvoices
+   responses:
+    204:
+     description: (v1.0) Succesfully performed a post action on the Dynamic 365 Business Central salesInvoices entity
  "/companies({company_id})/salesInvoices({salesInvoice_id})/salesInvoiceLines":
   parameters: 
    - name: company_id
@@ -799,6 +823,400 @@ paths:
       application/json:
        schema:
         $ref: '#/components/schemas/salesInvoiceLine'
+ "/companies({company_id})/salesCreditMemos":
+  parameters: 
+   - name: company_id
+     in: path
+     required: true
+     description: (v1.0) id for company
+     schema:
+      type: string
+      format: uuid
+  get:
+   summary: Returns a list of salesCreditMemos
+   tags: 
+    - salesCreditMemo
+   operationId: listSalesCreditMemos
+   responses:
+    200:
+     description: (v1.0) Succesfully returned a list of salesCreditMemos
+     content:
+      application/json:
+       schema:
+        type: object
+        properties:
+         value:
+          type: array
+          items:
+           $ref: '#/components/schemas/salesCreditMemo'
+   parameters: 
+   - $ref: '#/components/parameters/topParam'
+   - $ref: '#/components/parameters/skipParam'
+   - $ref: '#/components/parameters/limitParam'
+   - $ref: '#/components/parameters/filterParam'
+   - name: $expand
+     in: query
+     description: (v1.0) Entities to expand
+     schema:
+      type: array
+      items:
+       type: string
+       enum: ['salesCreditMemoLines', 'pdfDocument', 'customer', 'currency', 'paymentTerm', 'shipmentMethod']
+     style: form
+     explode: false
+   - name: $select
+     in: query
+     description: (v1.0) Selected properties to be retrieved 
+     schema:
+      type: array
+      items:
+       type: string
+       enum: ['id', 'number', 'externalDocumentNumber', 'creditMemoDate', 'dueDate', 'customerId', 'contactId', 'customerNumber', 'customerName', 'billToName', 'billToCustomerId', 'billToCustomerNumber', 'sellingPostalAddress', 'billingPostalAddress', 'currencyId', 'currencyCode', 'paymentTermsId', 'shipmentMethodId', 'salesperson', 'pricesIncludeTax', 'discountAmount', 'discountAppliedBeforeTax', 'totalAmountExcludingTax', 'totalTaxAmount', 'totalAmountIncludingTax', 'status', 'lastModifiedDateTime', 'invoiceId', 'invoiceNumber', 'phoneNumber', 'email']
+     style: form
+     explode: false
+  post:
+   summary: Creates an object of type salesCreditMemo in Dynamics 365 Business Central
+   tags: 
+    - salesCreditMemo
+   operationId: postSalesCreditMemo
+   parameters:
+    - $ref: '#/components/parameters/ContentTypeParam'
+   requestBody:
+    $ref: '#/components/requestBodies/salesCreditMemo'
+   responses:
+    201:
+     description: (v1.0) A new salesCreditMemo has been succesfully created
+     content:
+      application/json:
+       schema:
+        $ref: '#/components/schemas/salesCreditMemo'
+ "/companies({company_id})/salesCreditMemos({salesCreditMemo_id})":
+  parameters: 
+   - name: company_id
+     in: path
+     required: true
+     description: (v1.0) id for company
+     schema:
+      type: string
+      format: uuid
+   - name: salesCreditMemo_id
+     in: path
+     required: true
+     description: (v1.0) id for salesCreditMemo
+     schema:
+      type: string
+      format: uuid
+  get:
+   summary: Retrieve the properties and relationships of an object of type salesCreditMemo for Dynamics 365 Business Central.
+   tags: 
+    - salesCreditMemo
+   operationId: getSalesCreditMemo
+   responses:
+    200:
+     description: (v1.0) Succesfully returned the requested salesCreditMemo
+     content:
+      application/json:
+       schema:
+        $ref: '#/components/schemas/salesCreditMemo'
+   parameters: 
+   - name: $expand
+     in: query
+     description: (v1.0) Entities to expand
+     schema:
+      type: array
+      items:
+       type: string
+       enum: ['salesCreditMemoLines', 'pdfDocument', 'customer', 'currency', 'paymentTerm', 'shipmentMethod']
+     style: form
+     explode: false
+   - name: $select
+     in: query
+     description: (v1.0) Selected properties to be retrieved 
+     schema:
+      type: array
+      items:
+       type: string
+       enum: ['id', 'number', 'externalDocumentNumber', 'creditMemoDate', 'dueDate', 'customerId', 'contactId', 'customerNumber', 'customerName', 'billToName', 'billToCustomerId', 'billToCustomerNumber', 'sellingPostalAddress', 'billingPostalAddress', 'currencyId', 'currencyCode', 'paymentTermsId', 'shipmentMethodId', 'salesperson', 'pricesIncludeTax', 'discountAmount', 'discountAppliedBeforeTax', 'totalAmountExcludingTax', 'totalTaxAmount', 'totalAmountIncludingTax', 'status', 'lastModifiedDateTime', 'invoiceId', 'invoiceNumber', 'phoneNumber', 'email']
+     style: form
+     explode: false
+  delete:
+   summary: Deletes an object of type salesCreditMemo in Dynamics 365 Business Central
+   tags: 
+    - salesCreditMemo
+   operationId: deleteSalesCreditMemo
+   responses:
+    204:
+     description: (v1.0) Succesfully deleted the specified salesCreditMemo
+  patch:
+   summary: Updates an object of type salesCreditMemo in Dynamics 365 Business Central
+   tags: 
+    - salesCreditMemo
+   operationId: patchSalesCreditMemo
+   parameters:
+    - $ref: '#/components/parameters/ContentTypeParam'
+    - $ref: '#/components/parameters/IfMatchParam'
+   requestBody:
+    $ref: '#/components/requestBodies/salesCreditMemo'
+   responses:
+    200:
+     description: (v1.0) Succesfully updated the specifiedsalesCreditMemo
+     content:
+      application/json:
+       schema:
+        $ref: '#/components/schemas/salesCreditMemo'
+  post:
+   summary: Performs the postAndSend action for salesCreditMemos entity
+   tags: 
+    - salesCreditMemo
+   operationId: postAndSendActionSalesCreditMemos
+   responses:
+    204:
+     description: (v1.0) Succesfully performed a postAndSend action on the Dynamic 365 Business Central salesCreditMemos entity
+ "/companies({company_id})/salesCreditMemos({salesCreditMemo_id})/Microsoft.NAV.post":
+  parameters: 
+   - name: company_id
+     in: path
+     required: true
+     description: (v1.0) id for company
+     schema:
+      type: string
+      format: uuid
+   - name: salesCreditMemo_id
+     in: path
+     required: true
+     description: (v1.0) id for salesCreditMemo
+     schema:
+      type: string
+      format: uuid
+  post:
+   summary: Performs the post action for salesCreditMemos entity
+   tags: 
+    - salesCreditMemo
+   operationId: postActionSalesCreditMemos
+   responses:
+    204:
+     description: (v1.0) Succesfully performed a post action on the Dynamic 365 Business Central salesCreditMemos entity
+ "/companies({company_id})/salesCreditMemos({salesCreditMemo_id})/salesCreditMemoLines":
+  parameters: 
+   - name: company_id
+     in: path
+     required: true
+     description: (v1.0) id for company
+     schema:
+      type: string
+      format: uuid
+   - name: salesCreditMemo_id
+     in: path
+     required: true
+     description: (v1.0) id for salesCreditMemo
+     schema:
+      type: string
+      format: uuid
+  get:
+   summary: Returns a list of salesCreditMemoLines
+   tags: 
+    - salesCreditMemoLine
+   operationId: listSalesCreditMemoLinesForSalesCreditMemo
+   responses:
+    200:
+     description: (v1.0) Succesfully returned a list of salesCreditMemoLines
+     content:
+      application/json:
+       schema:
+        type: object
+        properties:
+         value:
+          type: array
+          items:
+           $ref: '#/components/schemas/salesCreditMemoLine'
+   parameters: 
+   - $ref: '#/components/parameters/topParam'
+   - $ref: '#/components/parameters/skipParam'
+   - $ref: '#/components/parameters/limitParam'
+   - $ref: '#/components/parameters/filterParam'
+   - name: $expand
+     in: query
+     description: (v1.0) Entities to expand
+     schema:
+      type: array
+      items:
+       type: string
+       enum: ['item', 'account']
+     style: form
+     explode: false
+   - name: $select
+     in: query
+     description: (v1.0) Selected properties to be retrieved 
+     schema:
+      type: array
+      items:
+       type: string
+       enum: ['id', 'documentId', 'sequence', 'itemId', 'accountId', 'lineType', 'lineDetails', 'description', 'unitOfMeasureId', 'unitOfMeasure', 'unitPrice', 'quantity', 'discountAmount', 'discountPercent', 'discountAppliedBeforeTax', 'amountExcludingTax', 'taxCode', 'taxPercent', 'totalTaxAmount', 'amountIncludingTax', 'invoiceDiscountAllocation', 'netAmount', 'netTaxAmount', 'netAmountIncludingTax', 'shipmentDate']
+     style: form
+     explode: false
+  post:
+   summary: Creates an object of type salesCreditMemoLine in Dynamics 365 Business Central
+   tags: 
+    - salesCreditMemoLine
+   operationId: postSalesCreditMemoLineForSalesCreditMemo
+   parameters:
+    - $ref: '#/components/parameters/ContentTypeParam'
+   requestBody:
+    $ref: '#/components/requestBodies/salesCreditMemoLine'
+   responses:
+    201:
+     description: (v1.0) A new salesCreditMemoLine has been succesfully created
+     content:
+      application/json:
+       schema:
+        $ref: '#/components/schemas/salesCreditMemoLine'
+ "/companies({company_id})/salesCreditMemos({salesCreditMemo_id})/salesCreditMemoLines('{salesCreditMemoLine_id}')":
+  parameters: 
+   - name: company_id
+     in: path
+     required: true
+     description: (v1.0) id for company
+     schema:
+      type: string
+      format: uuid
+   - name: salesCreditMemo_id
+     in: path
+     required: true
+     description: (v1.0) id for salesCreditMemo
+     schema:
+      type: string
+      format: uuid
+   - name: salesCreditMemoLine_id
+     in: path
+     required: true
+     description: (v1.0) id for salesCreditMemoLine
+     schema:
+      type: string
+  get:
+   summary: Retrieve the properties and relationships of an object of type salesCreditMemoLine for Dynamics 365 Business Central.
+   tags: 
+    - salesCreditMemoLine
+   operationId: getSalesCreditMemoLineForSalesCreditMemo
+   responses:
+    200:
+     description: (v1.0) Succesfully returned the requested salesCreditMemoLine
+     content:
+      application/json:
+       schema:
+        $ref: '#/components/schemas/salesCreditMemoLine'
+   parameters: 
+   - name: $expand
+     in: query
+     description: (v1.0) Entities to expand
+     schema:
+      type: array
+      items:
+       type: string
+       enum: ['item', 'account']
+     style: form
+     explode: false
+   - name: $select
+     in: query
+     description: (v1.0) Selected properties to be retrieved 
+     schema:
+      type: array
+      items:
+       type: string
+       enum: ['id', 'documentId', 'sequence', 'itemId', 'accountId', 'lineType', 'lineDetails', 'description', 'unitOfMeasureId', 'unitOfMeasure', 'unitPrice', 'quantity', 'discountAmount', 'discountPercent', 'discountAppliedBeforeTax', 'amountExcludingTax', 'taxCode', 'taxPercent', 'totalTaxAmount', 'amountIncludingTax', 'invoiceDiscountAllocation', 'netAmount', 'netTaxAmount', 'netAmountIncludingTax', 'shipmentDate']
+     style: form
+     explode: false
+  delete:
+   summary: Deletes an object of type salesCreditMemoLine in Dynamics 365 Business Central
+   tags: 
+    - salesCreditMemoLine
+   operationId: deleteSalesCreditMemoLineForSalesCreditMemo
+   responses:
+    204:
+     description: (v1.0) Succesfully deleted the specified salesCreditMemoLine
+  patch:
+   summary: Updates an object of type salesCreditMemoLine in Dynamics 365 Business Central
+   tags: 
+    - salesCreditMemoLine
+   operationId: patchSalesCreditMemoLineForSalesCreditMemo
+   parameters:
+    - $ref: '#/components/parameters/ContentTypeParam'
+    - $ref: '#/components/parameters/IfMatchParam'
+   requestBody:
+    $ref: '#/components/requestBodies/salesCreditMemoLine'
+   responses:
+    200:
+     description: (v1.0) Succesfully updated the specifiedsalesCreditMemoLine
+     content:
+      application/json:
+       schema:
+        $ref: '#/components/schemas/salesCreditMemoLine'
+ "/companies({company_id})/salesCreditMemoLines":
+  parameters: 
+   - name: company_id
+     in: path
+     required: true
+     description: (v1.0) id for company
+     schema:
+      type: string
+      format: uuid
+  get:
+   summary: Returns a list of salesCreditMemoLines
+   tags: 
+    - salesCreditMemoLine
+   operationId: listSalesCreditMemoLines
+   responses:
+    200:
+     description: (v1.0) Succesfully returned a list of salesCreditMemoLines
+     content:
+      application/json:
+       schema:
+        type: object
+        properties:
+         value:
+          type: array
+          items:
+           $ref: '#/components/schemas/salesCreditMemoLine'
+   parameters: 
+   - $ref: '#/components/parameters/topParam'
+   - $ref: '#/components/parameters/skipParam'
+   - $ref: '#/components/parameters/limitParam'
+   - $ref: '#/components/parameters/filterParam'
+   - name: $expand
+     in: query
+     description: (v1.0) Entities to expand
+     schema:
+      type: array
+      items:
+       type: string
+       enum: ['item', 'account']
+     style: form
+     explode: false
+   - name: $select
+     in: query
+     description: (v1.0) Selected properties to be retrieved 
+     schema:
+      type: array
+      items:
+       type: string
+       enum: ['id', 'documentId', 'sequence', 'itemId', 'accountId', 'lineType', 'lineDetails', 'description', 'unitOfMeasureId', 'unitOfMeasure', 'unitPrice', 'quantity', 'discountAmount', 'discountPercent', 'discountAppliedBeforeTax', 'amountExcludingTax', 'taxCode', 'taxPercent', 'totalTaxAmount', 'amountIncludingTax', 'invoiceDiscountAllocation', 'netAmount', 'netTaxAmount', 'netAmountIncludingTax', 'shipmentDate']
+     style: form
+     explode: false
+  post:
+   summary: Creates an object of type salesCreditMemoLine in Dynamics 365 Business Central
+   tags: 
+    - salesCreditMemoLine
+   operationId: postSalesCreditMemoLine
+   parameters:
+    - $ref: '#/components/parameters/ContentTypeParam'
+   requestBody:
+    $ref: '#/components/requestBodies/salesCreditMemoLine'
+   responses:
+    201:
+     description: (v1.0) A new salesCreditMemoLine has been succesfully created
+     content:
+      application/json:
+       schema:
+        $ref: '#/components/schemas/salesCreditMemoLine'
  "/companies({company_id})/accounts":
   parameters: 
    - name: company_id
