@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **get_dimension**
-> Dimension get_dimension(company_id, dimension_id)
+> Dimension get_dimension(company_id, dimension_id, expand=expand, select=select)
 
 Retrieve the properties and relationships of an object of type dimension for Dynamics 365 Business Central.
 
@@ -18,11 +18,11 @@ Retrieve the properties and relationships of an object of type dimension for Dyn
 * OAuth Authentication (oAuth):
 
 ```python
-import time
 import pybusinesscentral
-from pybusinesscentral.api import dimension_api
 from pybusinesscentral.model.dimension import Dimension
+from pybusinesscentral.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pybusinesscentral.Configuration(
@@ -34,52 +34,37 @@ configuration = pybusinesscentral.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure OAuth2 access token for authorization: oAuth
-configuration = pybusinesscentral.Configuration(
-    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
 with pybusinesscentral.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = dimension_api.DimensionApi(api_client)
-    company_id = "company_id_example" # str | (v1.0) id for company
-    dimension_id = "dimension_id_example" # str | (v1.0) id for dimension
-    expand = [
-        "dimensionValues",
-    ] # [str] | (v1.0) Entities to expand (optional)
-    select = [
-        "id",
-    ] # [str] | (v1.0) Selected properties to be retrieved (optional)
+    api_instance = pybusinesscentral.DimensionApi(api_client)
+    company_id = 'company_id_example' # str | (v1.0) id for company
+    dimension_id = 'dimension_id_example' # str | (v1.0) id for dimension
+    expand = ['expand_example'] # List[str] | (v1.0) Entities to expand (optional)
+    select = ['select_example'] # List[str] | (v1.0) Selected properties to be retrieved (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Retrieve the properties and relationships of an object of type dimension for Dynamics 365 Business Central.
-        api_response = api_instance.get_dimension(company_id, dimension_id)
-        pprint(api_response)
-    except pybusinesscentral.ApiException as e:
-        print("Exception when calling DimensionApi->get_dimension: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Retrieve the properties and relationships of an object of type dimension for Dynamics 365 Business Central.
         api_response = api_instance.get_dimension(company_id, dimension_id, expand=expand, select=select)
+        print("The response of DimensionApi->get_dimension:\n")
         pprint(api_response)
-    except pybusinesscentral.ApiException as e:
+    except Exception as e:
         print("Exception when calling DimensionApi->get_dimension: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **company_id** | **str**| (v1.0) id for company |
- **dimension_id** | **str**| (v1.0) id for dimension |
- **expand** | **[str]**| (v1.0) Entities to expand | [optional]
- **select** | **[str]**| (v1.0) Selected properties to be retrieved | [optional]
+ **company_id** | **str**| (v1.0) id for company | 
+ **dimension_id** | **str**| (v1.0) id for dimension | 
+ **expand** | [**List[str]**](str.md)| (v1.0) Entities to expand | [optional] 
+ **select** | [**List[str]**](str.md)| (v1.0) Selected properties to be retrieved | [optional] 
 
 ### Return type
 
@@ -94,7 +79,6 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
 
 | Status code | Description | Response headers |
@@ -104,7 +88,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_dimensions**
-> InlineResponse2006 list_dimensions(company_id)
+> ListDimensions200Response list_dimensions(company_id, top=top, skip=skip, limit=limit, filter=filter, expand=expand, select=select)
 
 Returns a list of dimensions
 
@@ -113,11 +97,11 @@ Returns a list of dimensions
 * OAuth Authentication (oAuth):
 
 ```python
-import time
 import pybusinesscentral
-from pybusinesscentral.api import dimension_api
-from pybusinesscentral.model.inline_response2006 import InlineResponse2006
+from pybusinesscentral.model.list_dimensions200_response import ListDimensions200Response
+from pybusinesscentral.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pybusinesscentral.Configuration(
@@ -129,62 +113,47 @@ configuration = pybusinesscentral.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure OAuth2 access token for authorization: oAuth
-configuration = pybusinesscentral.Configuration(
-    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
 with pybusinesscentral.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = dimension_api.DimensionApi(api_client)
-    company_id = "company_id_example" # str | (v1.0) id for company
-    top = 1 # int | (v1.0) Number of items to return from the top of the list (optional)
-    skip = 1 # int | (v1.0) Number of items to skip from the list (optional)
-    limit = 1 # int | (v1.0) Number of items to return from the list (optional)
-    filter = "$filter_example" # str | (v1.0) Filtering expression (optional)
-    expand = [
-        "dimensionValues",
-    ] # [str] | (v1.0) Entities to expand (optional)
-    select = [
-        "id",
-    ] # [str] | (v1.0) Selected properties to be retrieved (optional)
+    api_instance = pybusinesscentral.DimensionApi(api_client)
+    company_id = 'company_id_example' # str | (v1.0) id for company
+    top = 56 # int | (v1.0) Number of items to return from the top of the list (optional)
+    skip = 56 # int | (v1.0) Number of items to skip from the list (optional)
+    limit = 56 # int | (v1.0) Number of items to return from the list (optional)
+    filter = 'filter_example' # str | (v1.0) Filtering expression (optional)
+    expand = ['expand_example'] # List[str] | (v1.0) Entities to expand (optional)
+    select = ['select_example'] # List[str] | (v1.0) Selected properties to be retrieved (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Returns a list of dimensions
-        api_response = api_instance.list_dimensions(company_id)
-        pprint(api_response)
-    except pybusinesscentral.ApiException as e:
-        print("Exception when calling DimensionApi->list_dimensions: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Returns a list of dimensions
         api_response = api_instance.list_dimensions(company_id, top=top, skip=skip, limit=limit, filter=filter, expand=expand, select=select)
+        print("The response of DimensionApi->list_dimensions:\n")
         pprint(api_response)
-    except pybusinesscentral.ApiException as e:
+    except Exception as e:
         print("Exception when calling DimensionApi->list_dimensions: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **company_id** | **str**| (v1.0) id for company |
- **top** | **int**| (v1.0) Number of items to return from the top of the list | [optional]
- **skip** | **int**| (v1.0) Number of items to skip from the list | [optional]
- **limit** | **int**| (v1.0) Number of items to return from the list | [optional]
- **filter** | **str**| (v1.0) Filtering expression | [optional]
- **expand** | **[str]**| (v1.0) Entities to expand | [optional]
- **select** | **[str]**| (v1.0) Selected properties to be retrieved | [optional]
+ **company_id** | **str**| (v1.0) id for company | 
+ **top** | **int**| (v1.0) Number of items to return from the top of the list | [optional] 
+ **skip** | **int**| (v1.0) Number of items to skip from the list | [optional] 
+ **limit** | **int**| (v1.0) Number of items to return from the list | [optional] 
+ **filter** | **str**| (v1.0) Filtering expression | [optional] 
+ **expand** | [**List[str]**](str.md)| (v1.0) Entities to expand | [optional] 
+ **select** | [**List[str]**](str.md)| (v1.0) Selected properties to be retrieved | [optional] 
 
 ### Return type
 
-[**InlineResponse2006**](InlineResponse2006.md)
+[**ListDimensions200Response**](ListDimensions200Response.md)
 
 ### Authorization
 
@@ -194,7 +163,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
