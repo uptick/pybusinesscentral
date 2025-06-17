@@ -23,4 +23,6 @@ from pybusinesscentral.api.payment_term_api import PaymentTermApi
 from pybusinesscentral.api.purchase_invoice_api import PurchaseInvoiceApi
 from pybusinesscentral.api.sales_invoice_api import SalesInvoiceApi
 from pybusinesscentral.api.sales_invoice_line_api import SalesInvoiceLineApi
+from pybusinesscentral.api.sales_credit_memo_api import SalesCreditMemoApi
+from pybusinesscentral.api.sales_credit_memo_line_api import SalesCreditMemoLineApi
 from pybusinesscentral.api.vendor_api import VendorApi

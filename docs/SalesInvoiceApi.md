@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**get_sales_invoice**](SalesInvoiceApi.md#get_sales_invoice) | **GET** /companies({company_id})/salesInvoices({salesInvoice_id}) | Retrieve the properties and relationships of an object of type salesInvoice for Dynamics 365 Business Central.
 [**list_sales_invoices**](SalesInvoiceApi.md#list_sales_invoices) | **GET** /companies({company_id})/salesInvoices | Returns a list of salesInvoices
 [**patch_sales_invoice**](SalesInvoiceApi.md#patch_sales_invoice) | **PATCH** /companies({company_id})/salesInvoices({salesInvoice_id}) | Updates an object of type salesInvoice in Dynamics 365 Business Central
+[**post_action_sales_invoices**](SalesInvoiceApi.md#post_action_sales_invoices) | **POST** /companies({company_id})/salesInvoices({salesInvoice_id})/Microsoft.NAV.post | Performs the post action for salesInvoices entity
 [**post_sales_invoice**](SalesInvoiceApi.md#post_sales_invoice) | **POST** /companies({company_id})/salesInvoices | Creates an object of type salesInvoice in Dynamics 365 Business Central
 
 
@@ -21,10 +22,10 @@ Deletes an object of type salesInvoice in Dynamics 365 Business Central
 * OAuth Authentication (oAuth):
 
 ```python
-import time
 import pybusinesscentral
-from pybusinesscentral.api import sales_invoice_api
+from pybusinesscentral.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pybusinesscentral.Configuration(
@@ -36,34 +37,31 @@ configuration = pybusinesscentral.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure OAuth2 access token for authorization: oAuth
-configuration = pybusinesscentral.Configuration(
-    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
 with pybusinesscentral.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = sales_invoice_api.SalesInvoiceApi(api_client)
-    company_id = "company_id_example" # str | (v1.0) id for company
-    sales_invoice_id = "salesInvoice_id_example" # str | (v1.0) id for salesInvoice
+    api_instance = pybusinesscentral.SalesInvoiceApi(api_client)
+    company_id = 'company_id_example' # str | (v1.0) id for company
+    sales_invoice_id = 'sales_invoice_id_example' # str | (v1.0) id for salesInvoice
 
-    # example passing only required values which don't have defaults set
     try:
         # Deletes an object of type salesInvoice in Dynamics 365 Business Central
         api_instance.delete_sales_invoice(company_id, sales_invoice_id)
-    except pybusinesscentral.ApiException as e:
+    except Exception as e:
         print("Exception when calling SalesInvoiceApi->delete_sales_invoice: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **company_id** | **str**| (v1.0) id for company |
- **sales_invoice_id** | **str**| (v1.0) id for salesInvoice |
+ **company_id** | **str**| (v1.0) id for company | 
+ **sales_invoice_id** | **str**| (v1.0) id for salesInvoice | 
 
 ### Return type
 
@@ -78,7 +76,6 @@ void (empty response body)
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-
 ### HTTP response details
 
 | Status code | Description | Response headers |
@@ -88,7 +85,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_sales_invoice**
-> SalesInvoice get_sales_invoice(company_id, sales_invoice_id)
+> SalesInvoice get_sales_invoice(company_id, sales_invoice_id, expand=expand, select=select)
 
 Retrieve the properties and relationships of an object of type salesInvoice for Dynamics 365 Business Central.
 
@@ -97,11 +94,11 @@ Retrieve the properties and relationships of an object of type salesInvoice for 
 * OAuth Authentication (oAuth):
 
 ```python
-import time
 import pybusinesscentral
-from pybusinesscentral.api import sales_invoice_api
 from pybusinesscentral.model.sales_invoice import SalesInvoice
+from pybusinesscentral.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pybusinesscentral.Configuration(
@@ -113,52 +110,37 @@ configuration = pybusinesscentral.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure OAuth2 access token for authorization: oAuth
-configuration = pybusinesscentral.Configuration(
-    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
 with pybusinesscentral.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = sales_invoice_api.SalesInvoiceApi(api_client)
-    company_id = "company_id_example" # str | (v1.0) id for company
-    sales_invoice_id = "salesInvoice_id_example" # str | (v1.0) id for salesInvoice
-    expand = [
-        "salesInvoiceLines",
-    ] # [str] | (v1.0) Entities to expand (optional)
-    select = [
-        "id",
-    ] # [str] | (v1.0) Selected properties to be retrieved (optional)
+    api_instance = pybusinesscentral.SalesInvoiceApi(api_client)
+    company_id = 'company_id_example' # str | (v1.0) id for company
+    sales_invoice_id = 'sales_invoice_id_example' # str | (v1.0) id for salesInvoice
+    expand = ['expand_example'] # List[str] | (v1.0) Entities to expand (optional)
+    select = ['select_example'] # List[str] | (v1.0) Selected properties to be retrieved (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Retrieve the properties and relationships of an object of type salesInvoice for Dynamics 365 Business Central.
-        api_response = api_instance.get_sales_invoice(company_id, sales_invoice_id)
-        pprint(api_response)
-    except pybusinesscentral.ApiException as e:
-        print("Exception when calling SalesInvoiceApi->get_sales_invoice: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Retrieve the properties and relationships of an object of type salesInvoice for Dynamics 365 Business Central.
         api_response = api_instance.get_sales_invoice(company_id, sales_invoice_id, expand=expand, select=select)
+        print("The response of SalesInvoiceApi->get_sales_invoice:\n")
         pprint(api_response)
-    except pybusinesscentral.ApiException as e:
+    except Exception as e:
         print("Exception when calling SalesInvoiceApi->get_sales_invoice: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **company_id** | **str**| (v1.0) id for company |
- **sales_invoice_id** | **str**| (v1.0) id for salesInvoice |
- **expand** | **[str]**| (v1.0) Entities to expand | [optional]
- **select** | **[str]**| (v1.0) Selected properties to be retrieved | [optional]
+ **company_id** | **str**| (v1.0) id for company | 
+ **sales_invoice_id** | **str**| (v1.0) id for salesInvoice | 
+ **expand** | [**List[str]**](str.md)| (v1.0) Entities to expand | [optional] 
+ **select** | [**List[str]**](str.md)| (v1.0) Selected properties to be retrieved | [optional] 
 
 ### Return type
 
@@ -172,7 +154,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -183,7 +164,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_sales_invoices**
-> InlineResponse2003 list_sales_invoices(company_id)
+> ListSalesInvoices200Response list_sales_invoices(company_id, top=top, skip=skip, limit=limit, filter=filter, expand=expand, select=select)
 
 Returns a list of salesInvoices
 
@@ -192,11 +173,11 @@ Returns a list of salesInvoices
 * OAuth Authentication (oAuth):
 
 ```python
-import time
 import pybusinesscentral
-from pybusinesscentral.api import sales_invoice_api
-from pybusinesscentral.model.inline_response2003 import InlineResponse2003
+from pybusinesscentral.model.list_sales_invoices200_response import ListSalesInvoices200Response
+from pybusinesscentral.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pybusinesscentral.Configuration(
@@ -208,62 +189,47 @@ configuration = pybusinesscentral.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure OAuth2 access token for authorization: oAuth
-configuration = pybusinesscentral.Configuration(
-    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
 with pybusinesscentral.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = sales_invoice_api.SalesInvoiceApi(api_client)
-    company_id = "company_id_example" # str | (v1.0) id for company
-    top = 1 # int | (v1.0) Number of items to return from the top of the list (optional)
-    skip = 1 # int | (v1.0) Number of items to skip from the list (optional)
-    limit = 1 # int | (v1.0) Number of items to return from the list (optional)
-    filter = "$filter_example" # str | (v1.0) Filtering expression (optional)
-    expand = [
-        "salesInvoiceLines",
-    ] # [str] | (v1.0) Entities to expand (optional)
-    select = [
-        "id",
-    ] # [str] | (v1.0) Selected properties to be retrieved (optional)
+    api_instance = pybusinesscentral.SalesInvoiceApi(api_client)
+    company_id = 'company_id_example' # str | (v1.0) id for company
+    top = 56 # int | (v1.0) Number of items to return from the top of the list (optional)
+    skip = 56 # int | (v1.0) Number of items to skip from the list (optional)
+    limit = 56 # int | (v1.0) Number of items to return from the list (optional)
+    filter = 'filter_example' # str | (v1.0) Filtering expression (optional)
+    expand = ['expand_example'] # List[str] | (v1.0) Entities to expand (optional)
+    select = ['select_example'] # List[str] | (v1.0) Selected properties to be retrieved (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Returns a list of salesInvoices
-        api_response = api_instance.list_sales_invoices(company_id)
-        pprint(api_response)
-    except pybusinesscentral.ApiException as e:
-        print("Exception when calling SalesInvoiceApi->list_sales_invoices: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Returns a list of salesInvoices
         api_response = api_instance.list_sales_invoices(company_id, top=top, skip=skip, limit=limit, filter=filter, expand=expand, select=select)
+        print("The response of SalesInvoiceApi->list_sales_invoices:\n")
         pprint(api_response)
-    except pybusinesscentral.ApiException as e:
+    except Exception as e:
         print("Exception when calling SalesInvoiceApi->list_sales_invoices: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **company_id** | **str**| (v1.0) id for company |
- **top** | **int**| (v1.0) Number of items to return from the top of the list | [optional]
- **skip** | **int**| (v1.0) Number of items to skip from the list | [optional]
- **limit** | **int**| (v1.0) Number of items to return from the list | [optional]
- **filter** | **str**| (v1.0) Filtering expression | [optional]
- **expand** | **[str]**| (v1.0) Entities to expand | [optional]
- **select** | **[str]**| (v1.0) Selected properties to be retrieved | [optional]
+ **company_id** | **str**| (v1.0) id for company | 
+ **top** | **int**| (v1.0) Number of items to return from the top of the list | [optional] 
+ **skip** | **int**| (v1.0) Number of items to skip from the list | [optional] 
+ **limit** | **int**| (v1.0) Number of items to return from the list | [optional] 
+ **filter** | **str**| (v1.0) Filtering expression | [optional] 
+ **expand** | [**List[str]**](str.md)| (v1.0) Entities to expand | [optional] 
+ **select** | [**List[str]**](str.md)| (v1.0) Selected properties to be retrieved | [optional] 
 
 ### Return type
 
-[**InlineResponse2003**](InlineResponse2003.md)
+[**ListSalesInvoices200Response**](ListSalesInvoices200Response.md)
 
 ### Authorization
 
@@ -274,7 +240,6 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
 
 | Status code | Description | Response headers |
@@ -284,7 +249,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **patch_sales_invoice**
-> SalesInvoice patch_sales_invoice(company_id, sales_invoice_id, content_type, if_match, unknown_base_type)
+> SalesInvoice patch_sales_invoice(company_id, sales_invoice_id, content_type, if_match, post_sales_invoice_request)
 
 Updates an object of type salesInvoice in Dynamics 365 Business Central
 
@@ -293,12 +258,12 @@ Updates an object of type salesInvoice in Dynamics 365 Business Central
 * OAuth Authentication (oAuth):
 
 ```python
-import time
 import pybusinesscentral
-from pybusinesscentral.api import sales_invoice_api
-from pybusinesscentral.model.unknownbasetype import UNKNOWNBASETYPE
+from pybusinesscentral.model.post_sales_invoice_request import PostSalesInvoiceRequest
 from pybusinesscentral.model.sales_invoice import SalesInvoice
+from pybusinesscentral.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pybusinesscentral.Configuration(
@@ -310,41 +275,39 @@ configuration = pybusinesscentral.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure OAuth2 access token for authorization: oAuth
-configuration = pybusinesscentral.Configuration(
-    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
 with pybusinesscentral.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = sales_invoice_api.SalesInvoiceApi(api_client)
-    company_id = "company_id_example" # str | (v1.0) id for company
-    sales_invoice_id = "salesInvoice_id_example" # str | (v1.0) id for salesInvoice
-    content_type = "Content-Type_example" # str | (v1.0) application/json
-    if_match = "If-Match_example" # str | (v1.0) Required. When this request header is included and the eTag provided does not match the current tag on the entity, this will not be updated.
-    unknown_base_type = None # UNKNOWN_BASE_TYPE | 
+    api_instance = pybusinesscentral.SalesInvoiceApi(api_client)
+    company_id = 'company_id_example' # str | (v1.0) id for company
+    sales_invoice_id = 'sales_invoice_id_example' # str | (v1.0) id for salesInvoice
+    content_type = 'content_type_example' # str | (v1.0) application/json
+    if_match = 'if_match_example' # str | (v1.0) Required. When this request header is included and the eTag provided does not match the current tag on the entity, this will not be updated.
+    post_sales_invoice_request = pybusinesscentral.PostSalesInvoiceRequest() # PostSalesInvoiceRequest | 
 
-    # example passing only required values which don't have defaults set
     try:
         # Updates an object of type salesInvoice in Dynamics 365 Business Central
-        api_response = api_instance.patch_sales_invoice(company_id, sales_invoice_id, content_type, if_match, unknown_base_type)
+        api_response = api_instance.patch_sales_invoice(company_id, sales_invoice_id, content_type, if_match, post_sales_invoice_request)
+        print("The response of SalesInvoiceApi->patch_sales_invoice:\n")
         pprint(api_response)
-    except pybusinesscentral.ApiException as e:
+    except Exception as e:
         print("Exception when calling SalesInvoiceApi->patch_sales_invoice: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **company_id** | **str**| (v1.0) id for company |
- **sales_invoice_id** | **str**| (v1.0) id for salesInvoice |
- **content_type** | **str**| (v1.0) application/json |
- **if_match** | **str**| (v1.0) Required. When this request header is included and the eTag provided does not match the current tag on the entity, this will not be updated. |
- **unknown_base_type** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  |
+ **company_id** | **str**| (v1.0) id for company | 
+ **sales_invoice_id** | **str**| (v1.0) id for salesInvoice | 
+ **content_type** | **str**| (v1.0) application/json | 
+ **if_match** | **str**| (v1.0) Required. When this request header is included and the eTag provided does not match the current tag on the entity, this will not be updated. | 
+ **post_sales_invoice_request** | [**PostSalesInvoiceRequest**](PostSalesInvoiceRequest.md)|  | 
 
 ### Return type
 
@@ -358,7 +321,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -368,22 +330,20 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **post_sales_invoice**
-> SalesInvoice post_sales_invoice(company_id, content_type, unknown_base_type)
+# **post_action_sales_invoices**
+> post_action_sales_invoices(company_id, sales_invoice_id)
 
-Creates an object of type salesInvoice in Dynamics 365 Business Central
+Performs the post action for salesInvoices entity
 
 ### Example
 
 * OAuth Authentication (oAuth):
 
 ```python
-import time
 import pybusinesscentral
-from pybusinesscentral.api import sales_invoice_api
-from pybusinesscentral.model.unknownbasetype import UNKNOWNBASETYPE
-from pybusinesscentral.model.sales_invoice import SalesInvoice
+from pybusinesscentral.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pybusinesscentral.Configuration(
@@ -395,50 +355,111 @@ configuration = pybusinesscentral.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure OAuth2 access token for authorization: oAuth
-configuration = pybusinesscentral.Configuration(
-    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
 with pybusinesscentral.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = sales_invoice_api.SalesInvoiceApi(api_client)
-    company_id = "company_id_example" # str | (v1.0) id for company
-    content_type = "Content-Type_example" # str | (v1.0) application/json
-    unknown_base_type = None # UNKNOWN_BASE_TYPE | 
-    expand = [
-        "salesInvoiceLines",
-    ] # [str] | (v1.0) Entities to expand (optional)
+    api_instance = pybusinesscentral.SalesInvoiceApi(api_client)
+    company_id = 'company_id_example' # str | (v1.0) id for company
+    sales_invoice_id = 'sales_invoice_id_example' # str | (v1.0) id for salesInvoice
 
-    # example passing only required values which don't have defaults set
     try:
-        # Creates an object of type salesInvoice in Dynamics 365 Business Central
-        api_response = api_instance.post_sales_invoice(company_id, content_type, unknown_base_type)
-        pprint(api_response)
-    except pybusinesscentral.ApiException as e:
-        print("Exception when calling SalesInvoiceApi->post_sales_invoice: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Creates an object of type salesInvoice in Dynamics 365 Business Central
-        api_response = api_instance.post_sales_invoice(company_id, content_type, unknown_base_type, expand=expand)
-        pprint(api_response)
-    except pybusinesscentral.ApiException as e:
-        print("Exception when calling SalesInvoiceApi->post_sales_invoice: %s\n" % e)
+        # Performs the post action for salesInvoices entity
+        api_instance.post_action_sales_invoices(company_id, sales_invoice_id)
+    except Exception as e:
+        print("Exception when calling SalesInvoiceApi->post_action_sales_invoices: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **company_id** | **str**| (v1.0) id for company |
- **content_type** | **str**| (v1.0) application/json |
- **unknown_base_type** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  |
- **expand** | **[str]**| (v1.0) Entities to expand | [optional]
+ **company_id** | **str**| (v1.0) id for company | 
+ **sales_invoice_id** | **str**| (v1.0) id for salesInvoice | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[oAuth](../README.md#oAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | (v1.0) Succesfully performed a post action on the Dynamic 365 Business Central salesInvoices entity |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **post_sales_invoice**
+> SalesInvoice post_sales_invoice(company_id, content_type, post_sales_invoice_request, expand=expand)
+
+Creates an object of type salesInvoice in Dynamics 365 Business Central
+
+### Example
+
+* OAuth Authentication (oAuth):
+
+```python
+import pybusinesscentral
+from pybusinesscentral.model.post_sales_invoice_request import PostSalesInvoiceRequest
+from pybusinesscentral.model.sales_invoice import SalesInvoice
+from pybusinesscentral.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0
+# See configuration.py for a list of all supported configuration parameters.
+configuration = pybusinesscentral.Configuration(
+    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
+
+# Enter a context with an instance of the API client
+with pybusinesscentral.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pybusinesscentral.SalesInvoiceApi(api_client)
+    company_id = 'company_id_example' # str | (v1.0) id for company
+    content_type = 'content_type_example' # str | (v1.0) application/json
+    post_sales_invoice_request = pybusinesscentral.PostSalesInvoiceRequest() # PostSalesInvoiceRequest | 
+    expand = ['expand_example'] # List[str] | (v1.0) Entities to expand (optional)
+
+    try:
+        # Creates an object of type salesInvoice in Dynamics 365 Business Central
+        api_response = api_instance.post_sales_invoice(company_id, content_type, post_sales_invoice_request, expand=expand)
+        print("The response of SalesInvoiceApi->post_sales_invoice:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling SalesInvoiceApi->post_sales_invoice: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **company_id** | **str**| (v1.0) id for company | 
+ **content_type** | **str**| (v1.0) application/json | 
+ **post_sales_invoice_request** | [**PostSalesInvoiceRequest**](PostSalesInvoiceRequest.md)|  | 
+ **expand** | [**List[str]**](str.md)| (v1.0) Entities to expand | [optional] 
 
 ### Return type
 
@@ -452,7 +473,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
-
 
 ### HTTP response details
 

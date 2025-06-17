@@ -21,10 +21,10 @@ Deletes an object of type paymentTerm in Dynamics 365 Business Central
 * OAuth Authentication (oAuth):
 
 ```python
-import time
 import pybusinesscentral
-from pybusinesscentral.api import payment_term_api
+from pybusinesscentral.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pybusinesscentral.Configuration(
@@ -36,34 +36,31 @@ configuration = pybusinesscentral.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure OAuth2 access token for authorization: oAuth
-configuration = pybusinesscentral.Configuration(
-    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
 with pybusinesscentral.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = payment_term_api.PaymentTermApi(api_client)
-    company_id = "company_id_example" # str | (v1.0) id for company
-    payment_term_id = "paymentTerm_id_example" # str | (v1.0) id for paymentTerm
+    api_instance = pybusinesscentral.PaymentTermApi(api_client)
+    company_id = 'company_id_example' # str | (v1.0) id for company
+    payment_term_id = 'payment_term_id_example' # str | (v1.0) id for paymentTerm
 
-    # example passing only required values which don't have defaults set
     try:
         # Deletes an object of type paymentTerm in Dynamics 365 Business Central
         api_instance.delete_payment_term(company_id, payment_term_id)
-    except pybusinesscentral.ApiException as e:
+    except Exception as e:
         print("Exception when calling PaymentTermApi->delete_payment_term: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **company_id** | **str**| (v1.0) id for company |
- **payment_term_id** | **str**| (v1.0) id for paymentTerm |
+ **company_id** | **str**| (v1.0) id for company | 
+ **payment_term_id** | **str**| (v1.0) id for paymentTerm | 
 
 ### Return type
 
@@ -78,7 +75,6 @@ void (empty response body)
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-
 ### HTTP response details
 
 | Status code | Description | Response headers |
@@ -88,7 +84,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_payment_term**
-> PaymentTerm get_payment_term(company_id, payment_term_id)
+> PaymentTerm get_payment_term(company_id, payment_term_id, select=select)
 
 Retrieve the properties and relationships of an object of type paymentTerm for Dynamics 365 Business Central.
 
@@ -97,11 +93,11 @@ Retrieve the properties and relationships of an object of type paymentTerm for D
 * OAuth Authentication (oAuth):
 
 ```python
-import time
 import pybusinesscentral
-from pybusinesscentral.api import payment_term_api
 from pybusinesscentral.model.payment_term import PaymentTerm
+from pybusinesscentral.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pybusinesscentral.Configuration(
@@ -113,48 +109,35 @@ configuration = pybusinesscentral.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure OAuth2 access token for authorization: oAuth
-configuration = pybusinesscentral.Configuration(
-    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
 with pybusinesscentral.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = payment_term_api.PaymentTermApi(api_client)
-    company_id = "company_id_example" # str | (v1.0) id for company
-    payment_term_id = "paymentTerm_id_example" # str | (v1.0) id for paymentTerm
-    select = [
-        "id",
-    ] # [str] | (v1.0) Selected properties to be retrieved (optional)
+    api_instance = pybusinesscentral.PaymentTermApi(api_client)
+    company_id = 'company_id_example' # str | (v1.0) id for company
+    payment_term_id = 'payment_term_id_example' # str | (v1.0) id for paymentTerm
+    select = ['select_example'] # List[str] | (v1.0) Selected properties to be retrieved (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Retrieve the properties and relationships of an object of type paymentTerm for Dynamics 365 Business Central.
-        api_response = api_instance.get_payment_term(company_id, payment_term_id)
-        pprint(api_response)
-    except pybusinesscentral.ApiException as e:
-        print("Exception when calling PaymentTermApi->get_payment_term: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Retrieve the properties and relationships of an object of type paymentTerm for Dynamics 365 Business Central.
         api_response = api_instance.get_payment_term(company_id, payment_term_id, select=select)
+        print("The response of PaymentTermApi->get_payment_term:\n")
         pprint(api_response)
-    except pybusinesscentral.ApiException as e:
+    except Exception as e:
         print("Exception when calling PaymentTermApi->get_payment_term: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **company_id** | **str**| (v1.0) id for company |
- **payment_term_id** | **str**| (v1.0) id for paymentTerm |
- **select** | **[str]**| (v1.0) Selected properties to be retrieved | [optional]
+ **company_id** | **str**| (v1.0) id for company | 
+ **payment_term_id** | **str**| (v1.0) id for paymentTerm | 
+ **select** | [**List[str]**](str.md)| (v1.0) Selected properties to be retrieved | [optional] 
 
 ### Return type
 
@@ -168,7 +151,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -179,7 +161,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_payment_terms**
-> InlineResponse2007 list_payment_terms(company_id)
+> ListPaymentTerms200Response list_payment_terms(company_id, top=top, skip=skip, limit=limit, filter=filter, select=select)
 
 Returns a list of paymentTerms
 
@@ -188,11 +170,11 @@ Returns a list of paymentTerms
 * OAuth Authentication (oAuth):
 
 ```python
-import time
 import pybusinesscentral
-from pybusinesscentral.api import payment_term_api
-from pybusinesscentral.model.inline_response2007 import InlineResponse2007
+from pybusinesscentral.model.list_payment_terms200_response import ListPaymentTerms200Response
+from pybusinesscentral.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pybusinesscentral.Configuration(
@@ -204,58 +186,45 @@ configuration = pybusinesscentral.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure OAuth2 access token for authorization: oAuth
-configuration = pybusinesscentral.Configuration(
-    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
 with pybusinesscentral.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = payment_term_api.PaymentTermApi(api_client)
-    company_id = "company_id_example" # str | (v1.0) id for company
-    top = 1 # int | (v1.0) Number of items to return from the top of the list (optional)
-    skip = 1 # int | (v1.0) Number of items to skip from the list (optional)
-    limit = 1 # int | (v1.0) Number of items to return from the list (optional)
-    filter = "$filter_example" # str | (v1.0) Filtering expression (optional)
-    select = [
-        "id",
-    ] # [str] | (v1.0) Selected properties to be retrieved (optional)
+    api_instance = pybusinesscentral.PaymentTermApi(api_client)
+    company_id = 'company_id_example' # str | (v1.0) id for company
+    top = 56 # int | (v1.0) Number of items to return from the top of the list (optional)
+    skip = 56 # int | (v1.0) Number of items to skip from the list (optional)
+    limit = 56 # int | (v1.0) Number of items to return from the list (optional)
+    filter = 'filter_example' # str | (v1.0) Filtering expression (optional)
+    select = ['select_example'] # List[str] | (v1.0) Selected properties to be retrieved (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Returns a list of paymentTerms
-        api_response = api_instance.list_payment_terms(company_id)
-        pprint(api_response)
-    except pybusinesscentral.ApiException as e:
-        print("Exception when calling PaymentTermApi->list_payment_terms: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Returns a list of paymentTerms
         api_response = api_instance.list_payment_terms(company_id, top=top, skip=skip, limit=limit, filter=filter, select=select)
+        print("The response of PaymentTermApi->list_payment_terms:\n")
         pprint(api_response)
-    except pybusinesscentral.ApiException as e:
+    except Exception as e:
         print("Exception when calling PaymentTermApi->list_payment_terms: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **company_id** | **str**| (v1.0) id for company |
- **top** | **int**| (v1.0) Number of items to return from the top of the list | [optional]
- **skip** | **int**| (v1.0) Number of items to skip from the list | [optional]
- **limit** | **int**| (v1.0) Number of items to return from the list | [optional]
- **filter** | **str**| (v1.0) Filtering expression | [optional]
- **select** | **[str]**| (v1.0) Selected properties to be retrieved | [optional]
+ **company_id** | **str**| (v1.0) id for company | 
+ **top** | **int**| (v1.0) Number of items to return from the top of the list | [optional] 
+ **skip** | **int**| (v1.0) Number of items to skip from the list | [optional] 
+ **limit** | **int**| (v1.0) Number of items to return from the list | [optional] 
+ **filter** | **str**| (v1.0) Filtering expression | [optional] 
+ **select** | [**List[str]**](str.md)| (v1.0) Selected properties to be retrieved | [optional] 
 
 ### Return type
 
-[**InlineResponse2007**](InlineResponse2007.md)
+[**ListPaymentTerms200Response**](ListPaymentTerms200Response.md)
 
 ### Authorization
 
@@ -266,7 +235,6 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
 
 | Status code | Description | Response headers |
@@ -276,7 +244,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **patch_payment_term**
-> PaymentTerm patch_payment_term(company_id, payment_term_id, content_type, if_match, unknown_base_type)
+> PaymentTerm patch_payment_term(company_id, payment_term_id, content_type, if_match, post_payment_term_request)
 
 Updates an object of type paymentTerm in Dynamics 365 Business Central
 
@@ -285,12 +253,12 @@ Updates an object of type paymentTerm in Dynamics 365 Business Central
 * OAuth Authentication (oAuth):
 
 ```python
-import time
 import pybusinesscentral
-from pybusinesscentral.api import payment_term_api
-from pybusinesscentral.model.unknownbasetype import UNKNOWNBASETYPE
 from pybusinesscentral.model.payment_term import PaymentTerm
+from pybusinesscentral.model.post_payment_term_request import PostPaymentTermRequest
+from pybusinesscentral.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pybusinesscentral.Configuration(
@@ -302,41 +270,39 @@ configuration = pybusinesscentral.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure OAuth2 access token for authorization: oAuth
-configuration = pybusinesscentral.Configuration(
-    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
 with pybusinesscentral.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = payment_term_api.PaymentTermApi(api_client)
-    company_id = "company_id_example" # str | (v1.0) id for company
-    payment_term_id = "paymentTerm_id_example" # str | (v1.0) id for paymentTerm
-    content_type = "Content-Type_example" # str | (v1.0) application/json
-    if_match = "If-Match_example" # str | (v1.0) Required. When this request header is included and the eTag provided does not match the current tag on the entity, this will not be updated.
-    unknown_base_type = None # UNKNOWN_BASE_TYPE | 
+    api_instance = pybusinesscentral.PaymentTermApi(api_client)
+    company_id = 'company_id_example' # str | (v1.0) id for company
+    payment_term_id = 'payment_term_id_example' # str | (v1.0) id for paymentTerm
+    content_type = 'content_type_example' # str | (v1.0) application/json
+    if_match = 'if_match_example' # str | (v1.0) Required. When this request header is included and the eTag provided does not match the current tag on the entity, this will not be updated.
+    post_payment_term_request = pybusinesscentral.PostPaymentTermRequest() # PostPaymentTermRequest | 
 
-    # example passing only required values which don't have defaults set
     try:
         # Updates an object of type paymentTerm in Dynamics 365 Business Central
-        api_response = api_instance.patch_payment_term(company_id, payment_term_id, content_type, if_match, unknown_base_type)
+        api_response = api_instance.patch_payment_term(company_id, payment_term_id, content_type, if_match, post_payment_term_request)
+        print("The response of PaymentTermApi->patch_payment_term:\n")
         pprint(api_response)
-    except pybusinesscentral.ApiException as e:
+    except Exception as e:
         print("Exception when calling PaymentTermApi->patch_payment_term: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **company_id** | **str**| (v1.0) id for company |
- **payment_term_id** | **str**| (v1.0) id for paymentTerm |
- **content_type** | **str**| (v1.0) application/json |
- **if_match** | **str**| (v1.0) Required. When this request header is included and the eTag provided does not match the current tag on the entity, this will not be updated. |
- **unknown_base_type** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  |
+ **company_id** | **str**| (v1.0) id for company | 
+ **payment_term_id** | **str**| (v1.0) id for paymentTerm | 
+ **content_type** | **str**| (v1.0) application/json | 
+ **if_match** | **str**| (v1.0) Required. When this request header is included and the eTag provided does not match the current tag on the entity, this will not be updated. | 
+ **post_payment_term_request** | [**PostPaymentTermRequest**](PostPaymentTermRequest.md)|  | 
 
 ### Return type
 
@@ -350,7 +316,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -361,7 +326,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_payment_term**
-> PaymentTerm post_payment_term(company_id, content_type, unknown_base_type)
+> PaymentTerm post_payment_term(company_id, content_type, post_payment_term_request)
 
 Creates an object of type paymentTerm in Dynamics 365 Business Central
 
@@ -370,12 +335,12 @@ Creates an object of type paymentTerm in Dynamics 365 Business Central
 * OAuth Authentication (oAuth):
 
 ```python
-import time
 import pybusinesscentral
-from pybusinesscentral.api import payment_term_api
-from pybusinesscentral.model.unknownbasetype import UNKNOWNBASETYPE
 from pybusinesscentral.model.payment_term import PaymentTerm
+from pybusinesscentral.model.post_payment_term_request import PostPaymentTermRequest
+from pybusinesscentral.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pybusinesscentral.Configuration(
@@ -387,37 +352,35 @@ configuration = pybusinesscentral.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure OAuth2 access token for authorization: oAuth
-configuration = pybusinesscentral.Configuration(
-    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
 with pybusinesscentral.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = payment_term_api.PaymentTermApi(api_client)
-    company_id = "company_id_example" # str | (v1.0) id for company
-    content_type = "Content-Type_example" # str | (v1.0) application/json
-    unknown_base_type = None # UNKNOWN_BASE_TYPE | 
+    api_instance = pybusinesscentral.PaymentTermApi(api_client)
+    company_id = 'company_id_example' # str | (v1.0) id for company
+    content_type = 'content_type_example' # str | (v1.0) application/json
+    post_payment_term_request = pybusinesscentral.PostPaymentTermRequest() # PostPaymentTermRequest | 
 
-    # example passing only required values which don't have defaults set
     try:
         # Creates an object of type paymentTerm in Dynamics 365 Business Central
-        api_response = api_instance.post_payment_term(company_id, content_type, unknown_base_type)
+        api_response = api_instance.post_payment_term(company_id, content_type, post_payment_term_request)
+        print("The response of PaymentTermApi->post_payment_term:\n")
         pprint(api_response)
-    except pybusinesscentral.ApiException as e:
+    except Exception as e:
         print("Exception when calling PaymentTermApi->post_payment_term: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **company_id** | **str**| (v1.0) id for company |
- **content_type** | **str**| (v1.0) application/json |
- **unknown_base_type** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  |
+ **company_id** | **str**| (v1.0) id for company | 
+ **content_type** | **str**| (v1.0) application/json | 
+ **post_payment_term_request** | [**PostPaymentTermRequest**](PostPaymentTermRequest.md)|  | 
 
 ### Return type
 
@@ -431,7 +394,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
-
 
 ### HTTP response details
 

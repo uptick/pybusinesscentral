@@ -36,15 +36,6 @@ from pybusinesscentral.model.employee import Employee
 from pybusinesscentral.model.general_ledger_entry import GeneralLedgerEntry
 from pybusinesscentral.model.general_ledger_entry_attachments import GeneralLedgerEntryAttachments
 from pybusinesscentral.model.income_statement import IncomeStatement
-from pybusinesscentral.model.inline_response200 import InlineResponse200
-from pybusinesscentral.model.inline_response2001 import InlineResponse2001
-from pybusinesscentral.model.inline_response2002 import InlineResponse2002
-from pybusinesscentral.model.inline_response2003 import InlineResponse2003
-from pybusinesscentral.model.inline_response2004 import InlineResponse2004
-from pybusinesscentral.model.inline_response2005 import InlineResponse2005
-from pybusinesscentral.model.inline_response2006 import InlineResponse2006
-from pybusinesscentral.model.inline_response2007 import InlineResponse2007
-from pybusinesscentral.model.inline_response2008 import InlineResponse2008
 from pybusinesscentral.model.item import Item
 from pybusinesscentral.model.item_category import ItemCategory
 from pybusinesscentral.model.itemunitofmeasureconversiontype import Itemunitofmeasureconversiontype
@@ -63,6 +54,8 @@ from pybusinesscentral.model.sales_credit_memo import SalesCreditMemo
 from pybusinesscentral.model.sales_credit_memo_line import SalesCreditMemoLine
 from pybusinesscentral.model.sales_invoice import SalesInvoice
 from pybusinesscentral.model.sales_invoice_line import SalesInvoiceLine
+from pybusinesscentral.model.sales_credit_memo import SalesCreditMemo
+from pybusinesscentral.model.sales_credit_memo_line import SalesCreditMemoLine
 from pybusinesscentral.model.sales_order import SalesOrder
 from pybusinesscentral.model.sales_order_line import SalesOrderLine
 from pybusinesscentral.model.sales_quote import SalesQuote

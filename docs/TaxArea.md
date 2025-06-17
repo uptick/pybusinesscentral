@@ -2,15 +2,32 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | (v1.0) The id property for the Dynamics 365 Business Central taxArea entity | [optional] 
-**code** | **str, none_type** | (v1.0) The code property for the Dynamics 365 Business Central taxArea entity | [optional] 
-**display_name** | **str, none_type** | (v1.0) The displayName property for the Dynamics 365 Business Central taxArea entity | [optional] 
-**tax_type** | **str, none_type** | (v1.0) The taxType property for the Dynamics 365 Business Central taxArea entity | [optional] 
-**last_modified_date_time** | **datetime, none_type** | (v1.0) The lastModifiedDateTime property for the Dynamics 365 Business Central taxArea entity | [optional] 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
+**code** | **str** | (v1.0) The code property for the Dynamics 365 Business Central taxArea entity | [optional] 
+**display_name** | **str** | (v1.0) The displayName property for the Dynamics 365 Business Central taxArea entity | [optional] 
+**tax_type** | **str** | (v1.0) The taxType property for the Dynamics 365 Business Central taxArea entity | [optional] 
+**last_modified_date_time** | **datetime** | (v1.0) The lastModifiedDateTime property for the Dynamics 365 Business Central taxArea entity | [optional] 
 
+## Example
+
+```python
+from pybusinesscentral.model.tax_area import TaxArea
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of TaxArea from a JSON string
+tax_area_instance = TaxArea.from_json(json)
+# print the JSON string representation of the object
+print(TaxArea.to_json())
+
+# convert the object into a dict
+tax_area_dict = tax_area_instance.to_dict()
+# create an instance of TaxArea from a dict
+tax_area_from_dict = TaxArea.from_dict(tax_area_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 
