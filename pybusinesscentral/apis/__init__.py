@@ -26,3 +26,18 @@ from pybusinesscentral.api.sales_invoice_line_api import SalesInvoiceLineApi
 from pybusinesscentral.api.sales_credit_memo_api import SalesCreditMemoApi
 from pybusinesscentral.api.sales_credit_memo_line_api import SalesCreditMemoLineApi
 from pybusinesscentral.api.vendor_api import VendorApi
+
+__all__ = [
+    "AccountApi",
+    "CompanyApi",
+    "CustomerApi",
+    "DimensionApi",
+    "DimensionSetLineApi",
+    "PaymentTermApi",
+    "PurchaseInvoiceApi",
+    "SalesInvoiceApi",
+    "SalesInvoiceLineApi",
+    "SalesCreditMemoApi",
+    "SalesCreditMemoLineApi",
+    "VendorApi"
+]
