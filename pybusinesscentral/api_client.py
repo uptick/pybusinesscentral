@@ -28,7 +28,6 @@ from pydantic import SecretStr
 
 from pybusinesscentral.configuration import Configuration
 from pybusinesscentral.api_response import ApiResponse, T as ApiResponseT
-import pybusinesscentral.model
 from pybusinesscentral import rest
 from pybusinesscentral.exceptions import (
     ApiValueError,
@@ -39,6 +38,87 @@ from pybusinesscentral.exceptions import (
     NotFoundException,
     ServiceException
 )
+
+
+from pybusinesscentral.model.account import Account  # noqa
+from pybusinesscentral.model.aged_accounts_payable import AgedAccountsPayable  # noqa
+from pybusinesscentral.model.aged_accounts_receivable import AgedAccountsReceivable  # noqa
+from pybusinesscentral.model.attachments import Attachments  # noqa
+from pybusinesscentral.model.balance_sheet import BalanceSheet  # noqa
+from pybusinesscentral.model.bank_account import BankAccount  # noqa
+from pybusinesscentral.model.cash_flow_statement import CashFlowStatement  # noqa
+from pybusinesscentral.model.company import Company  # noqa
+from pybusinesscentral.model.company_information import CompanyInformation  # noqa
+from pybusinesscentral.model.country_region import CountryRegion  # noqa
+from pybusinesscentral.model.currency import Currency  # noqa
+from pybusinesscentral.model.customer import Customer  # noqa
+from pybusinesscentral.model.customer_financial_detail import CustomerFinancialDetail  # noqa
+from pybusinesscentral.model.customer_payment import CustomerPayment  # noqa
+from pybusinesscentral.model.customer_payment_journal import CustomerPaymentJournal  # noqa
+from pybusinesscentral.model.customer_sale import CustomerSale  # noqa
+from pybusinesscentral.model.default_dimensions import DefaultDimensions  # noqa
+from pybusinesscentral.model.dimension import Dimension  # noqa
+from pybusinesscentral.model.dimension_line import DimensionLine  # noqa
+from pybusinesscentral.model.dimension_set_line import DimensionSetLine  # noqa
+from pybusinesscentral.model.dimension_value import DimensionValue  # noqa
+from pybusinesscentral.model.dimensiontype import Dimensiontype  # noqa
+from pybusinesscentral.model.documentlineobjectdetailstype import Documentlineobjectdetailstype  # noqa
+from pybusinesscentral.model.employee import Employee  # noqa
+from pybusinesscentral.model.general_ledger_entry import GeneralLedgerEntry  # noqa
+from pybusinesscentral.model.general_ledger_entry_attachments import GeneralLedgerEntryAttachments  # noqa
+from pybusinesscentral.model.general_ledger_entry_dimensions_inner import GeneralLedgerEntryDimensionsInner  # noqa
+from pybusinesscentral.model.income_statement import IncomeStatement  # noqa
+from pybusinesscentral.model.item import Item  # noqa
+from pybusinesscentral.model.item_category import ItemCategory  # noqa
+from pybusinesscentral.model.itemunitofmeasureconversiontype import Itemunitofmeasureconversiontype  # noqa
+from pybusinesscentral.model.journal import Journal  # noqa
+from pybusinesscentral.model.journal_line import JournalLine  # noqa
+from pybusinesscentral.model.list_accounts200_response import ListAccounts200Response  # noqa
+from pybusinesscentral.model.list_companies200_response import ListCompanies200Response  # noqa
+from pybusinesscentral.model.list_customers200_response import ListCustomers200Response  # noqa
+from pybusinesscentral.model.list_dimensions200_response import ListDimensions200Response  # noqa
+from pybusinesscentral.model.list_payment_terms200_response import ListPaymentTerms200Response  # noqa
+from pybusinesscentral.model.list_purchase_invoices200_response import ListPurchaseInvoices200Response  # noqa
+from pybusinesscentral.model.list_sales_credit_memo_lines_for_sales_credit_memo200_response import ListSalesCreditMemoLinesForSalesCreditMemo200Response  # noqa
+from pybusinesscentral.model.list_sales_credit_memos200_response import ListSalesCreditMemos200Response  # noqa
+from pybusinesscentral.model.list_sales_invoice_lines_for_sales_invoice200_response import ListSalesInvoiceLinesForSalesInvoice200Response  # noqa
+from pybusinesscentral.model.list_sales_invoices200_response import ListSalesInvoices200Response  # noqa
+from pybusinesscentral.model.list_vendors200_response import ListVendors200Response  # noqa
+from pybusinesscentral.model.payment_method import PaymentMethod  # noqa
+from pybusinesscentral.model.payment_term import PaymentTerm  # noqa
+from pybusinesscentral.model.pdf_document import PdfDocument  # noqa
+from pybusinesscentral.model.picture import Picture  # noqa
+from pybusinesscentral.model.post_customer_request import PostCustomerRequest  # noqa
+from pybusinesscentral.model.post_dimension_set_line_request import PostDimensionSetLineRequest  # noqa
+from pybusinesscentral.model.post_payment_term_request import PostPaymentTermRequest  # noqa
+from pybusinesscentral.model.post_purchase_invoice_request import PostPurchaseInvoiceRequest  # noqa
+from pybusinesscentral.model.post_sales_credit_memo_line_for_sales_credit_memo_request import PostSalesCreditMemoLineForSalesCreditMemoRequest  # noqa
+from pybusinesscentral.model.post_sales_credit_memo_request import PostSalesCreditMemoRequest  # noqa
+from pybusinesscentral.model.post_sales_invoice_line_for_sales_invoice_request import PostSalesInvoiceLineForSalesInvoiceRequest  # noqa
+from pybusinesscentral.model.post_sales_invoice_request import PostSalesInvoiceRequest  # noqa
+from pybusinesscentral.model.post_vendor_request import PostVendorRequest  # noqa
+from pybusinesscentral.model.postaladdresstype import Postaladdresstype  # noqa
+from pybusinesscentral.model.project import Project  # noqa
+from pybusinesscentral.model.purchase_invoice import PurchaseInvoice  # noqa
+from pybusinesscentral.model.purchase_invoice_line import PurchaseInvoiceLine  # noqa
+from pybusinesscentral.model.retained_earnings_statement import RetainedEarningsStatement  # noqa
+from pybusinesscentral.model.sales_credit_memo import SalesCreditMemo  # noqa
+from pybusinesscentral.model.sales_credit_memo_line import SalesCreditMemoLine  # noqa
+from pybusinesscentral.model.sales_invoice import SalesInvoice  # noqa
+from pybusinesscentral.model.sales_invoice_line import SalesInvoiceLine  # noqa
+from pybusinesscentral.model.sales_order import SalesOrder  # noqa
+from pybusinesscentral.model.sales_order_line import SalesOrderLine  # noqa
+from pybusinesscentral.model.sales_quote import SalesQuote  # noqa
+from pybusinesscentral.model.sales_quote_line import SalesQuoteLine  # noqa
+from pybusinesscentral.model.shipment_method import ShipmentMethod  # noqa
+from pybusinesscentral.model.tax_area import TaxArea  # noqa
+from pybusinesscentral.model.tax_group import TaxGroup  # noqa
+from pybusinesscentral.model.time_registration_entry import TimeRegistrationEntry  # noqa
+from pybusinesscentral.model.trial_balance import TrialBalance  # noqa
+from pybusinesscentral.model.unit_of_measure import UnitOfMeasure  # noqa
+from pybusinesscentral.model.unitofmeasuretype import Unitofmeasuretype  # noqa
+from pybusinesscentral.model.vendor import Vendor  # noqa
+from pybusinesscentral.model.vendor_purchase import VendorPurchase  # noqa
 
 RequestSerialized = Tuple[str, str, Dict[str, str], Optional[str], List[str]]
 
@@ -449,7 +529,7 @@ class ApiClient:
             if klass in self.NATIVE_TYPES_MAPPING:
                 klass = self.NATIVE_TYPES_MAPPING[klass]
             else:
-                klass = getattr(pybusinesscentral.model, klass)
+                klass = globals()[klass]
 
         if klass in self.PRIMITIVE_TYPES:
             return self.__deserialize_primitive(data, klass)
