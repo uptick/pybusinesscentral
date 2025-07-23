@@ -1669,6 +1669,251 @@ paths:
       application/json:
        schema:
         $ref: '#/components/schemas/purchaseInvoice'
+ "/companies({company_id})/purchaseInvoices({purchaseInvoice_id})/Microsoft.NAV.post":
+  parameters: 
+   - name: company_id
+     in: path
+     required: true
+     description: (v1.0) id for company
+     schema:
+      type: string
+      format: uuid
+   - name: purchaseInvoice_id
+     in: path
+     required: true
+     description: (v1.0) id for purchaseInvoice
+     schema:
+      type: string
+      format: uuid
+  post:
+   summary: Performs the post action for purchaseInvoices entity
+   tags: 
+    - purchaseInvoice
+   operationId: postActionPurchaseInvoices
+   responses:
+    204:
+     description: (v1.0) Succesfully performed a post action on the Dynamic 365 Business Central purchaseInvoices entity
+ "/companies({company_id})/purchaseInvoices({purchaseInvoice_id})/purchaseInvoiceLines":
+  parameters: 
+   - name: company_id
+     in: path
+     required: true
+     description: (v1.0) id for company
+     schema:
+      type: string
+      format: uuid
+   - name: purchaseInvoice_id
+     in: path
+     required: true
+     description: (v1.0) id for purchaseInvoice
+     schema:
+      type: string
+      format: uuid
+  get:
+   summary: Returns a list of purchaseInvoiceLines
+   tags: 
+    - purchaseInvoiceLine
+   operationId: listPurchaseInvoiceLinesForPurchaseInvoice
+   responses:
+    200:
+     description: (v1.0) Succesfully returned a list of purchaseInvoiceLines
+     content:
+      application/json:
+       schema:
+        type: object
+        properties:
+         value:
+          type: array
+          items:
+           $ref: '#/components/schemas/purchaseInvoiceLine'
+   parameters: 
+   - $ref: '#/components/parameters/topParam'
+   - $ref: '#/components/parameters/skipParam'
+   - $ref: '#/components/parameters/limitParam'
+   - $ref: '#/components/parameters/filterParam'
+   - name: $expand
+     in: query
+     description: (v1.0) Entities to expand
+     schema:
+      type: array
+      items:
+       type: string
+       enum: ['item', 'account']
+     style: form
+     explode: false
+   - name: $select
+     in: query
+     description: (v1.0) Selected properties to be retrieved 
+     schema:
+      type: array
+      items:
+       type: string
+       enum: ['id', 'documentId', 'sequence', 'itemId', 'accountId', 'lineType', 'lineDetails', 'description', 'unitOfMeasure', 'unitCost', 'quantity', 'discountAmount', 'discountPercent', 'discountAppliedBeforeTax', 'amountExcludingTax', 'taxCode', 'taxPercent', 'totalTaxAmount', 'amountIncludingTax', 'invoiceDiscountAllocation', 'netAmount', 'netTaxAmount', 'netAmountIncludingTax', 'expectedReceiptDate']
+     style: form
+     explode: false
+  post:
+   summary: Creates an object of type purchaseInvoiceLine in Dynamics 365 Business Central
+   tags: 
+    - purchaseInvoiceLine
+   operationId: postPurchaseInvoiceLineForPurchaseInvoice
+   parameters:
+    - $ref: '#/components/parameters/ContentTypeParam'
+   requestBody:
+    $ref: '#/components/requestBodies/purchaseInvoiceLine'
+   responses:
+    201:
+     description: (v1.0) A new purchaseInvoiceLine has been succesfully created
+     content:
+      application/json:
+       schema:
+        $ref: '#/components/schemas/purchaseInvoiceLine'
+ "/companies({company_id})/purchaseInvoices({purchaseInvoice_id})/purchaseInvoiceLines('{purchaseInvoiceLine_id}')":
+  parameters: 
+   - name: company_id
+     in: path
+     required: true
+     description: (v1.0) id for company
+     schema:
+      type: string
+      format: uuid
+   - name: purchaseInvoice_id
+     in: path
+     required: true
+     description: (v1.0) id for purchaseInvoice
+     schema:
+      type: string
+      format: uuid
+   - name: purchaseInvoiceLine_id
+     in: path
+     required: true
+     description: (v1.0) id for purchaseInvoiceLine
+     schema:
+      type: string
+  get:
+   summary: Retrieve the properties and relationships of an object of type purchaseInvoiceLine for Dynamics 365 Business Central.
+   tags: 
+    - purchaseInvoiceLine
+   operationId: getPurchaseInvoiceLineForPurchaseInvoice
+   responses:
+    200:
+     description: (v1.0) Succesfully returned the requested purchaseInvoiceLine
+     content:
+      application/json:
+       schema:
+        $ref: '#/components/schemas/purchaseInvoiceLine'
+   parameters: 
+   - name: $expand
+     in: query
+     description: (v1.0) Entities to expand
+     schema:
+      type: array
+      items:
+       type: string
+       enum: ['item', 'account']
+     style: form
+     explode: false
+   - name: $select
+     in: query
+     description: (v1.0) Selected properties to be retrieved 
+     schema:
+      type: array
+      items:
+       type: string
+       enum: ['id', 'documentId', 'sequence', 'itemId', 'accountId', 'lineType', 'lineDetails', 'description', 'unitOfMeasure', 'unitCost', 'quantity', 'discountAmount', 'discountPercent', 'discountAppliedBeforeTax', 'amountExcludingTax', 'taxCode', 'taxPercent', 'totalTaxAmount', 'amountIncludingTax', 'invoiceDiscountAllocation', 'netAmount', 'netTaxAmount', 'netAmountIncludingTax', 'expectedReceiptDate']
+     style: form
+     explode: false
+  delete:
+   summary: Deletes an object of type purchaseInvoiceLine in Dynamics 365 Business Central
+   tags: 
+    - purchaseInvoiceLine
+   operationId: deletePurchaseInvoiceLineForPurchaseInvoice
+   responses:
+    204:
+     description: (v1.0) Succesfully deleted the specified purchaseInvoiceLine
+  patch:
+   summary: Updates an object of type purchaseInvoiceLine in Dynamics 365 Business Central
+   tags: 
+    - purchaseInvoiceLine
+   operationId: patchPurchaseInvoiceLineForPurchaseInvoice
+   parameters:
+    - $ref: '#/components/parameters/ContentTypeParam'
+    - $ref: '#/components/parameters/IfMatchParam'
+   requestBody:
+    $ref: '#/components/requestBodies/purchaseInvoiceLine'
+   responses:
+    200:
+     description: (v1.0) Succesfully updated the specifiedpurchaseInvoiceLine
+     content:
+      application/json:
+       schema:
+        $ref: '#/components/schemas/purchaseInvoiceLine'
+ "/companies({company_id})/purchaseInvoiceLines":
+  parameters: 
+   - name: company_id
+     in: path
+     required: true
+     description: (v1.0) id for company
+     schema:
+      type: string
+      format: uuid
+  get:
+   summary: Returns a list of purchaseInvoiceLines
+   tags: 
+    - purchaseInvoiceLine
+   operationId: listPurchaseInvoiceLines
+   responses:
+    200:
+     description: (v1.0) Succesfully returned a list of purchaseInvoiceLines
+     content:
+      application/json:
+       schema:
+        type: object
+        properties:
+         value:
+          type: array
+          items:
+           $ref: '#/components/schemas/purchaseInvoiceLine'
+   parameters: 
+   - $ref: '#/components/parameters/topParam'
+   - $ref: '#/components/parameters/skipParam'
+   - $ref: '#/components/parameters/limitParam'
+   - $ref: '#/components/parameters/filterParam'
+   - name: $expand
+     in: query
+     description: (v1.0) Entities to expand
+     schema:
+      type: array
+      items:
+       type: string
+       enum: ['item', 'account']
+     style: form
+     explode: false
+   - name: $select
+     in: query
+     description: (v1.0) Selected properties to be retrieved 
+     schema:
+      type: array
+      items:
+       type: string
+       enum: ['id', 'documentId', 'sequence', 'itemId', 'accountId', 'lineType', 'lineDetails', 'description', 'unitOfMeasure', 'unitCost', 'quantity', 'discountAmount', 'discountPercent', 'discountAppliedBeforeTax', 'amountExcludingTax', 'taxCode', 'taxPercent', 'totalTaxAmount', 'amountIncludingTax', 'invoiceDiscountAllocation', 'netAmount', 'netTaxAmount', 'netAmountIncludingTax', 'expectedReceiptDate']
+     style: form
+     explode: false
+  post:
+   summary: Creates an object of type purchaseInvoiceLine in Dynamics 365 Business Central
+   tags: 
+    - purchaseInvoiceLine
+   operationId: postPurchaseInvoiceLine
+   parameters:
+    - $ref: '#/components/parameters/ContentTypeParam'
+   requestBody:
+    $ref: '#/components/requestBodies/purchaseInvoiceLine'
+   responses:
+    201:
+     description: (v1.0) A new purchaseInvoiceLine has been succesfully created
+     content:
+      application/json:
+       schema:
+        $ref: '#/components/schemas/purchaseInvoiceLine'
 tags:
  - name: company
    description: (v1.0) Represents an object of type company in Dynamics 365 Business Central
