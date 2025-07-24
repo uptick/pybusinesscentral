@@ -7531,12 +7531,12 @@ components:
          maxLength: 20
        invoiceDate:
          type: string
-         format: date-time
+         format: date
          nullable: true
          description: (v1.0) The invoiceDate property for the Dynamics 365 Business Central purchaseInvoice entity
        dueDate:
          type: string
-         format: date-time
+         format: date
          nullable: true
          description: (v1.0) The dueDate property for the Dynamics 365 Business Central purchaseInvoice entity
        vendorInvoiceNumber:
@@ -8152,12 +8152,12 @@ components:
          maxLength: 35
        invoiceDate:
          type: string
-         format: date-time
+         format: date
          nullable: true
          description: (v1.0) The invoiceDate property for the Dynamics 365 Business Central salesInvoice entity
        dueDate:
          type: string
-         format: date-time
+         format: date
          nullable: true
          description: (v1.0) The dueDate property for the Dynamics 365 Business Central salesInvoice entity
        customerPurchaseOrderReference:

@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
+from datetime import date, datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing_extensions import Annotated
@@ -31,8 +31,8 @@ class PostPurchaseInvoiceRequest(BaseModel):
     """ # noqa: E501
     id: Optional[StrictStr] = Field(default=None, description="(v1.0) The id property for the Dynamics 365 Business Central purchaseInvoice entity")
     number: Optional[Annotated[str, Field(strict=True, max_length=20)]] = Field(default=None, description="(v1.0) The number property for the Dynamics 365 Business Central purchaseInvoice entity")
-    invoice_date: Optional[datetime] = Field(default=None, description="(v1.0) The invoiceDate property for the Dynamics 365 Business Central purchaseInvoice entity", alias="invoiceDate")
-    due_date: Optional[datetime] = Field(default=None, description="(v1.0) The dueDate property for the Dynamics 365 Business Central purchaseInvoice entity", alias="dueDate")
+    invoice_date: Optional[date] = Field(default=None, description="(v1.0) The invoiceDate property for the Dynamics 365 Business Central purchaseInvoice entity", alias="invoiceDate")
+    due_date: Optional[date] = Field(default=None, description="(v1.0) The dueDate property for the Dynamics 365 Business Central purchaseInvoice entity", alias="dueDate")
     vendor_invoice_number: Optional[Annotated[str, Field(strict=True, max_length=35)]] = Field(default=None, description="(v1.0) The vendorInvoiceNumber property for the Dynamics 365 Business Central purchaseInvoice entity", alias="vendorInvoiceNumber")
     vendor_id: Optional[StrictStr] = Field(default=None, description="(v1.0) The vendorId property for the Dynamics 365 Business Central purchaseInvoice entity", alias="vendorId")
     vendor_number: Optional[Annotated[str, Field(strict=True, max_length=20)]] = Field(default=None, description="(v1.0) The vendorNumber property for the Dynamics 365 Business Central purchaseInvoice entity", alias="vendorNumber")
