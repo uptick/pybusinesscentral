@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
+from datetime import date, datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing_extensions import Annotated
@@ -32,8 +32,8 @@ class PostSalesInvoiceRequest(BaseModel):
     id: Optional[StrictStr] = Field(default=None, description="(v1.0) The id property for the Dynamics 365 Business Central salesInvoice entity")
     number: Optional[Annotated[str, Field(strict=True, max_length=20)]] = Field(default=None, description="(v1.0) The number property for the Dynamics 365 Business Central salesInvoice entity")
     external_document_number: Optional[Annotated[str, Field(strict=True, max_length=35)]] = Field(default=None, description="(v1.0) The externalDocumentNumber property for the Dynamics 365 Business Central salesInvoice entity", alias="externalDocumentNumber")
-    invoice_date: Optional[datetime] = Field(default=None, description="(v1.0) The invoiceDate property for the Dynamics 365 Business Central salesInvoice entity", alias="invoiceDate")
-    due_date: Optional[datetime] = Field(default=None, description="(v1.0) The dueDate property for the Dynamics 365 Business Central salesInvoice entity", alias="dueDate")
+    invoice_date: Optional[date] = Field(default=None, description="(v1.0) The invoiceDate property for the Dynamics 365 Business Central salesInvoice entity", alias="invoiceDate")
+    due_date: Optional[date] = Field(default=None, description="(v1.0) The dueDate property for the Dynamics 365 Business Central salesInvoice entity", alias="dueDate")
     customer_purchase_order_reference: Optional[Annotated[str, Field(strict=True, max_length=35)]] = Field(default=None, description="(v1.0) The customerPurchaseOrderReference property for the Dynamics 365 Business Central salesInvoice entity", alias="customerPurchaseOrderReference")
     customer_id: Optional[StrictStr] = Field(default=None, description="(v1.0) The customerId property for the Dynamics 365 Business Central salesInvoice entity", alias="customerId")
     contact_id: Optional[Annotated[str, Field(strict=True, max_length=250)]] = Field(default=None, description="(v1.0) The contactId property for the Dynamics 365 Business Central salesInvoice entity", alias="contactId")
