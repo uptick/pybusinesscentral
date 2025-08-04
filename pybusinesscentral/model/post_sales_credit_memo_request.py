@@ -22,6 +22,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, Stri
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing_extensions import Annotated
 from pybusinesscentral.model.postaladdresstype import Postaladdresstype
+from pybusinesscentral.model.sales_credit_memo_line import SalesCreditMemoLine
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -60,7 +61,8 @@ class PostSalesCreditMemoRequest(BaseModel):
     invoice_number: Optional[Annotated[str, Field(strict=True, max_length=20)]] = Field(default=None, description="(v1.0) The invoiceNumber property for the Dynamics 365 Business Central salesCreditMemo entity", alias="invoiceNumber")
     phone_number: Optional[Annotated[str, Field(strict=True, max_length=30)]] = Field(default=None, description="(v1.0) The phoneNumber property for the Dynamics 365 Business Central salesCreditMemo entity", alias="phoneNumber")
     email: Optional[Annotated[str, Field(strict=True, max_length=80)]] = Field(default=None, description="(v1.0) The email property for the Dynamics 365 Business Central salesCreditMemo entity")
-    __properties: ClassVar[List[str]] = ["id", "number", "externalDocumentNumber", "creditMemoDate", "dueDate", "customerId", "contactId", "customerNumber", "customerName", "billToName", "billToCustomerId", "billToCustomerNumber", "sellingPostalAddress", "billingPostalAddress", "currencyId", "currencyCode", "paymentTermsId", "shipmentMethodId", "salesperson", "pricesIncludeTax", "discountAmount", "discountAppliedBeforeTax", "totalAmountExcludingTax", "totalTaxAmount", "totalAmountIncludingTax", "status", "lastModifiedDateTime", "invoiceId", "invoiceNumber", "phoneNumber", "email"]
+    sales_credit_memo_lines: Optional[List[SalesCreditMemoLine]] = Field(default=None, description="(v1.0) The salesCreditMemoLines property for the Dynamics 365 Business Central salesCreditMemo entity", alias="salesCreditMemoLines")
+    __properties: ClassVar[List[str]] = ["id", "number", "externalDocumentNumber", "creditMemoDate", "dueDate", "customerId", "contactId", "customerNumber", "customerName", "billToName", "billToCustomerId", "billToCustomerNumber", "sellingPostalAddress", "billingPostalAddress", "currencyId", "currencyCode", "paymentTermsId", "shipmentMethodId", "salesperson", "pricesIncludeTax", "discountAmount", "discountAppliedBeforeTax", "totalAmountExcludingTax", "totalTaxAmount", "totalAmountIncludingTax", "status", "lastModifiedDateTime", "invoiceId", "invoiceNumber", "phoneNumber", "email", "salesCreditMemoLines"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -107,6 +109,13 @@ class PostSalesCreditMemoRequest(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of billing_postal_address
         if self.billing_postal_address:
             _dict['billingPostalAddress'] = self.billing_postal_address.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in sales_credit_memo_lines (list)
+        _items = []
+        if self.sales_credit_memo_lines:
+            for _item_sales_credit_memo_lines in self.sales_credit_memo_lines:
+                if _item_sales_credit_memo_lines:
+                    _items.append(_item_sales_credit_memo_lines.to_dict())
+            _dict['salesCreditMemoLines'] = _items
         # set to None if number (nullable) is None
         # and model_fields_set contains the field
         if self.number is None and "number" in self.model_fields_set:
@@ -299,7 +308,8 @@ class PostSalesCreditMemoRequest(BaseModel):
             "invoiceId": obj.get("invoiceId"),
             "invoiceNumber": obj.get("invoiceNumber"),
             "phoneNumber": obj.get("phoneNumber"),
-            "email": obj.get("email")
+            "email": obj.get("email"),
+            "salesCreditMemoLines": [SalesCreditMemoLine.from_dict(_item) for _item in obj["salesCreditMemoLines"]] if obj.get("salesCreditMemoLines") is not None else None
         })
         return _obj
 
