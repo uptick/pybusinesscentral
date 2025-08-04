@@ -20,7 +20,7 @@ from setuptools import find_packages, setup  # noqa: H301
 # prerequisite: setuptools
 # http://pypi.python.org/pypi/setuptools
 NAME = "pybusinesscentral"
-VERSION = "3.2.0"
+VERSION = "3.3.0"
 PYTHON_REQUIRES = ">= 3.9"
 REQUIRES = [
     "urllib3 >= 2.1.0, < 3.0.0",

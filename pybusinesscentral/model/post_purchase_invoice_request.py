@@ -22,6 +22,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, Stri
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing_extensions import Annotated
 from pybusinesscentral.model.postaladdresstype import Postaladdresstype
+from pybusinesscentral.model.purchase_invoice_line import PurchaseInvoiceLine
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -56,7 +57,8 @@ class PostPurchaseInvoiceRequest(BaseModel):
     total_amount_including_tax: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="(v1.0) The totalAmountIncludingTax property for the Dynamics 365 Business Central purchaseInvoice entity", alias="totalAmountIncludingTax")
     status: Optional[StrictStr] = Field(default=None, description="(v1.0) The status property for the Dynamics 365 Business Central purchaseInvoice entity")
     last_modified_date_time: Optional[datetime] = Field(default=None, description="(v1.0) The lastModifiedDateTime property for the Dynamics 365 Business Central purchaseInvoice entity", alias="lastModifiedDateTime")
-    __properties: ClassVar[List[str]] = ["id", "number", "invoiceDate", "dueDate", "vendorInvoiceNumber", "vendorId", "vendorNumber", "vendorName", "payToName", "payToContact", "payToVendorId", "payToVendorNumber", "shipToName", "shipToContact", "buyFromAddress", "payToAddress", "shipToAddress", "currencyId", "currencyCode", "pricesIncludeTax", "discountAmount", "discountAppliedBeforeTax", "totalAmountExcludingTax", "totalTaxAmount", "totalAmountIncludingTax", "status", "lastModifiedDateTime"]
+    purchase_invoice_lines: Optional[List[PurchaseInvoiceLine]] = Field(default=None, description="(v1.0) The purchaseInvoiceLineItems property for the Dynamics 365 Business Central purchaseInvoice entity", alias="purchaseInvoiceLines")
+    __properties: ClassVar[List[str]] = ["id", "number", "invoiceDate", "dueDate", "vendorInvoiceNumber", "vendorId", "vendorNumber", "vendorName", "payToName", "payToContact", "payToVendorId", "payToVendorNumber", "shipToName", "shipToContact", "buyFromAddress", "payToAddress", "shipToAddress", "currencyId", "currencyCode", "pricesIncludeTax", "discountAmount", "discountAppliedBeforeTax", "totalAmountExcludingTax", "totalTaxAmount", "totalAmountIncludingTax", "status", "lastModifiedDateTime", "purchaseInvoiceLines"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -106,6 +108,13 @@ class PostPurchaseInvoiceRequest(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of ship_to_address
         if self.ship_to_address:
             _dict['shipToAddress'] = self.ship_to_address.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in purchase_invoice_lines (list)
+        _items = []
+        if self.purchase_invoice_lines:
+            for _item_purchase_invoice_lines in self.purchase_invoice_lines:
+                if _item_purchase_invoice_lines:
+                    _items.append(_item_purchase_invoice_lines.to_dict())
+            _dict['purchaseInvoiceLines'] = _items
         # set to None if number (nullable) is None
         # and model_fields_set contains the field
         if self.number is None and "number" in self.model_fields_set:
@@ -274,7 +283,8 @@ class PostPurchaseInvoiceRequest(BaseModel):
             "totalTaxAmount": obj.get("totalTaxAmount"),
             "totalAmountIncludingTax": obj.get("totalAmountIncludingTax"),
             "status": obj.get("status"),
-            "lastModifiedDateTime": obj.get("lastModifiedDateTime")
+            "lastModifiedDateTime": obj.get("lastModifiedDateTime"),
+            "purchaseInvoiceLines": [PurchaseInvoiceLine.from_dict(_item) for _item in obj["purchaseInvoiceLines"]] if obj.get("purchaseInvoiceLines") is not None else None
         })
         return _obj
 
