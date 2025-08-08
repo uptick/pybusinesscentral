@@ -1847,6 +1847,7 @@ class SalesCreditMemoApi:
         company_id: Annotated[StrictStr, Field(description="(v1.0) id for company")],
         content_type: Annotated[StrictStr, Field(description="(v1.0) application/json")],
         post_sales_credit_memo_request: PostSalesCreditMemoRequest,
+        expand: Annotated[Optional[List[StrictStr]], Field(description="(v1.0) Entities to expand")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1869,6 +1870,8 @@ class SalesCreditMemoApi:
         :type content_type: str
         :param post_sales_credit_memo_request: (required)
         :type post_sales_credit_memo_request: PostSalesCreditMemoRequest
+        :param expand: (v1.0) Entities to expand
+        :type expand: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1895,6 +1898,7 @@ class SalesCreditMemoApi:
             company_id=company_id,
             content_type=content_type,
             post_sales_credit_memo_request=post_sales_credit_memo_request,
+            expand=expand,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1921,6 +1925,7 @@ class SalesCreditMemoApi:
         company_id: Annotated[StrictStr, Field(description="(v1.0) id for company")],
         content_type: Annotated[StrictStr, Field(description="(v1.0) application/json")],
         post_sales_credit_memo_request: PostSalesCreditMemoRequest,
+        expand: Annotated[Optional[List[StrictStr]], Field(description="(v1.0) Entities to expand")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1943,6 +1948,8 @@ class SalesCreditMemoApi:
         :type content_type: str
         :param post_sales_credit_memo_request: (required)
         :type post_sales_credit_memo_request: PostSalesCreditMemoRequest
+        :param expand: (v1.0) Entities to expand
+        :type expand: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1969,6 +1976,7 @@ class SalesCreditMemoApi:
             company_id=company_id,
             content_type=content_type,
             post_sales_credit_memo_request=post_sales_credit_memo_request,
+            expand=expand,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1995,6 +2003,7 @@ class SalesCreditMemoApi:
         company_id: Annotated[StrictStr, Field(description="(v1.0) id for company")],
         content_type: Annotated[StrictStr, Field(description="(v1.0) application/json")],
         post_sales_credit_memo_request: PostSalesCreditMemoRequest,
+        expand: Annotated[Optional[List[StrictStr]], Field(description="(v1.0) Entities to expand")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2017,6 +2026,8 @@ class SalesCreditMemoApi:
         :type content_type: str
         :param post_sales_credit_memo_request: (required)
         :type post_sales_credit_memo_request: PostSalesCreditMemoRequest
+        :param expand: (v1.0) Entities to expand
+        :type expand: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2043,6 +2054,7 @@ class SalesCreditMemoApi:
             company_id=company_id,
             content_type=content_type,
             post_sales_credit_memo_request=post_sales_credit_memo_request,
+            expand=expand,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2064,6 +2076,7 @@ class SalesCreditMemoApi:
         company_id,
         content_type,
         post_sales_credit_memo_request,
+        expand,
         _request_auth,
         _content_type,
         _headers,
@@ -2073,6 +2086,7 @@ class SalesCreditMemoApi:
         _host = None
 
         _collection_formats: Dict[str, str] = {
+            '$expand': 'csv',
         }
 
         _path_params: Dict[str, str] = {}
@@ -2088,6 +2102,10 @@ class SalesCreditMemoApi:
         if company_id is not None:
             _path_params['company_id'] = company_id
         # process the query parameters
+        if expand is not None:
+            
+            _query_params.append(('$expand', expand))
+            
         # process the header parameters
         if content_type is not None:
             _header_params['Content-Type'] = content_type
@@ -2138,5 +2156,3 @@ class SalesCreditMemoApi:
             _host=_host,
             _request_auth=_request_auth
         )
-
-

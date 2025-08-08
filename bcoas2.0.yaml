@@ -8,12 +8,12 @@ servers:
    description: (v2.0) "Sandbox"
  - url: https://api.businesscentral.dynamics.com/v2.0/production/api/v2.0
    description: (v2.0) "Production"
-   
+
 paths:
  "/companies":
   get:
    summary: Returns a list of companies
-   tags: 
+   tags:
     - company
    operationId: listCompanies
    responses:
@@ -28,7 +28,7 @@ paths:
           type: array
           items:
            $ref: '#/components/schemas/company'
-   parameters: 
+   parameters:
    - $ref: '#/components/parameters/topParam'
    - $ref: '#/components/parameters/skipParam'
    - $ref: '#/components/parameters/limitParam'
@@ -44,7 +44,7 @@ paths:
      style: form
      explode: false
  "/companies({company_id})":
-  parameters: 
+  parameters:
    - name: company_id
      in: path
      required: true
@@ -54,7 +54,7 @@ paths:
       format: uuid
   get:
    summary: Retrieve the properties and relationships of an object of type company for Dynamics 365 Business Central.
-   tags: 
+   tags:
     - company
    operationId: getCompany
    responses:
@@ -64,10 +64,10 @@ paths:
       application/json:
        schema:
         $ref: '#/components/schemas/company'
-   parameters: 
+   parameters:
    - name: $select
      in: query
-     description: (v1.0) Selected properties to be retrieved 
+     description: (v1.0) Selected properties to be retrieved
      schema:
       type: array
       items:
@@ -76,7 +76,7 @@ paths:
      style: form
      explode: false
  "/companies({company_id})/customers":
-  parameters: 
+  parameters:
    - name: company_id
      in: path
      required: true
@@ -86,7 +86,7 @@ paths:
       format: uuid
   get:
    summary: Returns a list of customers
-   tags: 
+   tags:
     - customer
    operationId: listCustomers
    responses:
@@ -101,7 +101,7 @@ paths:
           type: array
           items:
            $ref: '#/components/schemas/customer'
-   parameters: 
+   parameters:
    - $ref: '#/components/parameters/topParam'
    - $ref: '#/components/parameters/skipParam'
    - $ref: '#/components/parameters/limitParam'
@@ -118,7 +118,7 @@ paths:
      explode: false
    - name: $select
      in: query
-     description: (v1.0) Selected properties to be retrieved 
+     description: (v1.0) Selected properties to be retrieved
      schema:
       type: array
       items:
@@ -128,7 +128,7 @@ paths:
      explode: false
   post:
    summary: Creates an object of type customer in Dynamics 365 Business Central
-   tags: 
+   tags:
     - customer
    operationId: postCustomer
    parameters:
@@ -153,7 +153,7 @@ paths:
        schema:
         $ref: '#/components/schemas/customer'
  "/companies({company_id})/customers({customer_id})":
-  parameters: 
+  parameters:
    - name: company_id
      in: path
      required: true
@@ -170,7 +170,7 @@ paths:
       format: uuid
   get:
    summary: Retrieve the properties and relationships of an object of type customer for Dynamics 365 Business Central.
-   tags: 
+   tags:
     - customer
    operationId: getCustomer
    responses:
@@ -180,7 +180,7 @@ paths:
       application/json:
        schema:
         $ref: '#/components/schemas/customer'
-   parameters: 
+   parameters:
    - name: $expand
      in: query
      description: (v1.0) Entities to expand
@@ -193,7 +193,7 @@ paths:
      explode: false
    - name: $select
      in: query
-     description: (v1.0) Selected properties to be retrieved 
+     description: (v1.0) Selected properties to be retrieved
      schema:
       type: array
       items:
@@ -203,7 +203,7 @@ paths:
      explode: false
   delete:
    summary: Deletes an object of type customer in Dynamics 365 Business Central
-   tags: 
+   tags:
     - customer
    operationId: deleteCustomer
    responses:
@@ -211,7 +211,7 @@ paths:
      description: (v1.0) Succesfully deleted the specified customer
   patch:
    summary: Updates an object of type customer in Dynamics 365 Business Central
-   tags: 
+   tags:
     - customer
    operationId: patchCustomer
    parameters:
@@ -227,7 +227,7 @@ paths:
        schema:
         $ref: '#/components/schemas/customer'
  "/companies({company_id})/vendors":
-  parameters: 
+  parameters:
    - name: company_id
      in: path
      required: true
@@ -237,7 +237,7 @@ paths:
       format: uuid
   get:
    summary: Returns a list of vendors
-   tags: 
+   tags:
     - vendor
    operationId: listVendors
    responses:
@@ -252,7 +252,7 @@ paths:
           type: array
           items:
            $ref: '#/components/schemas/vendor'
-   parameters: 
+   parameters:
    - $ref: '#/components/parameters/topParam'
    - $ref: '#/components/parameters/skipParam'
    - $ref: '#/components/parameters/limitParam'
@@ -269,7 +269,7 @@ paths:
      explode: false
    - name: $select
      in: query
-     description: (v1.0) Selected properties to be retrieved 
+     description: (v1.0) Selected properties to be retrieved
      schema:
       type: array
       items:
@@ -279,7 +279,7 @@ paths:
      explode: false
   post:
    summary: Creates an object of type vendor in Dynamics 365 Business Central
-   tags: 
+   tags:
     - vendor
    operationId: postVendor
    parameters:
@@ -304,7 +304,7 @@ paths:
        schema:
         $ref: '#/components/schemas/vendor'
  "/companies({company_id})/vendors({vendor_id})":
-  parameters: 
+  parameters:
    - name: company_id
      in: path
      required: true
@@ -321,7 +321,7 @@ paths:
       format: uuid
   get:
    summary: Retrieve the properties and relationships of an object of type vendor for Dynamics 365 Business Central.
-   tags: 
+   tags:
     - vendor
    operationId: getVendor
    responses:
@@ -331,7 +331,7 @@ paths:
       application/json:
        schema:
         $ref: '#/components/schemas/vendor'
-   parameters: 
+   parameters:
    - name: $expand
      in: query
      description: (v1.0) Entities to expand
@@ -344,7 +344,7 @@ paths:
      explode: false
    - name: $select
      in: query
-     description: (v1.0) Selected properties to be retrieved 
+     description: (v1.0) Selected properties to be retrieved
      schema:
       type: array
       items:
@@ -354,7 +354,7 @@ paths:
      explode: false
   delete:
    summary: Deletes an object of type vendor in Dynamics 365 Business Central
-   tags: 
+   tags:
     - vendor
    operationId: deleteVendor
    responses:
@@ -362,7 +362,7 @@ paths:
      description: (v1.0) Succesfully deleted the specified vendor
   patch:
    summary: Updates an object of type vendor in Dynamics 365 Business Central
-   tags: 
+   tags:
     - vendor
    operationId: patchVendor
    parameters:
@@ -378,7 +378,7 @@ paths:
        schema:
         $ref: '#/components/schemas/vendor'
  "/companies({company_id})/salesInvoices":
-  parameters: 
+  parameters:
    - name: company_id
      in: path
      required: true
@@ -388,7 +388,7 @@ paths:
       format: uuid
   get:
    summary: Returns a list of salesInvoices
-   tags: 
+   tags:
     - salesInvoice
    operationId: listSalesInvoices
    responses:
@@ -403,7 +403,7 @@ paths:
           type: array
           items:
            $ref: '#/components/schemas/salesInvoice'
-   parameters: 
+   parameters:
    - $ref: '#/components/parameters/topParam'
    - $ref: '#/components/parameters/skipParam'
    - $ref: '#/components/parameters/limitParam'
@@ -420,7 +420,7 @@ paths:
      explode: false
    - name: $select
      in: query
-     description: (v1.0) Selected properties to be retrieved 
+     description: (v1.0) Selected properties to be retrieved
      schema:
       type: array
       items:
@@ -430,7 +430,7 @@ paths:
      explode: false
   post:
    summary: Creates an object of type salesInvoice in Dynamics 365 Business Central
-   tags: 
+   tags:
     - salesInvoice
    operationId: postSalesInvoice
    parameters:
@@ -444,7 +444,7 @@ paths:
           type: string
           enum: ['salesInvoiceLines', 'pdfDocument', 'customer', 'currency', 'paymentTerm', 'shipmentMethod']
       style: form
-      explode: false    
+      explode: false
    requestBody:
     $ref: '#/components/requestBodies/salesInvoice'
    responses:
@@ -455,7 +455,7 @@ paths:
        schema:
         $ref: '#/components/schemas/salesInvoice'
  "/companies({company_id})/salesInvoices({salesInvoice_id})":
-  parameters: 
+  parameters:
    - name: company_id
      in: path
      required: true
@@ -472,7 +472,7 @@ paths:
       format: uuid
   get:
    summary: Retrieve the properties and relationships of an object of type salesInvoice for Dynamics 365 Business Central.
-   tags: 
+   tags:
     - salesInvoice
    operationId: getSalesInvoice
    responses:
@@ -482,7 +482,7 @@ paths:
       application/json:
        schema:
         $ref: '#/components/schemas/salesInvoice'
-   parameters: 
+   parameters:
    - name: $expand
      in: query
      description: (v1.0) Entities to expand
@@ -495,7 +495,7 @@ paths:
      explode: false
    - name: $select
      in: query
-     description: (v1.0) Selected properties to be retrieved 
+     description: (v1.0) Selected properties to be retrieved
      schema:
       type: array
       items:
@@ -505,7 +505,7 @@ paths:
      explode: false
   delete:
    summary: Deletes an object of type salesInvoice in Dynamics 365 Business Central
-   tags: 
+   tags:
     - salesInvoice
    operationId: deleteSalesInvoice
    responses:
@@ -513,7 +513,7 @@ paths:
      description: (v1.0) Succesfully deleted the specified salesInvoice
   patch:
    summary: Updates an object of type salesInvoice in Dynamics 365 Business Central
-   tags: 
+   tags:
     - salesInvoice
    operationId: patchSalesInvoice
    parameters:
@@ -529,7 +529,7 @@ paths:
        schema:
         $ref: '#/components/schemas/salesInvoice'
  "/companies({company_id})/salesInvoices({salesInvoice_id})/Microsoft.NAV.post":
-  parameters: 
+  parameters:
    - name: company_id
      in: path
      required: true
@@ -546,14 +546,14 @@ paths:
       format: uuid
   post:
    summary: Performs the post action for salesInvoices entity
-   tags: 
+   tags:
     - salesInvoice
    operationId: postActionSalesInvoices
    responses:
     204:
      description: (v1.0) Succesfully performed a post action on the Dynamic 365 Business Central salesInvoices entity
  "/companies({company_id})/salesInvoices({salesInvoice_id})/salesInvoiceLines":
-  parameters: 
+  parameters:
    - name: company_id
      in: path
      required: true
@@ -570,7 +570,7 @@ paths:
       format: uuid
   get:
    summary: Returns a list of salesInvoiceLines
-   tags: 
+   tags:
     - salesInvoiceLine
    operationId: listSalesInvoiceLinesForSalesInvoice
    responses:
@@ -585,7 +585,7 @@ paths:
           type: array
           items:
            $ref: '#/components/schemas/salesInvoiceLine'
-   parameters: 
+   parameters:
    - $ref: '#/components/parameters/topParam'
    - $ref: '#/components/parameters/skipParam'
    - $ref: '#/components/parameters/limitParam'
@@ -602,7 +602,7 @@ paths:
      explode: false
    - name: $select
      in: query
-     description: (v1.0) Selected properties to be retrieved 
+     description: (v1.0) Selected properties to be retrieved
      schema:
       type: array
       items:
@@ -612,7 +612,7 @@ paths:
      explode: false
   post:
    summary: Creates an object of type salesInvoiceLine in Dynamics 365 Business Central
-   tags: 
+   tags:
     - salesInvoiceLine
    operationId: postSalesInvoiceLineForSalesInvoice
    parameters:
@@ -627,7 +627,7 @@ paths:
        schema:
         $ref: '#/components/schemas/salesInvoiceLine'
  "/companies({company_id})/salesInvoices({salesInvoice_id})/salesInvoiceLines('{salesInvoiceLine_id}')":
-  parameters: 
+  parameters:
    - name: company_id
      in: path
      required: true
@@ -650,7 +650,7 @@ paths:
       type: string
   get:
    summary: Retrieve the properties and relationships of an object of type salesInvoiceLine for Dynamics 365 Business Central.
-   tags: 
+   tags:
     - salesInvoiceLine
    operationId: getSalesInvoiceLineForSalesInvoice
    responses:
@@ -660,7 +660,7 @@ paths:
       application/json:
        schema:
         $ref: '#/components/schemas/salesInvoiceLine'
-   parameters: 
+   parameters:
    - name: $expand
      in: query
      description: (v1.0) Entities to expand
@@ -673,7 +673,7 @@ paths:
      explode: false
    - name: $select
      in: query
-     description: (v1.0) Selected properties to be retrieved 
+     description: (v1.0) Selected properties to be retrieved
      schema:
       type: array
       items:
@@ -683,7 +683,7 @@ paths:
      explode: false
   delete:
    summary: Deletes an object of type salesInvoiceLine in Dynamics 365 Business Central
-   tags: 
+   tags:
     - salesInvoiceLine
    operationId: deleteSalesInvoiceLineForSalesInvoice
    responses:
@@ -691,7 +691,7 @@ paths:
      description: (v1.0) Succesfully deleted the specified salesInvoiceLine
   patch:
    summary: Updates an object of type salesInvoiceLine in Dynamics 365 Business Central
-   tags: 
+   tags:
     - salesInvoiceLine
    operationId: patchSalesInvoiceLineForSalesInvoice
    parameters:
@@ -707,7 +707,7 @@ paths:
        schema:
         $ref: '#/components/schemas/salesInvoiceLine'
  "/companies({company_id})/salesInvoices({salesInvoice_id})/salesInvoiceLines({salesInvoiceLine_id})/dimensionSetLines":
-  parameters: 
+  parameters:
    - name: company_id
      in: path
      required: true
@@ -730,7 +730,7 @@ paths:
       type: string
   get:
    summary: Retrieve the properties and relationships of the list of dimensionSetLines for a salesInvoiceLine.
-   tags: 
+   tags:
     - dimensionSetLine
    operationId: getDimensionSetLinesForSalesInvoiceLine
    responses:
@@ -742,7 +742,7 @@ paths:
         $ref: '#/components/schemas/dimensionSetLine'
   post:
    summary: Creates an object of type dimensionSetLine in Dynamics 365 Business Central
-   tags: 
+   tags:
     - dimensionSetLine
    operationId: postDimensionSetLine
    parameters:
@@ -755,9 +755,9 @@ paths:
      content:
       application/json:
        schema:
-        $ref: '#/components/schemas/dimensionSetLine'        
+        $ref: '#/components/schemas/dimensionSetLine'
  "/companies({company_id})/salesInvoiceLines":
-  parameters: 
+  parameters:
    - name: company_id
      in: path
      required: true
@@ -767,7 +767,7 @@ paths:
       format: uuid
   get:
    summary: Returns a list of salesInvoiceLines
-   tags: 
+   tags:
     - salesInvoiceLine
    operationId: listSalesInvoiceLines
    responses:
@@ -782,7 +782,7 @@ paths:
           type: array
           items:
            $ref: '#/components/schemas/salesInvoiceLine'
-   parameters: 
+   parameters:
    - $ref: '#/components/parameters/topParam'
    - $ref: '#/components/parameters/skipParam'
    - $ref: '#/components/parameters/limitParam'
@@ -799,7 +799,7 @@ paths:
      explode: false
    - name: $select
      in: query
-     description: (v1.0) Selected properties to be retrieved 
+     description: (v1.0) Selected properties to be retrieved
      schema:
       type: array
       items:
@@ -809,7 +809,7 @@ paths:
      explode: false
   post:
    summary: Creates an object of type salesInvoiceLine in Dynamics 365 Business Central
-   tags: 
+   tags:
     - salesInvoiceLine
    operationId: postSalesInvoiceLine
    parameters:
@@ -824,7 +824,7 @@ paths:
        schema:
         $ref: '#/components/schemas/salesInvoiceLine'
  "/companies({company_id})/salesCreditMemos":
-  parameters: 
+  parameters:
    - name: company_id
      in: path
      required: true
@@ -834,7 +834,7 @@ paths:
       format: uuid
   get:
    summary: Returns a list of salesCreditMemos
-   tags: 
+   tags:
     - salesCreditMemo
    operationId: listSalesCreditMemos
    responses:
@@ -849,7 +849,7 @@ paths:
           type: array
           items:
            $ref: '#/components/schemas/salesCreditMemo'
-   parameters: 
+   parameters:
    - $ref: '#/components/parameters/topParam'
    - $ref: '#/components/parameters/skipParam'
    - $ref: '#/components/parameters/limitParam'
@@ -866,7 +866,7 @@ paths:
      explode: false
    - name: $select
      in: query
-     description: (v1.0) Selected properties to be retrieved 
+     description: (v1.0) Selected properties to be retrieved
      schema:
       type: array
       items:
@@ -876,11 +876,29 @@ paths:
      explode: false
   post:
    summary: Creates an object of type salesCreditMemo in Dynamics 365 Business Central
-   tags: 
+   tags:
     - salesCreditMemo
    operationId: postSalesCreditMemo
    parameters:
     - $ref: '#/components/parameters/ContentTypeParam'
+    - name: $expand
+      in: query
+      description: (v1.0) Entities to expand
+      schema:
+        type: array
+        items:
+          type: string
+          enum:
+            [
+              "salesCreditMemoLines",
+              "pdfDocument",
+              "customer",
+              "currency",
+              "paymentTerm",
+              "shipmentMethod",
+            ]
+      style: form
+      explode: false
    requestBody:
     $ref: '#/components/requestBodies/salesCreditMemo'
    responses:
@@ -891,7 +909,7 @@ paths:
        schema:
         $ref: '#/components/schemas/salesCreditMemo'
  "/companies({company_id})/salesCreditMemos({salesCreditMemo_id})":
-  parameters: 
+  parameters:
    - name: company_id
      in: path
      required: true
@@ -908,7 +926,7 @@ paths:
       format: uuid
   get:
    summary: Retrieve the properties and relationships of an object of type salesCreditMemo for Dynamics 365 Business Central.
-   tags: 
+   tags:
     - salesCreditMemo
    operationId: getSalesCreditMemo
    responses:
@@ -918,7 +936,7 @@ paths:
       application/json:
        schema:
         $ref: '#/components/schemas/salesCreditMemo'
-   parameters: 
+   parameters:
    - name: $expand
      in: query
      description: (v1.0) Entities to expand
@@ -931,7 +949,7 @@ paths:
      explode: false
    - name: $select
      in: query
-     description: (v1.0) Selected properties to be retrieved 
+     description: (v1.0) Selected properties to be retrieved
      schema:
       type: array
       items:
@@ -941,7 +959,7 @@ paths:
      explode: false
   delete:
    summary: Deletes an object of type salesCreditMemo in Dynamics 365 Business Central
-   tags: 
+   tags:
     - salesCreditMemo
    operationId: deleteSalesCreditMemo
    responses:
@@ -949,7 +967,7 @@ paths:
      description: (v1.0) Succesfully deleted the specified salesCreditMemo
   patch:
    summary: Updates an object of type salesCreditMemo in Dynamics 365 Business Central
-   tags: 
+   tags:
     - salesCreditMemo
    operationId: patchSalesCreditMemo
    parameters:
@@ -966,14 +984,14 @@ paths:
         $ref: '#/components/schemas/salesCreditMemo'
   post:
    summary: Performs the postAndSend action for salesCreditMemos entity
-   tags: 
+   tags:
     - salesCreditMemo
    operationId: postAndSendActionSalesCreditMemos
    responses:
     204:
      description: (v1.0) Succesfully performed a postAndSend action on the Dynamic 365 Business Central salesCreditMemos entity
  "/companies({company_id})/salesCreditMemos({salesCreditMemo_id})/Microsoft.NAV.post":
-  parameters: 
+  parameters:
    - name: company_id
      in: path
      required: true
@@ -990,14 +1008,14 @@ paths:
       format: uuid
   post:
    summary: Performs the post action for salesCreditMemos entity
-   tags: 
+   tags:
     - salesCreditMemo
    operationId: postActionSalesCreditMemos
    responses:
     204:
      description: (v1.0) Succesfully performed a post action on the Dynamic 365 Business Central salesCreditMemos entity
  "/companies({company_id})/salesCreditMemos({salesCreditMemo_id})/salesCreditMemoLines":
-  parameters: 
+  parameters:
    - name: company_id
      in: path
      required: true
@@ -1014,7 +1032,7 @@ paths:
       format: uuid
   get:
    summary: Returns a list of salesCreditMemoLines
-   tags: 
+   tags:
     - salesCreditMemoLine
    operationId: listSalesCreditMemoLinesForSalesCreditMemo
    responses:
@@ -1029,7 +1047,7 @@ paths:
           type: array
           items:
            $ref: '#/components/schemas/salesCreditMemoLine'
-   parameters: 
+   parameters:
    - $ref: '#/components/parameters/topParam'
    - $ref: '#/components/parameters/skipParam'
    - $ref: '#/components/parameters/limitParam'
@@ -1046,7 +1064,7 @@ paths:
      explode: false
    - name: $select
      in: query
-     description: (v1.0) Selected properties to be retrieved 
+     description: (v1.0) Selected properties to be retrieved
      schema:
       type: array
       items:
@@ -1056,7 +1074,7 @@ paths:
      explode: false
   post:
    summary: Creates an object of type salesCreditMemoLine in Dynamics 365 Business Central
-   tags: 
+   tags:
     - salesCreditMemoLine
    operationId: postSalesCreditMemoLineForSalesCreditMemo
    parameters:
@@ -1071,7 +1089,7 @@ paths:
        schema:
         $ref: '#/components/schemas/salesCreditMemoLine'
  "/companies({company_id})/salesCreditMemos({salesCreditMemo_id})/salesCreditMemoLines('{salesCreditMemoLine_id}')":
-  parameters: 
+  parameters:
    - name: company_id
      in: path
      required: true
@@ -1094,7 +1112,7 @@ paths:
       type: string
   get:
    summary: Retrieve the properties and relationships of an object of type salesCreditMemoLine for Dynamics 365 Business Central.
-   tags: 
+   tags:
     - salesCreditMemoLine
    operationId: getSalesCreditMemoLineForSalesCreditMemo
    responses:
@@ -1104,7 +1122,7 @@ paths:
       application/json:
        schema:
         $ref: '#/components/schemas/salesCreditMemoLine'
-   parameters: 
+   parameters:
    - name: $expand
      in: query
      description: (v1.0) Entities to expand
@@ -1117,7 +1135,7 @@ paths:
      explode: false
    - name: $select
      in: query
-     description: (v1.0) Selected properties to be retrieved 
+     description: (v1.0) Selected properties to be retrieved
      schema:
       type: array
       items:
@@ -1127,7 +1145,7 @@ paths:
      explode: false
   delete:
    summary: Deletes an object of type salesCreditMemoLine in Dynamics 365 Business Central
-   tags: 
+   tags:
     - salesCreditMemoLine
    operationId: deleteSalesCreditMemoLineForSalesCreditMemo
    responses:
@@ -1135,7 +1153,7 @@ paths:
      description: (v1.0) Succesfully deleted the specified salesCreditMemoLine
   patch:
    summary: Updates an object of type salesCreditMemoLine in Dynamics 365 Business Central
-   tags: 
+   tags:
     - salesCreditMemoLine
    operationId: patchSalesCreditMemoLineForSalesCreditMemo
    parameters:
@@ -1151,7 +1169,7 @@ paths:
        schema:
         $ref: '#/components/schemas/salesCreditMemoLine'
  "/companies({company_id})/salesCreditMemoLines":
-  parameters: 
+  parameters:
    - name: company_id
      in: path
      required: true
@@ -1161,7 +1179,7 @@ paths:
       format: uuid
   get:
    summary: Returns a list of salesCreditMemoLines
-   tags: 
+   tags:
     - salesCreditMemoLine
    operationId: listSalesCreditMemoLines
    responses:
@@ -1176,7 +1194,7 @@ paths:
           type: array
           items:
            $ref: '#/components/schemas/salesCreditMemoLine'
-   parameters: 
+   parameters:
    - $ref: '#/components/parameters/topParam'
    - $ref: '#/components/parameters/skipParam'
    - $ref: '#/components/parameters/limitParam'
@@ -1193,7 +1211,7 @@ paths:
      explode: false
    - name: $select
      in: query
-     description: (v1.0) Selected properties to be retrieved 
+     description: (v1.0) Selected properties to be retrieved
      schema:
       type: array
       items:
@@ -1203,7 +1221,7 @@ paths:
      explode: false
   post:
    summary: Creates an object of type salesCreditMemoLine in Dynamics 365 Business Central
-   tags: 
+   tags:
     - salesCreditMemoLine
    operationId: postSalesCreditMemoLine
    parameters:
@@ -1218,7 +1236,7 @@ paths:
        schema:
         $ref: '#/components/schemas/salesCreditMemoLine'
  "/companies({company_id})/accounts":
-  parameters: 
+  parameters:
    - name: company_id
      in: path
      required: true
@@ -1228,7 +1246,7 @@ paths:
       format: uuid
   get:
    summary: Returns a list of accounts
-   tags: 
+   tags:
     - account
    operationId: listAccounts
    responses:
@@ -1243,14 +1261,14 @@ paths:
           type: array
           items:
            $ref: '#/components/schemas/account'
-   parameters: 
+   parameters:
    - $ref: '#/components/parameters/topParam'
    - $ref: '#/components/parameters/skipParam'
    - $ref: '#/components/parameters/limitParam'
    - $ref: '#/components/parameters/filterParam'
    - name: $select
      in: query
-     description: (v1.0) Selected properties to be retrieved 
+     description: (v1.0) Selected properties to be retrieved
      schema:
       type: array
       items:
@@ -1259,7 +1277,7 @@ paths:
      style: form
      explode: false
  "/companies({company_id})/accounts({account_id})":
-  parameters: 
+  parameters:
    - name: company_id
      in: path
      required: true
@@ -1276,7 +1294,7 @@ paths:
       format: uuid
   get:
    summary: Retrieve the properties and relationships of an object of type account for Dynamics 365 Business Central.
-   tags: 
+   tags:
     - account
    operationId: getAccount
    responses:
@@ -1286,10 +1304,10 @@ paths:
       application/json:
        schema:
         $ref: '#/components/schemas/account'
-   parameters: 
+   parameters:
    - name: $select
      in: query
-     description: (v1.0) Selected properties to be retrieved 
+     description: (v1.0) Selected properties to be retrieved
      schema:
       type: array
       items:
@@ -1298,7 +1316,7 @@ paths:
      style: form
      explode: false
  "/companies({company_id})/dimensions":
-  parameters: 
+  parameters:
    - name: company_id
      in: path
      required: true
@@ -1308,7 +1326,7 @@ paths:
       format: uuid
   get:
    summary: Returns a list of dimensions
-   tags: 
+   tags:
     - dimension
    operationId: listDimensions
    responses:
@@ -1323,7 +1341,7 @@ paths:
           type: array
           items:
            $ref: '#/components/schemas/dimension'
-   parameters: 
+   parameters:
    - $ref: '#/components/parameters/topParam'
    - $ref: '#/components/parameters/skipParam'
    - $ref: '#/components/parameters/limitParam'
@@ -1340,7 +1358,7 @@ paths:
      explode: false
    - name: $select
      in: query
-     description: (v1.0) Selected properties to be retrieved 
+     description: (v1.0) Selected properties to be retrieved
      schema:
       type: array
       items:
@@ -1349,7 +1367,7 @@ paths:
      style: form
      explode: false
  "/companies({company_id})/dimensions({dimension_id})":
-  parameters: 
+  parameters:
    - name: company_id
      in: path
      required: true
@@ -1366,7 +1384,7 @@ paths:
       format: uuid
   get:
    summary: Retrieve the properties and relationships of an object of type dimension for Dynamics 365 Business Central.
-   tags: 
+   tags:
     - dimension
    operationId: getDimension
    responses:
@@ -1376,7 +1394,7 @@ paths:
       application/json:
        schema:
         $ref: '#/components/schemas/dimension'
-   parameters: 
+   parameters:
    - name: $expand
      in: query
      description: (v1.0) Entities to expand
@@ -1389,7 +1407,7 @@ paths:
      explode: false
    - name: $select
      in: query
-     description: (v1.0) Selected properties to be retrieved 
+     description: (v1.0) Selected properties to be retrieved
      schema:
       type: array
       items:
@@ -1398,7 +1416,7 @@ paths:
      style: form
      explode: false
  "/companies({company_id})/paymentTerms":
-  parameters: 
+  parameters:
    - name: company_id
      in: path
      required: true
@@ -1408,7 +1426,7 @@ paths:
       format: uuid
   get:
    summary: Returns a list of paymentTerms
-   tags: 
+   tags:
     - paymentTerm
    operationId: listPaymentTerms
    responses:
@@ -1423,14 +1441,14 @@ paths:
           type: array
           items:
            $ref: '#/components/schemas/paymentTerm'
-   parameters: 
+   parameters:
    - $ref: '#/components/parameters/topParam'
    - $ref: '#/components/parameters/skipParam'
    - $ref: '#/components/parameters/limitParam'
    - $ref: '#/components/parameters/filterParam'
    - name: $select
      in: query
-     description: (v1.0) Selected properties to be retrieved 
+     description: (v1.0) Selected properties to be retrieved
      schema:
       type: array
       items:
@@ -1440,7 +1458,7 @@ paths:
      explode: false
   post:
    summary: Creates an object of type paymentTerm in Dynamics 365 Business Central
-   tags: 
+   tags:
     - paymentTerm
    operationId: postPaymentTerm
    parameters:
@@ -1455,7 +1473,7 @@ paths:
        schema:
         $ref: '#/components/schemas/paymentTerm'
  "/companies({company_id})/paymentTerms({paymentTerm_id})":
-  parameters: 
+  parameters:
    - name: company_id
      in: path
      required: true
@@ -1472,7 +1490,7 @@ paths:
       format: uuid
   get:
    summary: Retrieve the properties and relationships of an object of type paymentTerm for Dynamics 365 Business Central.
-   tags: 
+   tags:
     - paymentTerm
    operationId: getPaymentTerm
    responses:
@@ -1482,10 +1500,10 @@ paths:
       application/json:
        schema:
         $ref: '#/components/schemas/paymentTerm'
-   parameters: 
+   parameters:
    - name: $select
      in: query
-     description: (v1.0) Selected properties to be retrieved 
+     description: (v1.0) Selected properties to be retrieved
      schema:
       type: array
       items:
@@ -1495,7 +1513,7 @@ paths:
      explode: false
   delete:
    summary: Deletes an object of type paymentTerm in Dynamics 365 Business Central
-   tags: 
+   tags:
     - paymentTerm
    operationId: deletePaymentTerm
    responses:
@@ -1503,7 +1521,7 @@ paths:
      description: (v1.0) Succesfully deleted the specified paymentTerm
   patch:
    summary: Updates an object of type paymentTerm in Dynamics 365 Business Central
-   tags: 
+   tags:
     - paymentTerm
    operationId: patchPaymentTerm
    parameters:
@@ -1519,7 +1537,7 @@ paths:
        schema:
         $ref: '#/components/schemas/paymentTerm'
  "/companies({company_id})/purchaseInvoices":
-  parameters: 
+  parameters:
    - name: company_id
      in: path
      required: true
@@ -1529,7 +1547,7 @@ paths:
       format: uuid
   get:
    summary: Returns a list of purchaseInvoices
-   tags: 
+   tags:
     - purchaseInvoice
    operationId: listPurchaseInvoices
    responses:
@@ -1544,7 +1562,7 @@ paths:
           type: array
           items:
            $ref: '#/components/schemas/purchaseInvoice'
-   parameters: 
+   parameters:
    - $ref: '#/components/parameters/topParam'
    - $ref: '#/components/parameters/skipParam'
    - $ref: '#/components/parameters/limitParam'
@@ -1561,7 +1579,7 @@ paths:
      explode: false
    - name: $select
      in: query
-     description: (v1.0) Selected properties to be retrieved 
+     description: (v1.0) Selected properties to be retrieved
      schema:
       type: array
       items:
@@ -1571,7 +1589,7 @@ paths:
      explode: false
   post:
    summary: Creates an object of type purchaseInvoice in Dynamics 365 Business Central
-   tags: 
+   tags:
     - purchaseInvoice
    operationId: postPurchaseInvoice
    parameters:
@@ -1596,7 +1614,7 @@ paths:
        schema:
         $ref: '#/components/schemas/purchaseInvoice'
  "/companies({company_id})/purchaseInvoices({purchaseInvoice_id})":
-  parameters: 
+  parameters:
    - name: company_id
      in: path
      required: true
@@ -1613,7 +1631,7 @@ paths:
       format: uuid
   get:
    summary: Retrieve the properties and relationships of an object of type purchaseInvoice for Dynamics 365 Business Central.
-   tags: 
+   tags:
     - purchaseInvoice
    operationId: getPurchaseInvoice
    responses:
@@ -1623,7 +1641,7 @@ paths:
       application/json:
        schema:
         $ref: '#/components/schemas/purchaseInvoice'
-   parameters: 
+   parameters:
    - name: $expand
      in: query
      description: (v1.0) Entities to expand
@@ -1636,7 +1654,7 @@ paths:
      explode: false
    - name: $select
      in: query
-     description: (v1.0) Selected properties to be retrieved 
+     description: (v1.0) Selected properties to be retrieved
      schema:
       type: array
       items:
@@ -1646,7 +1664,7 @@ paths:
      explode: false
   delete:
    summary: Deletes an object of type purchaseInvoice in Dynamics 365 Business Central
-   tags: 
+   tags:
     - purchaseInvoice
    operationId: deletePurchaseInvoice
    responses:
@@ -1654,7 +1672,7 @@ paths:
      description: (v1.0) Succesfully deleted the specified purchaseInvoice
   patch:
    summary: Updates an object of type purchaseInvoice in Dynamics 365 Business Central
-   tags: 
+   tags:
     - purchaseInvoice
    operationId: patchPurchaseInvoice
    parameters:
@@ -1670,7 +1688,7 @@ paths:
        schema:
         $ref: '#/components/schemas/purchaseInvoice'
  "/companies({company_id})/purchaseInvoices({purchaseInvoice_id})/Microsoft.NAV.post":
-  parameters: 
+  parameters:
    - name: company_id
      in: path
      required: true
@@ -1687,14 +1705,14 @@ paths:
       format: uuid
   post:
    summary: Performs the post action for purchaseInvoices entity
-   tags: 
+   tags:
     - purchaseInvoice
    operationId: postActionPurchaseInvoices
    responses:
     204:
      description: (v1.0) Succesfully performed a post action on the Dynamic 365 Business Central purchaseInvoices entity
  "/companies({company_id})/purchaseInvoices({purchaseInvoice_id})/purchaseInvoiceLines":
-  parameters: 
+  parameters:
    - name: company_id
      in: path
      required: true
@@ -1711,7 +1729,7 @@ paths:
       format: uuid
   get:
    summary: Returns a list of purchaseInvoiceLines
-   tags: 
+   tags:
     - purchaseInvoiceLine
    operationId: listPurchaseInvoiceLinesForPurchaseInvoice
    responses:
@@ -1726,7 +1744,7 @@ paths:
           type: array
           items:
            $ref: '#/components/schemas/purchaseInvoiceLine'
-   parameters: 
+   parameters:
    - $ref: '#/components/parameters/topParam'
    - $ref: '#/components/parameters/skipParam'
    - $ref: '#/components/parameters/limitParam'
@@ -1743,7 +1761,7 @@ paths:
      explode: false
    - name: $select
      in: query
-     description: (v1.0) Selected properties to be retrieved 
+     description: (v1.0) Selected properties to be retrieved
      schema:
       type: array
       items:
@@ -1753,7 +1771,7 @@ paths:
      explode: false
   post:
    summary: Creates an object of type purchaseInvoiceLine in Dynamics 365 Business Central
-   tags: 
+   tags:
     - purchaseInvoiceLine
    operationId: postPurchaseInvoiceLineForPurchaseInvoice
    parameters:
@@ -1768,7 +1786,7 @@ paths:
        schema:
         $ref: '#/components/schemas/purchaseInvoiceLine'
  "/companies({company_id})/purchaseInvoices({purchaseInvoice_id})/purchaseInvoiceLines('{purchaseInvoiceLine_id}')":
-  parameters: 
+  parameters:
    - name: company_id
      in: path
      required: true
@@ -1791,7 +1809,7 @@ paths:
       type: string
   get:
    summary: Retrieve the properties and relationships of an object of type purchaseInvoiceLine for Dynamics 365 Business Central.
-   tags: 
+   tags:
     - purchaseInvoiceLine
    operationId: getPurchaseInvoiceLineForPurchaseInvoice
    responses:
@@ -1801,7 +1819,7 @@ paths:
       application/json:
        schema:
         $ref: '#/components/schemas/purchaseInvoiceLine'
-   parameters: 
+   parameters:
    - name: $expand
      in: query
      description: (v1.0) Entities to expand
@@ -1814,7 +1832,7 @@ paths:
      explode: false
    - name: $select
      in: query
-     description: (v1.0) Selected properties to be retrieved 
+     description: (v1.0) Selected properties to be retrieved
      schema:
       type: array
       items:
@@ -1824,7 +1842,7 @@ paths:
      explode: false
   delete:
    summary: Deletes an object of type purchaseInvoiceLine in Dynamics 365 Business Central
-   tags: 
+   tags:
     - purchaseInvoiceLine
    operationId: deletePurchaseInvoiceLineForPurchaseInvoice
    responses:
@@ -1832,7 +1850,7 @@ paths:
      description: (v1.0) Succesfully deleted the specified purchaseInvoiceLine
   patch:
    summary: Updates an object of type purchaseInvoiceLine in Dynamics 365 Business Central
-   tags: 
+   tags:
     - purchaseInvoiceLine
    operationId: patchPurchaseInvoiceLineForPurchaseInvoice
    parameters:
@@ -1848,7 +1866,7 @@ paths:
        schema:
         $ref: '#/components/schemas/purchaseInvoiceLine'
  "/companies({company_id})/purchaseInvoiceLines":
-  parameters: 
+  parameters:
    - name: company_id
      in: path
      required: true
@@ -1858,7 +1876,7 @@ paths:
       format: uuid
   get:
    summary: Returns a list of purchaseInvoiceLines
-   tags: 
+   tags:
     - purchaseInvoiceLine
    operationId: listPurchaseInvoiceLines
    responses:
@@ -1873,7 +1891,7 @@ paths:
           type: array
           items:
            $ref: '#/components/schemas/purchaseInvoiceLine'
-   parameters: 
+   parameters:
    - $ref: '#/components/parameters/topParam'
    - $ref: '#/components/parameters/skipParam'
    - $ref: '#/components/parameters/limitParam'
@@ -1890,7 +1908,7 @@ paths:
      explode: false
    - name: $select
      in: query
-     description: (v1.0) Selected properties to be retrieved 
+     description: (v1.0) Selected properties to be retrieved
      schema:
       type: array
       items:
@@ -1900,7 +1918,7 @@ paths:
      explode: false
   post:
    summary: Creates an object of type purchaseInvoiceLine in Dynamics 365 Business Central
-   tags: 
+   tags:
     - purchaseInvoiceLine
    operationId: postPurchaseInvoiceLine
    parameters:
