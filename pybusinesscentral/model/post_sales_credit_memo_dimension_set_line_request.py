@@ -23,17 +23,17 @@ from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
-class PostDimensionSetLineRequest(BaseModel):
+class PostSalesCreditMemoDimensionSetLineRequest(BaseModel):
     """
-    PostDimensionSetLineRequest
+    PostSalesCreditMemoDimensionSetLineRequest
     """ # noqa: E501
-    parent_id: Optional[StrictStr] = Field(default=None, description="(v1.0) The parentId property for the Dynamics 365 Business Central dimensionLine entity", alias="parentId")
-    id: Optional[StrictStr] = Field(default=None, description="(v1.0) The id property for the Dynamics 365 Business Central dimensionLine entity")
-    code: Optional[Annotated[str, Field(strict=True, max_length=20)]] = Field(default=None, description="(v1.0) The code property for the Dynamics 365 Business Central dimensionLine entity")
-    display_name: Optional[Annotated[str, Field(strict=True, max_length=30)]] = Field(default=None, description="(v1.0) The displayName property for the Dynamics 365 Business Central dimensionLine entity", alias="displayName")
-    value_id: Optional[StrictStr] = Field(default=None, description="(v1.0) The valueId property for the Dynamics 365 Business Central dimensionLine entity", alias="valueId")
-    value_code: Optional[StrictStr] = Field(default=None, description="(v1.0) The valueCode property for the Dynamics 365 Business Central dimensionLine entity", alias="valueCode")
-    value_display_name: Optional[Annotated[str, Field(strict=True, max_length=50)]] = Field(default=None, description="(v1.0) The valueDisplayName property for the Dynamics 365 Business Central dimensionLine entity", alias="valueDisplayName")
+    parent_id: Optional[StrictStr] = Field(default=None, description="(v1.0) The parentId property for the Dynamics 365 Business Central salesCreditMemoDimensionSetLine entity", alias="parentId")
+    id: Optional[StrictStr] = Field(default=None, description="(v1.0) The id property for the Dynamics 365 Business Central salesCreditMemoDimensionSetLine entity")
+    code: Optional[Annotated[str, Field(strict=True, max_length=20)]] = Field(default=None, description="(v1.0) The code property for the Dynamics 365 Business Central salesCreditMemoDimensionSetLine entity")
+    display_name: Optional[Annotated[str, Field(strict=True, max_length=30)]] = Field(default=None, description="(v1.0) The displayName property for the Dynamics 365 Business Central salesCreditMemoDimensionSetLine entity", alias="displayName")
+    value_id: Optional[StrictStr] = Field(default=None, description="(v1.0) The valueId property for the Dynamics 365 Business Central salesCreditMemoDimensionSetLine entity", alias="valueId")
+    value_code: Optional[StrictStr] = Field(default=None, description="(v1.0) The valueCode property for the Dynamics 365 Business Central salesCreditMemoDimensionSetLine entity", alias="valueCode")
+    value_display_name: Optional[Annotated[str, Field(strict=True, max_length=50)]] = Field(default=None, description="(v1.0) The valueDisplayName property for the Dynamics 365 Business Central salesCreditMemoDimensionSetLine entity", alias="valueDisplayName")
     __properties: ClassVar[List[str]] = ["parentId", "id", "code", "displayName", "valueId", "valueCode", "valueDisplayName"]
 
     model_config = ConfigDict(
@@ -54,7 +54,7 @@ class PostDimensionSetLineRequest(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of PostDimensionSetLineRequest from a JSON string"""
+        """Create an instance of PostSalesCreditMemoDimensionSetLineRequest from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -104,7 +104,7 @@ class PostDimensionSetLineRequest(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of PostDimensionSetLineRequest from a dict"""
+        """Create an instance of PostSalesCreditMemoDimensionSetLineRequest from a dict"""
         if obj is None:
             return None
 

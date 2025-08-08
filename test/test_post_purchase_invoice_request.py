@@ -37,8 +37,8 @@ class TestPostPurchaseInvoiceRequest(unittest.TestCase):
             return PostPurchaseInvoiceRequest(
                 id = '',
                 number = '',
-                invoice_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                due_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
+                invoice_date = datetime.datetime.strptime('1975-12-30', '%Y-%m-%d').date(),
+                due_date = datetime.datetime.strptime('1975-12-30', '%Y-%m-%d').date(),
                 vendor_invoice_number = '',
                 vendor_id = '',
                 vendor_number = '',
@@ -310,7 +310,163 @@ class TestPostPurchaseInvoiceRequest(unittest.TestCase):
                 total_tax_amount = 1.337,
                 total_amount_including_tax = 1.337,
                 status = '',
-                last_modified_date_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f')
+                last_modified_date_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
+                purchase_invoice_lines = [
+                    pybusinesscentral.model.purchase_invoice_line.purchaseInvoiceLine(
+                        id = '', 
+                        document_id = '', 
+                        sequence = 56, 
+                        item_id = '', 
+                        account_id = '', 
+                        line_type = '', 
+                        line_details = pybusinesscentral.model.documentlineobjectdetailstype.documentlineobjectdetailstype(
+                            number = '', 
+                            display_name = '', 
+                            item = pybusinesscentral.model.item.item(
+                                id = '', 
+                                number = '', 
+                                display_name = '', 
+                                type = '', 
+                                item_category_id = '', 
+                                item_category_code = '', 
+                                blocked = True, 
+                                base_unit_of_measure_id = '', 
+                                base_unit_of_measure = pybusinesscentral.model.unitofmeasuretype.unitofmeasuretype(
+                                    code = '', 
+                                    display_name = '', 
+                                    symbol = '', 
+                                    unit_conversion = pybusinesscentral.model.itemunitofmeasureconversiontype.itemunitofmeasureconversiontype(
+                                        to_unit_of_measure = '', 
+                                        from_to_conversion_rate = 1.337, 
+                                        picture = [
+                                            pybusinesscentral.model.picture.picture(
+                                                id = '', 
+                                                width = 56, 
+                                                height = 56, 
+                                                content_type = '', 
+                                                content@odata/media_edit_link = '', 
+                                                content@odata/media_read_link = '', )
+                                            ], 
+                                        default_dimensions = [
+                                            pybusinesscentral.model.default_dimensions.defaultDimensions(
+                                                parent_id = '', 
+                                                dimension_id = '', 
+                                                dimension_code = '', 
+                                                dimension_value_id = '', 
+                                                dimension_value_code = '', 
+                                                posting_validation = '', 
+                                                account = pybusinesscentral.model.account.account(
+                                                    id = '', 
+                                                    number = '', 
+                                                    display_name = '', 
+                                                    category = '', 
+                                                    sub_category = '', 
+                                                    blocked = True, 
+                                                    last_modified_date_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), ), 
+                                                dimension = pybusinesscentral.model.dimension.dimension(
+                                                    id = '', 
+                                                    code = '', 
+                                                    display_name = '', 
+                                                    last_modified_date_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                                                    dimension_values = [
+                                                        pybusinesscentral.model.dimension_value.dimensionValue(
+                                                            id = '', 
+                                                            code = '', 
+                                                            display_name = '', 
+                                                            last_modified_date_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
+                                                        ], ), 
+                                                dimension_value = pybusinesscentral.model.dimension_value.dimensionValue(
+                                                    id = '', 
+                                                    code = '', 
+                                                    display_name = '', 
+                                                    last_modified_date_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), ), )
+                                            ], 
+                                        item_category = pybusinesscentral.model.item_category.itemCategory(
+                                            id = '', 
+                                            code = '', 
+                                            display_name = '', 
+                                            last_modified_date_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), ), ), 
+                                    picture = [
+                                        pybusinesscentral.model.picture.picture(
+                                            id = '', 
+                                            width = 56, 
+                                            height = 56, 
+                                            content_type = '', 
+                                            content@odata/media_edit_link = '', 
+                                            content@odata/media_read_link = '', )
+                                        ], 
+                                    default_dimensions = [
+                                        pybusinesscentral.model.default_dimensions.defaultDimensions(
+                                            parent_id = '', 
+                                            dimension_id = '', 
+                                            dimension_code = '', 
+                                            dimension_value_id = '', 
+                                            dimension_value_code = '', 
+                                            posting_validation = '', )
+                                        ], 
+                                    item_category = pybusinesscentral.model.item_category.itemCategory(
+                                        id = '', 
+                                        code = '', 
+                                        display_name = '', 
+                                        last_modified_date_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), ), ), 
+                                gtin = '', 
+                                inventory = 1.337, 
+                                unit_price = 1.337, 
+                                price_includes_tax = True, 
+                                unit_cost = 1.337, 
+                                tax_group_id = '', 
+                                tax_group_code = '', 
+                                last_modified_date_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                                picture = , 
+                                default_dimensions = , 
+                                item_category = , ), 
+                            account = pybusinesscentral.model.account.account(
+                                id = '', 
+                                number = '', 
+                                display_name = '', 
+                                category = '', 
+                                sub_category = '', 
+                                blocked = True, 
+                                last_modified_date_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), ), ), 
+                        description = '', 
+                        unit_of_measure = pybusinesscentral.model.unitofmeasuretype.unitofmeasuretype(
+                            code = '', 
+                            display_name = '', 
+                            symbol = '', ), 
+                        unit_cost = 1.337, 
+                        quantity = 1.337, 
+                        discount_amount = 1.337, 
+                        discount_percent = 1.337, 
+                        discount_applied_before_tax = True, 
+                        amount_excluding_tax = 1.337, 
+                        tax_code = '', 
+                        tax_percent = 1.337, 
+                        total_tax_amount = 1.337, 
+                        amount_including_tax = 1.337, 
+                        invoice_discount_allocation = 1.337, 
+                        net_amount = 1.337, 
+                        net_tax_amount = 1.337, 
+                        net_amount_including_tax = 1.337, 
+                        expected_receipt_date = datetime.datetime.strptime('1975-12-30', '%Y-%m-%d').date(), 
+                        item = pybusinesscentral.model.item.item(
+                            id = '', 
+                            number = '', 
+                            display_name = '', 
+                            type = '', 
+                            item_category_id = '', 
+                            item_category_code = '', 
+                            blocked = True, 
+                            base_unit_of_measure_id = '', 
+                            gtin = '', 
+                            inventory = 1.337, 
+                            unit_price = 1.337, 
+                            price_includes_tax = True, 
+                            unit_cost = 1.337, 
+                            tax_group_id = '', 
+                            tax_group_code = '', 
+                            last_modified_date_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), ), 
+                        account = , )
+                    ]
             )
         else:
             return PostPurchaseInvoiceRequest(

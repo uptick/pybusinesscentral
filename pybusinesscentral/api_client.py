@@ -89,7 +89,6 @@ from pybusinesscentral.model.payment_term import PaymentTerm  # noqa
 from pybusinesscentral.model.pdf_document import PdfDocument  # noqa
 from pybusinesscentral.model.picture import Picture  # noqa
 from pybusinesscentral.model.post_customer_request import PostCustomerRequest  # noqa
-from pybusinesscentral.model.post_dimension_set_line_request import PostDimensionSetLineRequest  # noqa
 from pybusinesscentral.model.post_payment_term_request import PostPaymentTermRequest  # noqa
 from pybusinesscentral.model.post_purchase_invoice_request import PostPurchaseInvoiceRequest  # noqa
 from pybusinesscentral.model.post_sales_credit_memo_line_for_sales_credit_memo_request import PostSalesCreditMemoLineForSalesCreditMemoRequest  # noqa

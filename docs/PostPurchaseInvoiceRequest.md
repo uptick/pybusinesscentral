@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | (v1.0) The id property for the Dynamics 365 Business Central purchaseInvoice entity | [optional] 
 **number** | **str** | (v1.0) The number property for the Dynamics 365 Business Central purchaseInvoice entity | [optional] 
-**invoice_date** | **datetime** | (v1.0) The invoiceDate property for the Dynamics 365 Business Central purchaseInvoice entity | [optional] 
-**due_date** | **datetime** | (v1.0) The dueDate property for the Dynamics 365 Business Central purchaseInvoice entity | [optional] 
+**invoice_date** | **date** | (v1.0) The invoiceDate property for the Dynamics 365 Business Central purchaseInvoice entity | [optional] 
+**due_date** | **date** | (v1.0) The dueDate property for the Dynamics 365 Business Central purchaseInvoice entity | [optional] 
 **vendor_invoice_number** | **str** | (v1.0) The vendorInvoiceNumber property for the Dynamics 365 Business Central purchaseInvoice entity | [optional] 
 **vendor_id** | **str** | (v1.0) The vendorId property for the Dynamics 365 Business Central purchaseInvoice entity | [optional] 
 **vendor_number** | **str** | (v1.0) The vendorNumber property for the Dynamics 365 Business Central purchaseInvoice entity | [optional] 
@@ -32,6 +32,7 @@ Name | Type | Description | Notes
 **total_amount_including_tax** | **float** | (v1.0) The totalAmountIncludingTax property for the Dynamics 365 Business Central purchaseInvoice entity | [optional] 
 **status** | **str** | (v1.0) The status property for the Dynamics 365 Business Central purchaseInvoice entity | [optional] 
 **last_modified_date_time** | **datetime** | (v1.0) The lastModifiedDateTime property for the Dynamics 365 Business Central purchaseInvoice entity | [optional] 
+**purchase_invoice_lines** | [**List[PurchaseInvoiceLine]**](PurchaseInvoiceLine.md) | (v1.0) The purchaseInvoiceLineItems property for the Dynamics 365 Business Central purchaseInvoice entity | [optional] 
 
 ## Example
 

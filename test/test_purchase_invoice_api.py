@@ -54,6 +54,13 @@ class TestPurchaseInvoiceApi(unittest.TestCase):
         """
         pass
 
+    def test_post_action_purchase_invoices(self) -> None:
+        """Test case for post_action_purchase_invoices
+
+        Performs the post action for purchaseInvoices entity
+        """
+        pass
+
     def test_post_purchase_invoice(self) -> None:
         """Test case for post_purchase_invoice
 

@@ -46,12 +46,13 @@ from pybusinesscentral.model.payment_term import PaymentTerm
 from pybusinesscentral.model.pdf_document import PdfDocument
 from pybusinesscentral.model.picture import Picture
 from pybusinesscentral.model.post_customer_request import PostCustomerRequest
-from pybusinesscentral.model.post_dimension_set_line_request import PostDimensionSetLineRequest
 from pybusinesscentral.model.post_purchase_invoice_request import PostPurchaseInvoiceRequest
 from pybusinesscentral.model.post_purchase_invoice_line_for_purchase_invoice_request import PostPurchaseInvoiceLineForPurchaseInvoiceRequest
 from pybusinesscentral.model.post_sales_credit_memo_request import PostSalesCreditMemoRequest
 from pybusinesscentral.model.post_sales_credit_memo_line_for_sales_credit_memo_request import PostSalesCreditMemoLineForSalesCreditMemoRequest
 from pybusinesscentral.model.post_sales_invoice_request import PostSalesInvoiceRequest
+from pybusinesscentral.model.post_sales_invoice_dimension_set_line_request import PostSalesInvoiceDimensionSetLineRequest
+from pybusinesscentral.model.post_sales_credit_memo_dimension_set_line_request import PostSalesCreditMemoDimensionSetLineRequest
 from pybusinesscentral.model.post_sales_invoice_line_for_sales_invoice_request import PostSalesInvoiceLineForSalesInvoiceRequest
 from pybusinesscentral.model.post_vendor_request import PostVendorRequest
 from pybusinesscentral.model.postaladdresstype import Postaladdresstype
@@ -117,9 +118,10 @@ __all__ = [
     "PdfDocument",
     "Picture",
     "PostCustomerRequest",
-    "PostDimensionSetLineRequest",
     "PostPurchaseInvoiceRequest",
     "PostPurchaseInvoiceLineForPurchaseInvoiceRequest",
+    "PostSalesInvoiceDimensionSetLineRequest",
+    "PostSalesCreditMemoDimensionSetLineRequest",
     "PostSalesCreditMemoRequest",
     "PostSalesCreditMemoLineForSalesCreditMemoRequest",
     "PostSalesInvoiceRequest",

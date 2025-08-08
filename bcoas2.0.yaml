@@ -744,11 +744,11 @@ paths:
    summary: Creates an object of type dimensionSetLine in Dynamics 365 Business Central
    tags:
     - dimensionSetLine
-   operationId: postDimensionSetLine
+   operationId: postSalesInvoiceDimensionSetLine
    parameters:
     - $ref: '#/components/parameters/ContentTypeParam'
    requestBody:
-    $ref: '#/components/requestBodies/dimensionSetLine'
+    $ref: '#/components/requestBodies/salesInvoiceDimensionSetLine'
    responses:
     201:
      description: (v1.0) A new dimensionSetLine has been succesfully created
@@ -1168,6 +1168,56 @@ paths:
       application/json:
        schema:
         $ref: '#/components/schemas/salesCreditMemoLine'
+ "/companies({company_id})/salesCreditMemos({salesCreditMemo_id})/salesCreditMemoLines({salesCreditMemoLine_id})/dimensionSetLines":
+  parameters:
+   - name: company_id
+     in: path
+     required: true
+     description: (v1.0) id for company
+     schema:
+      type: string
+      format: uuid
+   - name: salesCreditMemo_id
+     in: path
+     required: true
+     description: (v1.0) id for salesCreditMemo
+     schema:
+      type: string
+      format: uuid
+   - name: salesCreditMemoLine_id
+     in: path
+     required: true
+     description: (v1.0) id for salesCreditMemoLine
+     schema:
+      type: string
+  get:
+   summary: Retrieve the properties and relationships of the list of dimensionSetLines for a salesCreditMemoLine.
+   tags:
+    - dimensionSetLine
+   operationId: getDimensionSetLinesForSalesCreditMemoLine
+   responses:
+    200:
+     description: (v1.0) Succesfully returned the requested dimensionSetLines
+     content:
+      application/json:
+       schema:
+        $ref: '#/components/schemas/dimensionSetLine'
+  post:
+   summary: Creates an object of type dimensionSetLine in Dynamics 365 Business Central
+   tags:
+    - dimensionSetLine
+   operationId: postSalesCreditMemoDimensionSetLine
+   parameters:
+    - $ref: '#/components/parameters/ContentTypeParam'
+   requestBody:
+    $ref: '#/components/requestBodies/salesCreditMemoDimensionSetLine'
+   responses:
+    201:
+     description: (v1.0) A new dimensionSetLine has been succesfully created
+     content:
+      application/json:
+       schema:
+        $ref: '#/components/schemas/dimensionSetLine'
  "/companies({company_id})/salesCreditMemoLines":
   parameters:
    - name: company_id
@@ -6543,7 +6593,7 @@ components:
          nullable: true
          description: (v1.0) The valueDisplayName property for the Dynamics 365 Business Central dimensionLine entity
          maxLength: 50
-  dimensionSetLine:
+  salesInvoiceDimensionSetLine:
    required: true
    content:
     application/json:
@@ -6553,35 +6603,75 @@ components:
          type: string
          format: uuid
          nullable: false
-         description: (v1.0) The parentId property for the Dynamics 365 Business Central dimensionLine entity
+         description: (v1.0) The parentId property for the Dynamics 365 Business Central salesInvoiceDimensionSetLine entity
        id:
          type: string
          format: uuid
          nullable: false
-         description: (v1.0) The id property for the Dynamics 365 Business Central dimensionLine entity
+         description: (v1.0) The id property for the Dynamics 365 Business Central salesInvoiceDimensionSetLine entity
        code:
          type: string
          nullable: true
-         description: (v1.0) The code property for the Dynamics 365 Business Central dimensionLine entity
+         description: (v1.0) The code property for the Dynamics 365 Business Central salesInvoiceDimensionSetLine entity
          maxLength: 20
        displayName:
          type: string
          nullable: true
-         description: (v1.0) The displayName property for the Dynamics 365 Business Central dimensionLine entity
+         description: (v1.0) The displayName property for the Dynamics 365 Business Central salesInvoiceDimensionSetLine entity
          maxLength: 30
        valueId:
          type: string
          format: uuid
          nullable: true
-         description: (v1.0) The valueId property for the Dynamics 365 Business Central dimensionLine entity
+         description: (v1.0) The valueId property for the Dynamics 365 Business Central salesInvoiceDimensionSetLine entity
        valueCode:
          type: string
          nullable: true
-         description: (v1.0) The valueCode property for the Dynamics 365 Business Central dimensionLine entity
+         description: (v1.0) The valueCode property for the Dynamics 365 Business Central salesInvoiceDimensionSetLine entity
        valueDisplayName:
          type: string
          nullable: true
-         description: (v1.0) The valueDisplayName property for the Dynamics 365 Business Central dimensionLine entity
+         description: (v1.0) The valueDisplayName property for the Dynamics 365 Business Central salesInvoiceDimensionSetLine entity
+         maxLength: 50
+  salesCreditMemoDimensionSetLine:
+   required: true
+   content:
+    application/json:
+     schema:
+      properties:
+       parentId:
+         type: string
+         format: uuid
+         nullable: false
+         description: (v1.0) The parentId property for the Dynamics 365 Business Central salesCreditMemoDimensionSetLine entity
+       id:
+         type: string
+         format: uuid
+         nullable: false
+         description: (v1.0) The id property for the Dynamics 365 Business Central salesCreditMemoDimensionSetLine entity
+       code:
+         type: string
+         nullable: true
+         description: (v1.0) The code property for the Dynamics 365 Business Central salesCreditMemoDimensionSetLine entity
+         maxLength: 20
+       displayName:
+         type: string
+         nullable: true
+         description: (v1.0) The displayName property for the Dynamics 365 Business Central salesCreditMemoDimensionSetLine entity
+         maxLength: 30
+       valueId:
+         type: string
+         format: uuid
+         nullable: true
+         description: (v1.0) The valueId property for the Dynamics 365 Business Central salesCreditMemoDimensionSetLine entity
+       valueCode:
+         type: string
+         nullable: true
+         description: (v1.0) The valueCode property for the Dynamics 365 Business Central salesCreditMemoDimensionSetLine entity
+       valueDisplayName:
+         type: string
+         nullable: true
+         description: (v1.0) The valueDisplayName property for the Dynamics 365 Business Central salesCreditMemoDimensionSetLine entity
          maxLength: 50
   picture:
    required: true

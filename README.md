@@ -108,8 +108,10 @@ Class | Method | HTTP request | Description
 *CustomerApi* | [**post_customer**](docs/CustomerApi.md#post_customer) | **POST** /companies({company_id})/customers | Creates an object of type customer in Dynamics 365 Business Central
 *DimensionApi* | [**get_dimension**](docs/DimensionApi.md#get_dimension) | **GET** /companies({company_id})/dimensions({dimension_id}) | Retrieve the properties and relationships of an object of type dimension for Dynamics 365 Business Central.
 *DimensionApi* | [**list_dimensions**](docs/DimensionApi.md#list_dimensions) | **GET** /companies({company_id})/dimensions | Returns a list of dimensions
+*DimensionSetLineApi* | [**get_dimension_set_lines_for_sales_credit_memo_line**](docs/DimensionSetLineApi.md#get_dimension_set_lines_for_sales_credit_memo_line) | **GET** /companies({company_id})/salesCreditMemos({salesCreditMemo_id})/salesCreditMemoLines({salesCreditMemoLine_id})/dimensionSetLines | Retrieve the properties and relationships of the list of dimensionSetLines for a salesCreditMemoLine.
 *DimensionSetLineApi* | [**get_dimension_set_lines_for_sales_invoice_line**](docs/DimensionSetLineApi.md#get_dimension_set_lines_for_sales_invoice_line) | **GET** /companies({company_id})/salesInvoices({salesInvoice_id})/salesInvoiceLines({salesInvoiceLine_id})/dimensionSetLines | Retrieve the properties and relationships of the list of dimensionSetLines for a salesInvoiceLine.
-*DimensionSetLineApi* | [**post_dimension_set_line**](docs/DimensionSetLineApi.md#post_dimension_set_line) | **POST** /companies({company_id})/salesInvoices({salesInvoice_id})/salesInvoiceLines({salesInvoiceLine_id})/dimensionSetLines | Creates an object of type dimensionSetLine in Dynamics 365 Business Central
+*DimensionSetLineApi* | [**post_sales_credit_memo_dimension_set_line**](docs/DimensionSetLineApi.md#post_sales_credit_memo_dimension_set_line) | **POST** /companies({company_id})/salesCreditMemos({salesCreditMemo_id})/salesCreditMemoLines({salesCreditMemoLine_id})/dimensionSetLines | Creates an object of type dimensionSetLine in Dynamics 365 Business Central
+*DimensionSetLineApi* | [**post_sales_invoice_dimension_set_line**](docs/DimensionSetLineApi.md#post_sales_invoice_dimension_set_line) | **POST** /companies({company_id})/salesInvoices({salesInvoice_id})/salesInvoiceLines({salesInvoiceLine_id})/dimensionSetLines | Creates an object of type dimensionSetLine in Dynamics 365 Business Central
 *PaymentTermApi* | [**delete_payment_term**](docs/PaymentTermApi.md#delete_payment_term) | **DELETE** /companies({company_id})/paymentTerms({paymentTerm_id}) | Deletes an object of type paymentTerm in Dynamics 365 Business Central
 *PaymentTermApi* | [**get_payment_term**](docs/PaymentTermApi.md#get_payment_term) | **GET** /companies({company_id})/paymentTerms({paymentTerm_id}) | Retrieve the properties and relationships of an object of type paymentTerm for Dynamics 365 Business Central.
 *PaymentTermApi* | [**list_payment_terms**](docs/PaymentTermApi.md#list_payment_terms) | **GET** /companies({company_id})/paymentTerms | Returns a list of paymentTerms
@@ -119,7 +121,15 @@ Class | Method | HTTP request | Description
 *PurchaseInvoiceApi* | [**get_purchase_invoice**](docs/PurchaseInvoiceApi.md#get_purchase_invoice) | **GET** /companies({company_id})/purchaseInvoices({purchaseInvoice_id}) | Retrieve the properties and relationships of an object of type purchaseInvoice for Dynamics 365 Business Central.
 *PurchaseInvoiceApi* | [**list_purchase_invoices**](docs/PurchaseInvoiceApi.md#list_purchase_invoices) | **GET** /companies({company_id})/purchaseInvoices | Returns a list of purchaseInvoices
 *PurchaseInvoiceApi* | [**patch_purchase_invoice**](docs/PurchaseInvoiceApi.md#patch_purchase_invoice) | **PATCH** /companies({company_id})/purchaseInvoices({purchaseInvoice_id}) | Updates an object of type purchaseInvoice in Dynamics 365 Business Central
+*PurchaseInvoiceApi* | [**post_action_purchase_invoices**](docs/PurchaseInvoiceApi.md#post_action_purchase_invoices) | **POST** /companies({company_id})/purchaseInvoices({purchaseInvoice_id})/Microsoft.NAV.post | Performs the post action for purchaseInvoices entity
 *PurchaseInvoiceApi* | [**post_purchase_invoice**](docs/PurchaseInvoiceApi.md#post_purchase_invoice) | **POST** /companies({company_id})/purchaseInvoices | Creates an object of type purchaseInvoice in Dynamics 365 Business Central
+*PurchaseInvoiceLineApi* | [**delete_purchase_invoice_line_for_purchase_invoice**](docs/PurchaseInvoiceLineApi.md#delete_purchase_invoice_line_for_purchase_invoice) | **DELETE** /companies({company_id})/purchaseInvoices({purchaseInvoice_id})/purchaseInvoiceLines(&#39;{purchaseInvoiceLine_id}&#39;) | Deletes an object of type purchaseInvoiceLine in Dynamics 365 Business Central
+*PurchaseInvoiceLineApi* | [**get_purchase_invoice_line_for_purchase_invoice**](docs/PurchaseInvoiceLineApi.md#get_purchase_invoice_line_for_purchase_invoice) | **GET** /companies({company_id})/purchaseInvoices({purchaseInvoice_id})/purchaseInvoiceLines(&#39;{purchaseInvoiceLine_id}&#39;) | Retrieve the properties and relationships of an object of type purchaseInvoiceLine for Dynamics 365 Business Central.
+*PurchaseInvoiceLineApi* | [**list_purchase_invoice_lines**](docs/PurchaseInvoiceLineApi.md#list_purchase_invoice_lines) | **GET** /companies({company_id})/purchaseInvoiceLines | Returns a list of purchaseInvoiceLines
+*PurchaseInvoiceLineApi* | [**list_purchase_invoice_lines_for_purchase_invoice**](docs/PurchaseInvoiceLineApi.md#list_purchase_invoice_lines_for_purchase_invoice) | **GET** /companies({company_id})/purchaseInvoices({purchaseInvoice_id})/purchaseInvoiceLines | Returns a list of purchaseInvoiceLines
+*PurchaseInvoiceLineApi* | [**patch_purchase_invoice_line_for_purchase_invoice**](docs/PurchaseInvoiceLineApi.md#patch_purchase_invoice_line_for_purchase_invoice) | **PATCH** /companies({company_id})/purchaseInvoices({purchaseInvoice_id})/purchaseInvoiceLines(&#39;{purchaseInvoiceLine_id}&#39;) | Updates an object of type purchaseInvoiceLine in Dynamics 365 Business Central
+*PurchaseInvoiceLineApi* | [**post_purchase_invoice_line**](docs/PurchaseInvoiceLineApi.md#post_purchase_invoice_line) | **POST** /companies({company_id})/purchaseInvoiceLines | Creates an object of type purchaseInvoiceLine in Dynamics 365 Business Central
+*PurchaseInvoiceLineApi* | [**post_purchase_invoice_line_for_purchase_invoice**](docs/PurchaseInvoiceLineApi.md#post_purchase_invoice_line_for_purchase_invoice) | **POST** /companies({company_id})/purchaseInvoices({purchaseInvoice_id})/purchaseInvoiceLines | Creates an object of type purchaseInvoiceLine in Dynamics 365 Business Central
 *SalesCreditMemoApi* | [**delete_sales_credit_memo**](docs/SalesCreditMemoApi.md#delete_sales_credit_memo) | **DELETE** /companies({company_id})/salesCreditMemos({salesCreditMemo_id}) | Deletes an object of type salesCreditMemo in Dynamics 365 Business Central
 *SalesCreditMemoApi* | [**get_sales_credit_memo**](docs/SalesCreditMemoApi.md#get_sales_credit_memo) | **GET** /companies({company_id})/salesCreditMemos({salesCreditMemo_id}) | Retrieve the properties and relationships of an object of type salesCreditMemo for Dynamics 365 Business Central.
 *SalesCreditMemoApi* | [**list_sales_credit_memos**](docs/SalesCreditMemoApi.md#list_sales_credit_memos) | **GET** /companies({company_id})/salesCreditMemos | Returns a list of salesCreditMemos
@@ -194,6 +204,7 @@ Class | Method | HTTP request | Description
  - [ListCustomers200Response](docs/ListCustomers200Response.md)
  - [ListDimensions200Response](docs/ListDimensions200Response.md)
  - [ListPaymentTerms200Response](docs/ListPaymentTerms200Response.md)
+ - [ListPurchaseInvoiceLinesForPurchaseInvoice200Response](docs/ListPurchaseInvoiceLinesForPurchaseInvoice200Response.md)
  - [ListPurchaseInvoices200Response](docs/ListPurchaseInvoices200Response.md)
  - [ListSalesCreditMemoLinesForSalesCreditMemo200Response](docs/ListSalesCreditMemoLinesForSalesCreditMemo200Response.md)
  - [ListSalesCreditMemos200Response](docs/ListSalesCreditMemos200Response.md)
@@ -205,11 +216,13 @@ Class | Method | HTTP request | Description
  - [PdfDocument](docs/PdfDocument.md)
  - [Picture](docs/Picture.md)
  - [PostCustomerRequest](docs/PostCustomerRequest.md)
- - [PostDimensionSetLineRequest](docs/PostDimensionSetLineRequest.md)
  - [PostPaymentTermRequest](docs/PostPaymentTermRequest.md)
+ - [PostPurchaseInvoiceLineForPurchaseInvoiceRequest](docs/PostPurchaseInvoiceLineForPurchaseInvoiceRequest.md)
  - [PostPurchaseInvoiceRequest](docs/PostPurchaseInvoiceRequest.md)
+ - [PostSalesCreditMemoDimensionSetLineRequest](docs/PostSalesCreditMemoDimensionSetLineRequest.md)
  - [PostSalesCreditMemoLineForSalesCreditMemoRequest](docs/PostSalesCreditMemoLineForSalesCreditMemoRequest.md)
  - [PostSalesCreditMemoRequest](docs/PostSalesCreditMemoRequest.md)
+ - [PostSalesInvoiceDimensionSetLineRequest](docs/PostSalesInvoiceDimensionSetLineRequest.md)
  - [PostSalesInvoiceLineForSalesInvoiceRequest](docs/PostSalesInvoiceLineForSalesInvoiceRequest.md)
  - [PostSalesInvoiceRequest](docs/PostSalesInvoiceRequest.md)
  - [PostVendorRequest](docs/PostVendorRequest.md)

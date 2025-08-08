@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**get_purchase_invoice**](PurchaseInvoiceApi.md#get_purchase_invoice) | **GET** /companies({company_id})/purchaseInvoices({purchaseInvoice_id}) | Retrieve the properties and relationships of an object of type purchaseInvoice for Dynamics 365 Business Central.
 [**list_purchase_invoices**](PurchaseInvoiceApi.md#list_purchase_invoices) | **GET** /companies({company_id})/purchaseInvoices | Returns a list of purchaseInvoices
 [**patch_purchase_invoice**](PurchaseInvoiceApi.md#patch_purchase_invoice) | **PATCH** /companies({company_id})/purchaseInvoices({purchaseInvoice_id}) | Updates an object of type purchaseInvoice in Dynamics 365 Business Central
+[**post_action_purchase_invoices**](PurchaseInvoiceApi.md#post_action_purchase_invoices) | **POST** /companies({company_id})/purchaseInvoices({purchaseInvoice_id})/Microsoft.NAV.post | Performs the post action for purchaseInvoices entity
 [**post_purchase_invoice**](PurchaseInvoiceApi.md#post_purchase_invoice) | **POST** /companies({company_id})/purchaseInvoices | Creates an object of type purchaseInvoice in Dynamics 365 Business Central
 
 
@@ -326,6 +327,78 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | (v1.0) Succesfully updated the specifiedpurchaseInvoice |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **post_action_purchase_invoices**
+> post_action_purchase_invoices(company_id, purchase_invoice_id)
+
+Performs the post action for purchaseInvoices entity
+
+### Example
+
+* OAuth Authentication (oAuth):
+
+```python
+import pybusinesscentral
+from pybusinesscentral.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0
+# See configuration.py for a list of all supported configuration parameters.
+configuration = pybusinesscentral.Configuration(
+    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
+
+# Enter a context with an instance of the API client
+with pybusinesscentral.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pybusinesscentral.PurchaseInvoiceApi(api_client)
+    company_id = 'company_id_example' # str | (v1.0) id for company
+    purchase_invoice_id = 'purchase_invoice_id_example' # str | (v1.0) id for purchaseInvoice
+
+    try:
+        # Performs the post action for purchaseInvoices entity
+        api_instance.post_action_purchase_invoices(company_id, purchase_invoice_id)
+    except Exception as e:
+        print("Exception when calling PurchaseInvoiceApi->post_action_purchase_invoices: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **company_id** | **str**| (v1.0) id for company | 
+ **purchase_invoice_id** | **str**| (v1.0) id for purchaseInvoice | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[oAuth](../README.md#oAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | (v1.0) Succesfully performed a post action on the Dynamic 365 Business Central purchaseInvoices entity |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -476,7 +476,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_sales_credit_memo**
-> SalesCreditMemo post_sales_credit_memo(company_id, content_type, post_sales_credit_memo_request)
+> SalesCreditMemo post_sales_credit_memo(company_id, content_type, post_sales_credit_memo_request, expand=expand)
 
 Creates an object of type salesCreditMemo in Dynamics 365 Business Central
 
@@ -511,10 +511,11 @@ with pybusinesscentral.ApiClient(configuration) as api_client:
     company_id = 'company_id_example' # str | (v1.0) id for company
     content_type = 'content_type_example' # str | (v1.0) application/json
     post_sales_credit_memo_request = pybusinesscentral.PostSalesCreditMemoRequest() # PostSalesCreditMemoRequest | 
+    expand = ['expand_example'] # List[str] | (v1.0) Entities to expand (optional)
 
     try:
         # Creates an object of type salesCreditMemo in Dynamics 365 Business Central
-        api_response = api_instance.post_sales_credit_memo(company_id, content_type, post_sales_credit_memo_request)
+        api_response = api_instance.post_sales_credit_memo(company_id, content_type, post_sales_credit_memo_request, expand=expand)
         print("The response of SalesCreditMemoApi->post_sales_credit_memo:\n")
         pprint(api_response)
     except Exception as e:
@@ -531,6 +532,7 @@ Name | Type | Description  | Notes
  **company_id** | **str**| (v1.0) id for company | 
  **content_type** | **str**| (v1.0) application/json | 
  **post_sales_credit_memo_request** | [**PostSalesCreditMemoRequest**](PostSalesCreditMemoRequest.md)|  | 
+ **expand** | [**List[str]**](str.md)| (v1.0) Entities to expand | [optional] 
 
 ### Return type
 
