@@ -8,8 +8,8 @@ Name | Type | Description | Notes
 **id** | **str** | (v1.0) The id property for the Dynamics 365 Business Central salesInvoice entity | [optional] 
 **number** | **str** | (v1.0) The number property for the Dynamics 365 Business Central salesInvoice entity | [optional] 
 **external_document_number** | **str** | (v1.0) The externalDocumentNumber property for the Dynamics 365 Business Central salesInvoice entity | [optional] 
-**invoice_date** | **datetime** | (v1.0) The invoiceDate property for the Dynamics 365 Business Central salesInvoice entity | [optional] 
-**due_date** | **datetime** | (v1.0) The dueDate property for the Dynamics 365 Business Central salesInvoice entity | [optional] 
+**invoice_date** | **date** | (v1.0) The invoiceDate property for the Dynamics 365 Business Central salesInvoice entity | [optional] 
+**due_date** | **date** | (v1.0) The dueDate property for the Dynamics 365 Business Central salesInvoice entity | [optional] 
 **customer_purchase_order_reference** | **str** | (v1.0) The customerPurchaseOrderReference property for the Dynamics 365 Business Central salesInvoice entity | [optional] 
 **customer_id** | **str** | (v1.0) The customerId property for the Dynamics 365 Business Central salesInvoice entity | [optional] 
 **contact_id** | **str** | (v1.0) The contactId property for the Dynamics 365 Business Central salesInvoice entity | [optional] 
@@ -41,6 +41,7 @@ Name | Type | Description | Notes
 **last_modified_date_time** | **datetime** | (v1.0) The lastModifiedDateTime property for the Dynamics 365 Business Central salesInvoice entity | [optional] 
 **phone_number** | **str** | (v1.0) The phoneNumber property for the Dynamics 365 Business Central salesInvoice entity | [optional] 
 **email** | **str** | (v1.0) The email property for the Dynamics 365 Business Central salesInvoice entity | [optional] 
+**sales_invoice_lines** | [**List[SalesInvoiceLine]**](SalesInvoiceLine.md) | (v1.0) The salesInvoiceLineItems property for the Dynamics 365 Business Central salesInvoice entity | [optional] 
 
 ## Example
 

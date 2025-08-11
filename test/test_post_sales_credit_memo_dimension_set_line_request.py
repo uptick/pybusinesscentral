@@ -14,10 +14,10 @@
 
 import unittest
 
-from pybusinesscentral.model.post_dimension_set_line_request import PostDimensionSetLineRequest
+from pybusinesscentral.model.post_sales_credit_memo_dimension_set_line_request import PostSalesCreditMemoDimensionSetLineRequest
 
-class TestPostDimensionSetLineRequest(unittest.TestCase):
-    """PostDimensionSetLineRequest unit test stubs"""
+class TestPostSalesCreditMemoDimensionSetLineRequest(unittest.TestCase):
+    """PostSalesCreditMemoDimensionSetLineRequest unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,16 +25,16 @@ class TestPostDimensionSetLineRequest(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> PostDimensionSetLineRequest:
-        """Test PostDimensionSetLineRequest
+    def make_instance(self, include_optional) -> PostSalesCreditMemoDimensionSetLineRequest:
+        """Test PostSalesCreditMemoDimensionSetLineRequest
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `PostDimensionSetLineRequest`
+        # uncomment below to create an instance of `PostSalesCreditMemoDimensionSetLineRequest`
         """
-        model = PostDimensionSetLineRequest()
+        model = PostSalesCreditMemoDimensionSetLineRequest()
         if include_optional:
-            return PostDimensionSetLineRequest(
+            return PostSalesCreditMemoDimensionSetLineRequest(
                 parent_id = '',
                 id = '',
                 code = '',
@@ -44,12 +44,12 @@ class TestPostDimensionSetLineRequest(unittest.TestCase):
                 value_display_name = ''
             )
         else:
-            return PostDimensionSetLineRequest(
+            return PostSalesCreditMemoDimensionSetLineRequest(
         )
         """
 
-    def testPostDimensionSetLineRequest(self):
-        """Test PostDimensionSetLineRequest"""
+    def testPostSalesCreditMemoDimensionSetLineRequest(self):
+        """Test PostSalesCreditMemoDimensionSetLineRequest"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

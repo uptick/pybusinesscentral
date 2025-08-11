@@ -26,6 +26,13 @@ class TestDimensionSetLineApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
+    def test_get_dimension_set_lines_for_sales_credit_memo_line(self) -> None:
+        """Test case for get_dimension_set_lines_for_sales_credit_memo_line
+
+        Retrieve the properties and relationships of the list of dimensionSetLines for a salesCreditMemoLine.
+        """
+        pass
+
     def test_get_dimension_set_lines_for_sales_invoice_line(self) -> None:
         """Test case for get_dimension_set_lines_for_sales_invoice_line
 
@@ -33,8 +40,15 @@ class TestDimensionSetLineApi(unittest.TestCase):
         """
         pass
 
-    def test_post_dimension_set_line(self) -> None:
-        """Test case for post_dimension_set_line
+    def test_post_sales_credit_memo_dimension_set_line(self) -> None:
+        """Test case for post_sales_credit_memo_dimension_set_line
+
+        Creates an object of type dimensionSetLine in Dynamics 365 Business Central
+        """
+        pass
+
+    def test_post_sales_invoice_dimension_set_line(self) -> None:
+        """Test case for post_sales_invoice_dimension_set_line
 
         Creates an object of type dimensionSetLine in Dynamics 365 Business Central
         """
