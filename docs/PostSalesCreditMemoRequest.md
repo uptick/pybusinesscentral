@@ -36,6 +36,7 @@ Name | Type | Description | Notes
 **invoice_number** | **str** | (v1.0) The invoiceNumber property for the Dynamics 365 Business Central salesCreditMemo entity | [optional] 
 **phone_number** | **str** | (v1.0) The phoneNumber property for the Dynamics 365 Business Central salesCreditMemo entity | [optional] 
 **email** | **str** | (v1.0) The email property for the Dynamics 365 Business Central salesCreditMemo entity | [optional] 
+**posting_date** | **date** | (v1.0) The postingDate property for the Dynamics 365 Business Central salesCreditMemo entity | [optional] 
 **sales_credit_memo_lines** | [**List[SalesCreditMemoLine]**](SalesCreditMemoLine.md) | (v1.0) The salesCreditMemoLines property for the Dynamics 365 Business Central salesCreditMemo entity | [optional] 
 
 ## Example

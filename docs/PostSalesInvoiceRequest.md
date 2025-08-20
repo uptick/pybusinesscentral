@@ -41,6 +41,7 @@ Name | Type | Description | Notes
 **last_modified_date_time** | **datetime** | (v1.0) The lastModifiedDateTime property for the Dynamics 365 Business Central salesInvoice entity | [optional] 
 **phone_number** | **str** | (v1.0) The phoneNumber property for the Dynamics 365 Business Central salesInvoice entity | [optional] 
 **email** | **str** | (v1.0) The email property for the Dynamics 365 Business Central salesInvoice entity | [optional] 
+**posting_date** | **date** | (v1.0) The postingDate property for the Dynamics 365 Business Central salesInvoice entity | [optional] 
 **sales_invoice_lines** | [**List[SalesInvoiceLine]**](SalesInvoiceLine.md) | (v1.0) The salesInvoiceLineItems property for the Dynamics 365 Business Central salesInvoice entity | [optional] 
 
 ## Example
