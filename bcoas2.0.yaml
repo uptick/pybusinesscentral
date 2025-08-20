@@ -7113,6 +7113,11 @@ components:
          nullable: true
          description: (v1.0) The email property for the Dynamics 365 Business Central salesCreditMemo entity
          maxLength: 80
+       postingDate:
+         type: string
+         format: date
+         nullable: true
+         description: (v1.0) The postingDate property for the Dynamics 365 Business Central salesCreditMemo entity
        salesCreditMemoLines:
          type: array
          items:
@@ -8428,6 +8433,11 @@ components:
          nullable: true
          description: (v1.0) The email property for the Dynamics 365 Business Central salesInvoice entity
          maxLength: 80
+       postingDate:
+         type: string
+         format: date
+         nullable: true
+         description: (v1.0) The postingDate property for the Dynamics 365 Business Central salesInvoice entity
        salesInvoiceLines:
          type: array
          items:

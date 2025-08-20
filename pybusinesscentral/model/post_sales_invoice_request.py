@@ -66,8 +66,9 @@ class PostSalesInvoiceRequest(BaseModel):
     last_modified_date_time: Optional[datetime] = Field(default=None, description="(v1.0) The lastModifiedDateTime property for the Dynamics 365 Business Central salesInvoice entity", alias="lastModifiedDateTime")
     phone_number: Optional[Annotated[str, Field(strict=True, max_length=30)]] = Field(default=None, description="(v1.0) The phoneNumber property for the Dynamics 365 Business Central salesInvoice entity", alias="phoneNumber")
     email: Optional[Annotated[str, Field(strict=True, max_length=80)]] = Field(default=None, description="(v1.0) The email property for the Dynamics 365 Business Central salesInvoice entity")
+    posting_date: Optional[date] = Field(default=None, description="(v1.0) The postingDate property for the Dynamics 365 Business Central salesInvoice entity", alias="postingDate")
     sales_invoice_lines: Optional[List[SalesInvoiceLine]] = Field(default=None, description="(v1.0) The salesInvoiceLineItems property for the Dynamics 365 Business Central salesInvoice entity", alias="salesInvoiceLines")
-    __properties: ClassVar[List[str]] = ["id", "number", "externalDocumentNumber", "invoiceDate", "dueDate", "customerPurchaseOrderReference", "customerId", "contactId", "customerNumber", "customerName", "billToName", "billToCustomerId", "billToCustomerNumber", "shipToName", "shipToContact", "sellingPostalAddress", "billingPostalAddress", "shippingPostalAddress", "currencyId", "currencyCode", "orderId", "orderNumber", "paymentTermsId", "shipmentMethodId", "salesperson", "pricesIncludeTax", "remainingAmount", "discountAmount", "discountAppliedBeforeTax", "totalAmountExcludingTax", "totalTaxAmount", "totalAmountIncludingTax", "status", "lastModifiedDateTime", "phoneNumber", "email", "salesInvoiceLines"]
+    __properties: ClassVar[List[str]] = ["id", "number", "externalDocumentNumber", "invoiceDate", "dueDate", "customerPurchaseOrderReference", "customerId", "contactId", "customerNumber", "customerName", "billToName", "billToCustomerId", "billToCustomerNumber", "shipToName", "shipToContact", "sellingPostalAddress", "billingPostalAddress", "shippingPostalAddress", "currencyId", "currencyCode", "orderId", "orderNumber", "paymentTermsId", "shipmentMethodId", "salesperson", "pricesIncludeTax", "remainingAmount", "discountAmount", "discountAppliedBeforeTax", "totalAmountExcludingTax", "totalTaxAmount", "totalAmountIncludingTax", "status", "lastModifiedDateTime", "phoneNumber", "email", "postingDate", "salesInvoiceLines"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -299,6 +300,11 @@ class PostSalesInvoiceRequest(BaseModel):
         if self.email is None and "email" in self.model_fields_set:
             _dict['email'] = None
 
+        # set to None if posting_date (nullable) is None
+        # and model_fields_set contains the field
+        if self.posting_date is None and "posting_date" in self.model_fields_set:
+            _dict['postingDate'] = None
+
         return _dict
 
     @classmethod
@@ -347,6 +353,7 @@ class PostSalesInvoiceRequest(BaseModel):
             "lastModifiedDateTime": obj.get("lastModifiedDateTime"),
             "phoneNumber": obj.get("phoneNumber"),
             "email": obj.get("email"),
+            "postingDate": obj.get("postingDate"),
             "salesInvoiceLines": [SalesInvoiceLine.from_dict(_item) for _item in obj["salesInvoiceLines"]] if obj.get("salesInvoiceLines") is not None else None
         })
         return _obj
