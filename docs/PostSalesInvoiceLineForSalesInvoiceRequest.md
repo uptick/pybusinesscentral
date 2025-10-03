@@ -30,6 +30,7 @@ Name | Type | Description | Notes
 **net_tax_amount** | **float** | (v1.0) The netTaxAmount property for the Dynamics 365 Business Central salesInvoiceLine entity | [optional] 
 **net_amount_including_tax** | **float** | (v1.0) The netAmountIncludingTax property for the Dynamics 365 Business Central salesInvoiceLine entity | [optional] 
 **shipment_date** | **date** | (v1.0) The shipmentDate property for the Dynamics 365 Business Central salesInvoiceLine entity | [optional] 
+**dimension_set_lines** | [**List[DimensionSetLine]**](DimensionSetLine.md) |  | [optional] 
 
 ## Example
 

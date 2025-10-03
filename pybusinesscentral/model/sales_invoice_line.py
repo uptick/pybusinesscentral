@@ -22,6 +22,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, Stri
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing_extensions import Annotated
 from pybusinesscentral.model.account import Account
+from pybusinesscentral.model.dimension_set_line import DimensionSetLine
 from pybusinesscentral.model.documentlineobjectdetailstype import Documentlineobjectdetailstype
 from pybusinesscentral.model.item import Item
 from pybusinesscentral.model.unitofmeasuretype import Unitofmeasuretype
@@ -59,7 +60,8 @@ class SalesInvoiceLine(BaseModel):
     shipment_date: Optional[date] = Field(default=None, description="(v1.0) The shipmentDate property for the Dynamics 365 Business Central salesInvoiceLine entity", alias="shipmentDate")
     item: Optional[Item] = None
     account: Optional[Account] = None
-    __properties: ClassVar[List[str]] = ["id", "documentId", "sequence", "itemId", "accountId", "lineType", "lineDetails", "description", "unitOfMeasureId", "unitOfMeasure", "unitPrice", "quantity", "discountAmount", "discountPercent", "discountAppliedBeforeTax", "amountExcludingTax", "taxCode", "taxPercent", "totalTaxAmount", "amountIncludingTax", "invoiceDiscountAllocation", "netAmount", "netTaxAmount", "netAmountIncludingTax", "shipmentDate", "item", "account"]
+    dimension_set_lines: Optional[List[DimensionSetLine]] = Field(default=None, alias="dimensionSetLines")
+    __properties: ClassVar[List[str]] = ["id", "documentId", "sequence", "itemId", "accountId", "lineType", "lineDetails", "description", "unitOfMeasureId", "unitOfMeasure", "unitPrice", "quantity", "discountAmount", "discountPercent", "discountAppliedBeforeTax", "amountExcludingTax", "taxCode", "taxPercent", "totalTaxAmount", "amountIncludingTax", "invoiceDiscountAllocation", "netAmount", "netTaxAmount", "netAmountIncludingTax", "shipmentDate", "item", "account", "dimensionSetLines"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -112,6 +114,13 @@ class SalesInvoiceLine(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of account
         if self.account:
             _dict['account'] = self.account.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in dimension_set_lines (list)
+        _items = []
+        if self.dimension_set_lines:
+            for _item_dimension_set_lines in self.dimension_set_lines:
+                if _item_dimension_set_lines:
+                    _items.append(_item_dimension_set_lines.to_dict())
+            _dict['dimensionSetLines'] = _items
         # set to None if document_id (nullable) is None
         # and model_fields_set contains the field
         if self.document_id is None and "document_id" in self.model_fields_set:
@@ -242,6 +251,11 @@ class SalesInvoiceLine(BaseModel):
         if self.account is None and "account" in self.model_fields_set:
             _dict['account'] = None
 
+        # set to None if dimension_set_lines (nullable) is None
+        # and model_fields_set contains the field
+        if self.dimension_set_lines is None and "dimension_set_lines" in self.model_fields_set:
+            _dict['dimensionSetLines'] = None
+
         return _dict
 
     @classmethod
@@ -280,7 +294,8 @@ class SalesInvoiceLine(BaseModel):
             "netAmountIncludingTax": obj.get("netAmountIncludingTax"),
             "shipmentDate": obj.get("shipmentDate"),
             "item": Item.from_dict(obj["item"]) if obj.get("item") is not None else None,
-            "account": Account.from_dict(obj["account"]) if obj.get("account") is not None else None
+            "account": Account.from_dict(obj["account"]) if obj.get("account") is not None else None,
+            "dimensionSetLines": [DimensionSetLine.from_dict(_item) for _item in obj["dimensionSetLines"]] if obj.get("dimensionSetLines") is not None else None
         })
         return _obj
 
