@@ -32,6 +32,7 @@ Name | Type | Description | Notes
 **shipment_date** | **date** | (v1.0) The shipmentDate property for the Dynamics 365 Business Central salesInvoiceLine entity | [optional] 
 **item** | [**Item**](Item.md) |  | [optional] 
 **account** | [**Account**](Account.md) |  | [optional] 
+**dimension_set_lines** | [**List[DimensionSetLine]**](DimensionSetLine.md) |  | [optional] 
 
 ## Example
 

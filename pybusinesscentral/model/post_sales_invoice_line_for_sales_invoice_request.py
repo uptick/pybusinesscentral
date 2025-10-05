@@ -21,6 +21,7 @@ from datetime import date
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing_extensions import Annotated
+from pybusinesscentral.model.dimension_set_line import DimensionSetLine
 from pybusinesscentral.model.documentlineobjectdetailstype import Documentlineobjectdetailstype
 from pybusinesscentral.model.unitofmeasuretype import Unitofmeasuretype
 from typing import Optional, Set
@@ -55,7 +56,8 @@ class PostSalesInvoiceLineForSalesInvoiceRequest(BaseModel):
     net_tax_amount: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="(v1.0) The netTaxAmount property for the Dynamics 365 Business Central salesInvoiceLine entity", alias="netTaxAmount")
     net_amount_including_tax: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="(v1.0) The netAmountIncludingTax property for the Dynamics 365 Business Central salesInvoiceLine entity", alias="netAmountIncludingTax")
     shipment_date: Optional[date] = Field(default=None, description="(v1.0) The shipmentDate property for the Dynamics 365 Business Central salesInvoiceLine entity", alias="shipmentDate")
-    __properties: ClassVar[List[str]] = ["id", "documentId", "sequence", "itemId", "accountId", "lineType", "lineDetails", "description", "unitOfMeasureId", "unitOfMeasure", "unitPrice", "quantity", "discountAmount", "discountPercent", "discountAppliedBeforeTax", "amountExcludingTax", "taxCode", "taxPercent", "totalTaxAmount", "amountIncludingTax", "invoiceDiscountAllocation", "netAmount", "netTaxAmount", "netAmountIncludingTax", "shipmentDate"]
+    dimension_set_lines: Optional[List[DimensionSetLine]] = Field(default=None, alias="dimensionSetLines")
+    __properties: ClassVar[List[str]] = ["id", "documentId", "sequence", "itemId", "accountId", "lineType", "lineDetails", "description", "unitOfMeasureId", "unitOfMeasure", "unitPrice", "quantity", "discountAmount", "discountPercent", "discountAppliedBeforeTax", "amountExcludingTax", "taxCode", "taxPercent", "totalTaxAmount", "amountIncludingTax", "invoiceDiscountAllocation", "netAmount", "netTaxAmount", "netAmountIncludingTax", "shipmentDate", "dimensionSetLines"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -102,6 +104,13 @@ class PostSalesInvoiceLineForSalesInvoiceRequest(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of unit_of_measure
         if self.unit_of_measure:
             _dict['unitOfMeasure'] = self.unit_of_measure.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in dimension_set_lines (list)
+        _items = []
+        if self.dimension_set_lines:
+            for _item_dimension_set_lines in self.dimension_set_lines:
+                if _item_dimension_set_lines:
+                    _items.append(_item_dimension_set_lines.to_dict())
+            _dict['dimensionSetLines'] = _items
         # set to None if document_id (nullable) is None
         # and model_fields_set contains the field
         if self.document_id is None and "document_id" in self.model_fields_set:
@@ -222,6 +231,11 @@ class PostSalesInvoiceLineForSalesInvoiceRequest(BaseModel):
         if self.shipment_date is None and "shipment_date" in self.model_fields_set:
             _dict['shipmentDate'] = None
 
+        # set to None if dimension_set_lines (nullable) is None
+        # and model_fields_set contains the field
+        if self.dimension_set_lines is None and "dimension_set_lines" in self.model_fields_set:
+            _dict['dimensionSetLines'] = None
+
         return _dict
 
     @classmethod
@@ -258,7 +272,8 @@ class PostSalesInvoiceLineForSalesInvoiceRequest(BaseModel):
             "netAmount": obj.get("netAmount"),
             "netTaxAmount": obj.get("netTaxAmount"),
             "netAmountIncludingTax": obj.get("netAmountIncludingTax"),
-            "shipmentDate": obj.get("shipmentDate")
+            "shipmentDate": obj.get("shipmentDate"),
+            "dimensionSetLines": [DimensionSetLine.from_dict(_item) for _item in obj["dimensionSetLines"]] if obj.get("dimensionSetLines") is not None else None
         })
         return _obj
 

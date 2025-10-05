@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pybusinesscentral"
-version = "3.6.0"
+version = "3.7.0"
 description = "(v2.0) Dynamics 365 Business Central"
 authors = ["Uptick <support@uptickhq.com>"]
 license = "NoLicense"

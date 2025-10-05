@@ -2941,6 +2941,11 @@ components:
          anyOf:
            - nullable: true
            - $ref: '#/components/schemas/account'
+    dimensionSetLines:
+      type: array
+      nullable: true
+      items:
+        $ref: '#/components/schemas/dimensionSetLine'
   customerFinancialDetail:
    type: object
    properties:
@@ -6831,6 +6836,11 @@ components:
          format: date
          nullable: true
          description: (v1.0) The shipmentDate property for the Dynamics 365 Business Central salesInvoiceLine entity
+       dimensionSetLines:
+         type: array
+         nullable: true
+         items:
+          $ref: '#/components/schemas/dimensionSetLine'
   salesCreditMemoLine:
    required: true
    content:
