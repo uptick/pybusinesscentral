@@ -17,6 +17,7 @@
 from pybusinesscentral.api.account_api import AccountApi
 from pybusinesscentral.api.company_api import CompanyApi
 from pybusinesscentral.api.customer_api import CustomerApi
+from pybusinesscentral.api.default_api import DefaultApi
 from pybusinesscentral.api.dimension_api import DimensionApi
 from pybusinesscentral.api.dimension_set_line_api import DimensionSetLineApi
 from pybusinesscentral.api.payment_term_api import PaymentTermApi
@@ -31,6 +32,7 @@ __all__ = [
     "AccountApi",
     "CompanyApi",
     "CustomerApi",
+    "DefaultApi",
     "DimensionApi",
     "DimensionSetLineApi",
     "PaymentTermApi",

@@ -67,6 +67,8 @@ from pybusinesscentral.model.employee import Employee  # noqa
 from pybusinesscentral.model.general_ledger_entry import GeneralLedgerEntry  # noqa
 from pybusinesscentral.model.general_ledger_entry_attachments import GeneralLedgerEntryAttachments  # noqa
 from pybusinesscentral.model.general_ledger_entry_dimensions_inner import GeneralLedgerEntryDimensionsInner  # noqa
+from pybusinesscentral.model.general_ledger_setup import GeneralLedgerSetup  # noqa
+from pybusinesscentral.model.get_general_ledger_setup200_response import GetGeneralLedgerSetup200Response  # noqa
 from pybusinesscentral.model.income_statement import IncomeStatement  # noqa
 from pybusinesscentral.model.item import Item  # noqa
 from pybusinesscentral.model.item_category import ItemCategory  # noqa

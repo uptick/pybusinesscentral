@@ -1982,6 +1982,30 @@ paths:
       application/json:
        schema:
         $ref: '#/components/schemas/purchaseInvoiceLine'
+ "/companies({company_id})/generalLedgerSetup":
+  parameters:
+   - name: company_id
+     in: path
+     required: true
+     description: (v1.0) id for company
+     schema:
+      type: string
+      format: uuid
+  get:
+   summary: Returns a generalLedgerSetup
+   operationId: getGeneralLedgerSetup
+   responses:
+    200:
+     description: (v1.0) Succesfully returned a generalLedgerSetup
+     content:
+      application/json:
+       schema:
+        type: object
+        properties:
+         value:
+          type: array
+          items:
+           $ref: '#/components/schemas/generalLedgerSetup'
 tags:
  - name: company
    description: (v1.0) Represents an object of type company in Dynamics 365 Business Central
@@ -3358,6 +3382,77 @@ components:
       format: date-time
       nullable: true
       description: (v1.0) The dateFilter property for the Dynamics 365 Business Central incomeStatement entity
+  generalLedgerSetup:
+   type: object
+   properties:
+    id:
+      type: string
+      format: uuid
+      nullable: false
+      description: The id property for the Dynamics 365 Business Central generalLedgerSetup entity
+    allowPostingFrom:
+      type: string
+      format: date
+      nullable: false
+      description: The allowPostingFrom property for the Dynamics 365 Business Central generalLedgerSetup entity
+    allowPostingTo:
+      type: string
+      format: date
+      nullable: false
+      description: The allowPostingTo property for the Dynamics 365 Business Central generalLedgerSetup entity
+    additionalReportingCurrency:
+      type: string
+      nullable: true
+      description: The additionalReportingCurrency property for the Dynamics 365 Business Central generalLedgerSetup entity
+    localCurrencyCode:
+      type: string
+      nullable: true
+      description: The localCurrencyCode property for the Dynamics 365 Business Central generalLedgerSetup entity
+    localCurrencySymbol:
+      type: string
+      nullable: true
+      description: The localCurrencySymbol property for the Dynamics 365 Business Central generalLedgerSetup entity
+    lastModifiedDateTime:
+      type: string
+      format: date-time
+      nullable: true
+      description: The lastModifiedDateTime property for the Dynamics 365 Business Central generalLedgerSetup entity
+    allowQueryFromConsolidation:
+      type: boolean
+      nullable: true
+      description: the allowQueryFromConsolidation property for the Dynamics 365 Business Central generalLedgerSetup entity
+    shortcutDimension1Code:
+      type: string
+      nullable: true
+      description: The shortcutDimension1Code property for the Dynamics 365 Business Central generalLedgerSetup entity
+    shortcutDimension2Code:
+      type: string
+      nullable: true
+      description: The shortcutDimension2Code property for the Dynamics 365 Business Central generalLedgerSetup entity
+    shortcutDimension3Code:
+      type: string
+      nullable: true
+      description: The shortcutDimension3Code property for the Dynamics 365 Business Central generalLedgerSetup entity
+    shortcutDimension4Code:
+      type: string
+      nullable: true
+      description: The shortcutDimension4Code property for the Dynamics 365 Business Central generalLedgerSetup entity
+    shortcutDimension5Code:
+      type: string
+      nullable: true
+      description: The shortcutDimension5Code property for the Dynamics 365 Business Central generalLedgerSetup entity
+    shortcutDimension6Code:
+      type: string
+      nullable: true
+      description: The shortcutDimension6Code property for the Dynamics 365 Business Central generalLedgerSetup entity
+    shortcutDimension7Code:
+      type: string
+      nullable: true
+      description: The shortcutDimension7Code property for the Dynamics 365 Business Central generalLedgerSetup entity
+    shortcutDimension8Code:
+      type: string
+      nullable: true
+      description: The shortcutDimension8Code property for the Dynamics 365 Business Central generalLedgerSetup entity
   generalLedgerEntry:
    type: object
    properties:
