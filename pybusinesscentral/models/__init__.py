@@ -35,6 +35,8 @@ from pybusinesscentral.model.documentlineobjectdetailstype import Documentlineob
 from pybusinesscentral.model.employee import Employee
 from pybusinesscentral.model.general_ledger_entry import GeneralLedgerEntry
 from pybusinesscentral.model.general_ledger_entry_attachments import GeneralLedgerEntryAttachments
+from pybusinesscentral.model.general_ledger_setup import GeneralLedgerSetup
+from pybusinesscentral.model.get_general_ledger_setup200_response import GetGeneralLedgerSetup200Response
 from pybusinesscentral.model.income_statement import IncomeStatement
 from pybusinesscentral.model.item import Item
 from pybusinesscentral.model.item_category import ItemCategory
@@ -107,6 +109,8 @@ __all__ = [
     "Employee",
     "GeneralLedgerEntry",
     "GeneralLedgerEntryAttachments",
+    "GeneralLedgerSetup",
+    "GetGeneralLedgerSetup200Response",
     "IncomeStatement",
     "Item",
     "ItemCategory",
