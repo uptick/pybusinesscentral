@@ -20,7 +20,6 @@ import json
 from datetime import date, datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from uuid import UUID
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,7 +27,7 @@ class GeneralLedgerSetup(BaseModel):
     """
     GeneralLedgerSetup
     """ # noqa: E501
-    id: Optional[UUID] = Field(default=None, description="The id property for the Dynamics 365 Business Central generalLedgerSetup entity")
+    id: Optional[StrictStr] = Field(default=None, description="The id property for the Dynamics 365 Business Central generalLedgerSetup entity")
     allow_posting_from: Optional[date] = Field(default=None, description="The allowPostingFrom property for the Dynamics 365 Business Central generalLedgerSetup entity", alias="allowPostingFrom")
     allow_posting_to: Optional[date] = Field(default=None, description="The allowPostingTo property for the Dynamics 365 Business Central generalLedgerSetup entity", alias="allowPostingTo")
     additional_reporting_currency: Optional[StrictStr] = Field(default=None, description="The additionalReportingCurrency property for the Dynamics 365 Business Central generalLedgerSetup entity", alias="additionalReportingCurrency")

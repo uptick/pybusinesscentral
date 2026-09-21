@@ -1982,6 +1982,313 @@ paths:
       application/json:
        schema:
         $ref: '#/components/schemas/purchaseInvoiceLine'
+ # ref: https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/resources/dynamics_journal
+ "/companies({company_id})/journals":
+  parameters:
+   - name: company_id
+     in: path
+     required: true
+     description: (v1.0) id for company
+     schema:
+      type: string
+      format: uuid
+  get:
+   summary: Returns a list of journals
+   tags:
+    - journal
+   operationId: listJournals
+   responses:
+    200:
+     description: (v1.0) Succesfully returned a list of journals
+     content:
+      application/json:
+       schema:
+        type: object
+        properties:
+         value:
+          type: array
+          items:
+           $ref: '#/components/schemas/journal'
+   parameters:
+   - $ref: '#/components/parameters/topParam'
+   - $ref: '#/components/parameters/skipParam'
+   - $ref: '#/components/parameters/limitParam'
+   - $ref: '#/components/parameters/filterParam'
+   - name: $expand
+     in: query
+     description: (v1.0) Entities to expand
+     schema:
+      type: array
+      items:
+       type: string
+       enum: ['journalLines', 'account']
+     style: form
+     explode: false
+   - name: $select
+     in: query
+     description: (v1.0) Selected properties to be retrieved
+     schema:
+      type: array
+      items:
+       type: string
+       enum: ['id', 'code', 'displayName', 'templateDisplayName', 'lastModifiedDateTime', 'balancingAccountId', 'balancingAccountNumber']
+     style: form
+     explode: false
+ # ref: https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/resources/dynamics_journalline
+ "/companies({company_id})/journals({journal_id})/journalLines":
+  parameters:
+   - name: company_id
+     in: path
+     required: true
+     description: (v1.0) id for company
+     schema:
+      type: string
+      format: uuid
+   - name: journal_id
+     in: path
+     required: true
+     description: (v1.0) id for journal
+     schema:
+      type: string
+      format: uuid
+  get:
+   summary: Returns a list of journalLines
+   tags:
+    - journalLine
+   operationId: listJournalLinesForJournal
+   responses:
+    200:
+     description: (v1.0) Succesfully returned a list of journalLines
+     content:
+      application/json:
+       schema:
+        type: object
+        properties:
+         value:
+          type: array
+          items:
+           $ref: '#/components/schemas/journalLine'
+   parameters:
+   - $ref: '#/components/parameters/topParam'
+   - $ref: '#/components/parameters/skipParam'
+   - $ref: '#/components/parameters/limitParam'
+   - $ref: '#/components/parameters/filterParam'
+   - name: $expand
+     in: query
+     description: (v1.0) Entities to expand
+     schema:
+      type: array
+      items:
+       type: string
+       enum: ['account', 'attachments', 'dimensionSetLines']
+     style: form
+     explode: false
+   - name: $select
+     in: query
+     description: (v1.0) Selected properties to be retrieved
+     schema:
+      type: array
+      items:
+       type: string
+       enum: ['id', 'journalId', 'journalDisplayName', 'lineNumber', 'accountType', 'accountId', 'accountNumber', 'postingDate', 'documentNumber', 'externalDocumentNumber', 'amount', 'description', 'comment', 'taxCode', 'balanceAccountType', 'balancingAccountId', 'balancingAccountNumber', 'lastModifiedDateTime']
+     style: form
+     explode: false
+  post:
+   summary: Creates an object of type journalLine in Dynamics 365 Business Central
+   tags:
+    - journalLine
+   operationId: postJournalLineForJournal
+   parameters:
+    - $ref: '#/components/parameters/ContentTypeParam'
+   requestBody:
+    $ref: '#/components/requestBodies/journalLine'
+   responses:
+    201:
+     description: (v1.0) A new journalLine has been succesfully created
+     content:
+      application/json:
+       schema:
+        $ref: '#/components/schemas/journalLine'
+ # ref: https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/resources/dynamics_journalline
+ "/companies({company_id})/journals({journal_id})/journalLines({journalLine_id})":
+  parameters:
+   - name: company_id
+     in: path
+     required: true
+     description: (v1.0) id for company
+     schema:
+      type: string
+      format: uuid
+   - name: journal_id
+     in: path
+     required: true
+     description: (v1.0) id for journal
+     schema:
+      type: string
+      format: uuid
+   - name: journalLine_id
+     in: path
+     required: true
+     description: (v1.0) id for journalLine
+     schema:
+      type: string
+      format: uuid
+  patch:
+   summary: Updates an object of type journalLine in Dynamics 365 Business Central
+   tags:
+    - journalLine
+   operationId: patchJournalLineForJournal
+   parameters:
+    - $ref: '#/components/parameters/ContentTypeParam'
+    - $ref: '#/components/parameters/IfMatchParam'
+   requestBody:
+    $ref: '#/components/requestBodies/journalLine'
+   responses:
+    200:
+     description: (v1.0) Succesfully updated the specified journalLine
+     content:
+      application/json:
+       schema:
+        $ref: '#/components/schemas/journalLine'
+  delete:
+   summary: Deletes an object of type journalLine in Dynamics 365 Business Central
+   tags:
+    - journalLine
+   operationId: deleteJournalLineForJournal
+   parameters:
+    - $ref: '#/components/parameters/IfMatchParam'
+   responses:
+    204:
+     description: (v1.0) Succesfully deleted the specified journalLine
+ # ref: https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/resources/dynamics_dimensionsetline
+ "/companies({company_id})/journals({journal_id})/journalLines({journalLine_id})/dimensionSetLines":
+  parameters:
+   - name: company_id
+     in: path
+     required: true
+     description: (v1.0) id for company
+     schema:
+      type: string
+      format: uuid
+   - name: journal_id
+     in: path
+     required: true
+     description: (v1.0) id for journal
+     schema:
+      type: string
+      format: uuid
+   - name: journalLine_id
+     in: path
+     required: true
+     description: (v1.0) id for journalLine
+     schema:
+      type: string
+      format: uuid
+  get:
+   summary: Retrieve the properties and relationships of the list of dimensionSetLines for a journalLine.
+   tags:
+    - dimensionSetLine
+   operationId: getDimensionSetLinesForJournalLine
+   responses:
+    200:
+     description: (v1.0) Succesfully returned the requested dimensionSetLines
+     content:
+      application/json:
+       schema:
+        $ref: '#/components/schemas/dimensionSetLine'
+  post:
+   summary: Creates an object of type dimensionSetLine in Dynamics 365 Business Central
+   tags:
+    - dimensionSetLine
+   operationId: postJournalLineDimensionSetLine
+   parameters:
+    - $ref: '#/components/parameters/ContentTypeParam'
+   requestBody:
+    $ref: '#/components/requestBodies/journalLineDimensionSetLine'
+   responses:
+    201:
+     description: (v1.0) A new dimensionSetLine has been succesfully created
+     content:
+      application/json:
+       schema:
+        $ref: '#/components/schemas/dimensionSetLine'
+ # ref: https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/resources/dynamics_journal
+ "/companies({company_id})/journals({journal_id})/Microsoft.NAV.post":
+  parameters:
+   - name: company_id
+     in: path
+     required: true
+     description: (v1.0) id for company
+     schema:
+      type: string
+      format: uuid
+   - name: journal_id
+     in: path
+     required: true
+     description: (v1.0) id for journal
+     schema:
+      type: string
+      format: uuid
+  post:
+   summary: Performs the post action for journals entity
+   tags:
+    - journal
+   operationId: postActionJournals
+   responses:
+    204:
+     description: (v1.0) Succesfully performed a post action on the Dynamic 365 Business Central journals entity
+ # ref: https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/resources/dynamics_generalledgerentry
+ "/companies({company_id})/generalLedgerEntries":
+  parameters:
+   - name: company_id
+     in: path
+     required: true
+     description: (v1.0) id for company
+     schema:
+      type: string
+      format: uuid
+  get:
+   summary: Returns a list of generalLedgerEntries
+   tags:
+    - generalLedgerEntry
+   operationId: listGeneralLedgerEntries
+   responses:
+    200:
+     description: (v1.0) Succesfully returned a list of generalLedgerEntries
+     content:
+      application/json:
+       schema:
+        type: object
+        properties:
+         value:
+          type: array
+          items:
+           $ref: '#/components/schemas/generalLedgerEntry'
+   parameters:
+   - $ref: '#/components/parameters/topParam'
+   - $ref: '#/components/parameters/skipParam'
+   - $ref: '#/components/parameters/limitParam'
+   - $ref: '#/components/parameters/filterParam'
+   - name: $expand
+     in: query
+     description: (v1.0) Entities to expand
+     schema:
+      type: array
+      items:
+       type: string
+       enum: ['account']
+     style: form
+     explode: false
+   - name: $select
+     in: query
+     description: (v1.0) Selected properties to be retrieved
+     schema:
+      type: array
+      items:
+       type: string
+       enum: ['id', 'entryNumber', 'postingDate', 'documentNumber', 'documentType', 'accountId', 'accountNumber', 'description', 'debitAmount', 'creditAmount', 'additionalCurrencyDebitAmount', 'additionalCurrencyCreditAmount', 'lastModifiedDateTime']
+     style: form
+     explode: false
  "/companies({company_id})/generalLedgerSetup":
   parameters:
    - name: company_id
@@ -2031,6 +2338,12 @@ tags:
    description: (v1.0) Represents an object of type purchaseInvoice in Dynamics 365 Business Central
  - name: purchaseInvoiceLine
    description: (v1.0) Represents an object of type purchaseInvoiceLine in Dynamics 365 Business Central
+ - name: journal
+   description: (v1.0) Represents an object of type journal in Dynamics 365 Business Central
+ - name: journalLine
+   description: (v1.0) Represents an object of type journalLine in Dynamics 365 Business Central
+ - name: generalLedgerEntry
+   description: (v1.0) Represents an object of type generalLedgerEntry in Dynamics 365 Business Central
 components:
  schemas:
   taxArea:
@@ -3462,13 +3775,17 @@ components:
    type: object
    properties:
     id:
+      type: string
+      format: uuid
+      nullable: true
+      description: (v1.0) The id property for the Dynamics 365 Business Central generalLedgerEntry entity
+    entryNumber:
       type: integer
       format: int32
-      nullable: false
-      description: (v1.0) The id property for the Dynamics 365 Business Central generalLedgerEntry entity
+      nullable: true
+      description: (v1.0) The entryNumber property for the Dynamics 365 Business Central generalLedgerEntry entity
     postingDate:
       type: string
-      format: date-time
       nullable: true
       description: (v1.0) The postingDate property for the Dynamics 365 Business Central generalLedgerEntry entity
     documentNumber:
@@ -3505,6 +3822,16 @@ components:
       format: decimal
       nullable: true
       description: (v1.0) The creditAmount property for the Dynamics 365 Business Central generalLedgerEntry entity
+    additionalCurrencyDebitAmount:
+      type: number
+      format: decimal
+      nullable: true
+      description: (v1.0) The additionalCurrencyDebitAmount property for the Dynamics 365 Business Central generalLedgerEntry entity
+    additionalCurrencyCreditAmount:
+      type: number
+      format: decimal
+      nullable: true
+      description: (v1.0) The additionalCurrencyCreditAmount property for the Dynamics 365 Business Central generalLedgerEntry entity
     dimensions:
      type: array
      items:
@@ -4121,6 +4448,10 @@ components:
       nullable: true
       description: (v1.0) The displayName property for the Dynamics 365 Business Central journal entity
       maxLength: 100
+    templateDisplayName:
+      type: string
+      nullable: true
+      description: (v1.0) The templateDisplayName property for the Dynamics 365 Business Central journal entity
     lastModifiedDateTime:
       type: string
       format: date-time
@@ -4904,6 +5235,11 @@ components:
       format: uuid
       nullable: false
       description: (v1.0) The id property for the Dynamics 365 Business Central journalLine entity
+    journalId:
+      type: string
+      format: uuid
+      nullable: true
+      description: (v1.0) The journalId property for the Dynamics 365 Business Central journalLine entity
     journalDisplayName:
       type: string
       nullable: true
@@ -4929,7 +5265,6 @@ components:
       maxLength: 20
     postingDate:
       type: string
-      format: date-time
       nullable: true
       description: (v1.0) The postingDate property for the Dynamics 365 Business Central journalLine entity
     documentNumber:
@@ -4957,6 +5292,24 @@ components:
       nullable: true
       description: (v1.0) The comment property for the Dynamics 365 Business Central journalLine entity
       maxLength: 250
+    taxCode:
+      type: string
+      nullable: true
+      description: (v1.0) The taxCode property for the Dynamics 365 Business Central journalLine entity
+    balanceAccountType:
+      type: string
+      nullable: true
+      description: (v1.0) The balanceAccountType property for the Dynamics 365 Business Central journalLine entity
+    balancingAccountId:
+      type: string
+      format: uuid
+      nullable: true
+      description: (v1.0) The balancingAccountId property for the Dynamics 365 Business Central journalLine entity
+    balancingAccountNumber:
+      type: string
+      nullable: true
+      description: (v1.0) The balancingAccountNumber property for the Dynamics 365 Business Central journalLine entity
+      maxLength: 20
     dimensions:
      type: array
      items:
@@ -4977,6 +5330,11 @@ components:
          anyOf:
            - nullable: true
            - $ref: '#/components/schemas/account'
+    dimensionSetLines:
+      type: array
+      nullable: true
+      items:
+        $ref: '#/components/schemas/dimensionSetLine'
   documentlineobjectdetailstype:
    type: object
    properties:
@@ -6738,6 +7096,46 @@ components:
          nullable: true
          description: (v1.0) The valueDisplayName property for the Dynamics 365 Business Central salesInvoiceDimensionSetLine entity
          maxLength: 50
+  journalLineDimensionSetLine:
+   required: true
+   content:
+    application/json:
+     schema:
+      properties:
+       parentId:
+         type: string
+         format: uuid
+         nullable: false
+         description: (v1.0) The parentId property for the Dynamics 365 Business Central journalLineDimensionSetLine entity
+       id:
+         type: string
+         format: uuid
+         nullable: false
+         description: (v1.0) The id property for the Dynamics 365 Business Central journalLineDimensionSetLine entity
+       code:
+         type: string
+         nullable: true
+         description: (v1.0) The code property for the Dynamics 365 Business Central journalLineDimensionSetLine entity
+         maxLength: 20
+       displayName:
+         type: string
+         nullable: true
+         description: (v1.0) The displayName property for the Dynamics 365 Business Central journalLineDimensionSetLine entity
+         maxLength: 30
+       valueId:
+         type: string
+         format: uuid
+         nullable: true
+         description: (v1.0) The valueId property for the Dynamics 365 Business Central journalLineDimensionSetLine entity
+       valueCode:
+         type: string
+         nullable: true
+         description: (v1.0) The valueCode property for the Dynamics 365 Business Central journalLineDimensionSetLine entity
+       valueDisplayName:
+         type: string
+         nullable: true
+         description: (v1.0) The valueDisplayName property for the Dynamics 365 Business Central journalLineDimensionSetLine entity
+         maxLength: 50
   salesCreditMemoDimensionSetLine:
    required: true
    content:
@@ -7732,6 +8130,10 @@ components:
          nullable: true
          description: (v1.0) The displayName property for the Dynamics 365 Business Central journal entity
          maxLength: 100
+       templateDisplayName:
+         type: string
+         nullable: true
+         description: (v1.0) The templateDisplayName property for the Dynamics 365 Business Central journal entity
        lastModifiedDateTime:
          type: string
          format: date-time
@@ -8284,6 +8686,11 @@ components:
          format: uuid
          nullable: false
          description: (v1.0) The id property for the Dynamics 365 Business Central journalLine entity
+       journalId:
+         type: string
+         format: uuid
+         nullable: true
+         description: (v1.0) The journalId property for the Dynamics 365 Business Central journalLine entity
        journalDisplayName:
          type: string
          nullable: true
@@ -8309,7 +8716,6 @@ components:
          maxLength: 20
        postingDate:
          type: string
-         format: date-time
          nullable: true
          description: (v1.0) The postingDate property for the Dynamics 365 Business Central journalLine entity
        documentNumber:
@@ -8337,17 +8743,39 @@ components:
          nullable: true
          description: (v1.0) The comment property for the Dynamics 365 Business Central journalLine entity
          maxLength: 250
+       taxCode:
+         type: string
+         nullable: true
+         description: (v1.0) The taxCode property for the Dynamics 365 Business Central journalLine entity
+       balanceAccountType:
+         type: string
+         nullable: true
+         description: (v1.0) The balanceAccountType property for the Dynamics 365 Business Central journalLine entity
+       balancingAccountId:
+         type: string
+         format: uuid
+         nullable: true
+         description: (v1.0) The balancingAccountId property for the Dynamics 365 Business Central journalLine entity
+       balancingAccountNumber:
+         type: string
+         nullable: true
+         description: (v1.0) The balancingAccountNumber property for the Dynamics 365 Business Central journalLine entity
+         maxLength: 20
        dimensions:
         type: array
+        nullable: true
         items:
-         anyOf:
-           - $ref: '#/components/schemas/dimensiontype'
-           - nullable: true
+         $ref: '#/components/schemas/dimensiontype'
        lastModifiedDateTime:
          type: string
          format: date-time
          nullable: true
          description: (v1.0) The lastModifiedDateTime property for the Dynamics 365 Business Central journalLine entity
+       dimensionSetLines:
+         type: array
+         nullable: true
+         items:
+          $ref: '#/components/schemas/dimensionSetLine'
   project:
    required: true
    content:

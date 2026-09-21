@@ -1,4 +1,4 @@
-# JournalLine
+# PostJournalLineForJournalRequest
 
 
 ## Properties
@@ -22,28 +22,26 @@ Name | Type | Description | Notes
 **balance_account_type** | **str** | (v1.0) The balanceAccountType property for the Dynamics 365 Business Central journalLine entity | [optional] 
 **balancing_account_id** | **str** | (v1.0) The balancingAccountId property for the Dynamics 365 Business Central journalLine entity | [optional] 
 **balancing_account_number** | **str** | (v1.0) The balancingAccountNumber property for the Dynamics 365 Business Central journalLine entity | [optional] 
-**dimensions** | [**List[GeneralLedgerEntryDimensionsInner]**](GeneralLedgerEntryDimensionsInner.md) |  | [optional] 
+**dimensions** | [**List[Dimensiontype]**](Dimensiontype.md) |  | [optional] 
 **last_modified_date_time** | **datetime** | (v1.0) The lastModifiedDateTime property for the Dynamics 365 Business Central journalLine entity | [optional] 
-**attachments** | [**List[Attachments]**](Attachments.md) |  | [optional] 
-**account** | [**Account**](Account.md) |  | [optional] 
 **dimension_set_lines** | [**List[DimensionSetLine]**](DimensionSetLine.md) |  | [optional] 
 
 ## Example
 
 ```python
-from pybusinesscentral.model.journal_line import JournalLine
+from pybusinesscentral.model.post_journal_line_for_journal_request import PostJournalLineForJournalRequest
 
 # TODO update the JSON string below
 json = "{}"
-# create an instance of JournalLine from a JSON string
-journal_line_instance = JournalLine.from_json(json)
+# create an instance of PostJournalLineForJournalRequest from a JSON string
+post_journal_line_for_journal_request_instance = PostJournalLineForJournalRequest.from_json(json)
 # print the JSON string representation of the object
-print(JournalLine.to_json())
+print(PostJournalLineForJournalRequest.to_json())
 
 # convert the object into a dict
-journal_line_dict = journal_line_instance.to_dict()
-# create an instance of JournalLine from a dict
-journal_line_from_dict = JournalLine.from_dict(journal_line_dict)
+post_journal_line_for_journal_request_dict = post_journal_line_for_journal_request_instance.to_dict()
+# create an instance of PostJournalLineForJournalRequest from a dict
+post_journal_line_for_journal_request_from_dict = PostJournalLineForJournalRequest.from_dict(post_journal_line_for_journal_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -5,8 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** | (v1.0) The id property for the Dynamics 365 Business Central generalLedgerEntry entity | [optional] 
-**posting_date** | **datetime** | (v1.0) The postingDate property for the Dynamics 365 Business Central generalLedgerEntry entity | [optional] 
+**id** | **str** | (v1.0) The id property for the Dynamics 365 Business Central generalLedgerEntry entity | [optional] 
+**entry_number** | **int** | (v1.0) The entryNumber property for the Dynamics 365 Business Central generalLedgerEntry entity | [optional] 
+**posting_date** | **str** | (v1.0) The postingDate property for the Dynamics 365 Business Central generalLedgerEntry entity | [optional] 
 **document_number** | **str** | (v1.0) The documentNumber property for the Dynamics 365 Business Central generalLedgerEntry entity | [optional] 
 **document_type** | **str** | (v1.0) The documentType property for the Dynamics 365 Business Central generalLedgerEntry entity | [optional] 
 **account_id** | **str** | (v1.0) The accountId property for the Dynamics 365 Business Central generalLedgerEntry entity | [optional] 
@@ -14,6 +15,8 @@ Name | Type | Description | Notes
 **description** | **str** | (v1.0) The description property for the Dynamics 365 Business Central generalLedgerEntry entity | [optional] 
 **debit_amount** | **float** | (v1.0) The debitAmount property for the Dynamics 365 Business Central generalLedgerEntry entity | [optional] 
 **credit_amount** | **float** | (v1.0) The creditAmount property for the Dynamics 365 Business Central generalLedgerEntry entity | [optional] 
+**additional_currency_debit_amount** | **float** | (v1.0) The additionalCurrencyDebitAmount property for the Dynamics 365 Business Central generalLedgerEntry entity | [optional] 
+**additional_currency_credit_amount** | **float** | (v1.0) The additionalCurrencyCreditAmount property for the Dynamics 365 Business Central generalLedgerEntry entity | [optional] 
 **dimensions** | [**List[GeneralLedgerEntryDimensionsInner]**](GeneralLedgerEntryDimensionsInner.md) |  | [optional] 
 **last_modified_date_time** | **datetime** | (v1.0) The lastModifiedDateTime property for the Dynamics 365 Business Central generalLedgerEntry entity | [optional] 
 **account** | [**Account**](Account.md) |  | [optional] 
