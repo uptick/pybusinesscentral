@@ -30,8 +30,9 @@ class GeneralLedgerEntry(BaseModel):
     """
     GeneralLedgerEntry
     """ # noqa: E501
-    id: Optional[StrictInt] = Field(default=None, description="(v1.0) The id property for the Dynamics 365 Business Central generalLedgerEntry entity")
-    posting_date: Optional[datetime] = Field(default=None, description="(v1.0) The postingDate property for the Dynamics 365 Business Central generalLedgerEntry entity", alias="postingDate")
+    id: Optional[StrictStr] = Field(default=None, description="(v1.0) The id property for the Dynamics 365 Business Central generalLedgerEntry entity")
+    entry_number: Optional[StrictInt] = Field(default=None, description="(v1.0) The entryNumber property for the Dynamics 365 Business Central generalLedgerEntry entity", alias="entryNumber")
+    posting_date: Optional[StrictStr] = Field(default=None, description="(v1.0) The postingDate property for the Dynamics 365 Business Central generalLedgerEntry entity", alias="postingDate")
     document_number: Optional[Annotated[str, Field(strict=True, max_length=20)]] = Field(default=None, description="(v1.0) The documentNumber property for the Dynamics 365 Business Central generalLedgerEntry entity", alias="documentNumber")
     document_type: Optional[StrictStr] = Field(default=None, description="(v1.0) The documentType property for the Dynamics 365 Business Central generalLedgerEntry entity", alias="documentType")
     account_id: Optional[StrictStr] = Field(default=None, description="(v1.0) The accountId property for the Dynamics 365 Business Central generalLedgerEntry entity", alias="accountId")
@@ -39,10 +40,12 @@ class GeneralLedgerEntry(BaseModel):
     description: Optional[Annotated[str, Field(strict=True, max_length=100)]] = Field(default=None, description="(v1.0) The description property for the Dynamics 365 Business Central generalLedgerEntry entity")
     debit_amount: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="(v1.0) The debitAmount property for the Dynamics 365 Business Central generalLedgerEntry entity", alias="debitAmount")
     credit_amount: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="(v1.0) The creditAmount property for the Dynamics 365 Business Central generalLedgerEntry entity", alias="creditAmount")
+    additional_currency_debit_amount: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="(v1.0) The additionalCurrencyDebitAmount property for the Dynamics 365 Business Central generalLedgerEntry entity", alias="additionalCurrencyDebitAmount")
+    additional_currency_credit_amount: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="(v1.0) The additionalCurrencyCreditAmount property for the Dynamics 365 Business Central generalLedgerEntry entity", alias="additionalCurrencyCreditAmount")
     dimensions: Optional[List[Optional[GeneralLedgerEntryDimensionsInner]]] = None
     last_modified_date_time: Optional[datetime] = Field(default=None, description="(v1.0) The lastModifiedDateTime property for the Dynamics 365 Business Central generalLedgerEntry entity", alias="lastModifiedDateTime")
     account: Optional[Account] = None
-    __properties: ClassVar[List[str]] = ["id", "postingDate", "documentNumber", "documentType", "accountId", "accountNumber", "description", "debitAmount", "creditAmount", "dimensions", "lastModifiedDateTime", "account"]
+    __properties: ClassVar[List[str]] = ["id", "entryNumber", "postingDate", "documentNumber", "documentType", "accountId", "accountNumber", "description", "debitAmount", "creditAmount", "additionalCurrencyDebitAmount", "additionalCurrencyCreditAmount", "dimensions", "lastModifiedDateTime", "account"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -93,6 +96,16 @@ class GeneralLedgerEntry(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of account
         if self.account:
             _dict['account'] = self.account.to_dict()
+        # set to None if id (nullable) is None
+        # and model_fields_set contains the field
+        if self.id is None and "id" in self.model_fields_set:
+            _dict['id'] = None
+
+        # set to None if entry_number (nullable) is None
+        # and model_fields_set contains the field
+        if self.entry_number is None and "entry_number" in self.model_fields_set:
+            _dict['entryNumber'] = None
+
         # set to None if posting_date (nullable) is None
         # and model_fields_set contains the field
         if self.posting_date is None and "posting_date" in self.model_fields_set:
@@ -133,6 +146,16 @@ class GeneralLedgerEntry(BaseModel):
         if self.credit_amount is None and "credit_amount" in self.model_fields_set:
             _dict['creditAmount'] = None
 
+        # set to None if additional_currency_debit_amount (nullable) is None
+        # and model_fields_set contains the field
+        if self.additional_currency_debit_amount is None and "additional_currency_debit_amount" in self.model_fields_set:
+            _dict['additionalCurrencyDebitAmount'] = None
+
+        # set to None if additional_currency_credit_amount (nullable) is None
+        # and model_fields_set contains the field
+        if self.additional_currency_credit_amount is None and "additional_currency_credit_amount" in self.model_fields_set:
+            _dict['additionalCurrencyCreditAmount'] = None
+
         # set to None if last_modified_date_time (nullable) is None
         # and model_fields_set contains the field
         if self.last_modified_date_time is None and "last_modified_date_time" in self.model_fields_set:
@@ -156,6 +179,7 @@ class GeneralLedgerEntry(BaseModel):
 
         _obj = cls.model_validate({
             "id": obj.get("id"),
+            "entryNumber": obj.get("entryNumber"),
             "postingDate": obj.get("postingDate"),
             "documentNumber": obj.get("documentNumber"),
             "documentType": obj.get("documentType"),
@@ -164,6 +188,8 @@ class GeneralLedgerEntry(BaseModel):
             "description": obj.get("description"),
             "debitAmount": obj.get("debitAmount"),
             "creditAmount": obj.get("creditAmount"),
+            "additionalCurrencyDebitAmount": obj.get("additionalCurrencyDebitAmount"),
+            "additionalCurrencyCreditAmount": obj.get("additionalCurrencyCreditAmount"),
             "dimensions": [GeneralLedgerEntryDimensionsInner.from_dict(_item) for _item in obj["dimensions"]] if obj.get("dimensions") is not None else None,
             "lastModifiedDateTime": obj.get("lastModifiedDateTime"),
             "account": Account.from_dict(obj["account"]) if obj.get("account") is not None else None

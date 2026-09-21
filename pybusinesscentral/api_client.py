@@ -79,6 +79,9 @@ from pybusinesscentral.model.list_accounts200_response import ListAccounts200Res
 from pybusinesscentral.model.list_companies200_response import ListCompanies200Response  # noqa
 from pybusinesscentral.model.list_customers200_response import ListCustomers200Response  # noqa
 from pybusinesscentral.model.list_dimensions200_response import ListDimensions200Response  # noqa
+from pybusinesscentral.model.list_general_ledger_entries200_response import ListGeneralLedgerEntries200Response  # noqa
+from pybusinesscentral.model.list_journal_lines_for_journal200_response import ListJournalLinesForJournal200Response  # noqa
+from pybusinesscentral.model.list_journals200_response import ListJournals200Response  # noqa
 from pybusinesscentral.model.list_payment_terms200_response import ListPaymentTerms200Response  # noqa
 from pybusinesscentral.model.list_purchase_invoices200_response import ListPurchaseInvoices200Response  # noqa
 from pybusinesscentral.model.list_sales_credit_memo_lines_for_sales_credit_memo200_response import ListSalesCreditMemoLinesForSalesCreditMemo200Response  # noqa
@@ -91,6 +94,8 @@ from pybusinesscentral.model.payment_term import PaymentTerm  # noqa
 from pybusinesscentral.model.pdf_document import PdfDocument  # noqa
 from pybusinesscentral.model.picture import Picture  # noqa
 from pybusinesscentral.model.post_customer_request import PostCustomerRequest  # noqa
+from pybusinesscentral.model.post_journal_line_dimension_set_line_request import PostJournalLineDimensionSetLineRequest  # noqa
+from pybusinesscentral.model.post_journal_line_for_journal_request import PostJournalLineForJournalRequest  # noqa
 from pybusinesscentral.model.post_payment_term_request import PostPaymentTermRequest  # noqa
 from pybusinesscentral.model.post_purchase_invoice_request import PostPurchaseInvoiceRequest  # noqa
 from pybusinesscentral.model.post_sales_credit_memo_line_for_sales_credit_memo_request import PostSalesCreditMemoLineForSalesCreditMemoRequest  # noqa
@@ -171,7 +176,7 @@ class ApiClient:
             self.default_headers[header_name] = header_value
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = 'OpenAPI-Generator/1.0.0/python'
+        self.user_agent = 'OpenAPI-Generator/3.10.0/python'
         self.client_side_validation = configuration.client_side_validation
 
     def __enter__(self):

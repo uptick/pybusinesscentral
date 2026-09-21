@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **id** | **str** | (v1.0) The id property for the Dynamics 365 Business Central journal entity | [optional] 
 **code** | **str** | (v1.0) The code property for the Dynamics 365 Business Central journal entity | [optional] 
 **display_name** | **str** | (v1.0) The displayName property for the Dynamics 365 Business Central journal entity | [optional] 
+**template_display_name** | **str** | (v1.0) The templateDisplayName property for the Dynamics 365 Business Central journal entity | [optional] 
 **last_modified_date_time** | **datetime** | (v1.0) The lastModifiedDateTime property for the Dynamics 365 Business Central journal entity | [optional] 
 **balancing_account_id** | **str** | (v1.0) The balancingAccountId property for the Dynamics 365 Business Central journal entity | [optional] 
 **balancing_account_number** | **str** | (v1.0) The balancingAccountNumber property for the Dynamics 365 Business Central journal entity | [optional] 

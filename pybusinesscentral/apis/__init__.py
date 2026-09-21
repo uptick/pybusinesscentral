@@ -20,6 +20,9 @@ from pybusinesscentral.api.customer_api import CustomerApi
 from pybusinesscentral.api.default_api import DefaultApi
 from pybusinesscentral.api.dimension_api import DimensionApi
 from pybusinesscentral.api.dimension_set_line_api import DimensionSetLineApi
+from pybusinesscentral.api.general_ledger_entry_api import GeneralLedgerEntryApi
+from pybusinesscentral.api.journal_api import JournalApi
+from pybusinesscentral.api.journal_line_api import JournalLineApi
 from pybusinesscentral.api.payment_term_api import PaymentTermApi
 from pybusinesscentral.api.purchase_invoice_api import PurchaseInvoiceApi
 from pybusinesscentral.api.sales_invoice_api import SalesInvoiceApi
@@ -35,6 +38,9 @@ __all__ = [
     "DefaultApi",
     "DimensionApi",
     "DimensionSetLineApi",
+    "GeneralLedgerEntryApi",
+    "JournalApi",
+    "JournalLineApi",
     "PaymentTermApi",
     "PurchaseInvoiceApi",
     "SalesInvoiceApi",

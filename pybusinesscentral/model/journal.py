@@ -33,12 +33,13 @@ class Journal(BaseModel):
     id: Optional[StrictStr] = Field(default=None, description="(v1.0) The id property for the Dynamics 365 Business Central journal entity")
     code: Optional[Annotated[str, Field(strict=True, max_length=10)]] = Field(default=None, description="(v1.0) The code property for the Dynamics 365 Business Central journal entity")
     display_name: Optional[Annotated[str, Field(strict=True, max_length=100)]] = Field(default=None, description="(v1.0) The displayName property for the Dynamics 365 Business Central journal entity", alias="displayName")
+    template_display_name: Optional[StrictStr] = Field(default=None, description="(v1.0) The templateDisplayName property for the Dynamics 365 Business Central journal entity", alias="templateDisplayName")
     last_modified_date_time: Optional[datetime] = Field(default=None, description="(v1.0) The lastModifiedDateTime property for the Dynamics 365 Business Central journal entity", alias="lastModifiedDateTime")
     balancing_account_id: Optional[StrictStr] = Field(default=None, description="(v1.0) The balancingAccountId property for the Dynamics 365 Business Central journal entity", alias="balancingAccountId")
     balancing_account_number: Optional[Annotated[str, Field(strict=True, max_length=20)]] = Field(default=None, description="(v1.0) The balancingAccountNumber property for the Dynamics 365 Business Central journal entity", alias="balancingAccountNumber")
     journal_lines: Optional[List[JournalLine]] = Field(default=None, alias="journalLines")
     account: Optional[Account] = None
-    __properties: ClassVar[List[str]] = ["id", "code", "displayName", "lastModifiedDateTime", "balancingAccountId", "balancingAccountNumber", "journalLines", "account"]
+    __properties: ClassVar[List[str]] = ["id", "code", "displayName", "templateDisplayName", "lastModifiedDateTime", "balancingAccountId", "balancingAccountNumber", "journalLines", "account"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -94,6 +95,11 @@ class Journal(BaseModel):
         if self.display_name is None and "display_name" in self.model_fields_set:
             _dict['displayName'] = None
 
+        # set to None if template_display_name (nullable) is None
+        # and model_fields_set contains the field
+        if self.template_display_name is None and "template_display_name" in self.model_fields_set:
+            _dict['templateDisplayName'] = None
+
         # set to None if last_modified_date_time (nullable) is None
         # and model_fields_set contains the field
         if self.last_modified_date_time is None and "last_modified_date_time" in self.model_fields_set:
@@ -134,6 +140,7 @@ class Journal(BaseModel):
             "id": obj.get("id"),
             "code": obj.get("code"),
             "displayName": obj.get("displayName"),
+            "templateDisplayName": obj.get("templateDisplayName"),
             "lastModifiedDateTime": obj.get("lastModifiedDateTime"),
             "balancingAccountId": obj.get("balancingAccountId"),
             "balancingAccountNumber": obj.get("balancingAccountNumber"),
