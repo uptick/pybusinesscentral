@@ -42,6 +42,596 @@ class JournalApi:
 
 
     @validate_call
+    def delete_journal(
+        self,
+        company_id: Annotated[StrictStr, Field(description="(v1.0) id for company")],
+        journal_id: Annotated[StrictStr, Field(description="(v1.0) id for journal")],
+        if_match: Annotated[StrictStr, Field(description="(v1.0) Required. When this request header is included and the eTag provided does not match the current tag on the entity, this will not be updated.")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> None:
+        """Deletes an object of type journal in Dynamics 365 Business Central
+
+
+        :param company_id: (v1.0) id for company (required)
+        :type company_id: str
+        :param journal_id: (v1.0) id for journal (required)
+        :type journal_id: str
+        :param if_match: (v1.0) Required. When this request header is included and the eTag provided does not match the current tag on the entity, this will not be updated. (required)
+        :type if_match: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._delete_journal_serialize(
+            company_id=company_id,
+            journal_id=journal_id,
+            if_match=if_match,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '204': None,
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def delete_journal_with_http_info(
+        self,
+        company_id: Annotated[StrictStr, Field(description="(v1.0) id for company")],
+        journal_id: Annotated[StrictStr, Field(description="(v1.0) id for journal")],
+        if_match: Annotated[StrictStr, Field(description="(v1.0) Required. When this request header is included and the eTag provided does not match the current tag on the entity, this will not be updated.")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[None]:
+        """Deletes an object of type journal in Dynamics 365 Business Central
+
+
+        :param company_id: (v1.0) id for company (required)
+        :type company_id: str
+        :param journal_id: (v1.0) id for journal (required)
+        :type journal_id: str
+        :param if_match: (v1.0) Required. When this request header is included and the eTag provided does not match the current tag on the entity, this will not be updated. (required)
+        :type if_match: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._delete_journal_serialize(
+            company_id=company_id,
+            journal_id=journal_id,
+            if_match=if_match,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '204': None,
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def delete_journal_without_preload_content(
+        self,
+        company_id: Annotated[StrictStr, Field(description="(v1.0) id for company")],
+        journal_id: Annotated[StrictStr, Field(description="(v1.0) id for journal")],
+        if_match: Annotated[StrictStr, Field(description="(v1.0) Required. When this request header is included and the eTag provided does not match the current tag on the entity, this will not be updated.")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Deletes an object of type journal in Dynamics 365 Business Central
+
+
+        :param company_id: (v1.0) id for company (required)
+        :type company_id: str
+        :param journal_id: (v1.0) id for journal (required)
+        :type journal_id: str
+        :param if_match: (v1.0) Required. When this request header is included and the eTag provided does not match the current tag on the entity, this will not be updated. (required)
+        :type if_match: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._delete_journal_serialize(
+            company_id=company_id,
+            journal_id=journal_id,
+            if_match=if_match,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '204': None,
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _delete_journal_serialize(
+        self,
+        company_id,
+        journal_id,
+        if_match,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if company_id is not None:
+            _path_params['company_id'] = company_id
+        if journal_id is not None:
+            _path_params['journal_id'] = journal_id
+        # process the query parameters
+        # process the header parameters
+        if if_match is not None:
+            _header_params['If-Match'] = if_match
+        # process the form parameters
+        # process the body parameter
+
+
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'oAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='DELETE',
+            resource_path='/companies({company_id})/journals({journal_id})',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def get_journal(
+        self,
+        company_id: Annotated[StrictStr, Field(description="(v1.0) id for company")],
+        journal_id: Annotated[StrictStr, Field(description="(v1.0) id for journal")],
+        expand: Annotated[Optional[List[StrictStr]], Field(description="(v1.0) Entities to expand")] = None,
+        select: Annotated[Optional[List[StrictStr]], Field(description="(v1.0) Selected properties to be retrieved")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> Journal:
+        """Retrieve the properties and relationships of an object of type journal for Dynamics 365 Business Central.
+
+
+        :param company_id: (v1.0) id for company (required)
+        :type company_id: str
+        :param journal_id: (v1.0) id for journal (required)
+        :type journal_id: str
+        :param expand: (v1.0) Entities to expand
+        :type expand: List[str]
+        :param select: (v1.0) Selected properties to be retrieved
+        :type select: List[str]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_journal_serialize(
+            company_id=company_id,
+            journal_id=journal_id,
+            expand=expand,
+            select=select,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "Journal",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def get_journal_with_http_info(
+        self,
+        company_id: Annotated[StrictStr, Field(description="(v1.0) id for company")],
+        journal_id: Annotated[StrictStr, Field(description="(v1.0) id for journal")],
+        expand: Annotated[Optional[List[StrictStr]], Field(description="(v1.0) Entities to expand")] = None,
+        select: Annotated[Optional[List[StrictStr]], Field(description="(v1.0) Selected properties to be retrieved")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[Journal]:
+        """Retrieve the properties and relationships of an object of type journal for Dynamics 365 Business Central.
+
+
+        :param company_id: (v1.0) id for company (required)
+        :type company_id: str
+        :param journal_id: (v1.0) id for journal (required)
+        :type journal_id: str
+        :param expand: (v1.0) Entities to expand
+        :type expand: List[str]
+        :param select: (v1.0) Selected properties to be retrieved
+        :type select: List[str]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_journal_serialize(
+            company_id=company_id,
+            journal_id=journal_id,
+            expand=expand,
+            select=select,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "Journal",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def get_journal_without_preload_content(
+        self,
+        company_id: Annotated[StrictStr, Field(description="(v1.0) id for company")],
+        journal_id: Annotated[StrictStr, Field(description="(v1.0) id for journal")],
+        expand: Annotated[Optional[List[StrictStr]], Field(description="(v1.0) Entities to expand")] = None,
+        select: Annotated[Optional[List[StrictStr]], Field(description="(v1.0) Selected properties to be retrieved")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Retrieve the properties and relationships of an object of type journal for Dynamics 365 Business Central.
+
+
+        :param company_id: (v1.0) id for company (required)
+        :type company_id: str
+        :param journal_id: (v1.0) id for journal (required)
+        :type journal_id: str
+        :param expand: (v1.0) Entities to expand
+        :type expand: List[str]
+        :param select: (v1.0) Selected properties to be retrieved
+        :type select: List[str]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_journal_serialize(
+            company_id=company_id,
+            journal_id=journal_id,
+            expand=expand,
+            select=select,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "Journal",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _get_journal_serialize(
+        self,
+        company_id,
+        journal_id,
+        expand,
+        select,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+            '$expand': 'csv',
+            '$select': 'csv',
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if company_id is not None:
+            _path_params['company_id'] = company_id
+        if journal_id is not None:
+            _path_params['journal_id'] = journal_id
+        # process the query parameters
+        if expand is not None:
+            
+            _query_params.append(('$expand', expand))
+            
+        if select is not None:
+            
+            _query_params.append(('$select', select))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'oAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/companies({company_id})/journals({journal_id})',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
     def list_journals(
         self,
         company_id: Annotated[StrictStr, Field(description="(v1.0) id for company")],

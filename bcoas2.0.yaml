@@ -2060,6 +2060,65 @@ paths:
       application/json:
        schema:
         $ref: '#/components/schemas/journal'
+ "/companies({company_id})/journals({journal_id})":
+  parameters:
+   - name: company_id
+     in: path
+     required: true
+     description: (v1.0) id for company
+     schema:
+      type: string
+      format: uuid
+   - name: journal_id
+     in: path
+     required: true
+     description: (v1.0) id for journal
+     schema:
+      type: string
+      format: uuid
+  get:
+   summary: Retrieve the properties and relationships of an object of type journal for Dynamics 365 Business Central.
+   tags:
+    - journal
+   operationId: getJournal
+   responses:
+    200:
+     description: (v1.0) Succesfully returned the requested journal
+     content:
+      application/json:
+       schema:
+        $ref: '#/components/schemas/journal'
+   parameters:
+   - name: $expand
+     in: query
+     description: (v1.0) Entities to expand
+     schema:
+      type: array
+      items:
+       type: string
+       enum: ['journalLines', 'account']
+     style: form
+     explode: false
+   - name: $select
+     in: query
+     description: (v1.0) Selected properties to be retrieved
+     schema:
+      type: array
+      items:
+       type: string
+       enum: ['id', 'code', 'displayName', 'templateDisplayName', 'lastModifiedDateTime', 'balancingAccountId', 'balancingAccountNumber']
+     style: form
+     explode: false
+  delete:
+   summary: Deletes an object of type journal in Dynamics 365 Business Central
+   tags:
+    - journal
+   operationId: deleteJournal
+   parameters:
+    - $ref: '#/components/parameters/IfMatchParam'
+   responses:
+    204:
+     description: (v1.0) Succesfully deleted the specified journal
  # ref: https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/resources/dynamics_journalline
  "/companies({company_id})/journals({journal_id})/journalLines":
   parameters:
