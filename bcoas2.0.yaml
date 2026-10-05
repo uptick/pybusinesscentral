@@ -2034,6 +2034,32 @@ paths:
        enum: ['id', 'code', 'displayName', 'templateDisplayName', 'lastModifiedDateTime', 'balancingAccountId', 'balancingAccountNumber']
      style: form
      explode: false
+  post:
+   summary: Creates a journal, optionally with its journal lines in the same request
+   tags:
+    - journal
+   operationId: postJournal
+   parameters:
+    - $ref: '#/components/parameters/ContentTypeParam'
+    - name: $expand
+      in: query
+      description: (v1.0) Entities to expand
+      schema:
+        type: array
+        items:
+          type: string
+          enum: ['journalLines', 'account']
+      style: form
+      explode: false
+   requestBody:
+    $ref: '#/components/requestBodies/journal'
+   responses:
+    201:
+     description: (v1.0) A new journal has been succesfully created
+     content:
+      application/json:
+       schema:
+        $ref: '#/components/schemas/journal'
  # ref: https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/resources/dynamics_journalline
  "/companies({company_id})/journals({journal_id})/journalLines":
   parameters:
@@ -8149,6 +8175,11 @@ components:
          nullable: true
          description: (v1.0) The balancingAccountNumber property for the Dynamics 365 Business Central journal entity
          maxLength: 20
+       journalLines:
+        type: array
+        nullable: true
+        items:
+         $ref: '#/components/schemas/journalLine'
   purchaseInvoice:
    required: true
    content:

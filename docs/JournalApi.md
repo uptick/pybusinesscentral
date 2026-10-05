@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**list_journals**](JournalApi.md#list_journals) | **GET** /companies({company_id})/journals | Returns a list of journals
 [**post_action_journals**](JournalApi.md#post_action_journals) | **POST** /companies({company_id})/journals({journal_id})/Microsoft.NAV.post | Performs the post action for journals entity
+[**post_journal**](JournalApi.md#post_journal) | **POST** /companies({company_id})/journals | Creates a journal, optionally with its journal lines in the same request
 
 
 # **list_journals**
@@ -162,6 +163,86 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | (v1.0) Succesfully performed a post action on the Dynamic 365 Business Central journals entity |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **post_journal**
+> Journal post_journal(company_id, content_type, post_journal_request, expand=expand)
+
+Creates a journal, optionally with its journal lines in the same request
+
+### Example
+
+* OAuth Authentication (oAuth):
+
+```python
+import pybusinesscentral
+from pybusinesscentral.model.journal import Journal
+from pybusinesscentral.model.post_journal_request import PostJournalRequest
+from pybusinesscentral.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0
+# See configuration.py for a list of all supported configuration parameters.
+configuration = pybusinesscentral.Configuration(
+    host = "https://api.businesscentral.dynamics.com/v2.0/sandbox/api/v2.0"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
+
+# Enter a context with an instance of the API client
+with pybusinesscentral.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pybusinesscentral.JournalApi(api_client)
+    company_id = 'company_id_example' # str | (v1.0) id for company
+    content_type = 'content_type_example' # str | (v1.0) application/json
+    post_journal_request = pybusinesscentral.PostJournalRequest() # PostJournalRequest | 
+    expand = ['expand_example'] # List[str] | (v1.0) Entities to expand (optional)
+
+    try:
+        # Creates a journal, optionally with its journal lines in the same request
+        api_response = api_instance.post_journal(company_id, content_type, post_journal_request, expand=expand)
+        print("The response of JournalApi->post_journal:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling JournalApi->post_journal: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **company_id** | **str**| (v1.0) id for company | 
+ **content_type** | **str**| (v1.0) application/json | 
+ **post_journal_request** | [**PostJournalRequest**](PostJournalRequest.md)|  | 
+ **expand** | [**List[str]**](str.md)| (v1.0) Entities to expand | [optional] 
+
+### Return type
+
+[**Journal**](Journal.md)
+
+### Authorization
+
+[oAuth](../README.md#oAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | (v1.0) A new journal has been succesfully created |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
