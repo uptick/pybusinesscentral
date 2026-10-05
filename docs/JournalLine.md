@@ -22,7 +22,6 @@ Name | Type | Description | Notes
 **balance_account_type** | **str** | (v1.0) The balanceAccountType property for the Dynamics 365 Business Central journalLine entity | [optional] 
 **balancing_account_id** | **str** | (v1.0) The balancingAccountId property for the Dynamics 365 Business Central journalLine entity | [optional] 
 **balancing_account_number** | **str** | (v1.0) The balancingAccountNumber property for the Dynamics 365 Business Central journalLine entity | [optional] 
-**dimensions** | [**List[GeneralLedgerEntryDimensionsInner]**](GeneralLedgerEntryDimensionsInner.md) |  | [optional] 
 **last_modified_date_time** | **datetime** | (v1.0) The lastModifiedDateTime property for the Dynamics 365 Business Central journalLine entity | [optional] 
 **attachments** | [**List[Attachments]**](Attachments.md) |  | [optional] 
 **account** | [**Account**](Account.md) |  | [optional] 

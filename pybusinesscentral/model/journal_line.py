@@ -24,7 +24,6 @@ from typing_extensions import Annotated
 from pybusinesscentral.model.account import Account
 from pybusinesscentral.model.attachments import Attachments
 from pybusinesscentral.model.dimension_set_line import DimensionSetLine
-from pybusinesscentral.model.general_ledger_entry_dimensions_inner import GeneralLedgerEntryDimensionsInner
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -49,12 +48,11 @@ class JournalLine(BaseModel):
     balance_account_type: Optional[StrictStr] = Field(default=None, description="(v1.0) The balanceAccountType property for the Dynamics 365 Business Central journalLine entity", alias="balanceAccountType")
     balancing_account_id: Optional[StrictStr] = Field(default=None, description="(v1.0) The balancingAccountId property for the Dynamics 365 Business Central journalLine entity", alias="balancingAccountId")
     balancing_account_number: Optional[Annotated[str, Field(strict=True, max_length=20)]] = Field(default=None, description="(v1.0) The balancingAccountNumber property for the Dynamics 365 Business Central journalLine entity", alias="balancingAccountNumber")
-    dimensions: Optional[List[Optional[GeneralLedgerEntryDimensionsInner]]] = None
     last_modified_date_time: Optional[datetime] = Field(default=None, description="(v1.0) The lastModifiedDateTime property for the Dynamics 365 Business Central journalLine entity", alias="lastModifiedDateTime")
     attachments: Optional[List[Attachments]] = None
     account: Optional[Account] = None
     dimension_set_lines: Optional[List[DimensionSetLine]] = Field(default=None, alias="dimensionSetLines")
-    __properties: ClassVar[List[str]] = ["id", "journalId", "journalDisplayName", "lineNumber", "accountType", "accountId", "accountNumber", "postingDate", "documentNumber", "externalDocumentNumber", "amount", "description", "comment", "taxCode", "balanceAccountType", "balancingAccountId", "balancingAccountNumber", "dimensions", "lastModifiedDateTime", "attachments", "account", "dimensionSetLines"]
+    __properties: ClassVar[List[str]] = ["id", "journalId", "journalDisplayName", "lineNumber", "accountType", "accountId", "accountNumber", "postingDate", "documentNumber", "externalDocumentNumber", "amount", "description", "comment", "taxCode", "balanceAccountType", "balancingAccountId", "balancingAccountNumber", "lastModifiedDateTime", "attachments", "account", "dimensionSetLines"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -95,13 +93,6 @@ class JournalLine(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of each item in dimensions (list)
-        _items = []
-        if self.dimensions:
-            for _item_dimensions in self.dimensions:
-                if _item_dimensions:
-                    _items.append(_item_dimensions.to_dict())
-            _dict['dimensions'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in attachments (list)
         _items = []
         if self.attachments:
@@ -248,7 +239,6 @@ class JournalLine(BaseModel):
             "balanceAccountType": obj.get("balanceAccountType"),
             "balancingAccountId": obj.get("balancingAccountId"),
             "balancingAccountNumber": obj.get("balancingAccountNumber"),
-            "dimensions": [GeneralLedgerEntryDimensionsInner.from_dict(_item) for _item in obj["dimensions"]] if obj.get("dimensions") is not None else None,
             "lastModifiedDateTime": obj.get("lastModifiedDateTime"),
             "attachments": [Attachments.from_dict(_item) for _item in obj["attachments"]] if obj.get("attachments") is not None else None,
             "account": Account.from_dict(obj["account"]) if obj.get("account") is not None else None,

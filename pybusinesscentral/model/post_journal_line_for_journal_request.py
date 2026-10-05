@@ -22,7 +22,6 @@ from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, Stric
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing_extensions import Annotated
 from pybusinesscentral.model.dimension_set_line import DimensionSetLine
-from pybusinesscentral.model.dimensiontype import Dimensiontype
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -47,10 +46,9 @@ class PostJournalLineForJournalRequest(BaseModel):
     balance_account_type: Optional[StrictStr] = Field(default=None, description="(v1.0) The balanceAccountType property for the Dynamics 365 Business Central journalLine entity", alias="balanceAccountType")
     balancing_account_id: Optional[StrictStr] = Field(default=None, description="(v1.0) The balancingAccountId property for the Dynamics 365 Business Central journalLine entity", alias="balancingAccountId")
     balancing_account_number: Optional[Annotated[str, Field(strict=True, max_length=20)]] = Field(default=None, description="(v1.0) The balancingAccountNumber property for the Dynamics 365 Business Central journalLine entity", alias="balancingAccountNumber")
-    dimensions: Optional[List[Dimensiontype]] = None
     last_modified_date_time: Optional[datetime] = Field(default=None, description="(v1.0) The lastModifiedDateTime property for the Dynamics 365 Business Central journalLine entity", alias="lastModifiedDateTime")
     dimension_set_lines: Optional[List[DimensionSetLine]] = Field(default=None, alias="dimensionSetLines")
-    __properties: ClassVar[List[str]] = ["id", "journalId", "journalDisplayName", "lineNumber", "accountType", "accountId", "accountNumber", "postingDate", "documentNumber", "externalDocumentNumber", "amount", "description", "comment", "taxCode", "balanceAccountType", "balancingAccountId", "balancingAccountNumber", "dimensions", "lastModifiedDateTime", "dimensionSetLines"]
+    __properties: ClassVar[List[str]] = ["id", "journalId", "journalDisplayName", "lineNumber", "accountType", "accountId", "accountNumber", "postingDate", "documentNumber", "externalDocumentNumber", "amount", "description", "comment", "taxCode", "balanceAccountType", "balancingAccountId", "balancingAccountNumber", "lastModifiedDateTime", "dimensionSetLines"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -91,13 +89,6 @@ class PostJournalLineForJournalRequest(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of each item in dimensions (list)
-        _items = []
-        if self.dimensions:
-            for _item_dimensions in self.dimensions:
-                if _item_dimensions:
-                    _items.append(_item_dimensions.to_dict())
-            _dict['dimensions'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in dimension_set_lines (list)
         _items = []
         if self.dimension_set_lines:
@@ -185,11 +176,6 @@ class PostJournalLineForJournalRequest(BaseModel):
         if self.balancing_account_number is None and "balancing_account_number" in self.model_fields_set:
             _dict['balancingAccountNumber'] = None
 
-        # set to None if dimensions (nullable) is None
-        # and model_fields_set contains the field
-        if self.dimensions is None and "dimensions" in self.model_fields_set:
-            _dict['dimensions'] = None
-
         # set to None if last_modified_date_time (nullable) is None
         # and model_fields_set contains the field
         if self.last_modified_date_time is None and "last_modified_date_time" in self.model_fields_set:
@@ -229,7 +215,6 @@ class PostJournalLineForJournalRequest(BaseModel):
             "balanceAccountType": obj.get("balanceAccountType"),
             "balancingAccountId": obj.get("balancingAccountId"),
             "balancingAccountNumber": obj.get("balancingAccountNumber"),
-            "dimensions": [Dimensiontype.from_dict(_item) for _item in obj["dimensions"]] if obj.get("dimensions") is not None else None,
             "lastModifiedDateTime": obj.get("lastModifiedDateTime"),
             "dimensionSetLines": [DimensionSetLine.from_dict(_item) for _item in obj["dimensionSetLines"]] if obj.get("dimensionSetLines") is not None else None
         })

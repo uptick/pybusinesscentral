@@ -21,7 +21,6 @@ from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing_extensions import Annotated
-from pybusinesscentral.model.general_ledger_entry_dimensions_inner import GeneralLedgerEntryDimensionsInner
 from pybusinesscentral.model.project import Project
 from pybusinesscentral.model.unitofmeasuretype import Unitofmeasuretype
 from typing import Optional, Set
@@ -43,10 +42,9 @@ class TimeRegistrationEntry(BaseModel):
     status: Optional[StrictStr] = Field(default=None, description="(v1.0) The status property for the Dynamics 365 Business Central timeRegistrationEntry entity")
     unit_of_measure_id: Optional[StrictStr] = Field(default=None, description="(v1.0) The unitOfMeasureId property for the Dynamics 365 Business Central timeRegistrationEntry entity", alias="unitOfMeasureId")
     unit_of_measure: Optional[Unitofmeasuretype] = Field(default=None, alias="unitOfMeasure")
-    dimensions: Optional[List[Optional[GeneralLedgerEntryDimensionsInner]]] = None
     last_modfied_date_time: Optional[datetime] = Field(default=None, description="(v1.0) The lastModfiedDateTime property for the Dynamics 365 Business Central timeRegistrationEntry entity", alias="lastModfiedDateTime")
     project: Optional[Project] = None
-    __properties: ClassVar[List[str]] = ["id", "employeeId", "employeeNumber", "jobId", "jobNumber", "absence", "lineNumber", "date", "quantity", "status", "unitOfMeasureId", "unitOfMeasure", "dimensions", "lastModfiedDateTime", "project"]
+    __properties: ClassVar[List[str]] = ["id", "employeeId", "employeeNumber", "jobId", "jobNumber", "absence", "lineNumber", "date", "quantity", "status", "unitOfMeasureId", "unitOfMeasure", "lastModfiedDateTime", "project"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -90,13 +88,6 @@ class TimeRegistrationEntry(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of unit_of_measure
         if self.unit_of_measure:
             _dict['unitOfMeasure'] = self.unit_of_measure.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of each item in dimensions (list)
-        _items = []
-        if self.dimensions:
-            for _item_dimensions in self.dimensions:
-                if _item_dimensions:
-                    _items.append(_item_dimensions.to_dict())
-            _dict['dimensions'] = _items
         # override the default output from pydantic by calling `to_dict()` of project
         if self.project:
             _dict['project'] = self.project.to_dict()
@@ -189,7 +180,6 @@ class TimeRegistrationEntry(BaseModel):
             "status": obj.get("status"),
             "unitOfMeasureId": obj.get("unitOfMeasureId"),
             "unitOfMeasure": Unitofmeasuretype.from_dict(obj["unitOfMeasure"]) if obj.get("unitOfMeasure") is not None else None,
-            "dimensions": [GeneralLedgerEntryDimensionsInner.from_dict(_item) for _item in obj["dimensions"]] if obj.get("dimensions") is not None else None,
             "lastModfiedDateTime": obj.get("lastModfiedDateTime"),
             "project": Project.from_dict(obj["project"]) if obj.get("project") is not None else None
         })

@@ -19,7 +19,6 @@ Name | Type | Description | Notes
 **applies_to_invoice_number** | **str** | (v1.0) The appliesToInvoiceNumber property for the Dynamics 365 Business Central customerPayment entity | [optional] 
 **description** | **str** | (v1.0) The description property for the Dynamics 365 Business Central customerPayment entity | [optional] 
 **comment** | **str** | (v1.0) The comment property for the Dynamics 365 Business Central customerPayment entity | [optional] 
-**dimensions** | [**List[GeneralLedgerEntryDimensionsInner]**](GeneralLedgerEntryDimensionsInner.md) |  | [optional] 
 **last_modified_date_time** | **datetime** | (v1.0) The lastModifiedDateTime property for the Dynamics 365 Business Central customerPayment entity | [optional] 
 **customer** | [**Customer**](Customer.md) |  | [optional] 
 

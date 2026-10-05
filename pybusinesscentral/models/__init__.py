@@ -30,7 +30,6 @@ from pybusinesscentral.model.dimension import Dimension
 from pybusinesscentral.model.dimension_line import DimensionLine
 from pybusinesscentral.model.dimension_set_line import DimensionSetLine
 from pybusinesscentral.model.dimension_value import DimensionValue
-from pybusinesscentral.model.dimensiontype import Dimensiontype
 from pybusinesscentral.model.documentlineobjectdetailstype import Documentlineobjectdetailstype
 from pybusinesscentral.model.employee import Employee
 from pybusinesscentral.model.general_ledger_entry import GeneralLedgerEntry
@@ -110,7 +109,6 @@ __all__ = [
     "DimensionLine",
     "DimensionSetLine",
     "DimensionValue",
-    "Dimensiontype",
     "Documentlineobjectdetailstype",
     "Employee",
     "GeneralLedgerEntry",

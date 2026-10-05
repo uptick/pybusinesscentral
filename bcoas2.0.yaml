@@ -3858,12 +3858,6 @@ components:
       format: decimal
       nullable: true
       description: (v1.0) The additionalCurrencyCreditAmount property for the Dynamics 365 Business Central generalLedgerEntry entity
-    dimensions:
-     type: array
-     items:
-      anyOf:
-        - $ref: '#/components/schemas/dimensiontype'
-        - nullable: true
     lastModifiedDateTime:
       type: string
       format: date-time
@@ -4961,12 +4955,6 @@ components:
       anyOf:
         - $ref: '#/components/schemas/unitofmeasuretype'
         - nullable: true
-    dimensions:
-     type: array
-     items:
-      anyOf:
-        - $ref: '#/components/schemas/dimensiontype'
-        - nullable: true
     lastModfiedDateTime:
       type: string
       format: date-time
@@ -5087,12 +5075,6 @@ components:
       nullable: true
       description: (v1.0) The comment property for the Dynamics 365 Business Central customerPayment entity
       maxLength: 250
-    dimensions:
-     type: array
-     items:
-      anyOf:
-        - $ref: '#/components/schemas/dimensiontype'
-        - nullable: true
     lastModifiedDateTime:
       type: string
       format: date-time
@@ -5336,12 +5318,6 @@ components:
       nullable: true
       description: (v1.0) The balancingAccountNumber property for the Dynamics 365 Business Central journalLine entity
       maxLength: 20
-    dimensions:
-     type: array
-     items:
-      anyOf:
-        - $ref: '#/components/schemas/dimensiontype'
-        - nullable: true
     lastModifiedDateTime:
       type: string
       format: date-time
@@ -6173,29 +6149,6 @@ components:
       format: date-time
       nullable: true
       description: (v1.0) The dateFilter property for the Dynamics 365 Business Central balanceSheet entity
-  dimensiontype:
-   type: object
-   properties:
-    code:
-      type: string
-      nullable: false
-      description: (v1.0) The code property for the Dynamics 365 Business Central dimensiontype entity
-    displayName:
-      type: string
-      nullable: true
-      description: (v1.0) The displayName property for the Dynamics 365 Business Central dimensiontype entity
-    valueCode:
-      type: string
-      nullable: false
-      description: (v1.0) The valueCode property for the Dynamics 365 Business Central dimensiontype entity
-    valueDisplayName:
-      type: string
-      nullable: true
-      description: (v1.0) The valueDisplayName property for the Dynamics 365 Business Central dimensiontype entity
-    customer:
-         anyOf:
-           - nullable: true
-           - $ref: '#/components/schemas/customer'
   taxGroup:
    type: object
    properties:
@@ -8531,12 +8484,6 @@ components:
          anyOf:
            - $ref: '#/components/schemas/unitofmeasuretype'
            - nullable: true
-       dimensions:
-        type: array
-        items:
-         anyOf:
-           - $ref: '#/components/schemas/dimensiontype'
-           - nullable: true
        lastModfiedDateTime:
          type: string
          format: date-time
@@ -8659,12 +8606,6 @@ components:
          nullable: true
          description: (v1.0) The comment property for the Dynamics 365 Business Central customerPayment entity
          maxLength: 250
-       dimensions:
-        type: array
-        items:
-         anyOf:
-           - $ref: '#/components/schemas/dimensiontype'
-           - nullable: true
        lastModifiedDateTime:
          type: string
          format: date-time
@@ -8792,11 +8733,6 @@ components:
          nullable: true
          description: (v1.0) The balancingAccountNumber property for the Dynamics 365 Business Central journalLine entity
          maxLength: 20
-       dimensions:
-        type: array
-        nullable: true
-        items:
-         $ref: '#/components/schemas/dimensiontype'
        lastModifiedDateTime:
          type: string
          format: date-time

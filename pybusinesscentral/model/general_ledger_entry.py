@@ -22,7 +22,6 @@ from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, Stric
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing_extensions import Annotated
 from pybusinesscentral.model.account import Account
-from pybusinesscentral.model.general_ledger_entry_dimensions_inner import GeneralLedgerEntryDimensionsInner
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -42,10 +41,9 @@ class GeneralLedgerEntry(BaseModel):
     credit_amount: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="(v1.0) The creditAmount property for the Dynamics 365 Business Central generalLedgerEntry entity", alias="creditAmount")
     additional_currency_debit_amount: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="(v1.0) The additionalCurrencyDebitAmount property for the Dynamics 365 Business Central generalLedgerEntry entity", alias="additionalCurrencyDebitAmount")
     additional_currency_credit_amount: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="(v1.0) The additionalCurrencyCreditAmount property for the Dynamics 365 Business Central generalLedgerEntry entity", alias="additionalCurrencyCreditAmount")
-    dimensions: Optional[List[Optional[GeneralLedgerEntryDimensionsInner]]] = None
     last_modified_date_time: Optional[datetime] = Field(default=None, description="(v1.0) The lastModifiedDateTime property for the Dynamics 365 Business Central generalLedgerEntry entity", alias="lastModifiedDateTime")
     account: Optional[Account] = None
-    __properties: ClassVar[List[str]] = ["id", "entryNumber", "postingDate", "documentNumber", "documentType", "accountId", "accountNumber", "description", "debitAmount", "creditAmount", "additionalCurrencyDebitAmount", "additionalCurrencyCreditAmount", "dimensions", "lastModifiedDateTime", "account"]
+    __properties: ClassVar[List[str]] = ["id", "entryNumber", "postingDate", "documentNumber", "documentType", "accountId", "accountNumber", "description", "debitAmount", "creditAmount", "additionalCurrencyDebitAmount", "additionalCurrencyCreditAmount", "lastModifiedDateTime", "account"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -86,13 +84,6 @@ class GeneralLedgerEntry(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of each item in dimensions (list)
-        _items = []
-        if self.dimensions:
-            for _item_dimensions in self.dimensions:
-                if _item_dimensions:
-                    _items.append(_item_dimensions.to_dict())
-            _dict['dimensions'] = _items
         # override the default output from pydantic by calling `to_dict()` of account
         if self.account:
             _dict['account'] = self.account.to_dict()
@@ -190,7 +181,6 @@ class GeneralLedgerEntry(BaseModel):
             "creditAmount": obj.get("creditAmount"),
             "additionalCurrencyDebitAmount": obj.get("additionalCurrencyDebitAmount"),
             "additionalCurrencyCreditAmount": obj.get("additionalCurrencyCreditAmount"),
-            "dimensions": [GeneralLedgerEntryDimensionsInner.from_dict(_item) for _item in obj["dimensions"]] if obj.get("dimensions") is not None else None,
             "lastModifiedDateTime": obj.get("lastModifiedDateTime"),
             "account": Account.from_dict(obj["account"]) if obj.get("account") is not None else None
         })

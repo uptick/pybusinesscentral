@@ -17,7 +17,6 @@ Name | Type | Description | Notes
 **credit_amount** | **float** | (v1.0) The creditAmount property for the Dynamics 365 Business Central generalLedgerEntry entity | [optional] 
 **additional_currency_debit_amount** | **float** | (v1.0) The additionalCurrencyDebitAmount property for the Dynamics 365 Business Central generalLedgerEntry entity | [optional] 
 **additional_currency_credit_amount** | **float** | (v1.0) The additionalCurrencyCreditAmount property for the Dynamics 365 Business Central generalLedgerEntry entity | [optional] 
-**dimensions** | [**List[GeneralLedgerEntryDimensionsInner]**](GeneralLedgerEntryDimensionsInner.md) |  | [optional] 
 **last_modified_date_time** | **datetime** | (v1.0) The lastModifiedDateTime property for the Dynamics 365 Business Central generalLedgerEntry entity | [optional] 
 **account** | [**Account**](Account.md) |  | [optional] 
 

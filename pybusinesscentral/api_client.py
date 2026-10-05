@@ -61,12 +61,10 @@ from pybusinesscentral.model.dimension import Dimension  # noqa
 from pybusinesscentral.model.dimension_line import DimensionLine  # noqa
 from pybusinesscentral.model.dimension_set_line import DimensionSetLine  # noqa
 from pybusinesscentral.model.dimension_value import DimensionValue  # noqa
-from pybusinesscentral.model.dimensiontype import Dimensiontype  # noqa
 from pybusinesscentral.model.documentlineobjectdetailstype import Documentlineobjectdetailstype  # noqa
 from pybusinesscentral.model.employee import Employee  # noqa
 from pybusinesscentral.model.general_ledger_entry import GeneralLedgerEntry  # noqa
 from pybusinesscentral.model.general_ledger_entry_attachments import GeneralLedgerEntryAttachments  # noqa
-from pybusinesscentral.model.general_ledger_entry_dimensions_inner import GeneralLedgerEntryDimensionsInner  # noqa
 from pybusinesscentral.model.general_ledger_setup import GeneralLedgerSetup  # noqa
 from pybusinesscentral.model.get_general_ledger_setup200_response import GetGeneralLedgerSetup200Response  # noqa
 from pybusinesscentral.model.income_statement import IncomeStatement  # noqa
