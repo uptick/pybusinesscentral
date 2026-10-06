@@ -17,7 +17,6 @@ Name | Type | Description | Notes
 **status** | **str** | (v1.0) The status property for the Dynamics 365 Business Central timeRegistrationEntry entity | [optional] 
 **unit_of_measure_id** | **str** | (v1.0) The unitOfMeasureId property for the Dynamics 365 Business Central timeRegistrationEntry entity | [optional] 
 **unit_of_measure** | [**Unitofmeasuretype**](Unitofmeasuretype.md) |  | [optional] 
-**dimensions** | [**List[GeneralLedgerEntryDimensionsInner]**](GeneralLedgerEntryDimensionsInner.md) |  | [optional] 
 **last_modfied_date_time** | **datetime** | (v1.0) The lastModfiedDateTime property for the Dynamics 365 Business Central timeRegistrationEntry entity | [optional] 
 **project** | [**Project**](Project.md) |  | [optional] 
 

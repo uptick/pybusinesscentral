@@ -19,20 +19,22 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from pybusinesscentral.model.customer import Customer
+from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
-class Dimensiontype(BaseModel):
+class PostJournalLineDimensionSetLineRequest(BaseModel):
     """
-    Dimensiontype
+    PostJournalLineDimensionSetLineRequest
     """ # noqa: E501
-    code: Optional[StrictStr] = Field(default=None, description="(v1.0) The code property for the Dynamics 365 Business Central dimensiontype entity")
-    display_name: Optional[StrictStr] = Field(default=None, description="(v1.0) The displayName property for the Dynamics 365 Business Central dimensiontype entity", alias="displayName")
-    value_code: Optional[StrictStr] = Field(default=None, description="(v1.0) The valueCode property for the Dynamics 365 Business Central dimensiontype entity", alias="valueCode")
-    value_display_name: Optional[StrictStr] = Field(default=None, description="(v1.0) The valueDisplayName property for the Dynamics 365 Business Central dimensiontype entity", alias="valueDisplayName")
-    customer: Optional[Customer] = None
-    __properties: ClassVar[List[str]] = ["code", "displayName", "valueCode", "valueDisplayName", "customer"]
+    parent_id: Optional[StrictStr] = Field(default=None, description="(v1.0) The parentId property for the Dynamics 365 Business Central journalLineDimensionSetLine entity", alias="parentId")
+    id: Optional[StrictStr] = Field(default=None, description="(v1.0) The id property for the Dynamics 365 Business Central journalLineDimensionSetLine entity")
+    code: Optional[Annotated[str, Field(strict=True, max_length=20)]] = Field(default=None, description="(v1.0) The code property for the Dynamics 365 Business Central journalLineDimensionSetLine entity")
+    display_name: Optional[Annotated[str, Field(strict=True, max_length=30)]] = Field(default=None, description="(v1.0) The displayName property for the Dynamics 365 Business Central journalLineDimensionSetLine entity", alias="displayName")
+    value_id: Optional[StrictStr] = Field(default=None, description="(v1.0) The valueId property for the Dynamics 365 Business Central journalLineDimensionSetLine entity", alias="valueId")
+    value_code: Optional[StrictStr] = Field(default=None, description="(v1.0) The valueCode property for the Dynamics 365 Business Central journalLineDimensionSetLine entity", alias="valueCode")
+    value_display_name: Optional[Annotated[str, Field(strict=True, max_length=50)]] = Field(default=None, description="(v1.0) The valueDisplayName property for the Dynamics 365 Business Central journalLineDimensionSetLine entity", alias="valueDisplayName")
+    __properties: ClassVar[List[str]] = ["parentId", "id", "code", "displayName", "valueId", "valueCode", "valueDisplayName"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -52,7 +54,7 @@ class Dimensiontype(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of Dimensiontype from a JSON string"""
+        """Create an instance of PostJournalLineDimensionSetLineRequest from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -73,29 +75,36 @@ class Dimensiontype(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of customer
-        if self.customer:
-            _dict['customer'] = self.customer.to_dict()
+        # set to None if code (nullable) is None
+        # and model_fields_set contains the field
+        if self.code is None and "code" in self.model_fields_set:
+            _dict['code'] = None
+
         # set to None if display_name (nullable) is None
         # and model_fields_set contains the field
         if self.display_name is None and "display_name" in self.model_fields_set:
             _dict['displayName'] = None
+
+        # set to None if value_id (nullable) is None
+        # and model_fields_set contains the field
+        if self.value_id is None and "value_id" in self.model_fields_set:
+            _dict['valueId'] = None
+
+        # set to None if value_code (nullable) is None
+        # and model_fields_set contains the field
+        if self.value_code is None and "value_code" in self.model_fields_set:
+            _dict['valueCode'] = None
 
         # set to None if value_display_name (nullable) is None
         # and model_fields_set contains the field
         if self.value_display_name is None and "value_display_name" in self.model_fields_set:
             _dict['valueDisplayName'] = None
 
-        # set to None if customer (nullable) is None
-        # and model_fields_set contains the field
-        if self.customer is None and "customer" in self.model_fields_set:
-            _dict['customer'] = None
-
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of Dimensiontype from a dict"""
+        """Create an instance of PostJournalLineDimensionSetLineRequest from a dict"""
         if obj is None:
             return None
 
@@ -103,11 +112,13 @@ class Dimensiontype(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "parentId": obj.get("parentId"),
+            "id": obj.get("id"),
             "code": obj.get("code"),
             "displayName": obj.get("displayName"),
+            "valueId": obj.get("valueId"),
             "valueCode": obj.get("valueCode"),
-            "valueDisplayName": obj.get("valueDisplayName"),
-            "customer": Customer.from_dict(obj["customer"]) if obj.get("customer") is not None else None
+            "valueDisplayName": obj.get("valueDisplayName")
         })
         return _obj
 

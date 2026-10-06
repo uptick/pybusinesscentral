@@ -21,14 +21,13 @@ from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
-from pybusinesscentral.model.account import Account
 from pybusinesscentral.model.journal_line import JournalLine
 from typing import Optional, Set
 from typing_extensions import Self
 
-class Journal(BaseModel):
+class PostJournalRequest(BaseModel):
     """
-    Journal
+    PostJournalRequest
     """ # noqa: E501
     id: Optional[StrictStr] = Field(default=None, description="(v1.0) The id property for the Dynamics 365 Business Central journal entity")
     code: Optional[Annotated[str, Field(strict=True, max_length=10)]] = Field(default=None, description="(v1.0) The code property for the Dynamics 365 Business Central journal entity")
@@ -38,8 +37,7 @@ class Journal(BaseModel):
     balancing_account_id: Optional[StrictStr] = Field(default=None, description="(v1.0) The balancingAccountId property for the Dynamics 365 Business Central journal entity", alias="balancingAccountId")
     balancing_account_number: Optional[Annotated[str, Field(strict=True, max_length=20)]] = Field(default=None, description="(v1.0) The balancingAccountNumber property for the Dynamics 365 Business Central journal entity", alias="balancingAccountNumber")
     journal_lines: Optional[List[JournalLine]] = Field(default=None, alias="journalLines")
-    account: Optional[Account] = None
-    __properties: ClassVar[List[str]] = ["id", "code", "displayName", "templateDisplayName", "lastModifiedDateTime", "balancingAccountId", "balancingAccountNumber", "journalLines", "account"]
+    __properties: ClassVar[List[str]] = ["id", "code", "displayName", "templateDisplayName", "lastModifiedDateTime", "balancingAccountId", "balancingAccountNumber", "journalLines"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -59,7 +57,7 @@ class Journal(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of Journal from a JSON string"""
+        """Create an instance of PostJournalRequest from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -87,9 +85,6 @@ class Journal(BaseModel):
                 if _item_journal_lines:
                     _items.append(_item_journal_lines.to_dict())
             _dict['journalLines'] = _items
-        # override the default output from pydantic by calling `to_dict()` of account
-        if self.account:
-            _dict['account'] = self.account.to_dict()
         # set to None if display_name (nullable) is None
         # and model_fields_set contains the field
         if self.display_name is None and "display_name" in self.model_fields_set:
@@ -120,16 +115,11 @@ class Journal(BaseModel):
         if self.journal_lines is None and "journal_lines" in self.model_fields_set:
             _dict['journalLines'] = None
 
-        # set to None if account (nullable) is None
-        # and model_fields_set contains the field
-        if self.account is None and "account" in self.model_fields_set:
-            _dict['account'] = None
-
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of Journal from a dict"""
+        """Create an instance of PostJournalRequest from a dict"""
         if obj is None:
             return None
 
@@ -144,8 +134,7 @@ class Journal(BaseModel):
             "lastModifiedDateTime": obj.get("lastModifiedDateTime"),
             "balancingAccountId": obj.get("balancingAccountId"),
             "balancingAccountNumber": obj.get("balancingAccountNumber"),
-            "journalLines": [JournalLine.from_dict(_item) for _item in obj["journalLines"]] if obj.get("journalLines") is not None else None,
-            "account": Account.from_dict(obj["account"]) if obj.get("account") is not None else None
+            "journalLines": [JournalLine.from_dict(_item) for _item in obj["journalLines"]] if obj.get("journalLines") is not None else None
         })
         return _obj
 

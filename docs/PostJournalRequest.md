@@ -1,4 +1,4 @@
-# Journal
+# PostJournalRequest
 
 
 ## Properties
@@ -13,24 +13,23 @@ Name | Type | Description | Notes
 **balancing_account_id** | **str** | (v1.0) The balancingAccountId property for the Dynamics 365 Business Central journal entity | [optional] 
 **balancing_account_number** | **str** | (v1.0) The balancingAccountNumber property for the Dynamics 365 Business Central journal entity | [optional] 
 **journal_lines** | [**List[JournalLine]**](JournalLine.md) |  | [optional] 
-**account** | [**Account**](Account.md) |  | [optional] 
 
 ## Example
 
 ```python
-from pybusinesscentral.model.journal import Journal
+from pybusinesscentral.model.post_journal_request import PostJournalRequest
 
 # TODO update the JSON string below
 json = "{}"
-# create an instance of Journal from a JSON string
-journal_instance = Journal.from_json(json)
+# create an instance of PostJournalRequest from a JSON string
+post_journal_request_instance = PostJournalRequest.from_json(json)
 # print the JSON string representation of the object
-print(Journal.to_json())
+print(PostJournalRequest.to_json())
 
 # convert the object into a dict
-journal_dict = journal_instance.to_dict()
-# create an instance of Journal from a dict
-journal_from_dict = Journal.from_dict(journal_dict)
+post_journal_request_dict = post_journal_request_instance.to_dict()
+# create an instance of PostJournalRequest from a dict
+post_journal_request_from_dict = PostJournalRequest.from_dict(post_journal_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

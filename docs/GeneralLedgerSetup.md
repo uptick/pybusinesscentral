@@ -6,8 +6,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | The id property for the Dynamics 365 Business Central generalLedgerSetup entity | [optional] 
-**allow_posting_from** | **datetime** | The allowPostingFrom property for the Dynamics 365 Business Central generalLedgerSetup entity | [optional] 
-**allow_posting_to** | **datetime** | The allowPostingTo property for the Dynamics 365 Business Central generalLedgerSetup entity | [optional] 
+**allow_posting_from** | **date** | The allowPostingFrom property for the Dynamics 365 Business Central generalLedgerSetup entity | [optional] 
+**allow_posting_to** | **date** | The allowPostingTo property for the Dynamics 365 Business Central generalLedgerSetup entity | [optional] 
 **additional_reporting_currency** | **str** | The additionalReportingCurrency property for the Dynamics 365 Business Central generalLedgerSetup entity | [optional] 
 **local_currency_code** | **str** | The localCurrencyCode property for the Dynamics 365 Business Central generalLedgerSetup entity | [optional] 
 **local_currency_symbol** | **str** | The localCurrencySymbol property for the Dynamics 365 Business Central generalLedgerSetup entity | [optional] 
@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.general_ledger_setup import GeneralLedgerSetup
+from pybusinesscentral.model.general_ledger_setup import GeneralLedgerSetup
 
 # TODO update the JSON string below
 json = "{}"

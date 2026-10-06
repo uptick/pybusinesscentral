@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "1.0.0"
+__version__ = "3.10.0"
 
 # import ApiClient
 from pybusinesscentral.api_response import ApiResponse

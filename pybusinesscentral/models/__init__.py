@@ -30,7 +30,6 @@ from pybusinesscentral.model.dimension import Dimension
 from pybusinesscentral.model.dimension_line import DimensionLine
 from pybusinesscentral.model.dimension_set_line import DimensionSetLine
 from pybusinesscentral.model.dimension_value import DimensionValue
-from pybusinesscentral.model.dimensiontype import Dimensiontype
 from pybusinesscentral.model.documentlineobjectdetailstype import Documentlineobjectdetailstype
 from pybusinesscentral.model.employee import Employee
 from pybusinesscentral.model.general_ledger_entry import GeneralLedgerEntry
@@ -43,11 +42,17 @@ from pybusinesscentral.model.item_category import ItemCategory
 from pybusinesscentral.model.itemunitofmeasureconversiontype import Itemunitofmeasureconversiontype
 from pybusinesscentral.model.journal import Journal
 from pybusinesscentral.model.journal_line import JournalLine
+from pybusinesscentral.model.list_general_ledger_entries200_response import ListGeneralLedgerEntries200Response
+from pybusinesscentral.model.list_journal_lines_for_journal200_response import ListJournalLinesForJournal200Response
+from pybusinesscentral.model.list_journals200_response import ListJournals200Response
 from pybusinesscentral.model.payment_method import PaymentMethod
 from pybusinesscentral.model.payment_term import PaymentTerm
 from pybusinesscentral.model.pdf_document import PdfDocument
 from pybusinesscentral.model.picture import Picture
 from pybusinesscentral.model.post_customer_request import PostCustomerRequest
+from pybusinesscentral.model.post_journal_line_dimension_set_line_request import PostJournalLineDimensionSetLineRequest
+from pybusinesscentral.model.post_journal_line_for_journal_request import PostJournalLineForJournalRequest
+from pybusinesscentral.model.post_journal_request import PostJournalRequest
 from pybusinesscentral.model.post_purchase_invoice_request import PostPurchaseInvoiceRequest
 from pybusinesscentral.model.post_purchase_invoice_line_for_purchase_invoice_request import PostPurchaseInvoiceLineForPurchaseInvoiceRequest
 from pybusinesscentral.model.post_sales_credit_memo_request import PostSalesCreditMemoRequest
@@ -104,7 +109,6 @@ __all__ = [
     "DimensionLine",
     "DimensionSetLine",
     "DimensionValue",
-    "Dimensiontype",
     "Documentlineobjectdetailstype",
     "Employee",
     "GeneralLedgerEntry",

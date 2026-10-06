@@ -21,15 +21,13 @@ from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing_extensions import Annotated
-from pybusinesscentral.model.account import Account
-from pybusinesscentral.model.attachments import Attachments
 from pybusinesscentral.model.dimension_set_line import DimensionSetLine
 from typing import Optional, Set
 from typing_extensions import Self
 
-class JournalLine(BaseModel):
+class PostJournalLineForJournalRequest(BaseModel):
     """
-    JournalLine
+    PostJournalLineForJournalRequest
     """ # noqa: E501
     id: Optional[StrictStr] = Field(default=None, description="(v1.0) The id property for the Dynamics 365 Business Central journalLine entity")
     journal_id: Optional[StrictStr] = Field(default=None, description="(v1.0) The journalId property for the Dynamics 365 Business Central journalLine entity", alias="journalId")
@@ -49,10 +47,8 @@ class JournalLine(BaseModel):
     balancing_account_id: Optional[StrictStr] = Field(default=None, description="(v1.0) The balancingAccountId property for the Dynamics 365 Business Central journalLine entity", alias="balancingAccountId")
     balancing_account_number: Optional[Annotated[str, Field(strict=True, max_length=20)]] = Field(default=None, description="(v1.0) The balancingAccountNumber property for the Dynamics 365 Business Central journalLine entity", alias="balancingAccountNumber")
     last_modified_date_time: Optional[datetime] = Field(default=None, description="(v1.0) The lastModifiedDateTime property for the Dynamics 365 Business Central journalLine entity", alias="lastModifiedDateTime")
-    attachments: Optional[List[Attachments]] = None
-    account: Optional[Account] = None
     dimension_set_lines: Optional[List[DimensionSetLine]] = Field(default=None, alias="dimensionSetLines")
-    __properties: ClassVar[List[str]] = ["id", "journalId", "journalDisplayName", "lineNumber", "accountType", "accountId", "accountNumber", "postingDate", "documentNumber", "externalDocumentNumber", "amount", "description", "comment", "taxCode", "balanceAccountType", "balancingAccountId", "balancingAccountNumber", "lastModifiedDateTime", "attachments", "account", "dimensionSetLines"]
+    __properties: ClassVar[List[str]] = ["id", "journalId", "journalDisplayName", "lineNumber", "accountType", "accountId", "accountNumber", "postingDate", "documentNumber", "externalDocumentNumber", "amount", "description", "comment", "taxCode", "balanceAccountType", "balancingAccountId", "balancingAccountNumber", "lastModifiedDateTime", "dimensionSetLines"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -72,7 +68,7 @@ class JournalLine(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of JournalLine from a JSON string"""
+        """Create an instance of PostJournalLineForJournalRequest from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -93,16 +89,6 @@ class JournalLine(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of each item in attachments (list)
-        _items = []
-        if self.attachments:
-            for _item_attachments in self.attachments:
-                if _item_attachments:
-                    _items.append(_item_attachments.to_dict())
-            _dict['attachments'] = _items
-        # override the default output from pydantic by calling `to_dict()` of account
-        if self.account:
-            _dict['account'] = self.account.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in dimension_set_lines (list)
         _items = []
         if self.dimension_set_lines:
@@ -195,16 +181,6 @@ class JournalLine(BaseModel):
         if self.last_modified_date_time is None and "last_modified_date_time" in self.model_fields_set:
             _dict['lastModifiedDateTime'] = None
 
-        # set to None if attachments (nullable) is None
-        # and model_fields_set contains the field
-        if self.attachments is None and "attachments" in self.model_fields_set:
-            _dict['attachments'] = None
-
-        # set to None if account (nullable) is None
-        # and model_fields_set contains the field
-        if self.account is None and "account" in self.model_fields_set:
-            _dict['account'] = None
-
         # set to None if dimension_set_lines (nullable) is None
         # and model_fields_set contains the field
         if self.dimension_set_lines is None and "dimension_set_lines" in self.model_fields_set:
@@ -214,7 +190,7 @@ class JournalLine(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of JournalLine from a dict"""
+        """Create an instance of PostJournalLineForJournalRequest from a dict"""
         if obj is None:
             return None
 
@@ -240,8 +216,6 @@ class JournalLine(BaseModel):
             "balancingAccountId": obj.get("balancingAccountId"),
             "balancingAccountNumber": obj.get("balancingAccountNumber"),
             "lastModifiedDateTime": obj.get("lastModifiedDateTime"),
-            "attachments": [Attachments.from_dict(_item) for _item in obj["attachments"]] if obj.get("attachments") is not None else None,
-            "account": Account.from_dict(obj["account"]) if obj.get("account") is not None else None,
             "dimensionSetLines": [DimensionSetLine.from_dict(_item) for _item in obj["dimensionSetLines"]] if obj.get("dimensionSetLines") is not None else None
         })
         return _obj

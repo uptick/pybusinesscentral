@@ -22,7 +22,6 @@ from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, Stric
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing_extensions import Annotated
 from pybusinesscentral.model.customer import Customer
-from pybusinesscentral.model.general_ledger_entry_dimensions_inner import GeneralLedgerEntryDimensionsInner
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -44,10 +43,9 @@ class CustomerPayment(BaseModel):
     applies_to_invoice_number: Optional[StrictStr] = Field(default=None, description="(v1.0) The appliesToInvoiceNumber property for the Dynamics 365 Business Central customerPayment entity", alias="appliesToInvoiceNumber")
     description: Optional[Annotated[str, Field(strict=True, max_length=100)]] = Field(default=None, description="(v1.0) The description property for the Dynamics 365 Business Central customerPayment entity")
     comment: Optional[Annotated[str, Field(strict=True, max_length=250)]] = Field(default=None, description="(v1.0) The comment property for the Dynamics 365 Business Central customerPayment entity")
-    dimensions: Optional[List[Optional[GeneralLedgerEntryDimensionsInner]]] = None
     last_modified_date_time: Optional[datetime] = Field(default=None, description="(v1.0) The lastModifiedDateTime property for the Dynamics 365 Business Central customerPayment entity", alias="lastModifiedDateTime")
     customer: Optional[Customer] = None
-    __properties: ClassVar[List[str]] = ["id", "journalDisplayName", "lineNumber", "customerId", "customerNumber", "contactId", "postingDate", "documentNumber", "externalDocumentNumber", "amount", "appliesToInvoiceId", "appliesToInvoiceNumber", "description", "comment", "dimensions", "lastModifiedDateTime", "customer"]
+    __properties: ClassVar[List[str]] = ["id", "journalDisplayName", "lineNumber", "customerId", "customerNumber", "contactId", "postingDate", "documentNumber", "externalDocumentNumber", "amount", "appliesToInvoiceId", "appliesToInvoiceNumber", "description", "comment", "lastModifiedDateTime", "customer"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -88,13 +86,6 @@ class CustomerPayment(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of each item in dimensions (list)
-        _items = []
-        if self.dimensions:
-            for _item_dimensions in self.dimensions:
-                if _item_dimensions:
-                    _items.append(_item_dimensions.to_dict())
-            _dict['dimensions'] = _items
         # override the default output from pydantic by calling `to_dict()` of customer
         if self.customer:
             _dict['customer'] = self.customer.to_dict()
@@ -199,7 +190,6 @@ class CustomerPayment(BaseModel):
             "appliesToInvoiceNumber": obj.get("appliesToInvoiceNumber"),
             "description": obj.get("description"),
             "comment": obj.get("comment"),
-            "dimensions": [GeneralLedgerEntryDimensionsInner.from_dict(_item) for _item in obj["dimensions"]] if obj.get("dimensions") is not None else None,
             "lastModifiedDateTime": obj.get("lastModifiedDateTime"),
             "customer": Customer.from_dict(obj["customer"]) if obj.get("customer") is not None else None
         })
